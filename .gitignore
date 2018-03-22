@@ -51,3 +51,6 @@ htmlcov/
 
 # Sphinx documentation
 docs/_build/
+
+# SASS Cache
+static/straddle3/.sass-cache/

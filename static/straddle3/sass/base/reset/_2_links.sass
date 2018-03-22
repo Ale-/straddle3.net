@@ -1,0 +1,27 @@
+// Link styles
+
+=link($col, $col_hover, $transition)
+  &
+    +transition($transition)
+  &:link, &:visited,
+    color: $col
+  &:hover
+    color: $col_hover
+  &:active
+    color: $col
+
+=links($col, $col_hover, $transition)
+  a
+    +link($col, $col_hover, $transition)
+
+=link_none
+  &:link, &:visited,
+    color: inherit
+  &:hover
+    color: inherit
+  &:active
+    color: inherit
+
+=links_none
+  a
+    +link_none

@@ -32,10 +32,16 @@ CONTRIB_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'leaflet',
+    'djgeojson',
+    'ckeditor',
+    'ckeditor_uploader',
+    'imagekit',
 ]
 
 PROJECT_APPS = [
-    'apps.utils'
+    'apps.utils',
+    'apps.models',
 ]
 
 INSTALLED_APPS = CONTRIB_APPS + PROJECT_APPS

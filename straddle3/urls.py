@@ -14,6 +14,8 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     # Frontpage
     url(r'^$', TemplateView.as_view(template_name='pages/front.html'), name="front"),
+    # CKEditor
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 )
 
 if settings.DEBUG == True:

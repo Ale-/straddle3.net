@@ -29,3 +29,5 @@ class ProjectAdmin(LeafletGeoAdmin):
     inlines      = [ LinkInline, ImageInline ]
 
 admin.site.register(models.Project, ProjectAdmin)
+
+admin.site.register(models.TeamMember)

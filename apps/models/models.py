@@ -81,3 +81,28 @@ class Project(models.Model):
             self.slug = slugify(self.name)
 
         super(Project, self).save(*args, **kwargs)
+
+
+class TeamMember(models.Model):
+
+    name    = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
+    surname = models.CharField(_('Apellidos'), max_length=200, blank=True, null=True)
+    summary = models.TextField(_('Resumen'), blank=True, null=True)
+    image   = models.ImageField(_('Imagen principal'), blank=True)
+
+    def fullname(self):
+        """Returns fullname of the person"""
+
+        return "%s %s" % self.name, self.surname
+
+    def __str__(self):
+        """String representation of this model objects."""
+
+        return self.fullname
+
+    def save(self, *args, **kwargs):
+        """Populate automatically 'slug' field"""
+        if not self.slug:
+            self.slug = slugify(self.fullname)
+
+        super(TeamMember, self).save(*args, **kwargs)

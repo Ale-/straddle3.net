@@ -10,6 +10,11 @@ db.sqlite3
 # Migrations
 apps/models/migrations
 
+# Static
+static/admin/
+static/ckeditor/
+static/leaflet/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

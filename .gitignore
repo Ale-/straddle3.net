@@ -7,6 +7,9 @@ straddle3/private_settings.py
 # Database, and content associated images
 db.sqlite3
 
+# Migrations
+apps/models/migrations
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

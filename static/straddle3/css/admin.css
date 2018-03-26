@@ -713,5 +713,254 @@ html .toolbar .region-content {
   margin-right: auto;
 }
 
-/* No files to import found in regions/* */
-/* No files to import found in blocks/* */
+/* line 1, ../sass/admin/_breadcrumbs.sass */
+.admin .breadcrumbs {
+  background-color: #594a35;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+}
+/* line 4, ../sass/base/reset/_2_links.sass */
+.admin .breadcrumbs a {
+  -moz-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
+}
+/* line 6, ../sass/base/reset/_2_links.sass */
+.admin .breadcrumbs a:link, .admin .breadcrumbs a:visited {
+  color: white;
+}
+/* line 8, ../sass/base/reset/_2_links.sass */
+.admin .breadcrumbs a:hover {
+  color: #fc5504;
+}
+/* line 10, ../sass/base/reset/_2_links.sass */
+.admin .breadcrumbs a:active {
+  color: white;
+}
+/* line 9, ../sass/admin/_breadcrumbs.sass */
+.admin .breadcrumbs a {
+  font-weight: normal;
+  border-bottom: 1px dotted white;
+}
+
+/* line 1, ../sass/admin/_buttons.sass */
+.admin .object-tools a.addlink {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  line-height: 40px;
+  padding: 0 12px;
+  background-color: #9d0;
+  color: white;
+  background-image: none;
+}
+
+/* line 6, ../sass/admin/_buttons.sass */
+.admin .submit-row {
+  background: transparent;
+  border: 0;
+}
+
+/* line 10, ../sass/admin/_buttons.sass */
+.submit-row input {
+  line-height: 40px;
+  padding: 0 12px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+/* line 15, ../sass/admin/_buttons.sass */
+.submit-row input.default {
+  background-color: #9d0;
+}
+
+/* line 18, ../sass/admin/_buttons.sass */
+.admin .addlink,
+.admin .changelink {
+  background-position: 0 center;
+  filter: sepia(1);
+}
+
+/* line 1, ../sass/admin/_content.sass */
+.admin {
+  background-color: #fdfddd;
+}
+
+/* line 3, ../sass/admin/_content.sass */
+.admin #content {
+  width: 960px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* line 1, ../sass/admin/_forms.sass */
+.admin form {
+  -moz-animation: fadeup 1s 1;
+  -webkit-animation: fadeup 1s 1;
+  animation: fadeup 1s 1;
+}
+
+/* line 4, ../sass/admin/_forms.sass */
+.admin label.required {
+  position: relative;
+}
+
+/* line 7, ../sass/admin/_forms.sass */
+.admin form label {
+  font-weight: 700;
+  color: #222;
+}
+
+/* line 11, ../sass/admin/_forms.sass */
+.admin label.required:before {
+  content: "*";
+  color: red;
+  position: absolute;
+  left: -8px;
+}
+
+/* line 17, ../sass/admin/_forms.sass */
+.admin form > div > p,
+.admin form > p {
+  margin: 0 0 24px;
+  font-size: 1.2em;
+  color: rgba(105, 87, 63, 0.5);
+}
+
+/* line 1, ../sass/admin/_header.sass */
+.admin #header {
+  height: 72px;
+  background-color: #69573f;
+  padding: 0 48px;
+}
+
+/* line 6, ../sass/admin/_header.sass */
+.admin #branding {
+  line-height: 72px;
+  text-transform: uppercase;
+}
+
+/* line 10, ../sass/admin/_header.sass */
+.admin #site-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+/* line 4, ../sass/base/reset/_2_links.sass */
+.admin #site-name a {
+  -moz-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
+}
+/* line 6, ../sass/base/reset/_2_links.sass */
+.admin #site-name a:link, .admin #site-name a:visited {
+  color: white;
+}
+/* line 8, ../sass/base/reset/_2_links.sass */
+.admin #site-name a:hover {
+  color: #fdb219;
+}
+/* line 10, ../sass/base/reset/_2_links.sass */
+.admin #site-name a:active {
+  color: white;
+}
+
+/* line 1, ../sass/admin/_inlines.sass */
+.admin fieldset h2 {
+  background-color: transparent;
+  color: #69573f;
+}
+
+/* line 5, ../sass/admin/_inlines.sass */
+.admin fieldset.module {
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* line 1, ../sass/admin/_tables.sass */
+.admin .module {
+  padding: 24px;
+}
+
+/* line 4, ../sass/admin/_tables.sass */
+.admin table caption {
+  background-color: transparent;
+  border-bottom: 1px dashed #69573f;
+  color: #69573f !important;
+}
+/* line 4, ../sass/base/reset/_2_links.sass */
+.admin table caption a {
+  -moz-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
+}
+/* line 6, ../sass/base/reset/_2_links.sass */
+.admin table caption a:link, .admin table caption a:visited {
+  color: #222;
+}
+/* line 8, ../sass/base/reset/_2_links.sass */
+.admin table caption a:hover {
+  color: #333;
+}
+/* line 10, ../sass/base/reset/_2_links.sass */
+.admin table caption a:active {
+  color: #222;
+}
+
+/* line 10, ../sass/admin/_tables.sass */
+.admin table tr {
+  height: 48px;
+}
+
+/* line 13, ../sass/admin/_tables.sass */
+.admin table th,
+.admin table td {
+  line-height: 48px;
+}
+
+/* line 4, ../sass/base/reset/_2_links.sass */
+.admin .app-auth a,
+.admin .app-models a {
+  -moz-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
+}
+/* line 6, ../sass/base/reset/_2_links.sass */
+.admin .app-auth a:link, .admin .app-auth a:visited,
+.admin .app-models a:link,
+.admin .app-models a:visited {
+  color: #222;
+}
+/* line 8, ../sass/base/reset/_2_links.sass */
+.admin .app-auth a:hover,
+.admin .app-models a:hover {
+  color: #333;
+}
+/* line 10, ../sass/base/reset/_2_links.sass */
+.admin .app-auth a:active,
+.admin .app-models a:active {
+  color: #222;
+}
+
+/* line 21, ../sass/admin/_tables.sass */
+.admin th,
+.admin .inline-group .tabular tr.add-row td {
+  background-color: transparent;
+  border: 0;
+}
+
+/* line 1, ../sass/admin/_titles.sass */
+.admin h1 {
+  color: rgba(105, 87, 63, 0.5);
+  font-size: 1.5rem;
+  margin: 72px 0 48px;
+}

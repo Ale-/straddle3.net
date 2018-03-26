@@ -1,0 +1,21 @@
+.admin .object-tools a.addlink
+  +border-radius(0)
+  +button_success
+  background-image: none
+
+.admin .submit-row
+  background: transparent
+  border: 0
+
+.submit-row input
+  +button_base
+  +border-radius(0)
+  text-transform: uppercase
+  font-size: .9em
+  &.default
+    background-color: $color_success
+
+.admin .addlink,
+.admin .changelink
+  background-position: 0 center
+  filter: sepia(1)

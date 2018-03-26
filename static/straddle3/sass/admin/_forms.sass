@@ -1,0 +1,21 @@
+.admin form
+  +animation(fadeup 1s 1)
+
+.admin label.required
+  position: relative
+
+.admin form label
+  font-weight: 700
+  color: #222
+
+.admin label.required:before
+  content: "*"
+  color: red
+  position: absolute
+  left: -$m/3
+
+.admin form > div > p,
+.admin form > p
+  margin: 0 0 $m
+  font-size: 1.2em
+  color: rgba($color_text, .5)

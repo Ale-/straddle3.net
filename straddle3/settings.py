@@ -20,6 +20,7 @@ LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 
 # Name of site in the document title
+ADMIN_SITE_HEADER = 'straddle3'
 DOCUMENT_TITLE = 'straddle3'
 
 # Application definition

@@ -7,6 +7,8 @@ from django.conf.urls.i18n import i18n_patterns
 from django.views.generic.base import TemplateView
 from django.conf import settings
 
+admin.site.site_header = settings.ADMIN_SITE_HEADER
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]

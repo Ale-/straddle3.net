@@ -7,6 +7,7 @@
 .admin form label
   font-weight: 700
   color: #222
+  text-transform: uppercase
 
 .admin label.required:before
   content: "*"
@@ -19,3 +20,22 @@
   margin: 0 0 $m
   font-size: 1.2em
   color: rgba($color_text, .5)
+
+.admin .django-ckeditor-widget
+  width: 610px
+  max-width: 100%
+
+.admin-image-widget
+  img
+    width: $m*3
+    float: left
+    margin-right: $m
+
+.admin td.original > p
+  visibility: hidden
+
+.inline-group .tabular tr.has_original td
+  padding: $m/2 0 !important
+
+.timezonewarning
+  display: none

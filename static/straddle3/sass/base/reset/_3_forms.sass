@@ -4,12 +4,43 @@
 @import compass/css3/filter
 
 =button_base
-  line-height: 40px
+  line-height: $m*2
+  height: $m*2
   padding: 0 $m/2
+  text-transform: uppercase
+  letter-spacing: 1px
+  +border-radius(0)
+  background-image: none
+  border: 1px solid rgba(black, .1)
+
+=button_none
+  line-height: $m*2
+  height: $m*2
+  padding: 0 $m/2
+  text-transform: uppercase
+  letter-spacing: 1px
+  +border-radius(0)
+  background-image: none
+  background: none
+  border: 0
+  color: $color_text
+  +transition(background-color .2s ease)
+  &:hover
+    background-color: #eee
 
 =button_success
   +button_base
   background-color: $color_success
+  color: white
+
+=button_danger
+  +button_base
+  background-color: $color_danger
+  color: white
+
+=button_calm
+  +button_base
+  background-color: $color_calm
   color: white
 
 =button_box

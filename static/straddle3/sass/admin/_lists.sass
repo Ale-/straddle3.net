@@ -1,0 +1,29 @@
+.admin #result_list img
+  +border-radius(50%)
+
+.admin #result_list
+  +links($palette_orange, $palette_brown, .2s ease)
+
+.admin .paginator
+  font-size: .75em
+  font-weight: bold
+  text-transform: uppercase
+
+.admin .sorted
+  background-color: transparent
+
+.admin
+  table thead th .text a:focus,
+  table thead th .text a:hover
+    background-color: transparent
+
+.admin #changelist-filter
+  margin-top: $m
+  background: white
+  border-left: 2px solid yellow
+  +links($palette_orange, $palette_brown, .2s ease)
+  h2
+    background: none
+    color: $color_text
+  .selected
+    border-left: 5px solid yellow

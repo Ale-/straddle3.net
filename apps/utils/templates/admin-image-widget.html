@@ -1,0 +1,6 @@
+{% load i18n %}
+
+<div class="admin-image-widget">
+    {% if url %}<img src="{{ url }}" />{% endif %}
+    {{ parent_widget }}
+</div>

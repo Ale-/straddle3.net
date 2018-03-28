@@ -1,21 +1,26 @@
-.admin .object-tools a.addlink
-  +border-radius(0)
-  +button_success
-  background-image: none
+.admin .submit-row input
+  +button_none
+  border-left: 2px solid $color_calm
+  font-size: .75rem
+
+.admin .submit-row input.default
+  +button_none
+  border-left: 2px solid $color_success
+  font-size: .75rem
+
+.admin .submit-row a.deletelink
+  +button_none
+  border-left: 2px solid $color_danger
+  font-size: .75rem
 
 .admin .submit-row
   background: transparent
   border: 0
 
-.submit-row input
-  +button_base
-  +border-radius(0)
-  text-transform: uppercase
-  font-size: .9em
-  &.default
-    background-color: $color_success
-
-.admin .addlink,
-.admin .changelink
+.admin .module .addlink,
+.admin .module .changelink
   background-position: 0 center
-  filter: sepia(1)
+
+.admin .object-tools a.historylink,
+.admin .object-tools a.addlink
+  +button_none

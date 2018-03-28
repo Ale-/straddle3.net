@@ -1,6 +1,19 @@
 .admin
-  background-color: #fdfddd
+  background-image: url('../img/s3.svg'), url('../img/cenote.svg')
+  background-repeat: no-repeat
+  background-position: top left, 99% 99%
+  background-color: #f5f5f5
+  font-family: $font_text
+  background-attachment: fixed, scroll
+  min-height: 100vh
+
 .admin #content
-  width: 960px
+  width: 1200px
   max-width: 100%
   margin: 0 auto
+
+.admin .module
+  border-left: 2px solid yellow !important
+  border-bottom: 1px solid rgba(black, .1) !important
+  +links($palette_orange, $palette_brown, .2s ease)
+  margin-bottom: $m/2

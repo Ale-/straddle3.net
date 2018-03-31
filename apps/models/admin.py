@@ -48,14 +48,12 @@ class AdminThumbnailSpec(ImageSpec):
     options = {'quality': 90 }
 
 def cached_admin_thumb(instance):
-    try:
-        image  = instance.images.first()
+    image  = instance.images.first()
+    if image:
         cached = ImageCacheFile(AdminThumbnailSpec(image.image_file))
-    except:
-        cached  = ImageCacheFile(AdminThumbnailSpec(instance.image))
-
-    cached.generate()
-    return cached
+        cached.generate()
+        return cached
+    return None
 
 class ImageInline(SortableGenericTabularInline):
     model  = models.Image

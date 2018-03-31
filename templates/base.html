@@ -19,11 +19,11 @@
         {# Favicons #}
         <link href="{% img 'favicon.ico' %}" rel="icon" type="image/png">
 
-        {# Styles #}
-        <link href="{% css 'style.css' %}" rel="stylesheet">
-
         {# Block for the extension of base head, to include css/js libraries #}
         {% block page_header %}{% endblock %}
+
+        {# Styles #}
+        <link href="{% css 'style.css' %}" rel="stylesheet">
     </head>
 
     <body class="{% if user.is_authenticated %}logged-in{% endif %} {% if user.is_staff %}staff-user{% endif %} {% block body_classes %}{% endblock %} {% block layout_classes %}{% endblock %}">

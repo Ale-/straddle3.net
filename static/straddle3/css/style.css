@@ -652,6 +652,46 @@ html .toolbar .region-content {
     transform: translateY(0);
   }
 }
+@-moz-keyframes faderight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-150px);
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes faderight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-150px);
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes faderight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-150px);
+    -ms-transform: translateX(-150px);
+    -webkit-transform: translateX(-150px);
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
 /* line 3, ../sass/base/reset/_5_classes.sass */
 .container-fixed {
   *zoom: 1;
@@ -714,4 +754,112 @@ html .toolbar .region-content {
 }
 
 /* No files to import found in regions/* */
-/* No files to import found in blocks/* */
+/* line 1, ../sass/blocks/_straddle-map.sass */
+#straddle-map {
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+}
+
+/* line 7, ../sass/blocks/_straddle-map.sass */
+.map-banner {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 100px;
+  z-index: 10001;
+  -moz-animation: faderight 1s 1;
+  -webkit-animation: faderight 1s 1;
+  animation: faderight 1s 1;
+}
+
+/* line 15, ../sass/blocks/_straddle-map.sass */
+.map .leaflet-bar {
+  border: 1px solid rgba(255, 255, 0, 0.25);
+}
+/* line 4, ../sass/base/reset/_2_links.sass */
+.map .leaflet-bar a {
+  -moz-transition: 0.2 ease;
+  -o-transition: 0.2 ease;
+  -webkit-transition: 0.2 ease;
+  transition: 0.2 ease;
+}
+/* line 6, ../sass/base/reset/_2_links.sass */
+.map .leaflet-bar a:link, .map .leaflet-bar a:visited {
+  color: white;
+}
+/* line 8, ../sass/base/reset/_2_links.sass */
+.map .leaflet-bar a:hover {
+  color: yellow;
+}
+/* line 10, ../sass/base/reset/_2_links.sass */
+.map .leaflet-bar a:active {
+  color: white;
+}
+/* line 18, ../sass/blocks/_straddle-map.sass */
+.map .leaflet-bar a {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 0;
+  background-color: #222;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 24, ../sass/blocks/_straddle-map.sass */
+.map .leaflet-control-attribution {
+  background-color: #222;
+  color: white;
+}
+/* line 4, ../sass/base/reset/_2_links.sass */
+.map .leaflet-control-attribution a {
+  -moz-transition: 0.2 ease;
+  -o-transition: 0.2 ease;
+  -webkit-transition: 0.2 ease;
+  transition: 0.2 ease;
+}
+/* line 6, ../sass/base/reset/_2_links.sass */
+.map .leaflet-control-attribution a:link, .map .leaflet-control-attribution a:visited {
+  color: white;
+}
+/* line 8, ../sass/base/reset/_2_links.sass */
+.map .leaflet-control-attribution a:hover {
+  color: yellow;
+}
+/* line 10, ../sass/base/reset/_2_links.sass */
+.map .leaflet-control-attribution a:active {
+  color: white;
+}
+
+/* line 29, ../sass/blocks/_straddle-map.sass */
+.map .leaflet-popup-content-wrapper {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  padding: 12px;
+}
+
+/* line 33, ../sass/blocks/_straddle-map.sass */
+.map .leaflet-popup-content {
+  width: 480px;
+  max-width: 100%;
+}
+
+/* line 37, ../sass/blocks/_straddle-map.sass */
+.map .marker-cat {
+  margin-bottom: 0;
+}
+
+/* line 40, ../sass/blocks/_straddle-map.sass */
+.map .marker-name {
+  margin: 0 0 6px;
+}
+
+/* line 43, ../sass/blocks/_straddle-map.sass */
+.map .marker-date {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin-top: 0;
+}

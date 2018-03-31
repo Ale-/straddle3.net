@@ -6,18 +6,24 @@ from django.urls import path
 from django.conf.urls.i18n import i18n_patterns
 from django.views.generic.base import TemplateView
 from django.conf import settings
+# apps
+from apps.views import views
 
 admin.site.site_header = settings.ADMIN_SITE_HEADER
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # API
+    url(r'^api/map$', views.MapApi, name="map"),
 ]
 
 urlpatterns += i18n_patterns(
     # Frontpage
-    url(r'^$', TemplateView.as_view(template_name='pages/front.html'), name="front"),
+    url(r'^$',  views.MapView.as_view(), name="front"),
     # CKEditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    # CKEditor
+    url(r'^mapa$', views.MapView.as_view(), name="map"),
 )
 
 if settings.DEBUG == True:

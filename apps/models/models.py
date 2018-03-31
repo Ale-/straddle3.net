@@ -8,6 +8,7 @@ from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 from djgeojson.fields import PointField
 from adminsortable.models import SortableMixin
+from colorfield.fields import ColorField
 # project
 from .categories import FORMATS
 from . import validators, utils
@@ -116,6 +117,7 @@ class Tag(models.Model):
 class ProjectCategory(models.Model):
 
     name        = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
+    color       = ColorField(_('Color de la categoría'), blank=True)
     description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
 
     class Meta:
@@ -167,6 +169,7 @@ class ConnectionCategory(models.Model):
 
     name        = models.CharField(_('Nombre de la categoría'),  max_length=128, blank=False)
     description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    color       = ColorField(_('Color de la categoría'), blank=True)
 
     class Meta:
         verbose_name = _('tipo de conexión')
@@ -182,13 +185,14 @@ class Connection(models.Model):
 
     name        = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
     slug        = models.SlugField(editable=False)
-    category    = models.ForeignKey(ConnectionCategory, verbose_name=_('Formato'), blank=True, null=True, on_delete=models.SET_NULL)
+    category    = models.ForeignKey(ConnectionCategory, verbose_name=_('Tipo'), blank=True, null=True, on_delete=models.SET_NULL)
     geolocation = PointField(_('Geolocalización'), blank=True)
     start_date  = models.DateField(_('Fecha de comienzo'), blank=True, null=True)
     end_date    = models.DateField(_('Fecha de finalización'), blank=True, null=True)
     description = RichTextUploadingField(_('Descripción'), blank=True, null=True)
     agents      = models.TextField(_('Agentes'), blank=True, null=True)
     tags        = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
+    images      = GenericRelation(Image)
     published   = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured    = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
 
@@ -204,14 +208,14 @@ class Connection(models.Model):
     def __str__(self):
         """String representation of this model objects."""
 
-        return self.fullname
+        return self.name
 
     def save(self, *args, **kwargs):
         """Populate automatically 'slug' field"""
         if not self.slug:
-            self.slug = slugify(self.fullname)
+            self.slug = slugify(self.name)
 
-        super(TeamMember, self).save(*args, **kwargs)
+        super(Connection, self).save(*args, **kwargs)
 
 
 class TeamMember(models.Model):
@@ -243,6 +247,7 @@ class ResourceCategory(models.Model):
 
     name        = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
     description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    color       = ColorField(_('Color de la categoría'), blank=True)
 
     class Meta:
         verbose_name = _('tipo de recurso')

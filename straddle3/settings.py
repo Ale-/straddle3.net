@@ -37,7 +37,8 @@ CONTRIB_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'imagekit',
-    'adminsortable'
+    'adminsortable',
+    'colorfield'
 ]
 
 PROJECT_APPS = [

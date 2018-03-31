@@ -70,6 +70,19 @@ class ImageInline(SortableGenericTabularInline):
         }
     }
 
+class VideoInline(SortableGenericTabularInline):
+    model  = models.Video
+    extra  = 0
+    fields = (
+        ( 'source_url', 'caption' ),
+    )
+
+    formfield_overrides = {
+        ImageField: {
+            'widget': widgets.AdminImageWidget
+        }
+    }
+
 class LinkInline(SortableGenericTabularInline):
     model = models.Link
     fields = (
@@ -83,7 +96,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     thumb        = AdminThumbnail(image_field=cached_admin_thumb)
     list_filter  = ('published', 'featured')
     list_display = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
-    inlines      = [ ImageInline, LinkInline ]
+    inlines      = [ ImageInline, LinkInline, VideoInline ]
     actions      = [publish, unpublish, unfeature, feature]
     fields       = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), ('summary', 'body'), 'geolocation', ('promoter', 'author_text', 'gratitude_text'), 'tags')
 
@@ -137,7 +150,7 @@ class ResourceAdmin(admin.ModelAdmin):
     list_filter  = ('published', 'featured')
     fields       = (('name', 'category'), 'image', 'description', ('promoter', 'author_text', 'gratitude_text'), 'license', 'tags', ('published', 'featured'))
     actions      = [publish, unpublish, unfeature, feature]
-    inlines      = [ ImageInline, LinkInline ]
+    inlines      = [ ImageInline, LinkInline, VideoInline ]
 
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))

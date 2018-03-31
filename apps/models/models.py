@@ -18,6 +18,25 @@ images_path         = utils.RenameImage("images/")
 
 """ Generic models """
 
+class Video(SortableMixin):
+    """ Images """
+
+    source_url     = models.CharField(_('Video'), max_length=200, blank=True, null=True,
+                                       help_text=_('Inserta la url de un video de Youtube o Vimeo'))
+    caption        = models.TextField(_('Caption opcional'), max_length=200, blank=False)
+    content_type   = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id      = models.PositiveIntegerField()
+    source_content = GenericForeignKey('content_type', 'object_id')
+    order          = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        """String representation of this model objects."""
+
+        return self.caption[:100] + "..."
+
 class Image(SortableMixin):
     """ Images """
 
@@ -240,11 +259,11 @@ class Resource(models.Model):
     name           = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
     slug           = models.SlugField(editable=False)
     category       = models.ForeignKey(ResourceCategory, verbose_name=_('Formato'), blank=True, null=True, on_delete=models.SET_NULL)
-    promoter       = models.TextField(_('Promotor'), blank=True, null=True)
+    use_text       = models.TextField(_('Funciones básicas/posibles aplicaciones'), blank=True, null=True)
     author_text    = models.TextField(_('Autor'), blank=True, null=True)
+    promoter       = models.TextField(_('Promotor'), blank=True, null=True)
     gratitude_text = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
     license        = models.TextField(_('Licencia'), blank=True, null=True)
-    image          = models.ImageField(_('Imagen principal'), blank=True)
     description    = RichTextUploadingField(_('Descripción'), blank=True, null=True)
     tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")

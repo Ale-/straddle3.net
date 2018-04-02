@@ -11,7 +11,7 @@ db.sqlite3
 apps/models/migrations
 
 # Static
-static/straddle3/css
+static/straddle3/css/
 static/straddle3/.sass-cache
 static/admin/
 static/ckeditor/

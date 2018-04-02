@@ -18,8 +18,10 @@
             if(m.img){
                 popup += "<img class='marker-img' src='" + m.img + "'/>";
             }
-            popup += "<p class='marker-cat'><span style='color:" + m.col +"'>■</span> " + m.cat +
-                     "</p><h4 class='marker-name'>" + m.name + "</h4>";
+            if(m.cat){
+                popup += "<p class='marker-cat'><span style='color:" + m.col +"'>■</span> " + m.cat + "</p>";
+            }
+            popup += "<h4 class='marker-name'>" + m.name + "</h4>";
             if(m.start_date){
                 popup += "<p class='marker-date'>" + m.start_date;
             };

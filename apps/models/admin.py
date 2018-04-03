@@ -89,14 +89,15 @@ class LinkInline(SortableGenericTabularInline):
     extra = 0
 
 class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
-    model        = models.Project
-    ordering     = ('name',)
-    thumb        = AdminThumbnail(image_field=cached_admin_thumb)
-    list_filter  = ('published', 'featured')
-    list_display = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
-    inlines      = [ ImageInline, LinkInline, VideoInline ]
-    actions      = [publish, unpublish, unfeature, feature]
-    fields       = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), ('summary', 'body'), 'geolocation', ('promoter', 'author_text', 'gratitude_text'), 'tags')
+    model             = models.Project
+    ordering          = ('name',)
+    thumb             = AdminThumbnail(image_field=cached_admin_thumb)
+    list_filter       = ('published', 'featured')
+    list_display      = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
+    inlines           = [ ImageInline, LinkInline, VideoInline ]
+    actions           = [publish, unpublish, unfeature, feature]
+    fields            = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), ('summary', 'body'), 'geolocation', ('promoter', 'author_text', 'gratitude_text'), 'tags')
+    filter_horizontal = ('tags',)
 
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))
@@ -128,27 +129,29 @@ admin.site.register(models.TeamMember, TeamMemberAdmin)
 
 
 class ConnectionAdmin(LeafletGeoAdmin):
-    model        = models.Project
-    ordering     = ('name',)
-    thumb        = AdminThumbnail(image_field=cached_admin_thumb)
-    list_display = ('thumb', 'name', 'start_date', 'published', 'featured')
-    list_filter  = ('published', 'featured')
-    inlines      = [ ImageInline, LinkInline ]
-    actions      = [publish, unpublish, unfeature, feature]
-    fields       = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), 'description', 'agents', 'geolocation', 'tags')
+    model             = models.Project
+    ordering          = ('name',)
+    thumb             = AdminThumbnail(image_field=cached_admin_thumb)
+    list_display      = ('thumb', 'name', 'start_date', 'published', 'featured')
+    list_filter       = ('published', 'featured')
+    inlines           = [ ImageInline, LinkInline ]
+    actions           = [publish, unpublish, unfeature, feature]
+    fields            = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), 'description', 'agents', 'geolocation', 'tags')
+    filter_horizontal = ('tags',)
 
 admin.site.register(models.Connection, ConnectionAdmin)
 
 
 class ResourceAdmin(admin.ModelAdmin):
-    model        = models.Resource
-    ordering     = ('name',)
-    thumb        = AdminThumbnail(image_field=cached_admin_thumb)
-    list_display = ('thumb', 'linked_name', 'published', 'featured')
-    list_filter  = ('published', 'featured')
-    fields       = (('name', 'category'), 'image', 'description', ('promoter', 'author_text', 'gratitude_text'), 'license', 'tags', ('published', 'featured'))
-    actions      = [publish, unpublish, unfeature, feature]
-    inlines      = [ ImageInline, LinkInline, VideoInline ]
+    model             = models.Resource
+    ordering          = ('name',)
+    thumb             = AdminThumbnail(image_field=cached_admin_thumb)
+    list_display      = ('thumb', 'linked_name', 'published', 'featured')
+    list_filter       = ('published', 'featured')
+    fields            = (('name', 'category'), 'image', 'description', ('promoter', 'author_text', 'gratitude_text'), 'license', 'tags', ('published', 'featured'))
+    actions           = [publish, unpublish, unfeature, feature]
+    inlines           = [ ImageInline, LinkInline, VideoInline ]
+    filter_horizontal = ('tags',)
 
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))

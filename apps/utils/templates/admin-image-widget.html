@@ -1,6 +1,5 @@
-{% load i18n %}
-
+{% load i18n static %}
 <div class="admin-image-widget">
-    {% if url %}<img src="{{ url }}" />{% endif %}
+    {% if url %}<img src="{% get_media_prefix %}{{ url }}" />{% endif %}
     {{ parent_widget }}
 </div>

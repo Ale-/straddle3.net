@@ -48,9 +48,12 @@ class AdminThumbnailSpec(ImageSpec):
     options = {'quality': 90 }
 
 def cached_admin_thumb(instance):
-    image  = instance.images.first()
-    if image:
+    try:
+        image = instance.images.first()
         cached = ImageCacheFile(AdminThumbnailSpec(image.image_file))
+    except:
+        cached = ImageCacheFile(AdminThumbnailSpec(instance.image))
+    if cached:
         cached.generate()
         return cached
     return None
@@ -132,12 +135,16 @@ class ConnectionAdmin(LeafletGeoAdmin):
     model             = models.Project
     ordering          = ('name',)
     thumb             = AdminThumbnail(image_field=cached_admin_thumb)
-    list_display      = ('thumb', 'name', 'start_date', 'published', 'featured')
+    list_display      = ('thumb', 'linked_name', 'start_date', 'published', 'featured')
     list_filter       = ('published', 'featured')
     inlines           = [ ImageInline, LinkInline ]
     actions           = [publish, unpublish, unfeature, feature]
     fields            = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), 'description', 'agents', 'geolocation', 'tags')
     filter_horizontal = ('tags',)
+
+    def linked_name(self, obj):
+        url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))
+        return format_html("<a href='" + url + "'>" + obj.name + "</a>")
 
 admin.site.register(models.Connection, ConnectionAdmin)
 

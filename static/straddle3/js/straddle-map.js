@@ -12,6 +12,18 @@
           attribution: '<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a>'
         }).addTo(map);
 
+        // Marker icon
+        var icon = L.icon({
+            iconUrl      : '/static/straddle3/img/s3-marker.svg',
+            iconSize     : [30, 45],
+            iconAnchor   : [15, 45],
+            popupAnchor  : [0, -30],
+            shadowUrl    : '/static/straddle3/img/s3-marker--shadow.svg',
+            shadowSize   : [20, 25],
+            shadowAnchor : [0, 25]
+        });
+
+        // Populate map
         for(var i in response){
             var m = response[i];
             var popup = "";
@@ -30,7 +42,10 @@
             } else {
                 popup += "</p>";
             }
-            L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09]).addTo(map)
+            if(m.txt){
+                popup += "<p class='marker-summary'>" + m.txt + "</p>";
+            }
+            L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09], { icon : icon }).addTo(map)
               .bindPopup(popup);
         }
     });

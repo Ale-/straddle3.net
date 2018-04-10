@@ -36,6 +36,7 @@ def MapApi(request):
             'cat'        : category.name if category else None,
             'col'        : category.color if category else None,
             'img'        : img.image_file.url if img else None,
+            'txt'        : project.summary if project.summary else None,
             'start_date' : start_date.strftime("%d %b %Y") if start_date else None,
             'end_date'   : end_date.strftime("%d %b %Y") if end_date else None,
         })
@@ -52,6 +53,7 @@ def MapApi(request):
             'cat'        : category.name if category else None,
             'col'        : category.color if category else None,
             'img'        : img.image_file.url if img else None,
+            'txt'        : connection.description if connection.description else None,
             'start_date' : start_date.strftime("%d %b %Y") if start_date else None,
             'end_date'   : end_date.strftime("%d %b %Y") if end_date else None,
         })

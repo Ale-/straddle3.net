@@ -47,12 +47,16 @@ class AdminThumbnailSpec(ImageSpec):
     format = 'JPEG'
     options = {'quality': 90 }
 
-def cached_admin_thumb(instance):
-    try:
-        image = instance.images.first()
+def generic_cached_admin_thumb(instance):
+    image = instance.images.first()
+    if image:
         cached = ImageCacheFile(AdminThumbnailSpec(image.image_file))
-    except:
-        cached = ImageCacheFile(AdminThumbnailSpec(instance.image))
+        cached.generate()
+        return cached
+    return None
+
+def cached_admin_thumb(instance):
+    cached = ImageCacheFile(AdminThumbnailSpec(instance.image))
     if cached:
         cached.generate()
         return cached
@@ -94,7 +98,7 @@ class LinkInline(SortableGenericTabularInline):
 class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     model             = models.Project
     ordering          = ('name',)
-    thumb             = AdminThumbnail(image_field=cached_admin_thumb)
+    thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_filter       = ('published', 'featured')
     list_display      = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
     inlines           = [ ImageInline, LinkInline, VideoInline ]

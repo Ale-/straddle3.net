@@ -31,7 +31,7 @@ def MapApi(request):
         category   = project.category
         markers.append({
             'name'       : project.name,
-            'slug'       : project.slug,
+            'url'        : project.get_absolute_url(),
             'pos'        : project.geolocation,
             'cat'        : category.name if category else None,
             'col'        : category.color if category else None,
@@ -59,3 +59,9 @@ def MapApi(request):
         })
 
     return HttpResponse(json.dumps(markers), content_type="application/json")
+
+
+class ProjectView(DetailView):
+    """ View to display single projects """
+
+    model = models.Project

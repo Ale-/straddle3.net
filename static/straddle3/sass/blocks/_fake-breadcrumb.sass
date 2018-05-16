@@ -1,0 +1,25 @@
+.fake-breadcrumb
+  display: inline-block
+
+.fake-breadcrumb__button
+  +button_remarked
+  +button_reset
+  +label
+
+  &:before
+    content: "➜ "
+    color: #ffdb00
+    display: inline-block
+    +transform(rotate(180deg))
+
+
+.breadcrumb
+  float: right
+
+.breadcrumb__button
+  +button_reset
+  +button_remarked
+  +label
+  &:after
+    content: " ➜"
+    color: #ffdb00

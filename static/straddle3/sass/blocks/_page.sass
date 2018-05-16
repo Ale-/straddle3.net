@@ -1,0 +1,21 @@
+// Page generic elements and overrides
+
+[class*='page__title']
+  background-color: #ffdb00
+  color: rgba(black, .75)
+  border-top: 2px solid white
+  padding: 0 $m
+  margin-top: 0
+  line-height: $m*3
+  height: $m*3
+
+[class*='page__edit']
+  position: fixed
+  top: $m
+  right: $m
+  z-index: 10000
+  background-color: rgba(#ffdb00, .75)
+  line-height: $m
+  padding: 0 $m/2
+  +links_none
+  +label

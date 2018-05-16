@@ -1,5 +1,5 @@
 {# Frontpage #} {% extends 'layouts/single-fluid-column.html' %} {% load utils leaflet_tags %}
-{% block body_classes %}map{% endblock %}
+{% block body_classes %}page--map{% endblock %}
 {% block page_html_title %}Map of Straddle3{% endblock %}
 
 {% block page_header %}
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block main %}
-    <img class="map-banner" src="{% img 's3.svg' %}" />
+    {% include 'blocks/brand.html' %}
     <div id="straddle-map"></div>
 {% endblock %}
 

@@ -1,4 +1,5 @@
-!(function($){$(document).ready( function(){
+!(function($){
+  $(document).ready( function(){
     $.ajax({
         url    : "/api/map",
         context: document.body
@@ -26,27 +27,30 @@
         // Populate map
         for(var i in response){
             var m = response[i];
-            var popup = "";
+            var popup_content = "";
             if(m.img){
-                popup += "<img class='marker-img' src='" + m.img + "'/>";
+                popup_content += "<img class='marker-img' src='" + m.img + "'/>";
             }
             if(m.cat){
-                popup += "<p class='marker-cat'><span style='color:" + m.col +"'>■</span> " + m.cat + "</p>";
+                popup_content += "<p class='marker-cat'><span style='color:" + m.col +"'>■</span> " + m.cat + "</p>";
             }
-            popup += "<h4 class='marker-name'>" + m.name + "</h4>";
+            popup_content += "<h4 class='marker-name'><a href='" + m.url + "'>" + m.name + "</a></h4>";
             if(m.start_date){
-                popup += "<p class='marker-date'>" + m.start_date;
+                popup_content += "<p class='marker-date'>" + m.start_date;
             };
             if(m.end_date){
-                popup += "—" + m.end_date; + "</p>";
+                popup_content += "—" + m.end_date; + "</p>";
             } else {
-                popup += "</p>";
+                popup_content += "</p>";
             }
             if(m.txt){
-                popup += "<p class='marker-summary'>" + m.txt + "</p>";
+                popup_content += "<p class='marker-summary'>" + m.txt + "</p>";
             }
-            L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09], { icon : icon }).addTo(map)
-              .bindPopup(popup);
+
+            var popup = document.createElement('div');
+            popup.innerHTML = popup_content;
+
+            L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09], { icon : icon }).addTo(map).bindPopup(popup);
         }
     });
 })})(jQuery);

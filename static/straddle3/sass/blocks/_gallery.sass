@@ -1,0 +1,40 @@
+.gallery--project
+  margin-top: $m*3
+  position: relative
+  width: 100%
+
+.gallery__image--project
+  display: inline
+  position: relative
+
+[class*='gallery__button-']
+  position: absolute
+  display: inline-block
+  height: 480px
+  width: $m*2
+  background-color: rgba(#222, .5)
+  top: 0
+  &:hover
+    cursor: pointer
+
+[class*='gallery__button-left']
+  left: 0
+
+[class*='gallery__button-right']
+  right: 0
+
+[class*='gallery__images']
+  white-space: nowrap
+  overflow: hidden
+
+.gallery__image--project
+  +animation(fadein .2s ease)
+
+.gallery__image-alt--project
+  position: absolute
+  bottom: 0
+  left: 0
+  z-index: 2
+  line-height: $m
+  padding: 0 $m/2
+  background: white

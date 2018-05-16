@@ -1,0 +1,109 @@
+// Generic full view of models and overrides
+// /models/{{*}}_detail.html
+
+[class*='__field-label--']
+  display: block
+  margin: $m 0 $m/4
+  +h(5)
+  text-transform: uppercase
+
+[class*='full__field--summary']
+  padding: $m*2 $m*4 0
+  margin: $m 0 $m*3
+  border-top: 1px solid $color_text
+
+[class*='full__field-value--summary']
+  font-size: 1.5em
+  line-height: 1.5
+  text-decoration: underline
+  text-decoration-color: $color_text
+
+
+[class*='full__field-value--body']
+  padding: 0 $m*2 0 0
+
+[class*='full__field-value--body'] p:not(:first-child)
+  text-indent: $m*2
+  margin-bottom: $m/4
+
+[class*='full__field-value--body']
+  p:first-child:first-letter
+    font-size: 4em
+    float: left
+    margin: 0 $m $m/2 0
+    display: inline-block
+    background: #222
+    color: #ffdb00
+    padding: $m/2
+
+[class*='full__field--dates']
+  background-color: #222
+  color: white
+  padding: $m/4 $m
+  +date
+
+[class*='full__field-value--category'] .bullet
+  position: relative
+  bottom: 2px
+
+[class*='full__field-value-item--links']
+  +links($color_text, lighten($color_text, 10%), .2s ease)
+  a
+    text-decoration: underline !important
+    text-decoration-style: dotted !important
+
+// Header
+
+[class*='header__field--featured-image']
+  position: relative
+
+[class*='header__field-value--featured-image']
+  height: 50vh
+  // filter: url('../img/filter.svg#duotone_222222_ffdb00')
+  filter: grayscale(100%)
+
+[class*='header__field-alt--featured-image']
+  display: inline-block
+  position: absolute
+  bottom: -1px
+  background: white
+  padding: 0 $m
+  height: $m
+  line-height: $m
+  font-size: .9em
+
+[class*='full__field--geolocation']
+  height: 312px
+  width: 100%
+  background: white !important
+  margin-bottom: $m*2
+  .leaflet-bar
+    border: 0
+    a
+      +border-radius(0)
+      border: 0
+      background-color: #ffdb00
+
+// Meta box
+
+[class*='full__meta']
+  float: right
+  padding: 0 0 $m*2 $m*2
+  margin: 0 $m $m $m*2
+  width: 360px
+  position: relative
+  border-left: 1px solid $color_text
+
+[class*='full__meta'] a
+  display: block
+  max-width: 100%
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+.circular-frame
+  position: absolute
+  max-width: calc(360px - #{$m*2})
+  z-index: 1000
+  pointer-events: none
+  display: block

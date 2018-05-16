@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.utils.text import slugify
+from django.urls import reverse
 # contrib
 from ckeditor_uploader.fields import RichTextUploadingField
 from djgeojson.fields import PointField
@@ -147,6 +148,7 @@ class Project(models.Model):
     tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured       = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
+    links          = GenericRelation(Link)
 
     class Meta:
         verbose_name = _('Proyecto')
@@ -156,6 +158,9 @@ class Project(models.Model):
         """String representation of this model objects."""
 
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('project', args=[self.slug])
 
     def save(self, *args, **kwargs):
         """Populate automatically 'slug' field"""

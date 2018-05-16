@@ -24,6 +24,9 @@ urlpatterns += i18n_patterns(
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # CKEditor
     url(r'^mapa$', views.MapView.as_view(), name="map"),
+    # Project
+    path('project/<slug:slug>', views.ProjectView.as_view(), name="project")
+
 )
 
 if settings.DEBUG == True:

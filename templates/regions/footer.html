@@ -1,4 +1,14 @@
-{# Footer region #} {% extends 'regions/region-base.html' %}
+{# Footer region #}
+{% extends 'regions/region-base.html' %}
+{% load i18n %}
 
 {% block region_content %}
+    <div class="region-footer__left">
+        {% trans 'straddle3 constructors' %}
+    </div>
+    <div class="region-footer__right">
+        {% blocktrans trimmed %}
+        Sitio web desarrollado por <a href="https://wwb.cc">WWB S. Coop. And.</a>
+        {% endblocktrans %}
+    </div>
 {% endblock %}

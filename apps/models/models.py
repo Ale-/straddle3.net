@@ -278,6 +278,7 @@ class Resource(models.Model):
     tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured       = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
+    images         = GenericRelation(Image)
 
     class Meta:
         verbose_name = _('recurso')

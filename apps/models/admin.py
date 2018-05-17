@@ -138,7 +138,7 @@ admin.site.register(models.TeamMember, TeamMemberAdmin)
 class ConnectionAdmin(LeafletGeoAdmin):
     model             = models.Project
     ordering          = ('name',)
-    thumb             = AdminThumbnail(image_field=cached_admin_thumb)
+    thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_display      = ('thumb', 'linked_name', 'start_date', 'published', 'featured')
     list_filter       = ('published', 'featured')
     inlines           = [ ImageInline, LinkInline ]
@@ -156,10 +156,10 @@ admin.site.register(models.Connection, ConnectionAdmin)
 class ResourceAdmin(admin.ModelAdmin):
     model             = models.Resource
     ordering          = ('name',)
-    thumb             = AdminThumbnail(image_field=cached_admin_thumb)
+    thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_display      = ('thumb', 'linked_name', 'published', 'featured')
     list_filter       = ('published', 'featured')
-    fields            = (('name', 'category'), 'image', 'description', ('promoter', 'author_text', 'gratitude_text'), 'license', 'tags', ('published', 'featured'))
+    fields            = (('name', 'category'), 'description', ('promoter', 'author_text', 'gratitude_text'), 'license', 'tags', ('published', 'featured'))
     actions           = [publish, unpublish, unfeature, feature]
     inlines           = [ ImageInline, LinkInline, VideoInline ]
     filter_horizontal = ('tags',)

@@ -1,7 +1,10 @@
+// Project gallery
+
 .gallery--project
   margin-top: $m*3
   position: relative
   width: 100%
+  background-color: #fbfbfb
 
 .gallery__image--project
   display: inline
@@ -10,15 +13,23 @@
 [class*='gallery__button-']
   position: absolute
   display: inline-block
-  height: 480px
+  height: $m*2
+  line-height: $m*1.75
+  text-align: center
   width: $m*2
-  background-color: rgba(#222, .5)
+  font-size: 2em
+  color: $palette_yellow
+  background-color: white
   top: 0
+  z-index: 1
+  +transition(color .2s ease)
   &:hover
     cursor: pointer
+    color: $color_text
 
 [class*='gallery__button-left']
   left: 0
+  +transform( scaleX(-1) )
 
 [class*='gallery__button-right']
   right: 0

@@ -4,7 +4,7 @@
   background-color: #222
 
 .page--map .leaflet-bar
-  +links(white, yellow, .2 ease)
+  +links(white, $palette_yellow, .2 ease)
   border: 1px solid rgba(yellow, .25)
   a
     +border-radius(0)
@@ -24,6 +24,7 @@
 .page--map .leaflet-popup-content
   width: 480px
   max-width: 100%
+  +links(darken($palette_yellow, 5%), $palette_yellow, .2s ease)
 
 .page--map .marker-cat
   margin-bottom: 0

@@ -112,7 +112,7 @@
 
         {# gratitude_text #}
         {% trans 'Agradecimientos' as gratitude_text_label %}
-        {% field obj=object field_name='author_text' label=True field_label=gratitude_text_label %}
+        {% field obj=object field_name='gratitude_text' label=True field_label=gratitude_text_label %}
 
         {# links #}
         {% if object.links.all|length > 0 %}
@@ -142,7 +142,9 @@
 {# gallery #}
 <div class="gallery--project">
     {% trans 'Galería de imágenes' as gallery_label %}
-    <div id="gallery-left-button" class="gallery__button-left--project"></div>
+    <div id="gallery-left-button" class="gallery__button-left--project">
+        ➜
+    </div>
     <ul id="gallery-container" class="gallery__images--project">
         {% for image in object.images.all %}
         <li class="gallery__image--project">
@@ -153,7 +155,9 @@
         </li>
         {% endfor %}
     </ul>
-    <div id="gallery-right-button" class="gallery__button-right--project"></div>
+    <div id="gallery-right-button" class="gallery__button-right--project">
+        ➜
+    </div>
 </div>
 
 {% endblock %}

@@ -64,7 +64,7 @@ class Image(SortableMixin):
 class Attachment(SortableMixin):
     """ Attachments """
 
-    attachment_file = models.ImageField(_('Attachment file'), blank=False)
+    attachment_file = models.FileField(_('Attachment file'), blank=False)
     content_type    = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id       = models.PositiveIntegerField()
     source_content  = GenericForeignKey('content_type', 'object_id')

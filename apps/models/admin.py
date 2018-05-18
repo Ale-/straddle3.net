@@ -82,11 +82,12 @@ class VideoInline(SortableGenericTabularInline):
         ( 'source_url', 'caption' ),
     )
 
-    formfield_overrides = {
-        ImageField: {
-            'widget': widgets.AdminImageWidget
-        }
-    }
+class AttachmentInline(SortableGenericTabularInline):
+    model  = models.Attachment
+    extra  = 0
+    fields = (
+        ( 'attachment_file', 'name', ),
+    )
 
 class LinkInline(SortableGenericTabularInline):
     model = models.Link
@@ -135,7 +136,7 @@ class TeamMemberAdmin(admin.ModelAdmin):
 admin.site.register(models.TeamMember, TeamMemberAdmin)
 
 
-class ConnectionAdmin(LeafletGeoAdmin):
+class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     model             = models.Project
     ordering          = ('name',)
     thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
@@ -153,7 +154,7 @@ class ConnectionAdmin(LeafletGeoAdmin):
 admin.site.register(models.Connection, ConnectionAdmin)
 
 
-class ResourceAdmin(admin.ModelAdmin):
+class ResourceAdmin(NonSortableParentAdmin):
     model             = models.Resource
     ordering          = ('name',)
     thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
@@ -161,7 +162,7 @@ class ResourceAdmin(admin.ModelAdmin):
     list_filter       = ('published', 'featured')
     fields            = (('name', 'category'), 'description', ('promoter', 'author_text', 'gratitude_text'), 'license', 'tags', ('published', 'featured'))
     actions           = [publish, unpublish, unfeature, feature]
-    inlines           = [ ImageInline, LinkInline, VideoInline ]
+    inlines           = [ ImageInline, AttachmentInline, LinkInline, VideoInline ]
     filter_horizontal = ('tags',)
 
     def linked_name(self, obj):

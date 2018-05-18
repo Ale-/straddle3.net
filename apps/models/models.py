@@ -16,7 +16,9 @@ from . import validators, utils
 
 validate_image_size = validators.ImageSizeValidator({ 'min_width' : 480, 'min_height' : 480, 'max_width' : 1920, 'max_height' : 1280 })
 validate_image_type = validators.ImageTypeValidator(["jpeg", "png"])
+validate_file_type  = validators.FileTypeValidator()
 images_path         = utils.RenameImage("images/")
+files_path          = utils.RenameFile("files/")
 
 """ Generic models """
 
@@ -64,7 +66,10 @@ class Image(SortableMixin):
 class Attachment(SortableMixin):
     """ Attachments """
 
-    attachment_file = models.FileField(_('Attachment file'), blank=False)
+    name            = models.CharField(_('Nombre descriptivo del archivo'), max_length=200, blank=False, null=True)
+    attachment_file = models.FileField(_('Archivo adjunto'), blank=False,
+                                        validators=[validate_file_type],
+                                        upload_to=files_path)
     content_type    = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id       = models.PositiveIntegerField()
     source_content  = GenericForeignKey('content_type', 'object_id')
@@ -78,7 +83,7 @@ class Attachment(SortableMixin):
     def __str__(self):
         """String representation of this model objects."""
 
-        return self.attachment_file.filename
+        return self.attachment_file.name
 
 
 class Link(SortableMixin):

@@ -102,7 +102,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_filter       = ('published', 'featured')
     list_display      = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
-    inlines           = [ ImageInline, LinkInline, VideoInline ]
+    inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
     actions           = [publish, unpublish, unfeature, feature]
     fields            = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), ('summary', 'body'), 'geolocation', ('promoter', 'author_text', 'gratitude_text'), 'tags')
     filter_horizontal = ('tags',)

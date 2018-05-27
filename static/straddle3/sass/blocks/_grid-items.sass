@@ -1,0 +1,31 @@
+// Items in grid view
+
+.connection-grid,
+.project-grid
+  +links(#222, $color_text, .2s ease)
+  padding: $m
+
+[class*='-grid__image']
+  position: relative
+  overflow: hidden
+  margin-bottom: $m/2
+
+[class*='-grid__image'] img
+  +transition(transform .5s ease)
+
+.connection-grid,
+.project-grid
+  &:hover
+    outline: 2px solid $palette_yellow
+    [class*='-grid__image'] img
+      +transform( scale(1.1) )
+
+[class*='-grid__name']
+  text-transform: uppercase
+  line-height: 1
+  margin: $m/4 0
+
+[class*='-grid__category'],
+[class*='-grid__date']
+  text-transform: uppercase
+  font-size: .8em

@@ -88,3 +88,9 @@ class TeamList(ListView):
 
     model = models.TeamMember
     ordering = ['surname']
+
+class ResourceList(ListView):
+    """ View to display a list of projects """
+
+    model = models.Resource
+    ordering = ['name']

@@ -1,0 +1,44 @@
+{# Frontpage #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load static utils i18n l10n imagekit %}
+{% block body_classes %}page--resources{% endblock %}
+{% block page_html_title %}{% trans 'Recursos' %}{% endblock %}
+
+
+{% block main %}
+
+{# brand #}
+{% include 'blocks/brand.html' %}
+
+{# fake_breadcrumb #}
+<div class="container-fixed">
+    {% fake_breadcrumb %}
+    <div class="list--resources masonry">
+        {% if object_list|length > 0 %}
+        {% for resource in object_list %}
+            {% if resource.published %}
+            <div class="resource-grid masonry__item three-col">
+            <!-- <a href="{{ resource.get_absolute_url }}"> -->
+                {% if resource.images.all|length > 0 %}
+                <figure class="resource-grid__image">
+                    {% thumbnail '480x480' resource.images.first.image_file %}
+                </figure>
+                {% endif %}
+                <p class="resource-grid__category">
+                    {{ resource.category }}
+                </p>
+                <h5 class="resource-grid__name">
+                    {{ resource.name }}
+                </h5>
+            <!-- </a> -->
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+    {% masonry %}
+{% endblock %}

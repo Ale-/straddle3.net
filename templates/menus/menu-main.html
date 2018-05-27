@@ -18,6 +18,11 @@
             </a>
         </li>
         <li class="menu-main__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'resources' %}">
+                {% trans 'Recursos' %}
+            </a>
+        </li>
+        <li class="menu-main__link{% if modifier %}--{{ modifier }}{% endif %}">
             <a href="{% url 'team' %}">
                 {% trans 'Equipo' %}
             </a>

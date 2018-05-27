@@ -46,3 +46,7 @@ def field(obj=None, field_name=None, value_html_wrapper='div', label=False, labe
 @register.inclusion_tag('fake-breadcrumb.html')
 def fake_breadcrumb(text=_("Volver a la página anterior")):
     return { 'text' : text }
+
+@register.inclusion_tag('masonry.html')
+def masonry():
+    return { }

@@ -66,6 +66,11 @@ class ProjectView(DetailView):
 
     model = models.Project
 
+class ProjectList(ListView):
+    """ View to display a list of projects """
+
+    model = models.Project
+    ordering = ['-start_date', 'name']
 
 class ConnectionView(DetailView):
     """ View to display single connections """

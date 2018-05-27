@@ -57,12 +57,11 @@
     {# fake_breadcrumb #}
     {% fake_breadcrumb %}
     {# breadcrumb #}
-    <div class="breadcrumb">
-        <button type="button" class="breadcrumb__button">
+    <div class="page-links">
+        <a href="{% url 'projects' %}">
             {% trans 'Ver todos los proyectos' %}
-        </button>
+        </a>
     </div>
-
 
     {# summary #}
     {% trans 'Resumen' as summary_label %}

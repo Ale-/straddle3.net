@@ -25,6 +25,8 @@ urlpatterns += i18n_patterns(
     # CKEditor
     url(r'^mapa$', views.MapView.as_view(), name="map"),
     # Project
+    path('projects', views.ProjectList.as_view(), name="projects"),
+    # Project
     path('project/<slug:slug>', views.ProjectView.as_view(), name="project"),
     # Connection
     path('connection/<slug:slug>', views.ConnectionView.as_view(), name="connection")

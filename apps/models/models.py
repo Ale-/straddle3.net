@@ -205,15 +205,15 @@ class Connection(models.Model):
     images      = GenericRelation(Image)
     published   = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured    = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
+    links       = GenericRelation(Link)
+
 
     class Meta:
         verbose_name = _('conexión')
         verbose_name_plural = _('conexiones')
 
-    def fullname(self):
-        """Returns fullname of the person"""
-
-        return "%s %s" % self.name, self.surname
+    def get_absolute_url(self):
+        return reverse('connection', args=[self.slug])
 
     def __str__(self):
         """String representation of this model objects."""

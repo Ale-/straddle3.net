@@ -48,7 +48,7 @@ def MapApi(request):
         category   = connection.category
         markers.append({
             'name'       : connection.name,
-            'slug'       : connection.slug,
+            'url'        : connection.get_absolute_url(),
             'pos'        : connection.geolocation,
             'cat'        : category.name if category else None,
             'col'        : category.color if category else None,
@@ -65,3 +65,9 @@ class ProjectView(DetailView):
     """ View to display single projects """
 
     model = models.Project
+
+
+class ConnectionView(DetailView):
+    """ View to display single connections """
+
+    model = models.Connection

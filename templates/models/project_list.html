@@ -19,9 +19,11 @@
             {% if project.published %}
             <div class="project-grid masonry__item three-col">
             <a href="{{ project.get_absolute_url }}">
+                {% if project.images.all|length > 0 %}
                 <figure class="project-grid__image">
                     {% thumbnail '480x480' project.images.first.image_file %}
                 </figure>
+                {% endif %}
                 <p class="project-grid__category">
                     {{ project.category }}
                 </p>

@@ -1,0 +1,26 @@
+{# Main menu #} {% load static i18n %}
+
+<nav class="menu-main{% if modifier %}--{{ modifier }}{% endif %}">
+    <ul>
+        <li class="menu-main__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'front' %}">
+                {% trans 'Mapa' %}
+            </a>
+        </li>
+        <li class="menu-main__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'projects' %}">
+                {% trans 'Proyectos' %}
+            </a>
+        </li>
+        <li class="menu-main__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'connections' %}">
+                {% trans 'Conexiones' %}
+            </a>
+        </li>
+        <li class="menu-main__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'team' %}">
+                {% trans 'Equipo' %}
+            </a>
+        </li>
+    </ul>
+</nav>

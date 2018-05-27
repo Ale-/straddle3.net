@@ -284,6 +284,8 @@ class Resource(models.Model):
     published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured       = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
     images         = GenericRelation(Image)
+    links          = GenericRelation(Link)
+    videos         = GenericRelation(Video)
 
     class Meta:
         verbose_name = _('recurso')
@@ -293,6 +295,9 @@ class Resource(models.Model):
         """String representation of this model objects."""
 
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('resource', args=[self.slug])
 
     def save(self, *args, **kwargs):
         """Populate automatically 'slug' field"""

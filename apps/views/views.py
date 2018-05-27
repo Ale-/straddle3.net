@@ -78,19 +78,24 @@ class ConnectionView(DetailView):
     model = models.Connection
 
 class ConnectionList(ListView):
-    """ View to display a list of projects """
+    """ View to display a list of connections """
 
     model = models.Connection
     ordering = ['name']
 
 class TeamList(ListView):
-    """ View to display a list of projects """
+    """ View to display a list of team members """
 
     model = models.TeamMember
     ordering = ['surname']
 
 class ResourceList(ListView):
-    """ View to display a list of projects """
+    """ View to display a list of resources """
 
     model = models.Resource
     ordering = ['name']
+
+class ResourceView(DetailView):
+    """ View to display single resources """
+
+    model = models.Resource

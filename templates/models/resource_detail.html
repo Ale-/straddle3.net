@@ -1,0 +1,146 @@
+{# Frontpage #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load static utils i18n l10n imagekit %}
+{% block body_classes %}page--resource{% endblock %}
+{% block page_html_title %}{{ object.name }}{% endblock %}
+
+
+{% block main %}
+
+{# brand #}
+{% include 'blocks/brand.html' %}
+
+<div class="page__edit--resource">
+    <a href="{% url 'admin:models_resource_change' object.id %}" target="_blank">
+        {% trans 'Edita este contenido' %}
+    </a>
+</div>
+
+<div class="resource-header">
+    {# image #}
+    {% if object.images %}
+    <div class="resource-header__field--featured-image">
+        <div class="resource-header__field-value--featured-image"
+            style="background-image: url('{% get_media_prefix %}{{ object.images.first.image_file }}')">
+        </div>
+        <p class="resource-header__field-alt--featured-image">
+            <strong>img</strong>: {{ object.images.first.alt_text }}
+        </p>
+    </div>
+    {% endif %}
+</div>
+
+{# title #}
+<h1 class="page__title--project">
+    {{ object.name }}
+</h1>
+
+<div class="resource-full container-fixed">
+    {# fake_breadcrumb #}
+    {% fake_breadcrumb %}
+    {# breadcrumb #}
+    <div class="page-links">
+        <a href="{% url 'resources' %}">
+            {% trans 'Ver todos los recursos' %}
+        </a>
+    </div>
+
+
+    {# meta #}
+    <div class="resource-full__meta">
+
+        {# category #}
+        <div class="resource-full__field--category">
+            <label class="resource-full__field-label--category">
+                {% field_verbose_name object 'category' %}
+            </label>
+            <div class="resource-full__field-value--category">
+                <span class="bullet" style="color: {{ object.category.color }}">●</span>
+                {{ object.category.name }}
+            </div>
+        </div>
+
+        {# promoter #}
+        {% trans 'Promotor' as promoter_text_label %}
+        {% field obj=object field_name='promoter' label=True field_label=promoter_text_label %}
+
+        {# tags #}
+        {% if object.tags.all|length > 0 %}
+        {% trans 'Tags' as tags_label %}
+        <div class="resource-full__field--tags">
+            <label class="resource-full__field-label--tags">
+                {{ tags_label }}
+            </label>
+            <ul class="resource-full__field-value--tags">
+                {% for tag in object.tags.all %}
+                <li class="resource-full__field-value-item--tags">
+                    {{ tag.name }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {# author_text #}
+        {% trans 'Funciones básicas/posibles aplicaciones' as use_text_label %}
+        {% field obj=object field_name='use_text' label=True field_label=use_text_label %}
+
+        {# author_text #}
+        {% trans 'Autoría' as author_text_label %}
+        {% field obj=object field_name='author_text' label=True field_label=author_text_label %}
+
+        {# license_text #}
+        {% trans 'Licencia' as license_text_label %}
+        {% field obj=object field_name='license' label=True field_label=license_text_label %}
+
+        {# gratitude_text #}
+        {% trans 'Agradecimientos' as gratitude_text_label %}
+        {% field obj=object field_name='gratitude_text' label=True field_label=gratitude_text_label %}
+
+        {# links #}
+        {% if object.links.all|length > 0 %}
+        {% trans 'Enlaces relacionados' as related_links_label %}
+        <div class="resource-full__field--links">
+            <label class="resource-full__field-label--links">
+                {{ related_links_label }}
+            </label>
+            <ul class="resource-full__field-value--links">
+                {% for link in object.links.all %}
+                <li class="resource-full__field-value-item--links">
+                    <p>» {{ link.title }}:</p>
+                    <a href="{{ link.url }}" target="_blank">
+                        {{ link.url }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    {# body #}
+    {% field obj=object field_name='description' %}
+</div>
+
+{# gallery #}
+<div class="gallery--project">
+    {% trans 'Galería de imágenes' as gallery_label %}
+    <div id="gallery-left-button" class="gallery__button-left--project">
+        ➜
+    </div>
+    <ul id="gallery-container" class="gallery__images--project">
+        {% for image in object.images.all %}
+        <li class="gallery__image--project">
+            {% thumbnail 'x480' image.image_file %}
+            <p class="gallery__image-alt--project">
+                {{ image.alt_text }}
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+    <div id="gallery-right-button" class="gallery__button-right--project">
+        ➜
+    </div>
+</div>
+
+{% endblock %}

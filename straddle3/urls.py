@@ -34,6 +34,8 @@ urlpatterns += i18n_patterns(
     path('connection/<slug:slug>', views.ConnectionView.as_view(), name="connection"),
     # Resource
     path('resources', views.ResourceList.as_view(), name="resources"),
+    # Connection
+    path('resources/<slug:slug>', views.ResourceView.as_view(), name="resource"),
     # Team
     path('team', views.TeamList.as_view(), name="team")
 

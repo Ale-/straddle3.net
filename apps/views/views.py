@@ -76,3 +76,9 @@ class ConnectionView(DetailView):
     """ View to display single connections """
 
     model = models.Connection
+
+class ConnectionList(ListView):
+    """ View to display a list of projects """
+
+    model = models.Connection
+    ordering = ['name']

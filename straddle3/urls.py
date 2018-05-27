@@ -24,10 +24,12 @@ urlpatterns += i18n_patterns(
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # CKEditor
     url(r'^mapa$', views.MapView.as_view(), name="map"),
-    # Project
+    # Projects
     path('projects', views.ProjectList.as_view(), name="projects"),
     # Project
     path('project/<slug:slug>', views.ProjectView.as_view(), name="project"),
+    # Connections
+    path('connections', views.ConnectionList.as_view(), name="connections"),
     # Connection
     path('connection/<slug:slug>', views.ConnectionView.as_view(), name="connection")
 

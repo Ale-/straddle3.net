@@ -57,11 +57,12 @@
     {# fake_breadcrumb #}
     {% fake_breadcrumb %}
     {# breadcrumb #}
-    <div class="breadcrumb">
-        <button type="button" class="breadcrumb__button">
+    <div class="page-links">
+        <a href="{% url 'connections' %}">
             {% trans 'Ver todas las conexiones' %}
-        </button>
+        </a>
     </div>
+
 
     {# meta #}
     <div class="connection-full__meta">

@@ -82,3 +82,9 @@ class ConnectionList(ListView):
 
     model = models.Connection
     ordering = ['name']
+
+class TeamList(ListView):
+    """ View to display a list of projects """
+
+    model = models.TeamMember
+    ordering = ['surname']

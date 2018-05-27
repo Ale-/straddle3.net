@@ -1,0 +1,27 @@
+{# Main menu #} {% load static i18n %}
+
+<nav class="menu-user{% if modifier %}--{{ modifier }}{% endif %}">
+    <ul>
+        {% if request.user.is_anonymous %}
+        <li class="menu-user__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'admin:login' %}">
+                {% trans 'login' %}
+            </a>
+        </li>
+        {% endif %}
+        {% if request.user.is_staff %}
+        <li class="menu-user__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'admin:index' %}">
+                {% trans 'admin' %}
+            </a>
+        </li>
+        {% endif %}
+        {% if not request.user.is_anonymous %}
+        <li class="menu-user__link{% if modifier %}--{{ modifier }}{% endif %}">
+            <a href="{% url 'admin:logout' %}">
+                {% trans 'logout' %}
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

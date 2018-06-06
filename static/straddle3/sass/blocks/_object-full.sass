@@ -27,13 +27,16 @@
 
 [class*='full__field-value--body']
   p:first-child:first-letter
-    font-size: 4em
+    font-size: 8em
     float: left
     margin: 0 $m $m/2 0
     display: inline-block
-    background: #222
-    color: #ffdb00
+    background: $palette_yellow
     padding: $m/2
+  p
+    margin-bottom: $m/3
+  p:not(:first-child)
+    text-indent: $m*2
 
 [class*='full__field--dates']
   background-color: #222

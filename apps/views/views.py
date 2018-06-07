@@ -111,5 +111,5 @@ class TagView(DetailView):
         projects               = models.Project.objects.filter(tags=self.object)
         connections            = models.Connection.objects.filter(tags=self.object)
         resources              = models.Resource.objects.filter(tags=self.object)
-        context['object_list'] = [ *chain(projects, connections, resources) ]
+        context['object_list'] = list(chain(projects, connections, resources))
         return context

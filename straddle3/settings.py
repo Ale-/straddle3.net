@@ -18,6 +18,8 @@ MEDIA_ROOT = os.path.join(ENV_PATH, '..', 'media')
 
 LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
+LOGIN_REDIRECT_URL  = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Name of site in the document title
 ADMIN_SITE_HEADER = 'straddle3'

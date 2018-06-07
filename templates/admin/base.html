@@ -1,5 +1,7 @@
-{% extends 'admin/base.html' %} {% load static utils %}
+{# Base template for the admin interface #}
 
+{% extends 'admin/base.html' %}
+{% load static utils %}
 {% block bodyclass %}admin{% endblock %}
 
 {% block extrastyle %}
@@ -8,4 +10,8 @@
 
 {% block extrahead %}
   <link href="{% img 'favicon.ico' %}" rel="icon" type="image/png">
+{% endblock %}
+
+{% block pretitle %}
+  {% fake_breadcrumb %}
 {% endblock %}

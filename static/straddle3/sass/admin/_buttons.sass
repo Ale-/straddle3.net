@@ -1,15 +1,32 @@
-.admin .submit-row input
-  +button_reset
+
+=button_reset_admin
+  +border-radius(0)
+  border: 0
+  background: none
+  color: $color_text
+  line-height: $m*2
+  height: $m*2
+  padding: 0 $m/2
+  text-transform: uppercase
+  letter-spacing: 1px
+  +transition(background-color .2s ease)
+  &:hover
+    background-color: white
+
+.admin .submit-row input,
+.admin .submit-row a.changelink
+  +button_reset_admin
   border-left: 2px solid $color_calm
   font-size: .75rem
 
-.admin .submit-row input.default
-  +button_reset
-  border-left: 2px solid $color_success
+.admin .submit-row input.default,
+.admin .submit-row a.addlink,
+  +button_reset_admin
+  border-left: 2px solid $color_success !important
   font-size: .75rem
 
 .admin .submit-row a.deletelink
-  +button_reset
+  +button_reset_admin
   border-left: 2px solid $color_danger
   font-size: .75rem
 
@@ -22,5 +39,6 @@
   background-position: 0 center
 
 .admin .object-tools a.historylink,
+.admin .object-tools a.viewsitelink,
 .admin .object-tools a.addlink
-  +button_reset
+  +button_reset_admin

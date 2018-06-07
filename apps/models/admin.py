@@ -66,7 +66,7 @@ class ImageInline(SortableGenericTabularInline):
     model  = models.Image
     extra  = 0
     fields = (
-        ( 'image_file', 'alt_text' ),
+        ( 'image_file', 'alt_text', 'not_caption' ),
     )
 
     formfield_overrides = {
@@ -104,7 +104,14 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     list_display      = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
     inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
     actions           = [publish, unpublish, unfeature, feature]
-    fields            = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), ('summary', 'body'), 'geolocation', ('promoter', 'author_text', 'gratitude_text'), 'tags')
+    fields            = (
+        ('name', 'published', 'featured'),
+        ('category', 'start_date', 'end_date'),
+        ('summary', 'not_summary', 'body'),
+        'geolocation',
+        ('promoter', 'author_text', 'gratitude_text'),
+        'tags'
+    )
     filter_horizontal = ('tags',)
 
     def linked_name(self, obj):

@@ -64,8 +64,10 @@
     </div>
 
     {# summary #}
+    {% if not object.not_summary %}
     {% trans 'Resumen' as summary_label %}
     {% field obj=object field_name='summary' field_label=summary %}
+    {% endif %}
 
     {# meta #}
     <div class="project-full__meta">
@@ -148,9 +150,11 @@
         {% for image in object.images.all %}
         <li class="gallery__image--project">
             {% thumbnail 'x480' image.image_file %}
+            {% if not image.not_caption %}
             <p class="gallery__image-alt--project">
                 {{ image.alt_text }}
             </p>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>

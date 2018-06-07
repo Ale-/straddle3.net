@@ -52,6 +52,7 @@ class Image(SortableMixin):
     object_id      = models.PositiveIntegerField()
     source_content = GenericForeignKey('content_type', 'object_id')
     order          = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    not_caption    = models.BooleanField(_('No mostrar pie de foto'), default=False, help_text=_("Marca la casilla para no mostrar el pie de foto en las galerías"))
 
     class Meta:
         verbose_name = _('imagen')
@@ -151,9 +152,10 @@ class Project(models.Model):
     gratitude_text = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
     images         = GenericRelation(Image)
     tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
-    published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
-    featured       = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
+    published      = models.BooleanField(_('Publicado'), default=False, help_text=_("Indica si este contenido es visible públicamente"))
+    featured       = models.BooleanField(_('Destacado'), default=False, help_text=_("Indica si este contenido es destacado y ha de tener mayor visibilidad"))
     links          = GenericRelation(Link)
+    not_summary    = models.BooleanField(_('No mostrar resumen'), default=False, help_text=_("Marca para no mostrar el resumen en las vistas completas"))
 
     class Meta:
         verbose_name = _('Proyecto')

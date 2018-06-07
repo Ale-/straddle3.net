@@ -18,7 +18,8 @@
   text-decoration: underline
   text-decoration-color: $color_text
 
-[class*='full__field-value--body']
+[class*='full__field-value--body'],
+[class*='full__field-value--description']
   padding: 0 $m*2 0 0
   margin-top: $m*3
 
@@ -102,6 +103,21 @@
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
+
+[class*='-full__field--tags']
+  +links_none
+  text-transform: uppercase
+  font-size: .8em
+
+[class*='__field-value-item--tags']
+  display: inline-block
+  padding: $m/4 $m/2
+  margin-bottom: $m/4
+  +border-radius($m/4)
+  background: $palette_yellow
+  +transition(background-color .2s ease)
+  &:hover
+    background-color: darken($palette_yellow, 5%)
 
 .circular-frame
   position: absolute

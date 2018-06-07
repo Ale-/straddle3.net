@@ -100,7 +100,9 @@
             <ul class="project-full__field-value--tags">
                 {% for tag in object.tags.all %}
                 <li class="project-full__field-value-item--tags">
-                    {{ tag.name }}
+                    <a href="{% url 'tag' tag.slug %}">
+                        {{ tag.name }}
+                    </a>
                 </li>
                 {% endfor %}
             </ul>

@@ -1,0 +1,47 @@
+{# Frontpage #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load static utils i18n l10n imagekit %}
+{% block body_classes %}page--tag{% endblock %}
+{% block page_html_title %}Tag: {{ object.name }}{% endblock %}
+
+
+{% block main %}
+
+{# brand #}
+{% include 'blocks/brand.html' %}
+
+{# fake_breadcrumb #}
+<div class="container-fixed">
+    {% fake_breadcrumb %}
+    <h1 class="page__title--tag">
+        tag: {{ object.name }}
+    </h1>
+    <div class="tagged-content masonry">
+        {% if object_list|length > 0 %}
+        {% for item in object_list %}
+            {% if item.published %}
+            <div class="content-item-grid masonry__item three-col">
+            <a href="{{ item.get_absolute_url }}">
+                {% if item.images.all|length > 0 %}
+                <figure class="content-item-grid__image">
+                    {% thumbnail '480x480' item.images.first.image_file %}
+                </figure>
+                {% endif %}
+                <p class="content-item-grid__model">
+                    {{ item|verbose_name }}
+                </p>
+                <h5 class="content-item-grid__name">
+                    {{ item.name }}
+                </h5>
+            </a>
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+    {% masonry %}
+{% endblock %}

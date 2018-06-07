@@ -1,5 +1,6 @@
 # python
 import json
+from itertools import chain
 # django
 from django.shortcuts import render, redirect
 from django.views import View
@@ -99,3 +100,16 @@ class ResourceView(DetailView):
     """ View to display single resources """
 
     model = models.Resource
+
+class TagView(DetailView):
+    """ Display tagged content. """
+
+    model = models.Tag
+
+    def get_context_data(self, **kwargs):
+        context                = super(TagView, self).get_context_data(**kwargs)
+        projects               = models.Project.objects.filter(tags=self.object)
+        connections            = models.Connection.objects.filter(tags=self.object)
+        resources              = models.Resource.objects.filter(tags=self.object)
+        context['object_list'] = [ *chain(projects, connections, resources) ]
+        return context

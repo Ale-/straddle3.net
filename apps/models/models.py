@@ -111,6 +111,7 @@ class Tag(models.Model):
 
     name        = models.CharField(_('Nombre de la etiqueta'), blank=False, max_length=128)
     description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    slug        = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tag')
@@ -120,6 +121,13 @@ class Tag(models.Model):
         """String representation of this model objects."""
 
         return self.name
+
+    def save(self, *args, **kwargs):
+        """Populate automatically 'slug' field"""
+        if not self.slug:
+            self.slug = slugify(self.name)
+
+        super(Tag, self).save(*args, **kwargs)
 
 class ProjectCategory(models.Model):
 

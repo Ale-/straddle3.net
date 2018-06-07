@@ -3,7 +3,8 @@
 .connection-grid,
 .project-grid,
 .resource-grid,
-.team-grid
+.team-grid,
+.content-item-grid
   +links(#222, $color_text, .2s ease)
   padding: $m
 
@@ -17,7 +18,8 @@
 
 .connection-grid,
 .project-grid,
-.resource-grid
+.resource-grid,
+.content-item-grid
   &:hover
     outline: 2px solid $palette_yellow
     [class*='-grid__image'] img
@@ -29,6 +31,7 @@
   margin: $m/4 0
 
 [class*='-grid__category'],
+[class*='-grid__model'],
 [class*='-grid__date']
   text-transform: uppercase
   font-size: .8em

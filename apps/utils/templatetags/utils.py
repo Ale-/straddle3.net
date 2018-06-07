@@ -50,3 +50,7 @@ def fake_breadcrumb(text=_("Volver a la página anterior")):
 @register.inclusion_tag('masonry.html')
 def masonry():
     return { }
+
+@register.filter
+def verbose_name(obj):
+    return obj._meta.verbose_name

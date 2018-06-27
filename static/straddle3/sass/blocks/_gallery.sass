@@ -1,15 +1,15 @@
 // Project gallery
 
-.gallery--project,
-.gallery--connection
+[class*='gallery--']
   margin-top: $m*3
   position: relative
   width: 100%
   background-color: #fbfbfb
 
-.gallery__image--project
+[class*='gallery__image--']
   display: inline
   position: relative
+  +animation(fadein .2s ease)
 
 [class*='gallery__button-']
   position: absolute
@@ -39,10 +39,7 @@
   white-space: nowrap
   overflow: hidden
 
-.gallery__image--project
-  +animation(fadein .2s ease)
-
-.gallery__image-alt--project
+[class*='gallery__image-alt--']
   position: absolute
   bottom: 0
   left: 0

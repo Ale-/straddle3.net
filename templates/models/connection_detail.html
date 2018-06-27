@@ -120,9 +120,11 @@
         {% for image in object.images.all %}
         <li class="gallery__image--connection">
             {% thumbnail 'x480' image.image_file %}
+            {% if not image.not_caption %}
             <p class="gallery__image-alt--connection">
                 {{ image.alt_text }}
             </p>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>

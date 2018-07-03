@@ -3,12 +3,14 @@
 
 <ul class="related-content">
     <li class="related-content__item previous">
+        {% if prev %}
         <a href="{{ prev.get_absolute_url }}">
             <p class="related-content__item-text">
                 {% trans 'Ver contenido anterior' %}
             </p>
             {% include 'views/item--short.html' with item=prev %}
         </a>
+        {% endif %}
     </li>
     <li class="related-content__item all">
         <a href="{% url all_url %}">
@@ -18,11 +20,13 @@
         </a>
     </li>
     <li class="related-content__item next">
+        {% if next %}
         <a href="{{ next.get_absolute_url }}">
             <p class="related-content__item-text">
                 {% trans 'Ver contenido siguiente' %}
             </p>
             {% include 'views/item--short.html' with item=next %}
         </a>
+        {% endif %}
     </li>
 </ul>

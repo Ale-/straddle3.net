@@ -49,7 +49,7 @@
 
 [class*='__geolocation--']
   margin-left: $m*1.25
-  margin-top: -$m*1.5
+  margin-top: -$m*2
   .field__label
     text-align: left
     margin: 0 0 $m
@@ -129,8 +129,11 @@
 .meta-title
   margin-top: 0
   text-align: right
-  max-width: 50%
+  max-width: 75%
   position: relative
-  left: calc(-50% - #{$m})
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+  left: calc(-75% - #{$m})
   +transform-origin(100%)
   +transform(rotate(-90deg))

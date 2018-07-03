@@ -4,16 +4,18 @@
 <div class="flexslider"  style="direction:rtl">
     <ul class="flexslider__items slides">
         {% for image in images %}
-        <li class="flexslider__item slide">
-            <a href="{{ image.image_file.url }}" data-lightbox="project">
-                {% thumbnail 'x480' image.image_file %}
-            </a>
-            {% if not notcaption %}
-            <p class="flexslider__item-caption flex-caption">
-                {{ image.alt_text }}
-            </p>
+            {% if image.image_file.url|file_exists %}
+            <li class="flexslider__item slide">
+                <a href="{{ image.image_file.url }}" data-lightbox="project">
+                    {% thumbnail 'x480' image.image_file %}
+                </a>
+                {% if not notcaption %}
+                <p class="flexslider__item-caption flex-caption">
+                    {{ image.alt_text }}
+                </p>
+                {% endif %}
+            </li>
             {% endif %}
-        </li>
         {% endfor %}
         {% for video in videos %}
         <li class="flexslider__item slide">

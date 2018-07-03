@@ -1,3 +1,5 @@
+# python
+import os
 # django
 from django import template
 from django.utils.translation import ugettext_lazy as _
@@ -84,3 +86,7 @@ def videoembed(src, w, h):
         print(resource)
         return mark_safe("<iframe src='%s' width='%s' height='%s' %s></iframe>" % ( resource, w, h, common_attrs ))
     return ''
+
+@register.filter
+def file_exists(path):
+    return os.path.isfile("%s/%s" % ( settings.BASE_DIR, path))

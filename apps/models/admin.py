@@ -62,6 +62,8 @@ def cached_admin_thumb(instance):
         return cached
     return None
 
+admin.site.register(models.Image)
+
 class ImageInline(SortableGenericTabularInline):
     model  = models.Image
     extra  = 0
@@ -122,7 +124,6 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     thumb.short_description       = 'Imagen'
 
 admin.site.register(models.Project, ProjectAdmin)
-
 
 class TeamMemberAdmin(admin.ModelAdmin):
     model        = models.TeamMember

@@ -69,9 +69,9 @@ class ProjectView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
-        date = context['object'].start_date
-        context['previous_project'] = models.Project.objects.filter(start_date__lt=date).order_by('start_date').first()
-        context['next_project'] = models.Project.objects.filter(start_date__gt=date).order_by('start_date').first()
+        name = context['object'].name
+        context['previous_project'] = models.Project.objects.filter(name__lt=name).order_by('name').first()
+        context['next_project'] = models.Project.objects.filter(name__gt=name).order_by('name').first()
         return context
 
 class ProjectList(ListView):

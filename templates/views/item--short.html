@@ -3,7 +3,9 @@
 
 <div class="item--short">
     <figure class="field item__image--short">
-        {% thumbnail '48x48' item.images.first.image_file %}
+        {% if item.images.first %}
+            {% thumbnail '48x48' item.images.first.image_file %}
+        {% endif %}
         <figcaption class="field item__title--short">
             {{ item.name }}
         </figcaption>

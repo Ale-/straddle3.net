@@ -5,153 +5,68 @@
 {% block page_html_title %}{{ object.name }}{% endblock %}
 
 {% block page_header %}
-  {% leaflet_css %}
+    {% leaflet_css %}
+    <link rel="stylesheet" href='{% static 'flexslider/flexslider.css' %}' />
+    <link rel="stylesheet" href='{% static 'lightbox2/dist/css/lightbox.min.css' %}' />
 {% endblock %}
 
 {% block main %}
 
-{# brand #}
-{% include 'blocks/brand.html' %}
-
+{% if request.user.is_staff %}
 <div class="page__edit--connection">
     <a href="{% url 'admin:models_connection_change' object.id %}" target="_blank">
         {% trans 'Edita este contenido' %}
     </a>
 </div>
+{% endif %}
 
-<div class="connection-header">
-    {# image #}
-    {% if object.images %}
-    <div class="connection-header__field--featured-image">
-        <div class="connection-header__field-value--featured-image"
-            style="background-image: url('{% get_media_prefix %}{{ object.images.first.image_file }}')">
+<div class="page__content--project">
+    <div class="container-fixed">
+        <nav class="breadcrumb">
+            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'connections' %}">{% trans 'Conexiones' %}</a> » {{ object.name }}
+        </nav>
+        {# title #}
+        <h1 class="page__title--project">
+            {{ object.name }}
+        </h1>
+        {# dates #}
+        {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='connection' m='full' %}
+        <div class="left">
+            {# body #}
+            {% field obj=object field_name='description' %}
         </div>
-        <p class="connection-header__field-alt--featured-image">
-            <strong>img</strong>: {{ object.images.first.alt_text }}
-        </p>
-    </div>
-    {% endif %}
-
-    {# dates #}
-    {% if object.start_date or object.end_date %}
-    <div class="connection-full__field--dates">
-        <p class="connection-full__field-value--dates">
-            {% if object.start_date %}
-            <span class="connection-full__field-value-item--dates start">{{ object.start_date }}</span>
-            {% endif %}
-            {% if object.end_date %}
-            <span class="hyphen">–</span>
-            <span class="connection-full__field-value-item--dates end">{{ object.end_date }}</span>
-            {% endif %}
-        </p>
-    </div>
-    {% endif %}
-</div>
-
-{# title #}
-<h1 class="page__title--connection">
-    {{ object.name }}
-</h1>
-
-<div class="connection-full container-fixed">
-    {# fake_breadcrumb #}
-    {% fake_breadcrumb %}
-    {# breadcrumb #}
-    <div class="page-links">
-        <a href="{% url 'connections' %}">
-            {% trans 'Ver todas las conexiones' %}
-        </a>
-    </div>
-
-
-    {# meta #}
-    <div class="connection-full__meta">
-        {# geolocation #}
-        <img class="circular-frame" src="{% img 'circular-frame.png' %}" />
-        <div id="connection-map" class="connection-full__field--geolocation" width="360px" height="312px">
+        <div class="right">
+            {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
+            {% include 'blocks/share.html' %}
         </div>
-        {# category #}
-        <div class="connection-full__field--category">
-            <label class="connection-full__field-label--category">
-                {% field_verbose_name object 'category' %}
-            </label>
-            <div class="connection-full__field-value--category">
-                <span class="bullet" style="color: {{ object.category.color }}">●</span>
-                {{ object.category.name }}
+    </div>
+    <div class="page__content-bottom--connection">
+        <div class="container-fixed">
+            <div class="left">
+                <h4 class="meta-title">{{ object.name }}</h4>
+                {# geolocation #}
+                {% include 'fields/field--geolocation.html' with b="connection" m="full" %}
+            </div>
+            <div class="center">
+                {# promoter #}
+                {% field obj=object field_name='agents' label=True %}
+            </div>
+            <div class="right">
+                {# category #}
+                {% include 'fields/field--category.html' with b="connection" m="full" category=object.category %}
+                {# tags #}
+                {% include 'fields/field--tags.html' with b="connection" m="full" tags=object.tags.all %}
+                {# links #}
+                {% include 'fields/field--links.html' with b="connection" m="full" links=object.links.all %}
             </div>
         </div>
-
-        {# promoter #}
-        {% trans 'Agents' as agents_text_label %}
-        {% field obj=object field_name='agents' label=True field_label=promoter_text_label %}
-
-        {# links #}
-        {% if object.links.all|length > 0 %}
-        {% trans 'Enlaces relacionados' as related_links_label %}
-        <div class="connection-full__field--links">
-            <label class="connection-full__field-label--links">
-                {{ related_links_label }}
-            </label>
-            <ul class="connection-full__field-value--links">
-                {% for link in object.links.all %}
-                <li class="connection-full__field-value-item--links">
-                    <p>» {{ link.title }}:</p>
-                    <a href="{{ link.url }}" target="_blank">
-                        {{ link.url }}
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
     </div>
-
-    {# body #}
-    {% field obj=object field_name='description' %}
-</div>
-
-{# gallery #}
-<div class="gallery--connection">
-    {% trans 'Galería de imágenes' as gallery_label %}
-    <div id="gallery-left-button" class="gallery__button-left--connection">
-        ➜
-    </div>
-    <ul id="gallery-container" class="gallery__images--connection">
-        {% for image in object.images.all %}
-        <li class="gallery__image--connection">
-            {% thumbnail 'x480' image.image_file %}
-            {% if not image.not_caption %}
-            <p class="gallery__image-alt--connection">
-                {{ image.alt_text }}
-            </p>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-    <div id="gallery-right-button" class="gallery__button-right--connection">
-        ➜
-    </div>
+    {% include 'blocks/next-navigation.html' with prev=previous_connection next=next_connection all_url='connections' see_all='Ver todas las conexiones' %}
 </div>
 
 {% endblock %}
 
 {% block page_scripts %}
-  {% leaflet_js %}
-  <script type="text/javascript">
-      var map = L.map('connection-map', {
-          scrollWheelZoom    : false,
-          attributionControl : false,
-          zoomControl: false,
-      }).setView([{{ object.geolocation.coordinates.1|unlocalize }}, {{ object.geolocation.coordinates.0|unlocalize }}], 12);
-      L.control.zoom({'position' : 'topright'}).addTo(map);
-      L.tileLayer('https://api.mapbox.com/styles/v1/ale/cj3rpgd2n00142slekpjya98f/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWxlIiwiYSI6ImpKQ2dnekEifQ.GjyY2X3Wa6pgoHTPOrUBdA', {
-        attribution: '<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a>'
-      }).addTo(map);
-  </script>
-  {# jquery #}
-  <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-  <script type="text/javascript" src="{% js 'gallery.js' %}"></script>
+    {% include 'scripts/situation-map.html' with position=object.geolocation %}
+    {% include 'scripts/flexslider.html' %}
 {% endblock %}

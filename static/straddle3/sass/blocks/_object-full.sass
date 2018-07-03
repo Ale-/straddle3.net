@@ -1,85 +1,63 @@
 // Generic full view of models and overrides
 // /models/{{*}}_detail.html
 
-[class*='__field-label--']
+.field__label
   display: block
   margin: $m 0 $m/4
   +h(5)
   text-transform: uppercase
 
-[class*='full__field--summary']
-  padding: $m*2 $m*4 0
-  margin: $m 0 0
-  border-top: 1px solid $color_text
-
-[class*='full__field-value--summary']
+[class*='__summary--'],
+.connection__description--,
+.resource__description--
+  padding: 0 $m*2
+  margin: $m*2 0
   font-size: 1.5em
   line-height: 1.5
   text-decoration: underline
   text-decoration-color: $color_text
+  border-left: 8px solid #3f3f3f
 
-[class*='full__field-value--body'],
-[class*='full__field-value--description']
+[class*='__body--']
   padding: 0 $m*2 0 0
-  margin-top: $m*3
-
-[class*='full__field-value--body']
-  margin-bottom: $m/4
-
-[class*='full__field-value--body']
-  p:first-child:first-letter
-    font-size: 8em
-    float: left
-    margin: 0 $m $m/2 0
-    display: inline-block
-    background: $palette_yellow
-    padding: $m/2
   p
-    margin-bottom: $m/3
-  p:not(:first-child)
-    text-indent: $m*2
+    margin-bottom: $m/6
 
-[class*='full__field--dates']
-  background-color: #222
-  color: white
-  padding: $m/4 $m
+[class*='__body--']
+  margin-bottom: $m*3
+
+[class*='__date--']
   +date
+  .hyphen
+    margin: 0 $m/4
+  &:before
+    content: " "
+    display: block
+    width: $m*2
+    border-top: 8px solid #3f3f3f
+    margin-bottom: 8px
 
-[class*='full__field-value--category'] .bullet
+[class*='__category--'] .bullet
   position: relative
   bottom: 2px
 
-[class*='full__field-value-item--links']
-  +links($color_text, lighten($color_text, 10%), .2s ease)
+[class*='__links--']
+  +links($palette_yellow, darken($palette_yellow, 5%), .2s ease)
   a
     text-decoration: underline !important
     text-decoration-style: dotted !important
 
-// Header
+[class*='__geolocation--']
+  margin-left: $m*1.25
+  margin-top: -$m*1.5
+  .field__label
+    text-align: left
+    margin: 0 0 $m
 
-[class*='header__field--featured-image']
-  position: relative
-
-[class*='header__field-value--featured-image']
-  height: 50vh
-  background-attachment: fixed
-  // filter: grayscale(100%)
-
-[class*='header__field-alt--featured-image']
-  display: inline-block
-  position: absolute
-  bottom: -1px
-  background: white
-  padding: 0 $m
-  height: $m
-  line-height: $m
-  font-size: .9em
-
-[class*='full__field--geolocation']
-  height: 312px
-  width: 100%
+[class*='__geolocation--'] .leaflet-container
+  height: $width_fixed/4
+  width: $width_fixed/4
   background: white !important
-  margin-bottom: $m*2
   .leaflet-bar
     border: 0
     a
@@ -87,15 +65,19 @@
       border: 0
       background-color: #ffdb00
 
+.circular-frame
+  position: absolute
+  max-width: $width_fixed/4
+  z-index: 1000
+  pointer-events: none
+  display: block
+
 // Meta box
 
 [class*='full__meta']
-  float: right
   padding: 0 0 $m*2 $m*2
-  margin: $m*3 $m $m $m*2
-  width: 360px
   position: relative
-  border-left: 1px solid $color_text
+  font-size: .9em
 
 [class*='full__meta'] a
   display: block
@@ -104,12 +86,13 @@
   text-overflow: ellipsis
   white-space: nowrap
 
-[class*='-full__field--tags']
-  +links_none
+[class*='__tags--']
   text-transform: uppercase
   font-size: .8em
-
-[class*='__field-value-item--tags']
+[class*='__tags--'] .field__value
+  +links_none
+  color: $color_text
+[class*='__tags--'] .field__value-item
   display: inline-block
   padding: $m/4 $m/2
   margin-bottom: $m/4
@@ -119,9 +102,35 @@
   &:hover
     background-color: darken($palette_yellow, 5%)
 
-.circular-frame
-  position: absolute
-  max-width: calc(360px - #{$m*2})
-  z-index: 1000
-  pointer-events: none
-  display: block
+.trimmed-content
+  [class*='__body--'],
+  .see-less
+    display: none
+  .see-more
+    display: inline-block
+
+.see-more
+  display: none
+  text-transform: uppercase
+  font-size: .8em
+  letter-spacing: 1px
+
+.see-more,
+.see-less
+  +button_reset
+  +transition(background-color, .2s ease)
+  float: left
+  margin: $m $m $m/2 0
+  background: $palette_yellow
+  padding: $m/2
+  &:hover
+    background-color: darken($palette_yellow, 5%)
+
+.meta-title
+  margin-top: 0
+  text-align: right
+  max-width: 50%
+  position: relative
+  left: calc(-50% - #{$m})
+  +transform-origin(100%)
+  +transform(rotate(-90deg))

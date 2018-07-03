@@ -7,41 +7,18 @@
 
 {% block main %}
 
-{# brand #}
-{% include 'blocks/brand.html' %}
-
-{# fake_breadcrumb #}
 <div class="container-fixed">
-    {% fake_breadcrumb %}
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Conexiones' %}
+    </nav>
+    <h1 class="page__title--connections">
+        {% trans 'Conexiones' %}
+    </h1>
     <div class="list--connections masonry">
         {% if object_list|length > 0 %}
-        {% for connection in object_list %}
-            {% if connection.published %}
-            <div class="connection-grid masonry__item three-col">
-            <a href="{{ connection.get_absolute_url }}">
-                {% if connection.images.all|length > 0 %}
-                <figure class="connection-grid__image">
-                    {% thumbnail '480x480' connection.images.first.image_file %}
-                </figure>
-                {% endif %}
-                <p class="connection-grid__category">
-                    {{ connection.category }}
-                </p>
-                <h5 class="connection-grid__name">
-                    {{ connection.name }}
-                </h5>
-                <p class="connection-grid__date">
-                    {% if connection.start_date %}
-                    {{ connection.start_date|date:"M Y" }}
-                    {% endif %}
-                    {% if connection.end_date %}
-                    –{{ connection.end_date|date:"M Y" }}
-                    {% endif %}
-                </p>
-            </a>
-            </div>
-            {% endif %}
-        {% endfor %}
+            {% for connection in object_list %}
+                {% include 'views/item--grid.html' with item=connection show_cat=True show_date=True %}
+            {% endfor %}
         {% endif %}
     </div>
 </div>

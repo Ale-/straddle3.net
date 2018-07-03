@@ -1,0 +1,40 @@
+// Block with links to next and previous content item
+
+.related-content
+  background-color: $palette_yellow
+  color: #222
+  +links_none
+  +clearfix
+  height: 120px
+
+.related-content__item
+  display: inline-block
+  width: 33.33%
+  float: left
+  padding: $m/2
+  text-align: center
+  &:hover
+    background-color: darken($palette_yellow, 5%)
+
+.related-content__item-text
+  font-size: .75em
+  margin-bottom: $m/6
+  text-transform: uppercase
+
+.related-content__item.all
+  padding: 0
+  a
+    line-height: 120px
+  .related-content__item-text
+    margin-bottom: 0
+
+.item__image--short
+  text-align: center
+.item--short
+  +links_none
+.item__image--short
+  img
+    +border-radius(50%)
+.item__title--short
+  text-align: center
+  +h(5)

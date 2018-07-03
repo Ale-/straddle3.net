@@ -1,9 +1,23 @@
 // Region header
 
 .region-header
-  padding: $m/2 $m
   position: fixed
-  background: rgba($palette_yellow, .8)
-  z-index: 10000
-  width: $m*5
-  height: 100vh
+  z-index: 10001
+  width: 100vw
+  line-height: $m*2
+
+.region-header__left
+  display: inline-block
+  padding-left: $m
+
+.region-header__right
+  float: right
+  padding: 0 $m
+  background: #232323
+  color: $palette_yellow
+  +clearfix
+  .lang-switcher
+    float: left
+    margin-right: $m
+  .hamburguer-icon
+    float: right

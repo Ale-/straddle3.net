@@ -163,6 +163,7 @@ class Project(models.Model):
     published      = models.BooleanField(_('Publicado'), default=False, help_text=_("Indica si este contenido es visible públicamente"))
     featured       = models.BooleanField(_('Destacado'), default=False, help_text=_("Indica si este contenido es destacado y ha de tener mayor visibilidad"))
     links          = GenericRelation(Link)
+    videos         = GenericRelation(Video)
     not_summary    = models.BooleanField(_('No mostrar resumen'), default=False, help_text=_("Marca para no mostrar el resumen en las vistas completas"))
 
     class Meta:
@@ -213,6 +214,7 @@ class Connection(models.Model):
     agents      = models.TextField(_('Agentes'), blank=True, null=True)
     tags        = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     images      = GenericRelation(Image)
+    videos      = GenericRelation(Video)
     published   = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured    = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
     links       = GenericRelation(Link)

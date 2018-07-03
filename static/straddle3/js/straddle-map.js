@@ -28,29 +28,33 @@
         for(var i in response){
             var m = response[i];
             var popup_content = "";
-            if(m.img){
-                popup_content += "<img class='marker-img' src='" + m.img + "'/>";
-            }
-            if(m.cat){
-                popup_content += "<p class='marker-cat'><span style='color:" + m.col +"'>■</span> " + m.cat + "</p>";
-            }
-            popup_content += "<h4 class='marker-name'><a href='" + m.url + "'>" + m.name + "</a></h4>";
-            if(m.start_date){
-                popup_content += "<p class='marker-date'>" + m.start_date;
-            };
-            if(m.end_date){
-                popup_content += "—" + m.end_date; + "</p>";
-            } else {
+            if(m.pos){
+                if(m.cat){
+                  // popup_content += "<p class='marker-cat'><span style='color:" + m.col +"'>■</span> " + m.cat + "</p>";
+                  popup_content += "<p class='marker-cat'>" + m.cat + "</p>";
+                }
+                if(m.img){
+                    popup_content += "<img class='marker-img' src='" + m.img + "'/>";
+                }
+                popup_content += "<h4 class='marker-name'><a href='" + m.url + "'>" + m.name + "</a></h4>";
+                // if(m.start_date){
+                //     popup_content += "<p class='marker-date'>" + m.start_date;
+                // };
+                // if(m.end_date){
+                //     popup_content += "—" + m.end_date; + "</p>";
+                // } else {
+                //     popup_content += "</p>";
+                // }
                 popup_content += "</p>";
-            }
-            if(m.txt){
-                popup_content += "<p class='marker-summary'>" + m.txt + "</p>";
-            }
+                if(m.txt){
+                    popup_content += "<p class='marker-summary'>" + m.txt + "</p>";
+                }
 
-            var popup = document.createElement('div');
-            popup.innerHTML = popup_content;
+                var popup = document.createElement('div');
+                popup.innerHTML = popup_content;
 
-            L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09], { icon : icon }).addTo(map).bindPopup(popup);
+                L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09], { icon : icon }).addTo(map).bindPopup(popup);
+            }
         }
     });
 })})(jQuery);

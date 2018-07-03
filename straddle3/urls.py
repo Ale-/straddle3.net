@@ -13,6 +13,7 @@ admin.site.site_header = settings.ADMIN_SITE_HEADER
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^i18n/',  include('django.conf.urls.i18n')),
     # API
     url(r'^api/map$', views.MapApi, name="map"),
 ]

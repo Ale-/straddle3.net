@@ -1,0 +1,32 @@
+// Hamburguer icon (for navigations)
+=hamburguer-icon($side, $color)
+  width: $side
+  height: $side
+  display: block
+  i
+    width: 100%
+    display: block
+    height: 3px
+    margin-bottom: 6px
+    background-color: $color
+  i:last-child
+    margin-bottom: 0
+  &:hover
+    i
+      background-color: white
+
+.hamburguer-icon
+  +hamburguer-icon($m, $palette_yellow)
+  margin-top: $m/2
+  &:hover
+    cursor: pointer
+  i
+    +transition(transform .25s ease)
+
+.navigation-open .hamburguer-icon
+  i:first-child
+    +transform(translateY(8px) rotate(45deg))
+  i:nth-child(2)
+    opacity: 0
+  i:last-child
+    +transform(translateY(-10px) rotate(-45deg))

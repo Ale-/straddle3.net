@@ -1,0 +1,17 @@
+{# flexslider needed scripts #}
+{% load static %}
+
+{# jquery #}
+<script type="text/javascript" src='{% static 'jquery/dist/jquery.min.js' %}'></script>
+{# flexslider #}
+<script type="text/javascript" src='{% static 'flexslider/jquery.flexslider.js' %}'></script>
+{# lightbox #}
+<script type="text/javascript" src='{% static 'lightbox2/dist/js/lightbox.min.js' %}'></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $('.flexslider').flexslider({
+        animation: "slide",
+        rtl: true
+    });
+});
+</script>

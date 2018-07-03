@@ -1,0 +1,28 @@
+{# block of navigation links at the bottom of the items #}
+{% load static i18n %}
+
+<ul class="related-content">
+    <li class="related-content__item previous">
+        <a href="{{ prev.get_absolute_url }}">
+            <p class="related-content__item-text">
+                {% trans 'Ver contenido anterior' %}
+            </p>
+            {% include 'views/item--short.html' with item=prev %}
+        </a>
+    </li>
+    <li class="related-content__item all">
+        <a href="{% url all_url %}">
+            <p class="related-content__item-text">
+                {{ see_all }}
+            </p>
+        </a>
+    </li>
+    <li class="related-content__item next">
+        <a href="{{ next.get_absolute_url }}">
+            <p class="related-content__item-text">
+                {% trans 'Ver contenido siguiente' %}
+            </p>
+            {% include 'views/item--short.html' with item=next %}
+        </a>
+    </li>
+</ul>

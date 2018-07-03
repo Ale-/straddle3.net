@@ -1,0 +1,18 @@
+{# team members #}
+{% load imagekit %}
+
+{% if person.published %}
+<div class="team-grid masonry__item three-col">
+    {% if person.image %}
+    <figure class="team-grid__image">
+        {% thumbnail '480x480' person.image %}
+    </figure>
+    {% endif %}
+    <h5 class="team-grid__name">
+        {{ person.fullname }}
+    </h5>
+    <p class="team-grid__text">
+        {{ person.summary }}
+    </p>
+</div>
+{% endif %}

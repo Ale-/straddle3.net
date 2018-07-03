@@ -31,7 +31,11 @@
         {# Content layouts #}
         {% block layout %}{% endblock %}
 
+        {# navigation #}
+        {% include 'regions/navigation.html' with region_name='navigation' html_container='aside' layout='fluid' %}
+
         {# Page scripts #}
+        <script type="text/javascript" src="{% js 'common.js' %}"></script>
         {% block page_scripts %}{% endblock %}
     </body>
 </html>

@@ -67,6 +67,13 @@ class ProjectView(DetailView):
 
     model = models.Project
 
+    def get_context_data(self, **kwargs):
+        context = super(ProjectView, self).get_context_data(**kwargs)
+        date = context['object'].start_date
+        context['previous_project'] = models.Project.objects.filter(start_date__lt=date).order_by('start_date').first()
+        context['next_project'] = models.Project.objects.filter(start_date__gt=date).order_by('start_date').first()
+        return context
+
 class ProjectList(ListView):
     """ View to display a list of projects """
 
@@ -77,6 +84,13 @@ class ConnectionView(DetailView):
     """ View to display single connections """
 
     model = models.Connection
+
+    def get_context_data(self, **kwargs):
+        context = super(ConnectionView, self).get_context_data(**kwargs)
+        name= context['object'].name
+        context['previous_connection'] = models.Connection.objects.filter(name__lt=name).order_by('name').first()
+        context['next_connection'] = models.Connection.objects.filter(name__gt=name).order_by('name').first()
+        return context
 
 class ConnectionList(ListView):
     """ View to display a list of connections """
@@ -100,6 +114,13 @@ class ResourceView(DetailView):
     """ View to display single resources """
 
     model = models.Resource
+
+    def get_context_data(self, **kwargs):
+        context = super(ResourceView, self).get_context_data(**kwargs)
+        name = context['object'].name
+        context['previous_resource'] = models.Resource.objects.filter(name__lt=name).order_by('name').first()
+        context['next_resource'] = models.Resource.objects.filter(name__gt=name).order_by('name').first()
+        return context
 
 class TagView(DetailView):
     """ Display tagged content. """

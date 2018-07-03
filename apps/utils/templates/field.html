@@ -1,12 +1,12 @@
 {% if field_value %}
-<div class="{{ container_name }}__field--{{ field_name }}">
+<div class="field {{ container_name }}__{{ field_name }}--{{ m }}">
     {% if label %}
-    <{{ label_html_wrapper }} class="{{ container_name }}__field-label--{{ field_name }}">
-      {{ field_label }}
+    <{{ label_html_wrapper }} class="field__label">
+        {{ field_label }}
     </{{ label_html_wrapper }}>
     {% endif %}
-    <{{ value_html_wrapper }} class="{{ container_name }}__field-value--{{ field_name }}">
-      {{ field_value | safe }}
+    <{{ value_html_wrapper }} class="field__value">
+        {{ field_value | safe }}
     </{{ value_html_wrapper }}>
 </div>
 {% endif %}

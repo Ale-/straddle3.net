@@ -13,6 +13,12 @@ PROJECT_STATIC_FOLDER = 'straddle3'
 STATICFILES_DIRS = [
     ( PROJECT_STATIC_FOLDER, STATIC_ROOT + '/' + PROJECT_STATIC_FOLDER + '/' ),
 ]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+)
+BOWER_COMPONENTS_ROOT =  STATIC_ROOT
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(ENV_PATH, '..', 'media')
 
@@ -40,7 +46,8 @@ CONTRIB_APPS = [
     'ckeditor_uploader',
     'imagekit',
     'adminsortable',
-    'colorfield'
+    'colorfield',
+    'djangobower'
 ]
 
 PROJECT_APPS = [
@@ -49,6 +56,11 @@ PROJECT_APPS = [
 ]
 
 INSTALLED_APPS = CONTRIB_APPS + PROJECT_APPS
+
+BOWER_INSTALLED_APPS = (
+    'flexslider',
+    'lightbox'
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,0 +1,9 @@
+{# geolocation #}
+{% load utils %}
+
+<div class="field {{b}}__geolocation{% if m %}--{{m}}{% endif %}">
+    <div class="field__value">
+        <img class="circular-frame" src="{% img 'circular-frame--dark.png' %}" />
+        <div id="situation-map" width="360px" height="312px"></div>
+    </div>
+</div>

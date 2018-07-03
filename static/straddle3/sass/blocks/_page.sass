@@ -1,21 +1,63 @@
 // Page generic elements and overrides
 
 [class*='page__title']
-  background-color: #ffdb00
   color: rgba(black, .75)
-  border-top: 2px solid white
-  padding: 0 $m
-  margin-top: 0
-  line-height: $m*3
-  height: $m*3
+  text-transform: uppercase
+  margin: 0
+  font-size: 3em
 
 [class*='page__edit']
   position: fixed
-  top: $m
-  right: $m
-  z-index: 10000
-  background-color: rgba(#ffdb00, .75)
+  top: $m/2
+  right: $m*5
+  z-index: 11000
   line-height: $m
-  padding: 0 $m/2
   +links_none
+  a
+    +label
+    padding: $m/4 $m/2
+    background-color: $palette_yellow
+    +transition(background-color, .15s ease)
+  a:hover
+    background-color: darken($palette_yellow, 5%)
+
+[class*='page__links']
+  float: right
+  display: inline-block
+  +links_none
+
+[class*='page__links'] a
+  +button_reset
+  +button_remarked
   +label
+  &:after
+    content: " ➜"
+    color: #ffdb00
+
+[class*='page__content--']
+  +clearfix
+  .left
+    width: 50%
+    display: inline-block
+    float: left
+    clear: left
+  .right
+    width: 50%
+    display: inline-block
+  .bottom
+    +clearfix
+    margin: $m 0
+
+[class*='page__content-bottom']
+  padding: $m 0
+  background-color: #232323
+  color: white
+  .left, .center, .right
+    display: inline-block
+    width: 33%
+    float: left
+    padding: 0 $m
+  .left
+    text-align: center
+  .field:first-of-type .field__label
+    margin-top: 0

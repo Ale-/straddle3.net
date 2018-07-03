@@ -40,7 +40,7 @@ def field(obj=None, field_name=None, value_html_wrapper='div', label=False, labe
         'field_value'        : field_value,
         'value_html_wrapper' : value_html_wrapper,
         'label_html_wrapper' : label_html_wrapper,
-        'container_name'     : model_name + "-" + container,
+        'container_name'     : model_name,
     }
 
 @register.inclusion_tag('fake-breadcrumb.html')
@@ -54,3 +54,33 @@ def masonry():
 @register.filter
 def verbose_name(obj):
     return obj._meta.verbose_name
+
+@register.filter(name='remove_i18n_prefix')
+def remove_i18n_prefix(value):
+    if value.startswith('/en') or value.startswith('/es'):
+        value = value[3::]
+    return value
+
+@register.simple_tag
+def videoembed(src, w, h):
+    uri           = src.split('://')[1]
+    service       = uri.split('/')[0]
+    common_attrs  = "frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen"
+    resource      = ""
+    if service == 'vimeo.com' or service == 'youtu.be':
+        resource = "https://player.vimeo.com/video/%s" % uri.split('/')[1]
+    elif service == 'www.youtube.com':
+        if '?v=' in uri:
+            resource = uri.split('?v=')[1]
+        elif '&v=' in uri:
+            resource = uri.split('&v=')[1]
+        resource = "https://www.youtube.com/embed/%s" % resource
+    elif service == 'youtu.be':
+        resource = "https://www.youtube.com/embed/%s" % uri.split('/')[1]
+    elif service == 'www.ccma.cat':
+        resource = uri.split('/video/')[1]
+        resource = "http://www.ccma.cat/video/embed/%s" % resource
+    if resource is not "":
+        print(resource)
+        return mark_safe("<iframe src='%s' width='%s' height='%s' %s></iframe>" % ( resource, w, h, common_attrs ))
+    return ''

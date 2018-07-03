@@ -1,0 +1,14 @@
+{# category #}
+{% load i18n %}
+
+{% if category %}
+<div class="field {{b}}__category{% if m %}--{{m}}{% endif %}">
+    <label class="field__label">
+        {% trans 'Categoría' %}
+    </label>
+    <div class="field__value">
+        <span class="bullet" style="color: {{ category.color }}">●</span>
+        {{ category.name }}
+    </div>
+</div>
+{% endif %}

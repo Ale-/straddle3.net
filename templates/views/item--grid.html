@@ -1,0 +1,41 @@
+{# Generic item in views, as in tagged content #}
+{% load imagekit utils %}
+
+{% if item.published %}
+<div class="item--grid masonry__item three-col">
+<a href="{{ item.get_absolute_url }}">
+    {% if item.images.all|length > 0 %}
+    <figure class="item__image--grid">
+        {% thumbnail '480x480' item.images.first.image_file %}
+    </figure>
+    {% endif %}
+    {% if show_model or show_cat %}
+    <p class="item__categories--grid">
+        {% if show_model %}
+        <span class="item__model--grid">
+            {{ item|verbose_name }}
+        </span>
+        {% endif %}
+        {% if show_cat and item.category %}
+        <span class="item__category--grid">
+            {{ item.category }}
+        </span>
+        {% endif %}
+    </p>
+    {% endif %}
+    <h5 class="item__name--grid">
+        {{ item.name }}
+    </h5>
+    {% if show_date and item.start_date or item.end_date %}
+    <p class="item__date--grid">
+        {% if item.start_date %}
+            {{ item.start_date|date:"M Y" }}
+        {% endif %}
+        {% if item.end_date %}
+            –{{ item.end_date|date:"M Y" }}
+        {% endif %}
+    </p>
+    {% endif %}
+</a>
+</div>
+{% endif %}

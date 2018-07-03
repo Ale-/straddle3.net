@@ -1,6 +1,12 @@
 {# Header region #} {% extends 'regions/region-base.html' %}
 
 {% block region_content %}
-    {% include 'menus/menu-main.html' %}
-    {% include 'menus/menu-user.html' %}
+    {# brand #}
+    <div class="region-header__left">
+        {% include 'blocks/brand.html' %}
+    </div>
+    <div class="region-header__right">
+        {% include 'blocks/language-switcher.html' %}
+        {% include 'blocks/hamburguer.html' %}
+    </div>
 {% endblock %}

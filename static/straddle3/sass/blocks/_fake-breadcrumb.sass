@@ -1,5 +1,10 @@
+// Breadcrumbs
+  /templates/blocks/fake-breadcrumb.html
+  /templates/blocks/breadcrumb.html
+
 .fake-breadcrumb
   display: inline-block
+  float: left
 
 .fake-breadcrumb__button
   +button_remarked
@@ -13,14 +18,12 @@
     display: inline-block
     +transform(rotate(180deg))
 
-.page-links
-  float: right
+.breadcrumb
+  text-transform: uppercase
+  font-size: .8em
   +links_none
-
-.page-links a
-  +button_reset
-  +button_remarked
-  +label
-  &:after
-    content: " ➜"
-    color: #ffdb00
+  a
+    font-weight: bold
+    +transition(background-color, .15s ease)
+  a:hover
+    background-color: $palette_yellow

@@ -1,0 +1,11 @@
+{# Project displayed with 'short' layout #}
+{% load imagekit i18n %}
+
+<div class="item--short">
+    <figure class="field item__image--short">
+        {% thumbnail '48x48' item.images.first.image_file %}
+        <figcaption class="field item__title--short">
+            {{ item.name }}
+        </figcaption>
+    </figure>
+</div>

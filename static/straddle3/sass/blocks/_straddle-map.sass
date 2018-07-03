@@ -5,10 +5,9 @@
 
 .page--map .leaflet-bar
   +links(white, $palette_yellow, .2 ease)
-  border: 1px solid rgba(yellow, .25)
+  border: 0
   a
     +border-radius(0)
-    border: 0
     background-color: #222
     +box-shadow(none)
 
@@ -24,13 +23,32 @@
 .page--map .leaflet-popup-content
   width: 480px
   max-width: 100%
-  +links(darken($palette_yellow, 5%), $palette_yellow, .2s ease)
+  +links_none
 
 .page--map .marker-cat
   margin-bottom: 0
+  text-transform: uppercase
+  font-size: .9em
+  font-family: $font_text
+  position: absolute
+  top: -30px
+  left: 0
+  width: 100%
+  background-color: #222
+  color: white
+  padding: 0 $m
 
 .page--map .marker-name
-  margin: 0 0 $m/4
+  margin: $m/4 0
+  line-height: 1.1
+  text-transform: uppercase
+  font-size: 2.25em
+  &::after
+    display: block
+    content: " "
+    border-top: 4px solid #222
+    width: $m*2.5
+    margin-top: $m/2
 
 .page--map .marker-date
   font-size: .9em
@@ -40,3 +58,7 @@
 .page--map .marker-summary
   font-family: $font_text
   font-size: 1.2em
+
+.page--map .leaflet-top
+  top: $m*2
+  right: 10px

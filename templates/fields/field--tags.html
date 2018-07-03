@@ -1,0 +1,19 @@
+{# tags #}
+{% load i18n %}
+
+{% if tags|length > 0 %}
+<div class="field {{b}}__tags{% if m %}--{{m}}{% endif %}">
+    <label class="field__label">
+        {% trans 'Tags' %}
+    </label>
+    <ul class="field__value">
+        {% for tag in object.tags.all %}
+        <li class="field__value-item">
+            <a href="{% url 'tag' tag.slug %}">
+                {{ tag.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

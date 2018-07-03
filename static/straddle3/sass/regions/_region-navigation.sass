@@ -1,0 +1,17 @@
+// Region navigation
+
+@import compass/css3/transition
+
+.region-navigation
+  position: fixed
+  width: $navigation_width
+  right: -$navigation_width
+  top: 0
+  height: 100vh
+  z-index: 10000
+  font-family: $font_text
+  font-weight: bold
+  +transition(right .25s ease)
+
+.navigation-open .region-navigation
+  right: 0

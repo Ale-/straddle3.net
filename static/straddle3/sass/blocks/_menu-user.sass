@@ -1,12 +1,9 @@
 // User menu
 
 .menu-user
-  +links($color_text, #222, .2s ease)
+  padding: $m*2 $m
+  font-size: 1em
+  +links($palette_yellow, white, .2s ease)
   font-family: $font_text
   text-transform: uppercase
-  font-size: .8em
-  position: fixed
-  bottom: $m
-
-.menu-main__link
-  margin: $m 0
+  background: rgba(#000, .9)

@@ -1,0 +1,15 @@
+{# situation maps #}
+{% load static leaflet_tags l10n %}
+
+{% leaflet_js %}
+<script type="text/javascript">
+    var map = L.map('situation-map', {
+        scrollWheelZoom    : false,
+        attributionControl : false,
+        zoomControl        : false,
+    }).setView([{{ position.coordinates.1|unlocalize }}, {{ position.coordinates.0|unlocalize }}], 12);
+    L.control.zoom({'position' : 'topright'}).addTo(map);
+    L.tileLayer('https://api.mapbox.com/styles/v1/ale/cj3rpgd2n00142slekpjya98f/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWxlIiwiYSI6ImpKQ2dnekEifQ.GjyY2X3Wa6pgoHTPOrUBdA', {
+      attribution: '<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a>'
+    }).addTo(map);
+</script>

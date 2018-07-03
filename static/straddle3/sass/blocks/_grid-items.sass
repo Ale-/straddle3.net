@@ -1,37 +1,30 @@
 // Items in grid view
 
-.connection-grid,
-.project-grid,
-.resource-grid,
-.team-grid,
-.content-item-grid
+.item--grid
   +links(#222, $color_text, .2s ease)
-  padding: $m
+  &:hover
+    .item__image--grid img
+      +transform( scale(1.1) )
+  a
+    display: block
+    padding: $m
+  a:hover
+    border: 2px solid $palette_yellow
 
-[class*='-grid__image']
+.item__image--grid
   position: relative
   overflow: hidden
   margin-bottom: $m/2
+  img
+    +transition(transform .5s ease)
 
-[class*='-grid__image'] img
-  +transition(transform .5s ease)
-
-.connection-grid,
-.project-grid,
-.resource-grid,
-.content-item-grid
-  &:hover
-    outline: 2px solid $palette_yellow
-    [class*='-grid__image'] img
-      +transform( scale(1.1) )
-
-[class*='-grid__name']
+.item__name--grid
   text-transform: uppercase
   line-height: 1
   margin: $m/4 0
 
-[class*='-grid__category'],
-[class*='-grid__model'],
-[class*='-grid__date']
+.item__category--grid,
+.item__model--grid,
+.item__date--grid
   text-transform: uppercase
   font-size: .8em

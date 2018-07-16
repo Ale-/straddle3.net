@@ -1,7 +1,7 @@
 {# flexslider galleries #}
 {% load imagekit utils i18n %}
 
-<div class="flexslider"  style="direction:rtl">
+<div class="flexslider">
     <ul class="flexslider__items slides">
         {% for image in images %}
             {% if image.image_file.url|file_exists %}

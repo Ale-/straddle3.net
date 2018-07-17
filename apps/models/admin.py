@@ -68,7 +68,7 @@ class ImageInline(SortableGenericTabularInline):
     model  = models.Image
     extra  = 0
     fields = (
-        ( 'image_file', 'alt_text', 'not_caption' ),
+        ( 'image_file', 'alt_text', 'not_caption', 'views_featured' ),
     )
 
     formfield_overrides = {
@@ -116,6 +116,9 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     )
     filter_horizontal = ('tags',)
 
+    class Media:
+        js = ['/static/straddle3/js/featured-image.js',]
+
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))
         return format_html("<a href='" + url + "'>" + obj.name + "</a>")
@@ -155,6 +158,9 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     fields            = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), 'description', 'agents', 'geolocation', 'tags')
     filter_horizontal = ('tags',)
 
+    class Media:
+        js = ['/static/straddle3/js/featured-image.js',]
+
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))
         return format_html("<a href='" + url + "'>" + obj.name + "</a>")
@@ -172,6 +178,9 @@ class ResourceAdmin(NonSortableParentAdmin):
     actions           = [publish, unpublish, unfeature, feature]
     inlines           = [ ImageInline, AttachmentInline, LinkInline, VideoInline ]
     filter_horizontal = ('tags',)
+
+    class Media:
+        js = ['/static/straddle3/js/featured-image.js',]
 
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))

@@ -6,7 +6,7 @@
 <a href="{{ item.get_absolute_url }}">
     {% if item.images.all|length > 0 %}
     <figure class="item__image--grid">
-        {% thumbnail '480x480' item.images.first.image_file %}
+        {% thumbnail '480x480' item.featured_image.image_file %}
     </figure>
     {% endif %}
     {% if show_model or show_cat %}

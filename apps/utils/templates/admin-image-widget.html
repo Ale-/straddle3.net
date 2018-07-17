@@ -1,5 +1,7 @@
-{% load i18n static %}
+{% load i18n static utils imagekit %}
 <div class="admin-image-widget">
-    {% if url %}<img src="{% get_media_prefix %}{{ url }}" />{% endif %}
+    {% if url and url|media_exists %}
+        {% thumbnail '100x100' url|mediafile %}
+    {% endif %}
     {{ parent_widget }}
 </div>

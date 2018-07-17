@@ -90,3 +90,12 @@ def videoembed(src, w, h):
 @register.filter
 def file_exists(path):
     return os.path.isfile("%s/%s" % ( settings.BASE_DIR, path))
+
+@register.filter
+def media_exists(path):
+    return os.path.isfile("%s/%s" % ( settings.MEDIA_ROOT, path))
+
+@register.filter
+def mediafile(path):
+    imagefile = open("%s/%s" % ( settings.MEDIA_ROOT, path), "rb")
+    return imagefile

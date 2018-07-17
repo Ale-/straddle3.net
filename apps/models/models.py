@@ -53,6 +53,7 @@ class Image(SortableMixin):
     source_content = GenericForeignKey('content_type', 'object_id')
     order          = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     not_caption    = models.BooleanField(_('No mostrar pie de foto'), default=False, help_text=_("Marca la casilla para no mostrar el pie de foto en las galerías"))
+    views_featured = models.BooleanField(_('Destacada'), default=False, help_text=_("La imagen destacada será la que se muestre en las vistas"))
 
     class Meta:
         verbose_name = _('imagen')
@@ -177,6 +178,15 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('project', args=[self.slug])
+
+    @property
+    def featured_image(self):
+        """ Returns featured image from the set """
+
+        featured = self.images.filter(views_featured=True)
+        if not featured:
+            return self.images.first()
+        return featured.first()
 
     def save(self, *args, **kwargs):
         """Populate automatically 'slug' field"""

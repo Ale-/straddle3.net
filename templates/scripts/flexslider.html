@@ -1,12 +1,12 @@
 {# flexslider needed scripts #}
-{% load static %}
+{% load static utils %}
 
 {# jquery #}
-<script type="text/javascript" src='{% static 'jquery/dist/jquery.min.js' %}'></script>
+<script type="text/javascript" src='{% static 'admin/js/vendor/jquery/jquery.min.js' %}'></script>
 {# flexslider #}
-<script type="text/javascript" src='{% static 'flexslider/jquery.flexslider.js' %}'></script>
+<script type="text/javascript" src='{% js 'bower_components/flexslider/jquery.flexslider.js' %}'></script>
 {# lightbox #}
-<script type="text/javascript" src='{% static 'lightbox2/dist/js/lightbox.min.js' %}'></script>
+<script type="text/javascript" src='{% js 'bower_components/lightbox2/dist/js/lightbox.min.js' %}'></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
     $('.flexslider').flexslider({

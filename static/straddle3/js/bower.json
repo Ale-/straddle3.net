@@ -1,0 +1,22 @@
+{
+  "name": "s3",
+  "homepage": "https://github.com/Ale-/straddle3.net",
+  "authors": [
+    "Ale <ale@wwb.cc>"
+  ],
+  "description": "Straddle3 website js assets",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flexslider": "^2.7.1",
+    "lightbox2": "lightbox#^2.10.0"
+  }
+}

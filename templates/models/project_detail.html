@@ -70,7 +70,7 @@
             </div>
             <div class="right">
                 {# category #}
-                {% include 'fields/field--category.html' with b="project" m="full" category=object.category %}
+                {% include 'fields/field--category.html' with b="project" m="full" category_base_url="projects" category=object.category %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="project" m="full" tags=object.tags.all %}
                 {# links #}

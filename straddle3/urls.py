@@ -27,16 +27,22 @@ urlpatterns += i18n_patterns(
     url(r'^mapa$', views.MapView.as_view(), name="map"),
     # Projects
     path('projects', views.ProjectList.as_view(), name="projects"),
+    # Projects
+    path('projects/<slug:category_slug>', views.ProjectList.as_view(), name="projects"),
     # Project
     path('project/<slug:slug>', views.ProjectView.as_view(), name="project"),
     # Connections
     path('connections', views.ConnectionList.as_view(), name="connections"),
+    # Projects
+    path('connections/<slug:category_slug>', views.ConnectionList.as_view(), name="connections"),
     # Connection
     path('connection/<slug:slug>', views.ConnectionView.as_view(), name="connection"),
     # Resource
     path('resources', views.ResourceList.as_view(), name="resources"),
+    # Resource
+    path('resources/<slug:category_slug>', views.ResourceList.as_view(), name="resources"),
     # Connection
-    path('resources/<slug:slug>', views.ResourceView.as_view(), name="resource"),
+    path('resource/<slug:slug>', views.ResourceView.as_view(), name="resource"),
     # Tag
     path('tag/<slug:slug>', views.TagView.as_view(), name="tag"),
     # Team

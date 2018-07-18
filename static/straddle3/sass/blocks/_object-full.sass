@@ -37,9 +37,11 @@
     border-top: 8px solid #3f3f3f
     margin-bottom: 8px
 
-[class*='__category--'] .bullet
-  position: relative
-  bottom: 2px
+[class*='__category--']
+  +links(white, $palette_yellow, .2s ease)
+  .bullet
+    position: relative
+    bottom: 2px
 
 [class*='__links--']
   +links($palette_yellow, darken($palette_yellow, 5%), .2s ease)
@@ -97,7 +99,7 @@
   padding: $m/4 $m/2
   margin-bottom: $m/4
   +border-radius($m/4)
-  background: $palette_yellow
+  background: white
   +transition(background-color .2s ease)
   &:hover
     background-color: darken($palette_yellow, 5%)

@@ -5,7 +5,6 @@
 {% block page_html_title %}{{ object.name }}{% endblock %}
 
 {% block page_header %}
-    {% leaflet_css %}
     <link rel="stylesheet" href='{% js 'bower_components/flexslider/flexslider.css' %}' />
     <link rel="stylesheet" href='{% js 'bower_components/lightbox2/dist/css/lightbox.min.css' %}' />
 {% endblock %}
@@ -55,7 +54,7 @@
             </div>
             <div class="right">
                 {# category #}
-                {% include 'fields/field--category.html' with b="resource" m="full" category=object.category %}
+                {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources" category=object.category %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="resource" m="full" tags=object.tags.all %}
                 {# links #}

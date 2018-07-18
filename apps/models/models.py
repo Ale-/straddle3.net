@@ -135,6 +135,7 @@ class ProjectCategory(models.Model):
     name        = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
     color       = ColorField(_('Color de la categoría'), blank=True)
     description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    slug        = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tipo de proyecto')
@@ -201,6 +202,7 @@ class ConnectionCategory(models.Model):
     name        = models.CharField(_('Nombre de la categoría'),  max_length=128, blank=False)
     description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
     color       = ColorField(_('Color de la categoría'), blank=True)
+    slug        = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tipo de conexión')
@@ -242,6 +244,15 @@ class Connection(models.Model):
 
         return self.name
 
+    @property
+    def featured_image(self):
+        """ Returns featured image from the set """
+
+        featured = self.images.filter(views_featured=True)
+        if not featured:
+            return self.images.first()
+        return featured.first()
+
     def save(self, *args, **kwargs):
         """Populate automatically 'slug' field"""
         if not self.slug:
@@ -280,6 +291,7 @@ class ResourceCategory(models.Model):
     name        = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
     description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
     color       = ColorField(_('Color de la categoría'), blank=True)
+    slug        = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tipo de recurso')
@@ -320,6 +332,15 @@ class Resource(models.Model):
 
     def get_absolute_url(self):
         return reverse('resource', args=[self.slug])
+
+    @property
+    def featured_image(self):
+        """ Returns featured image from the set """
+
+        featured = self.images.filter(views_featured=True)
+        if not featured:
+            return self.images.first()
+        return featured.first()
 
     def save(self, *args, **kwargs):
         """Populate automatically 'slug' field"""

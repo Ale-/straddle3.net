@@ -7,8 +7,10 @@
         {% trans 'Categoría' %}
     </label>
     <div class="field__value">
-        <span class="bullet" style="color: {{ category.color }}">●</span>
-        {{ category.name }}
+        <a href="{% url category_base_url category.slug %}">
+            <span class="bullet" style="color: {{ category.color }}">●</span>
+            {{ category.name }}
+        </a>
     </div>
 </div>
 {% endif %}

@@ -80,6 +80,13 @@ class ProjectList(ListView):
     model = models.Project
     ordering = ['-start_date', 'name']
 
+    def get_queryset(self):
+        """ Sets the queryset used in the view. """
+        category = self.kwargs.get('category_slug', None)
+        if category:
+            return self.model.objects.filter(category__slug=category)
+        return self.model.objects.all()
+
 class ConnectionView(DetailView):
     """ View to display single connections """
 
@@ -98,6 +105,13 @@ class ConnectionList(ListView):
     model = models.Connection
     ordering = ['name']
 
+    def get_queryset(self):
+        """ Sets the queryset used in the view. """
+        category = self.kwargs.get('category_slug', None)
+        if category:
+            return self.model.objects.filter(category__slug=category)
+        return self.model.objects.all()
+
 class TeamList(ListView):
     """ View to display a list of team members """
 
@@ -109,6 +123,13 @@ class ResourceList(ListView):
 
     model = models.Resource
     ordering = ['name']
+
+    def get_queryset(self):
+        """ Sets the queryset used in the view. """
+        category = self.kwargs.get('category_slug', None)
+        if category:
+            return self.model.objects.filter(category__slug=category)
+        return self.model.objects.all()
 
 class ResourceView(DetailView):
     """ View to display single resources """

@@ -37,7 +37,7 @@
         </div>
         <div class="right">
             {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
-            {% include 'blocks/share.html' %}
+            {% include 'blocks/share.html' with title=object.name url=request.build_absolute_uri %}
         </div>
     </div>
     <div class="page__content-bottom--connection">

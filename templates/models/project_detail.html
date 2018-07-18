@@ -50,7 +50,7 @@
         </div>
         <div class="right">
             {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
-            {% include 'blocks/share.html' %}
+            {% include 'blocks/share.html' with title=object.name url=request.build_absolute_uri %}
         </div>
     </div>
     <div class="page__content-bottom--project">
@@ -86,4 +86,5 @@
 {% block page_scripts %}
     {% include 'scripts/situation-map.html' with position=object.geolocation %}
     {% include 'scripts/flexslider.html' %}
+    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 {% endblock %}

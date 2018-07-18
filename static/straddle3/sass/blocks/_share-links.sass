@@ -3,6 +3,7 @@
 
 .share-links
   padding-bottom: $m
+  +links_none
   &:before
     content: " "
     width: $m*2
@@ -15,3 +16,13 @@
 .share-links__item
   display: inline-block
   margin-right: $m
+  .fa:hover
+    cursor: pointer
+  .fa-twitter:hover
+    color: #1da1f2
+  .fa-facebook:hover
+    color: #3b5998
+  .fa-google-plus:hover
+    color: #dc4a38
+  .fa-pinterest:hover
+    color: #bd081c

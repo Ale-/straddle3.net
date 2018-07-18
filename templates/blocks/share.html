@@ -6,7 +6,25 @@
         {% trans 'Comparte' %}
     </h5>
     <ul class="share-links__items">
-        <li class="share-links__item">Twitter</li>
-        <li class="share-links__item">Instagram</li>
+        <li class="share-links__item">
+            <a href="http://twitter.com/intent/tweet?text={{title}}&url={{ url|escape }}&hashtags=straddle3" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        <li class="share-links__item">
+            <a href="http://facebook.com/sharer/sharer.php?u={{ url|escape }}" target="_blank">
+                <i class="fa fa-facebook"></i>
+            </a>
+        </li>
+        <li class="share-links__item">
+            <a href="http://plus.google.com/share?url={{url|escape}}" target="_blank">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="share-links__item">
+            <a href="https://www.pinterest.com/pin/create/button/" target="_blank" data-pin-custom="True" data-pin-do="buttonBookmark">
+              <i class="fa fa-pinterest"></i>
+            </a>
+        </li>
     </ul>
 </div>

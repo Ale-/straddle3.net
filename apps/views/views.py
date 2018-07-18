@@ -179,3 +179,8 @@ class TagView(DetailView):
         resources              = models.Resource.objects.filter(tags=self.object)
         context['object_list'] = list(chain(projects, connections, resources))
         return context
+
+class Blog(ListView):
+    """ Blog :) """
+
+    model = models.Post

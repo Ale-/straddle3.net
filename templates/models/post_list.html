@@ -1,0 +1,27 @@
+{# Frontpage #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load static utils i18n l10n imagekit %}
+{% block body_classes %}page--blog{% endblock %}
+{% block page_html_title %}Blog{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Blog' %}
+    </nav>
+    <h1 class="page__title--resources">
+        {% trans 'Blog' %}
+    </h1>
+    <div class="list--resources masonry">
+        {% if object_list|length > 0 %}
+            {% for post in object_list %}
+                {% include 'views/item--grid.html' with item=post %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+    {% masonry %}
+{% endblock %}

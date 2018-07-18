@@ -1,3 +1,5 @@
+# contrib
+from datetime import datetime
 # django
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
@@ -361,6 +363,25 @@ class Block(models.Model):
     class Meta:
         verbose_name = _('bloque')
         verbose_name_plural = _('bloques')
+
+    def __str__(self):
+        """String representation of this model objects."""
+
+        return self.name
+
+
+class Post(models.Model):
+
+    name      = models.CharField(_('Titulo'), max_length=200, blank=False, null=True)
+    slug      = models.SlugField(editable=False)
+    published = models.BooleanField(_('Publicado'), default=False, help_text=_("Indica si este contenido es visible públicamente"))
+    summary   = models.TextField(_('Resumen'), blank=True, null=True)
+    date      = models.DateField(_('Fecha de publicación'), default=datetime.now(), blank=True)
+    body      = RichTextUploadingField(_('Cuerpo'), blank=True, null=True)
+    tags      = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
+    images    = GenericRelation(Image)
+    links     = GenericRelation(Link)
+    videos    = GenericRelation(Video)
 
     def __str__(self):
         """String representation of this model objects."""

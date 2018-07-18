@@ -57,6 +57,8 @@ urlpatterns += i18n_patterns(
     path('archivo/curriculum', TemplateView.as_view(template_name="pages/curriculum.html"), name="cv"),
     # Bibliografía
     path('archivo/bibliografía', TemplateView.as_view(template_name="pages/bibliografia.html"), name="bibliography"),
+    # Blog
+    path('blog', views.Blog.as_view(), name="blog"),
 
 )
 

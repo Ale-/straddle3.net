@@ -197,3 +197,24 @@ admin.site.register(models.ProjectCategory)
 admin.site.register(models.ConnectionCategory)
 admin.site.register(models.ResourceCategory)
 admin.site.register(models.Block)
+
+
+class PostAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
+    model             = models.Post
+    ordering          = ('name',)
+    thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
+    list_display      = ('thumb', 'linked_name', 'date', 'published', )
+    list_filter       = ('published',)
+    inlines           = [ ImageInline, LinkInline ]
+    actions           = [publish, unpublish, unfeature, feature]
+    fields            = (('name', 'published', 'date'), 'summary', 'body', 'tags')
+    filter_horizontal = ('tags',)
+
+    class Media:
+        js = ['/static/straddle3/js/featured-image.js',]
+
+    def linked_name(self, obj):
+        url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))
+        return format_html("<a href='" + url + "'>" + obj.name + "</a>")
+
+admin.site.register(models.Post, PostAdmin)

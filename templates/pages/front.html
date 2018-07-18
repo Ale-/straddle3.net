@@ -1,7 +1,88 @@
-{# Frontpage #} {% extends 'layouts/single-fluid-column.html' %}
-{% block body_classes %}front{% endblock %}
-{% block page_html_title %}welcome!{% endblock %}
+{# Frontpage #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load imagekit i18n utils static %}
+{% block body_classes %}page--front{% endblock %}
+{% block page_html_title %}inicio{% endblock %}
+
+{% block page_header %}
+    <link rel="stylesheet" href='{% js 'bower_components/flexslider/flexslider.css' %}' />
+{% endblock %}
 
 {% block main %}
-    {% lorem %}
+<div class="page__content--front">
+    <div class="featured-slideshow">
+      <div class="flexslider">
+          <ul class="flexslider__items slides">
+              {% for item in featured %}
+                  <li class="flexslider__item slide">
+                      {% thumbnail '1920x480' item.featured_image.image_file %}
+                      <div class="flexslider__item-caption flex-caption">
+                          <h5>{{ item.name }}</h5>
+                          <p>{{ item.summary }}</p>
+                      </div>
+                  </li>
+              {% endfor %}
+          </ul>
+      </div>
+    </div>
+    <div class="front-navigation">
+        <a class="front-navigation__left" href="{% url 'resources' %}">
+            <h5 class="front-navigation__title">
+                {% trans 'I+D=recursos' %}
+            </h5>
+            <figure class="front-navigation__image">
+                {% thumbnail '840x420' random_resource.featured_image.image_file %}
+            </figure>
+            <p class="front-navigation__text">
+                {% blocktrans %}
+                Investigaciones, herramientas, guías y
+                manuales que pueden resultar útiles
+                {% endblocktrans %}
+            </p>
+        </a>
+        <a class="front-navigation__center"  href="{% url 'connections' %}">
+            <h5 class="front-navigation__title">
+                {% trans 'complicidades' %}
+            </h5>
+            <figure class="front-navigation__image">
+                {% thumbnail '840x420' random_connection.featured_image.image_file %}
+            </figure>
+            <p class="front-navigation__text">
+                {% blocktrans %}
+                redes, colaboraciones, complicidades,
+                montajes, eventos y más
+                {% endblocktrans %}
+            </p>
+        </a>
+        <a class="front-navigation__right"  href="{% url 'projects' %}">
+            <h5 class="front-navigation__title">
+                {% trans 'proc-ectos' %}
+            </h5>
+            <figure class="front-navigation__image">
+                {% thumbnail '640x320' random_project.featured_image.image_file %}
+            </figure>
+            <p class="front-navigation__text">
+                {% blocktrans %}
+                una selección de procesos,
+                proyectos y obras realizadas
+                {% endblocktrans %}
+            </p>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+    {# jquery #}
+    <script type="text/javascript" src='{% static 'admin/js/vendor/jquery/jquery.min.js' %}'></script>
+    {# flexslider #}
+    <script type="text/javascript" src='{% js 'bower_components/flexslider/jquery.flexslider.js' %}'></script>
+    {# lightbox #}
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('.flexslider').flexslider({
+            animation: "slide",
+        });
+    });
+    </script>
 {% endblock %}

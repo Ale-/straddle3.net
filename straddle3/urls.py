@@ -20,7 +20,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     # Frontpage
-    url(r'^$',  views.MapView.as_view(), name="front"),
+    url(r'^$',  views.FrontView.as_view(), name="front"),
     # CKEditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # Map

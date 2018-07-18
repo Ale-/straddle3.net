@@ -10,6 +10,30 @@ from django.http import Http404, HttpResponse
 from apps.models import models
 
 
+class FrontView(View):
+    """ Frontpage """
+
+    def get(self, request, *args, **kwargs):
+        """ Handle GET requests. """
+
+        # featured elements
+        featured_projects    = models.Project.objects.filter(featured=True, images__isnull=False)[:3]
+        featured_connections = models.Connection.objects.filter(featured=True, images__isnull=False)[:3]
+        featured_resources   = models.Resource.objects.filter(featured=True, images__isnull=False)[:3]
+        featured = list(featured_projects) + list(featured_connections) + list(featured_resources)
+
+        # images for the front navigation block
+        random_resource   = models.Resource.objects.filter(images__isnull=False).order_by('?').first()
+        random_project    = models.Project.objects.filter(images__isnull=False).order_by('?').first()
+        random_connection = models.Connection.objects.filter(images__isnull=False).order_by('?').first()
+
+        return render(request, 'pages/front.html', {
+            'featured'          : featured,
+            'random_resource'   : random_resource,
+            'random_project'    : random_project,
+            'random_connection' : random_connection,
+        })
+
 class MapView(View):
     """ View to render content in a map """
 

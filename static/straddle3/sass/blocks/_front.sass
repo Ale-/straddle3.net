@@ -1,0 +1,49 @@
+// Front page
+
+.front-navigation
+  +clearfix
+  +links_none
+
+.front-navigation img
+  +transition(transform .5s ease)
+  max-height: 100%
+
+.front-navigation > a
+  display: inline-block
+  float: left
+  max-width: 33.33vw
+  position: relative
+  &:hover
+    img
+      +transform( scale(1.1) )
+
+.front-navigation__image
+  overflow: hidden
+
+.front-navigation__title
+  position: absolute
+  margin-top: 0
+  z-index: 100
+  top: $m
+  left: $m
+  background: white
+
+.front-navigation__text
+  position: absolute
+  left: $m
+  bottom: $m
+  background: white
+
+.page--front .flex-control-nav
+  position: absolute
+  bottom: $m
+  right: $m
+  z-index: 1000
+
+.page--front .flexslider
+  margin-bottom: 0
+
+.page--front .flexslider__item-caption
+  position: absolute
+  bottom: $m
+  left: $m

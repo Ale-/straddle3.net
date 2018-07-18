@@ -1,0 +1,19 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--cv{% endblock %}
+{% block page_html_title %}{% trans 'Currículum' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Archivo' %} » {% trans 'Currículum' %}
+    </nav>
+    <h1 class="page__title--open-fridays">
+        {% trans 'Currículum' %}
+    </h1>
+    <div class="page__content--open-fridays">
+        {% text 'Currículum' %}
+    </div>
+</div>
+{% endblock %}

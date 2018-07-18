@@ -1,0 +1,19 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--repo{% endblock %}
+{% block page_html_title %}{% trans 'Repositorio webs' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Archivo' %} » {% trans 'Repositorio webs' %}
+    </nav>
+    <h1 class="page__title--open-fridays">
+        {% trans 'Repositorio webs' %}
+    </h1>
+    <div class="page__content--open-fridays">
+        {% text 'Repositorio webs' %}
+    </div>
+</div>
+{% endblock %}

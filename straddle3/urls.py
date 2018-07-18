@@ -23,7 +23,7 @@ urlpatterns += i18n_patterns(
     url(r'^$',  views.MapView.as_view(), name="front"),
     # CKEditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    # CKEditor
+    # Map
     url(r'^mapa$', views.MapView.as_view(), name="map"),
     # Projects
     path('projects', views.ProjectList.as_view(), name="projects"),
@@ -45,8 +45,18 @@ urlpatterns += i18n_patterns(
     path('resource/<slug:slug>', views.ResourceView.as_view(), name="resource"),
     # Tag
     path('tag/<slug:slug>', views.TagView.as_view(), name="tag"),
-    # Team
-    path('team', views.TeamList.as_view(), name="team")
+    # Who
+    path('quienes-somos', views.TeamList.as_view(), name="who"),
+    # What
+    path('que-hacemos', TemplateView.as_view(template_name="pages/what.html"), name="what"),
+    # Open Fridays
+    path('archivo/open-fridays', TemplateView.as_view(template_name="pages/open-fridays.html"), name="open_fridays"),
+    # Repositorio webs
+    path('archivo/repositorio-webs', TemplateView.as_view(template_name="pages/repositorio-webs.html"), name="repository"),
+    # Curriculum
+    path('archivo/curriculum', TemplateView.as_view(template_name="pages/curriculum.html"), name="cv"),
+    # Bibliografía
+    path('archivo/bibliografía', TemplateView.as_view(template_name="pages/bibliografia.html"), name="bibliography"),
 
 )
 

@@ -1,0 +1,19 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--open-fridays{% endblock %}
+{% block page_html_title %}{% trans 'Open Fridays' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Archivo' %} » Open Fridays
+    </nav>
+    <h1 class="page__title--open-fridays">
+        Open Fridays
+    </h1>
+    <div class="page__content--open-fridays">
+        {% text 'Open Fridays' %}
+    </div>
+</div>
+{% endblock %}

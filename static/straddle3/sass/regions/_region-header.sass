@@ -4,7 +4,9 @@
   position: fixed
   z-index: 10001
   width: 100vw
-  line-height: $m*2
+  top: 0
+  background: #232323
+  line-height: $header_height
 
 .region-header__left
   display: inline-block
@@ -13,11 +15,6 @@
 .region-header__right
   float: right
   padding: 0 $m
-  background: #232323
-  color: $palette_yellow
+  color: white
+  +links(white, $palette_yellow, .2s ease)
   +clearfix
-  .lang-switcher
-    float: left
-    margin-right: $m
-  .hamburguer-icon
-    float: right

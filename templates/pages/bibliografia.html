@@ -1,0 +1,19 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--bibliography{% endblock %}
+{% block page_html_title %}{% trans 'Bibliografía' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Archivo' %} » {% trans 'Bibliografía' %}
+    </nav>
+    <h1 class="page__title--open-fridays">
+        {% trans 'Bibliografía' %}
+    </h1>
+    <div class="page__content--open-fridays">
+        {% text 'Bibliografía' %}
+    </div>
+</div>
+{% endblock %}

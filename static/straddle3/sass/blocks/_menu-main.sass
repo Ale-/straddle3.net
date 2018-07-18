@@ -1,18 +1,24 @@
 // Main menu
 
 .menu-main
-  +links_none
-  color: $palette_yellow
-  margin-top: $m*2
   text-transform: uppercase
-  background: rgba(#000, .9)
+  font-family: $font_headers
+  font-weight: bold
+  font-size: .85em
 
-.menu-main__link
-  font-size: 1.25em
-  border-bottom: 1px solid rgba(white, .1)
-  a
-    display: block
-    padding: $m/2 $m
-    +transition(background-color, .15s ease)
-  a:hover
-    background-color: rgba(white,.1)
+.menu-main__item
+  display: inline-block
+  padding: 0 $m/2
+
+.menu-main__submenu
+  position: absolute
+  width: $m*10
+  padding: 0 $m/2
+  background-color: #232323
+  &.collapsed
+    opacity: 0
+    pointer-events: none
+
+.menu-main__item:hover .collapsed
+  opacity: 1
+  pointer-events: all

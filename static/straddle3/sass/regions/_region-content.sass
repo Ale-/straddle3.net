@@ -1,16 +1,9 @@
 // Region content
 
-=regular_content
-  padding: $m*3 0 0
+.region-content
+  margin-top: $header_height
+  padding-top: $m*3
+  +animation(fadein 1.5s 1)
 
-.page--project,
-.page--projects,
-.page--connection,
-.page--connections,
-.page--team,
-.page--resources,
-.page--resource,
-.page--tag,
-  .region-content
-    +regular_content
-    +animation(fadein 1.5s 1)
+.page--map .region-content
+  padding-top: 0

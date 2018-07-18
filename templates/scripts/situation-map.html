@@ -12,4 +12,17 @@
     L.tileLayer('https://api.mapbox.com/styles/v1/ale/cj3rpgd2n00142slekpjya98f/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWxlIiwiYSI6ImpKQ2dnekEifQ.GjyY2X3Wa6pgoHTPOrUBdA', {
       attribution: '<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a>'
     }).addTo(map);
+    // Marker icon
+    var icon = L.icon({
+        iconUrl      : '/static/straddle3/img/s3-marker.svg',
+        iconSize     : [30, 45],
+        iconAnchor   : [15, 45],
+        popupAnchor  : [0, -30],
+        shadowUrl    : '/static/straddle3/img/s3-marker--shadow.svg',
+        shadowSize   : [20, 25],
+        shadowAnchor : [0, 25]
+    });
+    // Marker popup content
+    var popup = "<a href='{% url 'map' %}'>Ver mapa de Straddle3</a>";
+    L.marker([{{ position.coordinates.1|unlocalize }}, {{ position.coordinates.0|unlocalize }}], { icon : icon }).addTo(map).bindPopup(popup);
 </script>

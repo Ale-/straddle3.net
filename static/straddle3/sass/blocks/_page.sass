@@ -3,7 +3,7 @@
 [class*='page__title']
   color: rgba(black, .75)
   text-transform: uppercase
-  margin: 0
+  margin: $m/2 0
   font-size: 3em
   line-height: 1
 
@@ -53,11 +53,12 @@
   padding: $m 0
   background-color: #232323
   color: white
-  .left, .center, .right
+  .left, .center-left, .center-right, .right
     display: inline-block
-    width: 33%
+    width: 25%
     float: left
     padding: 0 $m
+    border-right: 4px solid rgba(black, .25)
   .left
     text-align: center
   .field:first-of-type .field__label

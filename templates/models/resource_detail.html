@@ -43,21 +43,23 @@
                 {# promoter #}
                 {% field obj=object field_name='license' label=True %}
             </div>
-            <div class="center">
+            <div class="center-left">
+                {# category #}
+                {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources" category=object.category %}
+                {# tags #}
+                {% include 'fields/field--tags.html' with b="resource" m="full" tags=object.tags.all %}
+            </div>
+            <div class="center-right">
+                {# links #}
+                {% include 'fields/field--links.html' with b="resource" m="full" links=object.links.all %}
+            </div>
+            <div class="right">
                 {# promoter #}
                 {% field obj=object field_name='promoter' label=True %}
                 {# author_text #}
                 {% field obj=object field_name='author_text' label=True %}
                 {# gratitude_text #}
                 {% field obj=object field_name='gratitude_text' label=True %}
-            </div>
-            <div class="right">
-                {# category #}
-                {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources" category=object.category %}
-                {# tags #}
-                {% include 'fields/field--tags.html' with b="resource" m="full" tags=object.tags.all %}
-                {# links #}
-                {% include 'fields/field--links.html' with b="resource" m="full" links=object.links.all %}
             </div>
         </div>
     </div>

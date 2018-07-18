@@ -46,17 +46,19 @@
                 {# geolocation #}
                 {% include 'fields/field--geolocation.html' with b="connection" m="full" %}
             </div>
-            <div class="center">
-                {# promoter #}
-                {% field obj=object field_name='agents' label=True %}
-            </div>
-            <div class="right">
+            <div class="center-left">
                 {# category #}
                 {% include 'fields/field--category.html' with b="connection" m="full" category_base_url="connections" category=object.category %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="connection" m="full" tags=object.tags.all %}
+            </div>
+            <div class="center-right">
                 {# links #}
                 {% include 'fields/field--links.html' with b="connection" m="full" links=object.links.all %}
+            </div>
+            <div class="right">
+                {# promoter #}
+                {% field obj=object field_name='agents' label=True %}
             </div>
         </div>
     </div>

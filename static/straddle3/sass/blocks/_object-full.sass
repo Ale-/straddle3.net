@@ -48,14 +48,13 @@
     text-decoration-style: dotted !important
 
 [class*='__geolocation--']
-  margin-left: $m*1.25
   .field__label
     text-align: left
     margin: 0 0 $m
 
 [class*='__geolocation--'] .leaflet-container
-  height: $width_fixed/4
-  width: $width_fixed/4
+  height: calc(#{$width_fixed/4 - $m*2})
+  width: calc(#{$width_fixed/4 - $m*2})
   background: white !important
   .leaflet-bar
     border: 0
@@ -66,7 +65,7 @@
 
 .circular-frame
   position: absolute
-  max-width: $width_fixed/4
+  max-width: calc(#{$width_fixed/4 - $m*2})
   z-index: 1000
   pointer-events: none
   display: block

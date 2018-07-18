@@ -1,0 +1,42 @@
+{% load static i18n utils %}
+
+<div class="text-block" id="text-{{ name|slugify }}">
+    {% if not request.user.is_anonymous %}
+    <ul class="text-block__actions">
+        {% if text %}
+        <li class="text-block__action">
+            <a href="{% url 'admin:models_block_change' text.id %}">
+                {% trans 'Editar' %}
+            </a>
+        </li>
+        {% else %}
+        <li class="text-block__action">
+
+        </li>
+        {% endif %}
+    </ul>
+    {% endif %}
+    {% if text.label %}
+        <h3 class="text-block__label">
+            {{ text.label }}
+        </h3>
+    {% endif %}
+    <div class="text-block__content">
+    {% if text %}
+        {{ text.body | safe}}
+    {% else %}
+        <h3 class="text-block__label">
+            {{ name }}
+        </h3>
+        {% lorem %}
+        {% if not request.user.is_anonymous %}
+        <h5>
+            {% trans 'Este texto no ha sido creado todavía' %}.
+            <a href="{% url 'admin:models_block_add' %}?name={{ name }}">
+                {% trans 'Añade este texto' %}
+            </a>
+        </h5>
+        {% endif %}
+    {% endif %}
+    </div>
+</div>

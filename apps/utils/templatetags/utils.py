@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 # project
 from django.conf import settings
+from apps.models import models
 
 register = template.Library()
 
@@ -99,3 +100,14 @@ def media_exists(path):
 def mediafile(path):
     imagefile = open("%s/%s" % ( settings.MEDIA_ROOT, path), "rb")
     return imagefile
+
+@register.inclusion_tag('text-block.html')
+def text(name):
+    try:
+        text = models.Block.objects.get(name=name)
+    except:
+        text = None
+    return {
+        'name' : name,
+        'text' : text,
+    }

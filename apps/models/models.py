@@ -352,8 +352,11 @@ class Resource(models.Model):
 
 class Block(models.Model):
 
-    name = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
-    body = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    name  = models.CharField(_('Nombre'), max_length=200,
+                            blank=False, null=True, editable=False)
+    label = models.CharField(_('Título'), max_length=200,
+                            blank=True, null=True)
+    body  = RichTextUploadingField(_('Texto'), blank=True, null=True)
 
     class Meta:
         verbose_name = _('bloque')

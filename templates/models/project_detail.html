@@ -39,7 +39,7 @@
                 {% endif %}
                 {# see more #}
                 <button class="see-more">
-                    {% trans 'Leer más' %}
+                    ✚ {% trans 'Leer más' %}
                 </button>
                 <button class="see-less">
                     ✕
@@ -56,7 +56,6 @@
     <div class="page__content-bottom--project">
         <div class="container-fixed">
             <div class="left">
-                <h4 class="meta-title">{{ object.name }}</h4>
                 {# geolocation #}
                 {% include 'fields/field--geolocation.html' with b="project" m="full" %}
             </div>

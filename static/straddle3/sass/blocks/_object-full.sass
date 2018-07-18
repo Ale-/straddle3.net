@@ -12,10 +12,8 @@
 .resource__description--
   padding: 0 $m*2
   margin: $m*2 0
-  font-size: 1.5em
+  font-size: 1.25em
   line-height: 1.5
-  text-decoration: underline
-  text-decoration-color: $color_text
   border-left: 8px solid #3f3f3f
 
 [class*='__body--']
@@ -35,7 +33,7 @@
     display: block
     width: $m*2
     border-top: 8px solid #3f3f3f
-    margin-bottom: 8px
+    margin: $m/2 0
 
 [class*='__category--']
   +links(white, $palette_yellow, .2s ease)
@@ -51,7 +49,6 @@
 
 [class*='__geolocation--']
   margin-left: $m*1.25
-  margin-top: -$m*2
   .field__label
     text-align: left
     margin: 0 0 $m
@@ -123,7 +120,6 @@
   +transition(background-color, .2s ease)
   float: left
   margin: $m $m $m/2 0
-  background: $palette_yellow
   padding: $m/2
   &:hover
     background-color: darken($palette_yellow, 5%)

@@ -327,3 +327,18 @@ class Resource(models.Model):
             self.slug = slugify(self.name)
 
         super(Resource, self).save(*args, **kwargs)
+
+
+class Block(models.Model):
+
+    name = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
+    body = RichTextUploadingField(_('Texto'), blank=True, null=True)
+
+    class Meta:
+        verbose_name = _('bloque')
+        verbose_name_plural = _('bloques')
+
+    def __str__(self):
+        """String representation of this model objects."""
+
+        return self.name

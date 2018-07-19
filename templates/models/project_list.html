@@ -10,7 +10,7 @@
 {# fake_breadcrumb #}
 <div class="container-fixed">
     <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » {% trans 'Proyectos' %}
+        <a href="{% url 'front' %}">s3</a> » <a href="{% url 'projects' %}">{% trans 'Proyectos' %}</a> {% if category %}» {{ category }}{% endif %}
     </nav>
     <h1 class="page__title--projects">
         {% trans 'Proyectos' %}

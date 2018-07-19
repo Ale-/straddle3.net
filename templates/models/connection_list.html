@@ -2,17 +2,17 @@
 {% extends 'layouts/single-fluid-column.html' %}
 {% load static utils i18n l10n imagekit %}
 {% block body_classes %}page--connections{% endblock %}
-{% block page_html_title %}{% trans 'Conexiones' %}{% endblock %}
+{% block page_html_title %}{% trans 'Complicidades' %}{% endblock %}
 
 
 {% block main %}
 
 <div class="container-fixed">
     <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » {% trans 'Conexiones' %}
+        <a href="{% url 'front' %}">s3</a> » <a href="{% url 'connections' %}">{% trans 'Complicidades' %}</a> {% if category %}» {{ category }}{% endif %}
     </nav>
     <h1 class="page__title--connections">
-        {% trans 'Conexiones' %}
+        {% trans 'Complicidades' %}
     </h1>
     <div class="list--connections masonry">
         {% if object_list|length > 0 %}

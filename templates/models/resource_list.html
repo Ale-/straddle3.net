@@ -7,7 +7,7 @@
 {% block main %}
 <div class="container-fixed">
     <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » {% trans 'Recursos' %}
+        <a href="{% url 'front' %}">s3</a> » <a href="{% url 'resources' %}">{% trans 'Recursos' %}</a> {% if category %}» {{ category }}{% endif %} 
     </nav>
     <h1 class="page__title--resources">
         {% trans 'Recursos' %}

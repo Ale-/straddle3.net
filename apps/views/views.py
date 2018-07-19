@@ -106,10 +106,17 @@ class ProjectList(ListView):
 
     def get_queryset(self):
         """ Sets the queryset used in the view. """
-        category = self.kwargs.get('category_slug', None)
-        if category:
-            return self.model.objects.filter(category__slug=category)
+        self.category = self.kwargs.get('category_slug', None)
+        if self.category:
+            return self.model.objects.filter(category__slug=self.category)
         return self.model.objects.all()
+
+    def get_context_data(self, **kwargs):
+        """ Sets the context data of the view. """
+        context = super(ProjectList, self).get_context_data(**kwargs)
+        category = models.ProjectCategory.objects.filter(slug=self.category).first()
+        context['category'] = category.name if category else None
+        return context
 
 class ConnectionView(DetailView):
     """ View to display single connections """
@@ -131,10 +138,17 @@ class ConnectionList(ListView):
 
     def get_queryset(self):
         """ Sets the queryset used in the view. """
-        category = self.kwargs.get('category_slug', None)
-        if category:
-            return self.model.objects.filter(category__slug=category)
+        self.category = self.kwargs.get('category_slug', None)
+        if self.category:
+            return self.model.objects.filter(category__slug=self.category)
         return self.model.objects.all()
+
+    def get_context_data(self, **kwargs):
+        """ Sets the context data of the view. """
+        context = super(ConnectionList, self).get_context_data(**kwargs)
+        category = models.ConnectionCategory.objects.filter(slug=self.category).first()
+        context['category'] = category.name if category else None
+        return context
 
 class TeamList(ListView):
     """ View to display a list of team members """
@@ -150,10 +164,17 @@ class ResourceList(ListView):
 
     def get_queryset(self):
         """ Sets the queryset used in the view. """
-        category = self.kwargs.get('category_slug', None)
-        if category:
-            return self.model.objects.filter(category__slug=category)
+        self.category = self.kwargs.get('category_slug', None)
+        if self.category:
+            return self.model.objects.filter(category__slug=self.category)
         return self.model.objects.all()
+
+    def get_context_data(self, **kwargs):
+        """ Sets the context data of the view. """
+        context = super(ResourceList, self).get_context_data(**kwargs)
+        category = models.ResourceCategory.objects.filter(slug=self.category).first()
+        context['category'] = category.name if category else None
+        return context
 
 class ResourceView(DetailView):
     """ View to display single resources """

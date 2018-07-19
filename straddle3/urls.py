@@ -26,23 +26,23 @@ urlpatterns += i18n_patterns(
     # Map
     url(r'^mapa$', views.MapView.as_view(), name="map"),
     # Projects
-    path('projects', views.ProjectList.as_view(), name="projects"),
-    # Projects
-    path('projects/<slug:category_slug>', views.ProjectList.as_view(), name="projects"),
+    path('proyectos', views.ProjectList.as_view(), name="projects"),
     # Project
-    path('project/<slug:slug>', views.ProjectView.as_view(), name="project"),
-    # Connections
-    path('connections', views.ConnectionList.as_view(), name="connections"),
+    path('proyectos/<slug:slug>', views.ProjectView.as_view(), name="project"),
     # Projects
-    path('connections/<slug:category_slug>', views.ConnectionList.as_view(), name="connections"),
+    path('proyectos/cat/<slug:category_slug>', views.ProjectList.as_view(), name="projects"),
+    # Connections
+    path('complicidades', views.ConnectionList.as_view(), name="connections"),
+    # Projects
+    path('complicidades/cat/<slug:category_slug>', views.ConnectionList.as_view(), name="connections"),
     # Connection
-    path('connection/<slug:slug>', views.ConnectionView.as_view(), name="connection"),
+    path('complicidades/<slug:slug>', views.ConnectionView.as_view(), name="connection"),
     # Resource
-    path('resources', views.ResourceList.as_view(), name="resources"),
-    # Resource
-    path('resources/<slug:category_slug>', views.ResourceList.as_view(), name="resources"),
+    path('recursos', views.ResourceList.as_view(), name="resources"),
     # Connection
-    path('resource/<slug:slug>', views.ResourceView.as_view(), name="resource"),
+    path('recursos/<slug:slug>', views.ResourceView.as_view(), name="resource"),
+    # Resource
+    path('recursos/cat/<slug:category_slug>', views.ResourceList.as_view(), name="resources"),
     # Tag
     path('tag/<slug:slug>', views.TagView.as_view(), name="tag"),
     # Who

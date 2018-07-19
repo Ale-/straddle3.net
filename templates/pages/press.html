@@ -1,0 +1,19 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--press{% endblock %}
+{% block page_html_title %}{% trans 'Hemeroteca' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Archivo' %} » {% trans 'Hemeroteca' %}
+    </nav>
+    <h1 class="page__title--press">
+        {% trans 'Hemeroteca' %}
+    </h1>
+    <div class="page__content--press">
+        {% text 'Hemeroteca' %}
+    </div>
+</div>
+{% endblock %}

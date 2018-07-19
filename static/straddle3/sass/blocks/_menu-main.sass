@@ -10,6 +10,12 @@
   display: inline-block
   padding: 0 $m/2
 
+.menu-main__item.active
+  color: $palette_yellow
+  a:first-of-type
+    &:active, &:link, > &:visited
+    color: $palette_yellow
+
 .menu-main__submenu
   position: absolute
   width: $m*10

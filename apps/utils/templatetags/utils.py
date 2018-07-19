@@ -111,3 +111,8 @@ def text(name):
         'name' : name,
         'text' : text,
     }
+
+@register.filter
+def get_section(path):
+    print(path)
+    return path.split("/")[2]

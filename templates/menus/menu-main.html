@@ -1,18 +1,19 @@
-{# Main menu #} {% load static i18n %}
+{# Main menu #} {% load static i18n utils %}
 
+{% with section=request.get_full_path|get_section %}
 <nav class="menu-main{% if modifier %}--{{ modifier }}{% endif %}">
     <ul>
-        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %}">
+        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'quienes-somos' %}active{% endif %}">
             <a href="{% url 'who' %}">
                 {% trans 'Quiénes somos' %}
             </a>
         </li>
-        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %}">
+        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'que-hacemos' %}active{% endif %}">
             <a href="{% url 'what' %}">
                 {% trans 'Qué hacemos' %}
             </a>
         </li>
-        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %}">
+        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'proyectos' %}active{% endif %}">
             <p class="menu-main__item-text">
                 <a href="{% url 'projects' %}">
                     {% trans 'Proyectos' %}
@@ -41,7 +42,7 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %}">
+        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'archivo' %}active{% endif %}">
             <p class="menu-main__item-text">
                 {% trans 'Archivo' %}
             </p>
@@ -73,12 +74,12 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %}">
+        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'mapa' %}active{% endif %}">
             <a class="menu-main__item-text" href="{% url 'map' %}">
                 {% trans 'Mapa' %}
             </a>
         </li>
-        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %}">
+        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'blog' %}active{% endif %}" >
             <p class="menu-main__item-text">
                 {% trans 'Actualidad' %}
             </p>
@@ -102,3 +103,4 @@
         </li>
     </ul>
 </nav>
+{% endwith %}

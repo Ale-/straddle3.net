@@ -21,8 +21,22 @@ document.addEventListener("DOMContentLoaded", function()
             body.classList.add('trimmed-content');
         })
     }
-    // Show navigation -- hamburguer icon in toolbar
-    document.querySelector('.hamburguer-icon').onclick = function(){
-        document.body.classList.toggle('navigation-open');
-    };
+
+    var lastScrollTop = 0;
+    window.addEventListener('scroll', function(){
+        var header = document.querySelector('.region-header');
+        var st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > lastScrollTop){
+            if(!header.classList.contains('hidden')){
+                header.classList.add('hidden');
+                header.classList.remove('visible');
+            }
+        } else {
+            if(header.classList.contains('hidden')){
+                header.classList.remove('hidden');
+                header.classList.add('visible');
+            }
+        }
+        lastScrollTop = st <= 0 ? 0 : st;
+    }, false);
 });

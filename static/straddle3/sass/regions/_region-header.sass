@@ -21,3 +21,22 @@
 
 .region-header__bottom
   background: $palette_yellow
+
+@keyframes hideup
+  0%
+    top: 0
+  100%
+    top: -$m*4
+
+@keyframes showdown
+  0%
+    top: -$m*4
+  100%
+    top: 0
+
+.region-header.hidden
+  +animation(hideup 1s ease)
+  animation-fill-mode: forwards
+.region-header.visible
+  +animation(showdown 1s ease)
+  animation-fill-mode: forwards

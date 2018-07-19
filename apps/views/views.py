@@ -107,14 +107,21 @@ class ProjectList(ListView):
         """ Sets the queryset used in the view. """
         self.category = self.kwargs.get('category_slug', None)
         if self.category:
+            if self.category == 'otros':
+                return self.model.objects.exclude(
+                    category__slug__in=['espacio-publico','equipamientos','vivienda']
+                )
             return self.model.objects.filter(category__slug=self.category)
         return self.model.objects.all()
 
     def get_context_data(self, **kwargs):
         """ Sets the context data of the view. """
         context = super(ProjectList, self).get_context_data(**kwargs)
-        category = models.ProjectCategory.objects.filter(slug=self.category).first()
-        context['category'] = category.name if category else None
+        if self.category == 'otros':
+            context['category'] = 'otros'
+        else:
+            category = models.ProjectCategory.objects.filter(slug=self.category).first()
+            context['category'] = category.name if category else None
         return context
 
 class ConnectionView(DetailView):

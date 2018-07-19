@@ -6,7 +6,6 @@
 
 {% block page_header %}
     <link rel="stylesheet" href='{% js 'bower_components/flexslider/flexslider.css' %}' />
-    {% leaflet_css %}
 {% endblock %}
 
 {% block main %}
@@ -109,9 +108,6 @@
             </div>
         </div>
     </div>
-    <div id="straddle-map">
-        <a href="{% url 'map' %}">{% trans 'Ver el mapa de Straddle3' %}</a>
-    </div>
     <div class="contact-row">
         <a href="mailto:no-reply@straddle3.net" target="_blank">
             <i class="fa fa-envelope"></i>
@@ -133,8 +129,4 @@
         });
     });
     </script>
-    {# leaflet #}
-    {% leaflet_js %}
-    {# leaflet map script #}
-    <script type="text/javascript" src="{% js 'straddle-map.js' %}"></script>
 {% endblock %}

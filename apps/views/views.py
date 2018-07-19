@@ -27,11 +27,6 @@ class FrontView(View):
         random_project    = models.Project.objects.filter(images__isnull=False).order_by('?').first()
         random_connection = models.Connection.objects.filter(images__isnull=False).order_by('?').first()
 
-        # map
-        projects    = models.Project.objects.all()
-        connections = models.Connection.objects.all()
-        markers     = list(projects) + list(connections)
-
         return render(request, 'pages/front.html', locals())
 
 class MapView(View):
@@ -211,3 +206,16 @@ class Blog(ListView):
     """ Blog :) """
 
     model = models.Post
+    ordering = ['-date']
+
+class PostView(DetailView):
+    """ Display blog posts. """
+
+    model = models.Post
+
+    def get_context_data(self, **kwargs):
+        context = super(PostView, self).get_context_data(**kwargs)
+        date = context['object'].date
+        context['previous_post'] = models.Post.objects.filter(date__lt=date).order_by('date').first()
+        context['next_post'] = models.Post.objects.filter(date__gt=date).order_by('date').first()
+        return context

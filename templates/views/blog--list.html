@@ -1,0 +1,41 @@
+{# Generic item in views, as in tagged content #}
+{% load imagekit utils %}
+
+{% if item.published %}
+<div class="blog--list">
+    <a href="{{ item.get_absolute_url }}">
+        <div class="blog__left--list">
+            {% if item.images.all|length > 0 %}
+            <figure class="blog__image--list">
+                {% thumbnail '180x180' item.featured_image.image_file %}
+            </figure>
+            {% endif %}
+        </div>
+        <div class="blog__right--list">
+            {% if show_model or show_cat %}
+            <p class="blog__categories--list">
+                {% if show_model %}
+                <span class="blog__model--list">
+                    {{ item|verbose_name }}
+                </span>
+                {% endif %}
+                {% if show_cat and item.category %}
+                <span class="blog__category--list">
+                    {{ item.category }}
+                </span>
+                {% endif %}
+            </p>
+            {% endif %}
+            <h4 class="blog__name--list">
+                {{ item.name }}
+            </h4>
+            <p class="blog__summary--list">
+                {{ item.summary }}
+            </p>
+            <p class="blog__date--list">
+                {{ item.date|date:"d M Y" }}
+            </p>
+        </div>
+    </a>
+</div>
+{% endif %}

@@ -4,7 +4,7 @@
 {% if links|length > 0 %}
 <div class="field {{b}}__links{% if m %}--{{m}}{% endif %}">
     <label class="field__label">
-        {% trans 'Enlaces relacionados' %}
+        <i class="fa fa-link"></i> {% trans 'Enlaces relacionados' %}
     </label>
     <ul class="field__value">
         {% for link in links %}

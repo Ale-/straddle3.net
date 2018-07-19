@@ -5,6 +5,13 @@
 {% block page_html_title %}Blog{% endblock %}
 
 {% block main %}
+{% if request.user.is_staff %}
+<div class="page__add--post">
+    <a href="{% url 'admin:models_post_add' %}" target="_blank">
+        {% trans 'Publica un post nuevo' %}
+    </a>
+</div>
+{% endif %}
 <div class="container-fixed">
     <nav class="breadcrumb">
         <a href="{% url 'front' %}">s3</a> » {% trans 'Blog' %}
@@ -12,12 +19,19 @@
     <h1 class="page__title--resources">
         {% trans 'Blog' %}
     </h1>
-    <div class="list--resources masonry">
-        {% if object_list|length > 0 %}
-            {% for post in object_list %}
-                {% include 'views/item--grid.html' with item=post %}
-            {% endfor %}
-        {% endif %}
+    <div class="page__content--blog">
+        <div class="page__content-left--blog">
+            <div class="list--blog masonry">
+              {% if object_list|length > 0 %}
+                  {% for post in object_list %}
+                      {% include 'views/blog--list.html' with item=post %}
+                  {% endfor %}
+              {% endif %}
+            </div>
+        </div>
+        <div class="page__content-right--blog">
+            {% include 'blocks/twitter.html' %}
+        </div>
     </div>
 </div>
 {% endblock %}

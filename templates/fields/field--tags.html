@@ -4,7 +4,7 @@
 {% if tags|length > 0 %}
 <div class="field {{b}}__tags{% if m %}--{{m}}{% endif %}">
     <label class="field__label">
-        {% trans 'Tags' %}
+        <i class="fa fa-tags"></i> {% trans 'Tags' %}
     </label>
     <ul class="field__value">
         {% for tag in object.tags.all %}

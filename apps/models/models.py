@@ -362,8 +362,8 @@ class Block(models.Model):
     body  = RichTextUploadingField(_('Texto'), blank=True, null=True)
 
     class Meta:
-        verbose_name = _('bloque')
-        verbose_name_plural = _('bloques')
+        verbose_name = _('bloque de texto')
+        verbose_name_plural = _('bloques de texto')
 
     def __str__(self):
         """String representation of this model objects."""
@@ -375,7 +375,7 @@ class Post(models.Model):
 
     name      = models.CharField(_('Titulo'), max_length=200, blank=False, null=True)
     slug      = models.SlugField(editable=False)
-    published = models.BooleanField(_('Publicado'), default=False, help_text=_("Indica si este contenido es visible públicamente"))
+    published = models.BooleanField(_('Publicado'), default=True, help_text=_("Indica si este contenido es visible públicamente"))
     summary   = models.TextField(_('Resumen'), blank=True, null=True)
     date      = models.DateField(_('Fecha de publicación'), default=datetime.now(), blank=True)
     body      = RichTextUploadingField(_('Cuerpo'), blank=True, null=True)
@@ -386,5 +386,22 @@ class Post(models.Model):
 
     def __str__(self):
         """String representation of this model objects."""
-
         return self.name
+
+    def save(self, *args, **kwargs):
+        """Populate automatically 'slug' field"""
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Post, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('post', args=[self.slug])
+
+    @property
+    def featured_image(self):
+        """ Returns featured image from the set """
+
+        featured = self.images.filter(views_featured=True)
+        if not featured:
+            return self.images.first()
+        return featured.first()

@@ -27,7 +27,7 @@ def field_verbose_name(obj, field_name):
     return obj._meta.get_field(field_name).verbose_name
 
 @register.inclusion_tag('field.html')
-def field(obj=None, field_name=None, value_html_wrapper='div', label=False, label_html_wrapper='label', field_label=None, container='full'):
+def field(obj=None, field_name=None, value_html_wrapper='div', label=False, label_html_wrapper='label', field_label=None, container='full', icon=None):
     try:
         model_name = obj.__class__.__name__.lower()
         field_value = getattr(obj, field_name)
@@ -44,6 +44,7 @@ def field(obj=None, field_name=None, value_html_wrapper='div', label=False, labe
         'value_html_wrapper' : value_html_wrapper,
         'label_html_wrapper' : label_html_wrapper,
         'container_name'     : model_name,
+        'icon'               : icon,
     }
 
 @register.inclusion_tag('fake-breadcrumb.html')

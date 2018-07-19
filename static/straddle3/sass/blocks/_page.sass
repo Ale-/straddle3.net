@@ -7,20 +7,23 @@
   font-size: 3em
   line-height: 1
 
-[class*='page__edit']
+[class*='page__edit'],
+[class*='page__add']
   position: fixed
-  top: $m/2
+  top: $m*5
   right: $m*5
-  z-index: 11000
+  z-index: 100
   line-height: $m
   +links_none
+  color: white
+  font-weight: bold
   a
     +label
     padding: $m/4 $m/2
-    background-color: $palette_yellow
+    background-color: $color_success
     +transition(background-color, .15s ease)
   a:hover
-    background-color: darken($palette_yellow, 5%)
+    background-color: darken($color_success, 5%)
 
 [class*='page__links']
   float: right

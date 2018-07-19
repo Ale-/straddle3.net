@@ -6,8 +6,13 @@
 
 
 {% block main %}
-
-{# fake_breadcrumb #}
+{% if request.user.is_staff %}
+<div class="page__add--projects">
+    <a href="{% url 'admin:models_project_add' %}" target="_blank">
+        {% trans 'Publica un proyecto nuevo' %}
+    </a>
+</div>
+{% endif %}
 <div class="container-fixed">
     <nav class="breadcrumb">
         <a href="{% url 'front' %}">s3</a> » <a href="{% url 'projects' %}">{% trans 'Proyectos' %}</a> {% if category %}» {{ category }}{% endif %}

@@ -4,7 +4,7 @@
 {% if category %}
 <div class="field {{b}}__category{% if m %}--{{m}}{% endif %}">
     <label class="field__label">
-        {% trans 'Categoría' %}
+        <i class="fa fa-tag"></i> {% trans 'Categoría' %}
     </label>
     <div class="field__value">
         <a href="{% url category_base_url category.slug %}">

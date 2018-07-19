@@ -2,6 +2,9 @@
 <div class="field {{ container_name }}__{{ field_name }}--{{ m }}">
     {% if label %}
     <{{ label_html_wrapper }} class="field__label">
+        {% if icon %}
+        <i class="fa fa-{{icon}}"></i>
+        {% endif %}
         {{ field_label }}
     </{{ label_html_wrapper }}>
     {% endif %}

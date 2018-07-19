@@ -5,9 +5,16 @@
 {% block page_html_title %}{% trans 'Recursos' %}{% endblock %}
 
 {% block main %}
+{% if request.user.is_staff %}
+<div class="page__add--resources">
+    <a href="{% url 'admin:models_resource_add' %}" target="_blank">
+        {% trans 'Publica un recurso nuevo' %}
+    </a>
+</div>
+{% endif %}
 <div class="container-fixed">
     <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » <a href="{% url 'resources' %}">{% trans 'Recursos' %}</a> {% if category %}» {{ category }}{% endif %} 
+        <a href="{% url 'front' %}">s3</a> » <a href="{% url 'resources' %}">{% trans 'Recursos' %}</a> {% if category %}» {{ category }}{% endif %}
     </nav>
     <h1 class="page__title--resources">
         {% trans 'Recursos' %}

@@ -11,7 +11,7 @@
 .connection__description--,
 .resource__description--
   padding: 0 $m*2
-  margin: $m 0 $m*2
+  margin: $m 0
   font-size: 1.25em
   line-height: 1.5
   border-left: 8px solid #3f3f3f
@@ -43,9 +43,17 @@
 
 [class*='__links--']
   +links($palette_yellow, darken($palette_yellow, 5%), .2s ease)
+  font-size: .9em
+  p
+    margin-bottom: 4px
+    opacity: .8
   a
     text-decoration: underline !important
     text-decoration-style: dotted !important
+  ul
+    padding-left: $m/2
+  li
+    margin-bottom: 8px
 
 [class*='__geolocation--']
   .field__label
@@ -99,6 +107,8 @@
   +transition(background-color .2s ease)
   &:hover
     background-color: darken($palette_yellow, 5%)
+[class*='__links--'] .field__label
+  margin-bottom: 8px
 
 .trimmed-content
   [class*='__body--'],
@@ -117,11 +127,13 @@
 .see-less
   +button_reset
   +transition(background-color, .2s ease)
-  float: left
   margin: $m $m $m/2 0
   padding: $m/2
   &:hover
     background-color: darken($palette_yellow, 5%)
+
+.see-less
+  float: left
 
 .meta-title
   margin-top: 0
@@ -134,3 +146,7 @@
   left: calc(-75% - #{$m})
   +transform-origin(100%)
   +transform(rotate(-90deg))
+
+.field__label .fa
+  opacity: .25
+  margin-right: 4px

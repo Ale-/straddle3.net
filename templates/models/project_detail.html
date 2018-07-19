@@ -61,7 +61,7 @@
             </div>
             <div class="center-left">
                 {# promoter #}
-                {% field obj=object field_name='promoter' label=True %}
+                {% field obj=object field_name='promoter' label=True icon='bullseye' %}
                 {# category #}
                 {% include 'fields/field--category.html' with b="project" m="full" category_base_url="projects" category=object.category %}
                 {# tags #}
@@ -73,9 +73,9 @@
             </div>
             <div class="right">
                 {# author_text #}
-                {% field obj=object field_name='author_text' label=True %}
+                {% field obj=object field_name='author_text' label=True icon="bolt" %}
                 {# gratitude_text #}
-                {% field obj=object field_name='gratitude_text' label=True %}
+                {% field obj=object field_name='gratitude_text' label=True icon="heart" %}
             </div>
         </div>
     </div>

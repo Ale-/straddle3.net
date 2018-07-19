@@ -3,7 +3,31 @@
   height: 100vh
   background-color: #222
 
-.page--map .leaflet-bar
+.page--front #straddle-map
+  height: 360px
+  border-top: 1px solid rgba(black, .25)
+  border-bottom: 1px solid rgba(black, .25)
+  +links_none
+  > a
+    font-size: 1.25em
+    font-weight: bold
+    font-family: $font_text
+    text-transform: uppercase
+    position: absolute
+    z-index: 12000
+    display: block
+    left: calc(50% - #{$m*5})
+    top: 45%
+    width: $m*10
+    text-align: center
+    background: white
+    padding: $m/4 $m/2
+    border: 1px solid rgba(black, .15)
+    +transition(background-color .2s ease)
+    &:hover
+      background: darken($palette_yellow, 5%)
+
+.leaflet-bar
   +links(white, $palette_yellow, .2 ease)
   border: 0
   a
@@ -11,21 +35,21 @@
     background-color: #222
     +box-shadow(none)
 
-.page--map .leaflet-control-attribution
-  background-color: #222
+.leaflet-control-attribution
+  background-color: #222 !important
   color: white
   +links(white, yellow, .2 ease)
 
-.page--map .leaflet-popup-content-wrapper
+.leaflet-popup-content-wrapper
   +border-radius(0)
   padding: $m/2
 
-.page--map .leaflet-popup-content
+.leaflet-popup-content
   width: 480px
   max-width: 100%
   +links_none
 
-.page--map .marker-cat
+.marker-cat
   margin-bottom: 0
   text-transform: uppercase
   font-size: .9em
@@ -38,7 +62,7 @@
   color: white
   padding: 0 $m
 
-.page--map .marker-name
+.marker-name
   margin: $m/4 0
   line-height: 1.1
   text-transform: uppercase
@@ -50,15 +74,15 @@
     width: $m*2.5
     margin-top: $m/2
 
-.page--map .marker-date
+.marker-date
   font-size: .9em
   text-transform: uppercase
   margin-top: 0
 
-.page--map .marker-summary
+.marker-summary
   font-family: $font_text
   font-size: 1.2em
 
 .page--map .leaflet-top
   top: $m*2
-  right: 10px
+  right: $m

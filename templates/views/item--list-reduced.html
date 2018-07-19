@@ -1,0 +1,20 @@
+{# list of items, reduced format #}
+{% load imagekit i18n %}
+
+<li class="item-list-reduced--{{ m }}">
+    <a href="{{ object.get_absolute_url }}">
+        {% if object.featured_image %}
+            {% thumbnail '48x48' object.featured_image.image_file %}
+        {% endif %}
+            <p class="item-list-reduced__category--{{ m }}">
+                {% if object.category %}
+                    {{ object.category }}
+                {% else %}
+                    {% trans 'No categorizado' %}
+                {% endif %}
+            </p>
+        <p class="item-list-reduced__name--{{ m }}">
+            {{ object.name }}
+        </p>
+    </a>
+</li>

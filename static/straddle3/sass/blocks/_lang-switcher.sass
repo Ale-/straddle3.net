@@ -2,9 +2,14 @@
 
 @import compass/css3/appearance
 
-.lang-switcher select
-  background: none
-  border: 0
-  text-transform: uppercase
-  +appearance(none)
-  font-size: $size_small
+.lang-switcher
+  position: fixed
+  right: $m*2
+  top: -$m/6
+  color: $palette_yellow
+  select
+    background: none
+    border: 0
+    text-transform: uppercase
+    +appearance(none)
+    font-size: $size_small

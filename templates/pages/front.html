@@ -1,72 +1,120 @@
 {# Frontpage #}
 {% extends 'layouts/single-fluid-column.html' %}
-{% load imagekit i18n utils static %}
+{% load imagekit i18n utils static leaflet_tags %}
 {% block body_classes %}page--front{% endblock %}
 {% block page_html_title %}inicio{% endblock %}
 
 {% block page_header %}
     <link rel="stylesheet" href='{% js 'bower_components/flexslider/flexslider.css' %}' />
+    {% leaflet_css %}
 {% endblock %}
 
 {% block main %}
 <div class="page__content--front">
     <div class="featured-slideshow">
-      <div class="flexslider">
-          <ul class="flexslider__items slides">
-              {% for item in featured %}
-                  <li class="flexslider__item slide">
-                      {% thumbnail '1920x480' item.featured_image.image_file %}
-                      <div class="flexslider__item-caption flex-caption">
-                          <h5>{{ item.name }}</h5>
-                          <p>{{ item.summary }}</p>
-                      </div>
-                  </li>
-              {% endfor %}
-          </ul>
-      </div>
+        <div class="flexslider">
+            <ul class="flexslider__items slides">
+                {% for item in featured %}
+                    <li class="flexslider__item slide">
+                        <div class="flexslider__item-caption flex-caption">
+                            <h5>{{ item.name }}</h5>
+                            <p>{{ item.summary }}</p>
+                        </div>
+                        {% thumbnail '1920x480' item.featured_image.image_file %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-    <div class="front-navigation">
-        <a class="front-navigation__left" href="{% url 'resources' %}">
-            <h5 class="front-navigation__title">
-                {% trans 'I+D=recursos' %}
-            </h5>
-            <figure class="front-navigation__image">
-                {% thumbnail '840x420' random_resource.featured_image.image_file %}
-            </figure>
-            <p class="front-navigation__text">
-                {% blocktrans %}
-                Investigaciones, herramientas, guías y
-                manuales que pueden resultar útiles
-                {% endblocktrans %}
-            </p>
-        </a>
-        <a class="front-navigation__center"  href="{% url 'connections' %}">
-            <h5 class="front-navigation__title">
-                {% trans 'complicidades' %}
-            </h5>
-            <figure class="front-navigation__image">
-                {% thumbnail '840x420' random_connection.featured_image.image_file %}
-            </figure>
-            <p class="front-navigation__text">
-                {% blocktrans %}
-                redes, colaboraciones, complicidades,
-                montajes, eventos y más
-                {% endblocktrans %}
-            </p>
-        </a>
-        <a class="front-navigation__right"  href="{% url 'projects' %}">
-            <h5 class="front-navigation__title">
-                {% trans 'proc-ectos' %}
-            </h5>
-            <figure class="front-navigation__image">
-                {% thumbnail '640x320' random_project.featured_image.image_file %}
-            </figure>
-            <p class="front-navigation__text">
-                {% blocktrans %}
-                una selección de procesos,
-                proyectos y obras realizadas
-                {% endblocktrans %}
-            </p>
+    <div class="front-navigation container-fixed">
+        <div class="front-navigation__left">
+            <a href="{% url 'resources' %}">
+                <figure class="front-navigation__image">
+                    <img class="mask" src="{% img 'recursos.svg' %}" />
+                    {% thumbnail '480x240' random_resource.featured_image.image_file %}
+                </figure>
+                <h2 class="front-navigation__title">
+                    {% trans 'I+D=recursos' %}
+                </h2>
+                <p class="front-navigation__text">
+                    {% blocktrans %}
+                    Investigaciones, herramientas, guías y
+                    manuales que pueden resultar útiles
+                    {% endblocktrans %}
+                </p>
+            </a>
+            <div class="front-navigation__list">
+                <h5 class="front-navigation__list-title">
+                    <i class="fa fa-star"></i> {% trans 'Recursos destacados' %}
+                </h5>
+                <ul class="front-navigation__list-items">
+                {% for resource in featured_resources %}
+                    {% include 'views/item--list-reduced.html' with object=resource m='front' %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="front-navigation__center"  href="{% url 'connections' %}">
+            <a href="{% url 'connections' %}">
+                <figure class="front-navigation__image">
+                    <img class="mask" src="{% img 'conexiones.svg' %}" />
+                    {% thumbnail '480x240' random_connection.featured_image.image_file %}
+                </figure>
+                <h2 class="front-navigation__title">
+                  {% trans 'complicidades' %}
+                </h2>
+                <p class="front-navigation__text">
+                    {% blocktrans %}
+                    Redes, colaboraciones, complicidades,
+                    montajes, eventos y más
+                    {% endblocktrans %}
+                </p>
+            </a>
+            <div class="front-navigation__list">
+                <h5 class="front-navigation__list-title">
+                    <i class="fa fa-star"></i> {% trans 'Complicidades destacadas' %}
+                </h5>
+                <ul class="front-navigation__list-items">
+                    {% for connection in featured_connections %}
+                        {% include 'views/item--list-reduced.html' with object=connection m='front' %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="front-navigation__right"  href="{% url 'projects' %}">
+            <a href="{% url 'projects' %}">
+                <figure class="front-navigation__image">
+                    <img class="mask" src="{% img 'proyectos.svg' %}" />
+                    {% thumbnail '480x240' random_project.featured_image.image_file %}
+                </figure>
+                <h2 class="front-navigation__title">
+                  {% trans 'proc-ectos' %}
+                </h2>
+                <p class="front-navigation__text">
+                    {% blocktrans %}
+                    Una selección de procesos,
+                    proyectos y obras realizadas
+                    {% endblocktrans %}
+                </p>
+            </a>
+            <div class="front-navigation__list">
+                <h5 class="front-navigation__list-title">
+                    <i class="fa fa-star"></i> {% trans 'Proyectos destacados' %}
+                </h5>
+                <ul class="front-navigation__list-items">
+                    {% for project in featured_projects %}
+                        {% include 'views/item--list-reduced.html' with object=project m='front' %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="straddle-map">
+        <a href="{% url 'map' %}">{% trans 'Ver el mapa de Straddle3' %}</a>
+    </div>
+    <div class="contact-row">
+        <a href="mailto:no-reply@straddle3.net" target="_blank">
+            <i class="fa fa-envelope"></i>
         </a>
     </div>
 </div>
@@ -85,4 +133,8 @@
         });
     });
     </script>
+    {# leaflet #}
+    {% leaflet_js %}
+    {# leaflet map script #}
+    <script type="text/javascript" src="{% js 'straddle-map.js' %}"></script>
 {% endblock %}

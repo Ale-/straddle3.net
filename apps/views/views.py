@@ -27,12 +27,12 @@ class FrontView(View):
         random_project    = models.Project.objects.filter(images__isnull=False).order_by('?').first()
         random_connection = models.Connection.objects.filter(images__isnull=False).order_by('?').first()
 
-        return render(request, 'pages/front.html', {
-            'featured'          : featured,
-            'random_resource'   : random_resource,
-            'random_project'    : random_project,
-            'random_connection' : random_connection,
-        })
+        # map
+        projects    = models.Project.objects.all()
+        connections = models.Connection.objects.all()
+        markers     = list(projects) + list(connections)
+
+        return render(request, 'pages/front.html', locals())
 
 class MapView(View):
     """ View to render content in a map """
@@ -41,7 +41,6 @@ class MapView(View):
         projects    = models.Project.objects.all()
         connections = models.Connection.objects.all()
         markers     = list(projects) + list(connections)
-        print(markers)
 
         return render(request, 'pages/map.html', { 'markers' : markers })
 

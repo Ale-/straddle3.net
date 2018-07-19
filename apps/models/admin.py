@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline, GenericTabularInline
 from django.db.models import TextField, ImageField
-from django.forms import Textarea
+from django.forms import Textarea, ModelForm
 from django.urls import reverse
 from django.utils.html import format_html
 # contrib
@@ -196,8 +196,17 @@ admin.site.register(models.Tag)
 admin.site.register(models.ProjectCategory)
 admin.site.register(models.ConnectionCategory)
 admin.site.register(models.ResourceCategory)
-admin.site.register(models.Block)
 
+class BlockAdminForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(BlockAdminForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs = { 'disabled' : True, 'classes' : 'disabled' }
+
+class BlockAdmin(admin.ModelAdmin):
+
+    form = BlockAdminForm
+
+admin.site.register(models.Block, BlockAdmin)
 
 class PostAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     model             = models.Post

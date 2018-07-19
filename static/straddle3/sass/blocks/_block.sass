@@ -1,9 +1,12 @@
-// Brand
+// Text blocks
 
-.branding
-  position: absolute
-  top: $m
-  left: $m
-  width: 100px
-  z-index: 10001
-  +animation(faderight 1s 1)
+.text-block
+  margin-bottom: $m*2
+  +links_none
+  h5 a
+    margin-left: $m
+    background-color: $palette_yellow
+    padding: $m/4 $m/2
+    +transition(background-color .2s ease)
+    &:hover
+      background-color: darken($palette_yellow, 5%)

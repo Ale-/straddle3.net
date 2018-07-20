@@ -200,11 +200,12 @@ admin.site.register(models.ResourceCategory)
 class BlockAdminForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(BlockAdminForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs = { 'disabled' : True, 'classes' : 'disabled' }
+        self.fields['name'].widget.attrs = { 'readonly' : True, 'classes' : 'disabled' }
 
-class BlockAdmin(admin.ModelAdmin):
+class BlockAdmin(NonSortableParentAdmin):
 
     form = BlockAdminForm
+    inlines = [ ImageInline, AttachmentInline, VideoInline ]
 
 admin.site.register(models.Block, BlockAdmin)
 

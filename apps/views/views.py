@@ -17,15 +17,17 @@ class FrontView(View):
         """ Handle GET requests. """
 
         # featured elements
-        featured_projects    = models.Project.objects.filter(featured=True, images__isnull=False)[:3]
-        featured_connections = models.Connection.objects.filter(featured=True, images__isnull=False)[:3]
-        featured_resources   = models.Resource.objects.filter(featured=True, images__isnull=False)[:3]
-        featured = list(featured_projects) + list(featured_connections) + list(featured_resources)
+        frontpage = models.Block.objects.filter(name="Inicio").first()
 
         # images for the front navigation block
         random_resource   = models.Resource.objects.filter(images__isnull=False).order_by('?').first()
         random_project    = models.Project.objects.filter(images__isnull=False).order_by('?').first()
         random_connection = models.Connection.objects.filter(images__isnull=False).order_by('?').first()
+
+        # featured content
+        featured_projects    = models.Project.objects.filter(featured=True, images__isnull=False)[:3]
+        featured_connections = models.Connection.objects.filter(featured=True, images__isnull=False)[:3]
+        featured_resources   = models.Resource.objects.filter(featured=True, images__isnull=False)[:3]
 
         return render(request, 'pages/front.html', locals())
 

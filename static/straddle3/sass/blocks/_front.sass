@@ -6,7 +6,7 @@
   margin: 0 auto $m*2
 
 .front-navigation__image img:not(.mask)
-  +filter( url('../filters/filter.svg#duotone_yellow') )
+  filter: grayscale(100%)
 
 .front-navigation__image .mask
   position: absolute
@@ -27,30 +27,25 @@
 
 .front-navigation__title
   text-transform: uppercase
-  margin-top: $m*2
+  margin-top: $m*1.5
+  text-align: center
 
 .front-navigation__text
   font-size: 1.25em
   margin-top: $m
   text-align: justify
 
+.front-navigation__list-title
+  text-align: center
+  background-color: #f5f5f5
 .page--front .flex-control-nav
   display: none
 .page--front .flexslider
   margin-bottom: 0
   position: relative
-.page--front .flexslider img
-  max-width: calc(100% - #{$m*10})
 .page--front .flexslider__item-caption
-  display: inline-block
-  background: #f5f5f5
-  width: $m*10
-  color: rgba(black, .5)
-  float: left
-  height: 100%
-  padding: $m
-  text-transform: inherit
-  font-size: inherit
+  opacity: 0
+  position: absolute
 .page--front .flexslider__item
   background-color: #f5f5f5
 .item-list-reduced--front
@@ -90,3 +85,10 @@
     +transition(background-color .2s ease)
     &:hover
       background-color: darken($palette_yellow, 5%)
+
+.site-info
+  background: $palette_yellow
+  position: absolute
+  width: 100%
+  z-index: 10000
+  opacity: .75

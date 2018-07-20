@@ -9,17 +9,19 @@
 {% endblock %}
 
 {% block main %}
+<div class="site-info">
+    {{ frontpage.body | safe }}
+</div>
 <div class="page__content--front">
     <div class="featured-slideshow">
         <div class="flexslider">
             <ul class="flexslider__items slides">
-                {% for item in featured %}
+                {% for image in frontpage.images.all %}
                     <li class="flexslider__item slide">
                         <div class="flexslider__item-caption flex-caption">
-                            <h5>{{ item.name }}</h5>
-                            <p>{{ item.summary }}</p>
+                            <h5>{{ image.alt_text }}</h5>
                         </div>
-                        {% thumbnail '1920x480' item.featured_image.image_file %}
+                        {% thumbnail '1920x480' image.image_file %}
                     </li>
                 {% endfor %}
             </ul>
@@ -126,6 +128,8 @@
     jQuery(document).ready(function($) {
         $('.flexslider').flexslider({
             animation: "slide",
+            slideshowSpeed: 8000,
+            animationSpeed: 2000
         });
     });
     </script>

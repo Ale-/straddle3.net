@@ -21,7 +21,8 @@ class RenameImage(object):
             @see https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.FileField.upload_to """
 
         type_path    = slugify(instance.content_type.name)
-        content_path = instance.source_content.slug
+        slug         = getattr(instance.source_content, 'slug', None)
+        content_path = slug if slug else slugify(instance.source_content.name)
         filename = slugify(instance.alt_text) + "." + filename.split('.')[1]
 
         # return the whole path to the file

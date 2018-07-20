@@ -354,12 +354,15 @@ class Resource(models.Model):
 
 class Block(models.Model):
 
-    name  = models.CharField(_('Nombre'), max_length=200,
-                            blank=False, null=True)
-    label = models.CharField(_('Etiqueta'), max_length=200,
-                            blank=True, null=True,
-                            help_text=_('Introduce el título del bloque, si no quieres que el bloque tenga título deja este campo en blanco'))
-    body  = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    name        = models.CharField(_('Nombre'), max_length=200,
+                                   blank=False, null=True)
+    label       = models.CharField(_('Etiqueta'), max_length=200,
+                                   blank=True, null=True,
+                                   help_text=_('Introduce el título del bloque, si no quieres que el bloque tenga título deja este campo en blanco'))
+    body        = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    images      = GenericRelation(Image)
+    videos      = GenericRelation(Video)
+    attachments = GenericRelation(Attachment)
 
     class Meta:
         verbose_name = _('bloque de texto')

@@ -4,7 +4,7 @@
 <li class="item-list-reduced--{{ m }}">
     <a href="{{ object.get_absolute_url }}">
         {% if object.featured_image %}
-            {% thumbnail '48x48' object.featured_image.image_file %}
+            {% thumbnail '48x48' object.images.first.image_file %}
         {% endif %}
             <p class="item-list-reduced__category--{{ m }}">
                 {% if object.category %}

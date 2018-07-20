@@ -25,9 +25,9 @@ class FrontView(View):
         random_connection = models.Connection.objects.filter(images__isnull=False).order_by('?').first()
 
         # featured content
-        featured_projects    = models.Project.objects.filter(featured=True, images__isnull=False)[:3]
-        featured_connections = models.Connection.objects.filter(featured=True, images__isnull=False)[:3]
-        featured_resources   = models.Resource.objects.filter(featured=True, images__isnull=False)[:3]
+        featured_projects    = models.Project.objects.filter(featured=True, images__isnull=False).distinct()[:3]
+        featured_connections = models.Connection.objects.filter(featured=True, images__isnull=False).distinct()[:3]
+        featured_resources   = models.Resource.objects.filter(featured=True, images__isnull=False).distinct()[:3]
 
         return render(request, 'pages/front.html', locals())
 

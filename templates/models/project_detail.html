@@ -29,6 +29,9 @@
         <h1 class="page__title--project">
             {{ object.name }}
         </h1>
+        <h3 class="page__subtitle--project">
+            {{ object.subtitle }}
+        </h1>
         {# dates #}
         {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='project' m='full' %}
         <div class="left">

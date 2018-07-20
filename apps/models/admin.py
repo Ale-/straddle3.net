@@ -107,7 +107,8 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
     actions           = [publish, unpublish, unfeature, feature]
     fields            = (
-        ('name', 'published', 'featured'),
+        ('name', 'subtitle'),
+        ('published', 'featured'),
         ('category', 'start_date', 'end_date'),
         ('summary', 'not_summary', 'body'),
         'geolocation',
@@ -155,7 +156,13 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     list_filter       = ('published', 'featured')
     inlines           = [ ImageInline, LinkInline ]
     actions           = [publish, unpublish, unfeature, feature]
-    fields            = (('name', 'published', 'featured'), ('category', 'start_date', 'end_date'), 'description', 'agents', 'geolocation', 'tags')
+    fields            = (
+        ('name', 'subtitle'),
+        ('published', 'featured'),
+        'category',
+        ('start_date', 'end_date'),
+        'description', 'agents', 'geolocation', 'tags'
+    )
     filter_horizontal = ('tags',)
 
     class Media:
@@ -174,7 +181,14 @@ class ResourceAdmin(NonSortableParentAdmin):
     thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_display      = ('thumb', 'linked_name', 'published', 'featured')
     list_filter       = ('published', 'featured')
-    fields            = (('name', 'category'), 'description', ('promoter', 'author_text', 'gratitude_text'), 'license', 'tags', ('published', 'featured'))
+    fields            = (
+        ('name', 'subtitle'),
+        'category',
+        ('published', 'featured'),
+        'description',
+        ('promoter', 'author_text', 'gratitude_text'),
+        'license', 'tags',
+    )
     actions           = [publish, unpublish, unfeature, feature]
     inlines           = [ ImageInline, AttachmentInline, LinkInline, VideoInline ]
     filter_horizontal = ('tags',)

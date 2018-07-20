@@ -152,6 +152,7 @@ class Project(models.Model):
     """ Projects """
 
     name           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=False, null=True)
+    subtitle       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
     summary        = models.TextField(_('Resumen'), blank=True, null=True)
     body           = RichTextUploadingField(_('Texto'), blank=True, null=True)
     slug           = models.SlugField(editable=False, blank=True)
@@ -219,6 +220,7 @@ class ConnectionCategory(models.Model):
 class Connection(models.Model):
 
     name        = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
+    subtitle    = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
     slug        = models.SlugField(editable=False)
     category    = models.ForeignKey(ConnectionCategory, verbose_name=_('Tipo'), blank=True, null=True, on_delete=models.SET_NULL)
     geolocation = PointField(_('Geolocalización'), blank=True)
@@ -308,6 +310,7 @@ class ResourceCategory(models.Model):
 class Resource(models.Model):
 
     name           = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
+    subtitle       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
     slug           = models.SlugField(editable=False)
     category       = models.ForeignKey(ResourceCategory, verbose_name=_('Formato'), blank=True, null=True, on_delete=models.SET_NULL)
     use_text       = models.TextField(_('Funciones básicas/posibles aplicaciones'), blank=True, null=True)

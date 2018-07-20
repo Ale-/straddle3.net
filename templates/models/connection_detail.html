@@ -30,9 +30,11 @@
             {{ object.name }}
         </h1>
         {# subtitle #}
+        {% if object.subtitle %}
         <h3 class="page__subtitle--project">
             {{ object.subtitle }}
         </h3>
+        {% endif %}
         {# dates #}
         {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='connection' m='full' %}
         <div class="left">

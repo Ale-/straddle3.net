@@ -28,9 +28,11 @@
             {{ object.name }}
         </h1>
         {# subtitle #}
+        {% if object.subtitle %}
         <h3 class="page__subtitle--resource">
             {{ object.subtitle }}
         </h3>
+        {% endif %}
         {# dates #}
         <div class="left">
             {# body #}

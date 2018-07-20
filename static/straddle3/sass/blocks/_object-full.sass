@@ -1,4 +1,4 @@
-  // Generic full view of models and overrides
+// Generic full view of models and overrides
 // /models/{{*}}_detail.html
 
 .field__label
@@ -66,10 +66,12 @@
   background: white !important
   .leaflet-bar
     border: 0
+    +links_none
+    color: #232323
     a
       +border-radius(0)
       border: 0
-      background-color: #ffdb00
+      background-color: white
 
 .circular-frame
   position: absolute
@@ -130,7 +132,7 @@
   margin: $m $m $m/2 0
   padding: $m/2
   &:hover
-    background-color: darken($palette_yellow, 5%)
+    background-color: $palette_yellow
 
 .see-less
   float: left

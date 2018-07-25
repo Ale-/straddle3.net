@@ -47,7 +47,7 @@
         <div class="container-fixed">
             <div class="left">
                 {# promoter #}
-                {% field obj=object field_name='license' label=True %}
+                {% field obj=object field_name='license' label=True icon='copyright'%}
             </div>
             <div class="center-left">
                 {# category #}
@@ -61,11 +61,11 @@
             </div>
             <div class="right">
                 {# promoter #}
-                {% field obj=object field_name='promoter' label=True %}
+                {% field obj=object field_name='promoter' label=True  icon='bullseye'%}
                 {# author_text #}
-                {% field obj=object field_name='author_text' label=True %}
+                {% field obj=object field_name='author_text' label=True icon='bolt' %}
                 {# gratitude_text #}
-                {% field obj=object field_name='gratitude_text' label=True %}
+                {% field obj=object field_name='gratitude_text' label=True icon='heart' %}
             </div>
         </div>
     </div>

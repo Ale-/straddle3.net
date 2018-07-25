@@ -13,7 +13,7 @@
         {% trans 'Bibliografía' %}
     </h1>
     <div class="page__content--bibliography">
-        {% text 'Bibliografía' %}
+        {% text 'Bibliografía' user.is_staff %}
     </div>
 </div>
 {% endblock %}

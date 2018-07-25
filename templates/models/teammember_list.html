@@ -13,7 +13,7 @@
         {% trans 'Quiénes somos' %}
     </h1>
     <div class="page__content--who">
-        {% text 'Definición' %}
+        {% text 'Definición' user.is_staff %}
         <div class="list--team masonry">
             <h3>{% trans 'El equipo' %}</h3>
             {% if object_list|length > 0 %}
@@ -22,7 +22,7 @@
             {% endfor %}
             {% endif %}
         </div>
-        {% text 'Nuestra relación con AACC' %}
+        {% text 'Nuestra relación con AACC' user.is_staff %}
     </div>
 </div>
 {% endblock %}

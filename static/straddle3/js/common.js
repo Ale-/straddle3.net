@@ -10,6 +10,9 @@
  */
 document.addEventListener("DOMContentLoaded", function()
 {
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var mobile = w < 740;
+
     var seemore_button = document.querySelector('.see-more');
     var body = document.querySelector('body');
     if(seemore_button){
@@ -23,20 +26,27 @@ document.addEventListener("DOMContentLoaded", function()
     }
 
     var lastScrollTop = 0;
-    window.addEventListener('scroll', function(){
-        var header = document.querySelector('.region-header');
-        var st = window.pageYOffset || document.documentElement.scrollTop;
-        if (st > lastScrollTop){
-            if(!header.classList.contains('hidden')){
-                header.classList.add('hidden');
-                header.classList.remove('visible');
+    if(!mobile){
+        window.addEventListener('scroll', function(){
+            var header = document.querySelector('.region-header');
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop){
+                if(!header.classList.contains('hidden')){
+                    header.classList.add('hidden');
+                    header.classList.remove('visible');
+                }
+            } else {
+                if(header.classList.contains('hidden')){
+                    header.classList.remove('hidden');
+                    header.classList.add('visible');
+                }
             }
-        } else {
-            if(header.classList.contains('hidden')){
-                header.classList.remove('hidden');
-                header.classList.add('visible');
-            }
-        }
-        lastScrollTop = st <= 0 ? 0 : st;
-    }, false);
+            lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
+    }
+    var menu_launcher = document.querySelector('.menu-main__launcher');
+    menu_launcher.addEventListener('click', function(){
+      window.scrollTo(0, 0);
+        document.body.classList.toggle('navigation-open');
+    });
 });

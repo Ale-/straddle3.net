@@ -13,7 +13,7 @@
         {% trans 'Currículum' %}
     </h1>
     <div class="page__content--open-fridays">
-        {% text 'Currículum' %}
+        {% text 'Currículum' user.is_staff %}
     </div>
 </div>
 {% endblock %}

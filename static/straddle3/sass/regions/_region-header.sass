@@ -5,16 +5,19 @@
   z-index: 10001
   width: 100vw
   top: 0
-  background: #232323
+  background: #222
   line-height: $header_height
+  height: $header_height
 
 .region-header__left
-  display: inline-block
   padding-left: $m
+  +breakpoint('sm')
+    display: inline-block
 
 .region-header__right
-  float: right
   padding: 0 $m
+  +breakpoint('sm')
+    float: right
   color: white
   +links(white, $palette_yellow, .2s ease)
   +clearfix
@@ -31,9 +34,16 @@
   100%
     top: 0
 
-.region-header.hidden
+.region-header.hidden,
+.region-header.hidden .brand,
+.region-header.hidden .hamburguer,
+.region-header.hidden .lang-switcher,
   +animation(hideup 1s ease)
   animation-fill-mode: forwards
-.region-header.visible
+
+.region-header.visible,
+.region-header.visible .brand,
+.region-header.visible .hamburguer,
+.region-header.visible .lang-switcher,
   +animation(showdown 1s ease)
   animation-fill-mode: forwards

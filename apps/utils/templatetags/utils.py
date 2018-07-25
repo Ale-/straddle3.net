@@ -103,17 +103,18 @@ def mediafile(path):
     return imagefile
 
 @register.inclusion_tag('text-block.html')
-def text(name):
+def text(name, staff=False):
     try:
         text = models.Block.objects.get(name=name)
     except:
         text = None
+    print(staff)
     return {
-        'name' : name,
-        'text' : text,
+        'name'  : name,
+        'text'  : text,
+        'staff' : staff,
     }
 
 @register.filter
 def get_section(path):
-    print(path)
     return path.split("/")[2]

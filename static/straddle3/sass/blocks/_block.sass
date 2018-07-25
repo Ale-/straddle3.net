@@ -10,3 +10,27 @@
     +transition(background-color .2s ease)
     &:hover
       background-color: darken($palette_yellow, 5%)
+
+.text-block__label
+  text-transform: uppercase
+
+.text-block__edit
+  padding: $m/2 $m $m/4
+
+#text-definicion,
+#text-nuestra-relacion-con-aacc
+  .text-block__content
+    margin-top: $m
+    text-align: justify
+    +breakpoint('sm')
+      font-size: 1.25em
+      +column-count(2)
+      padding: 0 $m
+
+#text-proyectos,
+#text-recursos,
+#text-complicidades
+  margin-top: -$m
+  .text-block__content
+    +h(3)
+    color: #333

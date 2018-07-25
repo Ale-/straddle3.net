@@ -15,11 +15,12 @@
 {% endif %}
 <div class="container-fixed">
     <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » <a href="{% url 'projects' %}">{% trans 'Proyectos' %}</a> {% if category %}» {{ category }}{% endif %}
+        <a href="{% url 'front' %}">s3</a> » {% if category %}<a href="{% url 'projects' %}">{% trans 'Proyectos' %}</a>{% else %}{% trans 'Proyectos' %}{% endif %}{% if category %}» {{ category }}{% endif %}
     </nav>
     <h1 class="page__title--projects">
         {% trans 'Proyectos' %}
     </h1>
+    {% text 'Proyectos' user.is_staff %}
     <div class="list--projects masonry">
         {% if object_list|length > 0 %}
             {% for project in object_list %}

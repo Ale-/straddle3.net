@@ -1,30 +1,81 @@
 // Main menu
 
+// Hamburguer icon (for navigations)
+=hamburguer-icon($side, $color)
+  width: $side
+  height: $side
+  display: inline-block
+  i
+    width: 100%
+    display: block
+    height: 3px
+    margin-bottom: 6px
+    background-color: $color
+    +transition(transform .25s ease)
+    +border-radius(3px)
+  i:last-child
+    margin-bottom: 0
+  &:hover
+    i
+      background-color: $palette_yellow
+    cursor: pointer
+
+.navigation-open .hamburguer
+  i:first-child
+    +transform(translateY(9px) rotate(45deg))
+  i:nth-child(2)
+    opacity: 0
+  i:last-child
+    +transform(translateY(-9px) rotate(-45deg))
+
+.hamburguer
+  +hamburguer-icon($m, white)
+  position: fixed
+  padding-top: 13px
+  right: $m*3
+  +breakpoint('sm')
+    display: none
+
 .menu-main
   text-transform: uppercase
   font-family: $font_headers
   font-weight: bold
   font-size: .85em
 
+.menu-main > ul
+  +breakpoint('xs')
+    background-color: #232323
+    position: absolute
+    width: 100vw
+    left: -200vw
+    top: $m*2
+    padding: $m*2 $m
+
+.navigation-open .menu-main > ul
+  left: 0
+
 .menu-main__item
-  display: inline-block
-  padding: 0 $m/2
+  +breakpoint('sm')
+    display: inline-block
+    padding: 0 $m/2
 
 .menu-main__item.active
   color: $palette_yellow
-  a:first-of-type
+  >p > a
     &:active, &:link, > &:visited
     color: $palette_yellow
 
 .menu-main__submenu
-  position: absolute
-  width: $m*10
-  padding: 0 $m/2
   background-color: #232323
-  z-index: 100
-  &.collapsed
-    opacity: 0
-    pointer-events: none
+  padding: 0 $m
+  +breakpoint('sm')
+    position: absolute
+    width: $m*10
+    padding: 0 $m/2
+    z-index: 100
+    &.collapsed
+      opacity: 0
+      pointer-events: none
 
 .menu-main__item:hover .collapsed
   opacity: 1

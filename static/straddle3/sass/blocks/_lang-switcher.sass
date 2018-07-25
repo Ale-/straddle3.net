@@ -4,7 +4,9 @@
 
 .lang-switcher
   position: fixed
-  right: $m*2
+  right: $m
+  +breakpoint('sm')
+    right: $m*2
   top: -$m/6
   color: $palette_yellow
   select

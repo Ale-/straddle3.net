@@ -13,7 +13,7 @@
         {% trans 'Hemeroteca' %}
     </h1>
     <div class="page__content--press">
-        {% text 'Hemeroteca' %}
+        {% text 'Hemeroteca' user.is_staff %}
     </div>
 </div>
 {% endblock %}

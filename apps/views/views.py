@@ -90,7 +90,7 @@ class ProjectView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
         name = context['object'].name
-        context['previous_project'] = models.Project.objects.filter(name__lt=name).order_by('name').first()
+        context['previous_project'] = models.Project.objects.filter(name__lt=name).order_by('-name').first()
         context['next_project'] = models.Project.objects.filter(name__gt=name).order_by('name').first()
         return context
 

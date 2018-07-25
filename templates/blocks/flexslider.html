@@ -3,6 +3,11 @@
 
 <div class="flexslider">
     <ul class="flexslider__items slides">
+        {% for video in videos %}
+        <li class="flexslider__item slide">
+            {% videoembed src=video.source_url w=480 h=360 %}
+        </li>
+        {% endfor %}
         {% for image in images %}
             {% if image.image_file.url|file_exists %}
             <li class="flexslider__item slide">
@@ -17,17 +22,12 @@
             </li>
             {% endif %}
         {% endfor %}
-        {% for video in videos %}
-        <li class="flexslider__item slide">
-            {% videoembed src=video.source_url w=480 h=360 %}
-        </li>
-        {% endfor %}
     </ul>
     <p class="flexslider__caption">
         {% with img_n=images|length vid_n=videos|length %}
-            Mostrando {% if img_n %}{{ img_n }} fotos{% endif %}
-            {% if img_n and vid_n %} y {% endif %}
-            {% if vid_n %}{{ vid_n }} videos{% endif %}
+            {% trans 'Mostrando' %} {% if vid_n %}{{ vid_n }} videos{% endif %}
+            {% if img_n and vid_n %} {% trans 'y' %} {% endif %}
+            {% if img_n %}{{ img_n }} {% trans 'fotos' %}{% endif %}
         {% endwith %}
     </p>
 </div>

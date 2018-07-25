@@ -2,8 +2,11 @@
   /templates/blocks/share-links.html
 
 .share-links
-  padding-bottom: $m
   +links_none
+  padding: $m $m*2
+  +breakpoint('sm')
+    padding: 0 0 $m
+
   &:before
     content: " "
     width: $m*2

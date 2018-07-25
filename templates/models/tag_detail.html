@@ -6,10 +6,11 @@
 
 {% block main %}
 <div class="container-fixed">
-    {# fake_breadcrumb #}
-    {% fake_breadcrumb %}
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Contenido etiquetado con' %} #{{ object.name }} 
+    </nav>
     <h1 class="page__title--tag">
-        tag: {{ object.name }}
+        #{{ object.name }}
     </h1>
     <div class="tagged-content masonry">
         {% if object_list|length > 0 %}

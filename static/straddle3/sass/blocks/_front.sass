@@ -5,22 +5,28 @@
   +links_none
   margin: 0 auto $m*2
 
-.front-navigation__image .mask
-  position: absolute
-  z-index: 10
-  &:hover
-    + img
-      filter: none
+.front-navigation__image
+  position: relative
+
+.front-navigation__image
+  filter: grayscale(100%)
+  .mask
+    position: absolute
+    z-index: 10
+    &:hover
+      + img
+        filter: none
 
 .front-navigation__left,
 .front-navigation__center,
 .front-navigation__right
   border: 2px solid white
   display: block
-  float: left
-  max-width: 33.33%
   position: relative
   padding: $m
+  +breakpoint('sm')
+    float: left
+    max-width: 33.33%
 
 .front-navigation__title
   text-transform: uppercase
@@ -86,7 +92,10 @@
 
 .site-info
   background: $palette_yellow
-  position: absolute
+  padding: $m/2 0
+  +breakpoint('sm')
+    padding: 0
+    position: absolute
   width: 100%
   z-index: 10000
   opacity: .75

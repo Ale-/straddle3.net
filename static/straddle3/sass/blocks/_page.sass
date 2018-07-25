@@ -3,23 +3,27 @@
 [class*='page__title']
   text-transform: uppercase
   margin: $m/2 0
-  font-size: 3em
+  font-size: 2em
+  +breakpoint('sm')
+    font-size: 3em
   line-height: 1
   color: #333
+  +breakpoint('sm')
+    margin: $m/2 0
+
 [class*='page__subtitle']
   color: #333
   margin-top: -$m/2
 
 [class*='page__edit'],
 [class*='page__add']
-  position: fixed
-  top: 10px
-  right: $m*5
-  z-index: 11000
-  line-height: $m
+  margin-right: $m
+  float: right
   +links_none
   color: white
   font-weight: bold
+  +breakpoint('xs')
+    display: none
   a
     +label
     padding: $m/4 $m/2
@@ -44,27 +48,39 @@
 [class*='page__content--']
   +clearfix
   .left
-    width: 50%
-    display: inline-block
-    float: left
-    clear: left
+    +breakpoint('sm')
+      width: 50%
+      display: inline-block
+      float: left
+      clear: left
   .right
-    width: 50%
-    display: inline-block
+    +breakpoint('sm')
+      width: 50%
+      display: inline-block
   .bottom
     +clearfix
     margin: $m 0
 
 [class*='page__content-bottom']
   padding: $m 0
+  margin-left: -$m
+  margin-right: -$m
   background-color: #232323
   color: white
   .left, .center-left, .center-right, .right
-    display: inline-block
-    width: 25%
-    float: left
     padding: 0 $m
-    border-right: 4px solid rgba(black, .25)
+    margin-bottom: $m/2
+    &:empty
+      display: none
+    +breakpoint('sm')
+      float: left
+      display: inline-block
+      width: 50%
+    +breakpoint('md')
+      width: 25%
+  .left, .center-left, .center-right
+    +breakpoint('sm')
+      border-right: 4px solid rgba(black, .1)
   .left
     text-align: center
   .field:first-of-type .field__label

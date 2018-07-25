@@ -5,14 +5,18 @@
   color: #222
   +links_none
   +clearfix
-  height: 120px
+  margin-left: -$m
+  margin-right: -$m
+  +breakpoint('sm')
+    height: 120px
 
 .related-content__item
-  display: inline-block
-  width: 33.33%
-  float: left
   padding: $m/2
   text-align: center
+  +breakpoint('sm')
+    display: inline-block
+    width: 33.33%
+    float: left
   &:hover
     background-color: $palette_yellow
 

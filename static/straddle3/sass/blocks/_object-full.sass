@@ -10,14 +10,18 @@
 [class*='__summary--'],
 .connection__description--,
 .resource__description--
-  padding: 0 $m*2
+  padding: 0 $m
+  +breakpoint('sm')
+    padding: 0 $m*2
   margin: $m 0
   font-size: 1.25em
   line-height: 1.5
-  border-left: 8px solid #3f3f3f
+  border-left: 8px solid #333
 
 [class*='__body--']
-  padding: 0 $m*2 0 0
+  padding: 0 $m
+  +breakpoint('sm')
+    padding: 0 $m*2 0 0
   p
     margin-bottom: $m/6
 
@@ -26,13 +30,14 @@
 
 [class*='__date--']
   +date
+  margin: 0
   .hyphen
     margin: 0 $m/4
   &:before
     content: " "
     display: block
     width: $m*2
-    border-top: 8px solid #3f3f3f
+    border-top: 8px solid #333
     margin: $m/2 0
 
 [class*='__category--']
@@ -61,9 +66,12 @@
     margin: 0 0 $m
 
 [class*='__geolocation--'] .leaflet-container
+  width: 100%
+  margin: 0 auto
   height: calc(#{$width_fixed/4 - $m*2})
   width: calc(#{$width_fixed/4 - $m*2})
   background: white !important
+  margin-bottom: $m
   .leaflet-bar
     border: 0
     +links_none
@@ -75,11 +83,14 @@
 
 .circular-frame
   position: absolute
-  max-width: calc(#{$width_fixed/4 - $m*2})
   z-index: 1000
   pointer-events: none
   display: block
-
+  margin: 0 auto
+  max-width: calc(#{$width_fixed/4 - $m*2})
+  left: calc(50% - #{$width_fixed/8 - $m})
+  +breakpoint('sm')
+    left: inherit
 // Meta box
 
 [class*='full__meta']
@@ -106,6 +117,7 @@
   margin-bottom: $m/4
   +border-radius($m/4)
   background: white
+  font-size: .9em
   +transition(background-color .2s ease)
   &:hover
     background-color: darken($palette_yellow, 5%)
@@ -152,3 +164,8 @@
 .field__label .fa
   opacity: .25
   margin-right: 4px
+
+.resource__license--
+  text-align: left
+.fa-copyright
+  +transform(scale(-1,1))

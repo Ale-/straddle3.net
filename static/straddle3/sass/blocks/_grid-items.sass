@@ -8,11 +8,12 @@
   &:hover
     .item__image--grid img
       +transform( scale(1.1) )
+  margin-bottom: $m
+  +breakpoint('sm')
+    padding: $m
+    margin-bottom: 0
   a
     display: block
-    padding: $m
-  a:hover
-    background-color: #f5f5f5
 
 .item__image--grid
   position: relative
@@ -33,5 +34,16 @@
   font-size: .8em
 
 .team-grid
-  padding: $m
+  padding: $m $m 0
   margin-top: $m
+
+.team-grid__image
+  padding: 0 $m
+  +breakpoint('sm')
+    padding: 0 $m*3
+
+.team-grid__name
+  margin-bottom: $m/2
+
+.list--team h3
+  text-transform: uppercase

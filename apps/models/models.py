@@ -145,8 +145,13 @@ class ProjectCategory(models.Model):
 
     def __str__(self):
         """String representation of this model objects."""
-
         return self.name
+
+    def save(self, *args, **kwargs):
+        """Populate automatically 'slug' field"""
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(ProjectCategory, self).save(*args, **kwargs)
 
 class Project(models.Model):
     """ Projects """
@@ -213,8 +218,13 @@ class ConnectionCategory(models.Model):
 
     def __str__(self):
         """String representation of this model objects."""
-
         return self.name
+
+    def save(self, *args, **kwargs):
+        """Populate automatically 'slug' field"""
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(ConnectionCategory, self).save(*args, **kwargs)
 
 
 class Connection(models.Model):
@@ -306,6 +316,11 @@ class ResourceCategory(models.Model):
 
         return self.name
 
+    def save(self, *args, **kwargs):
+        """Populate automatically 'slug' field"""
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(ResourceCategory, self).save(*args, **kwargs)
 
 class Resource(models.Model):
 

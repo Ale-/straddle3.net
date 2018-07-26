@@ -54,7 +54,7 @@
             </div>
             <div class="center-left">
                 {# category #}
-                {% include 'fields/field--category.html' with b="connection" m="full" category_base_url="connections" category=object.category %}
+                {% include 'fields/field--category.html' with b="connection" m="full" category_base_url="connections_cat" category=object.category %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="connection" m="full" tags=object.tags.all %}
             </div>

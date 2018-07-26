@@ -51,7 +51,7 @@
             </div>
             <div class="center-left">
                 {# category #}
-                {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources" category=object.category %}
+                {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources_cat" category=object.category %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="resource" m="full" tags=object.tags.all %}
             </div>

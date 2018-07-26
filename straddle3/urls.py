@@ -30,11 +30,11 @@ urlpatterns += i18n_patterns(
     # Project
     path('proyectos/<slug:slug>', views.ProjectView.as_view(), name="project"),
     # Projects
-    path('proyectos/cat/<slug:category_slug>', views.ProjectList.as_view(), name="projects"),
+    path('proyectos/cat/<slug:category_slug>', views.ProjectList.as_view(), name="projects_cat"),
     # Connections
     path('complicidades', views.ConnectionList.as_view(), name="connections"),
     # Projects
-    path('complicidades/cat/<slug:category_slug>', views.ConnectionList.as_view(), name="connections"),
+    path('complicidades/cat/<slug:category_slug>', views.ConnectionList.as_view(), name="connections_cat"),
     # Connection
     path('complicidades/<slug:slug>', views.ConnectionView.as_view(), name="connection"),
     # Resource
@@ -42,7 +42,7 @@ urlpatterns += i18n_patterns(
     # Connection
     path('recursos/<slug:slug>', views.ResourceView.as_view(), name="resource"),
     # Resource
-    path('recursos/cat/<slug:category_slug>', views.ResourceList.as_view(), name="resources"),
+    path('recursos/cat/<slug:category_slug>', views.ResourceList.as_view(), name="resources_cat"),
     # Tag
     path('tag/<slug:slug>', views.TagView.as_view(), name="tag"),
     # Who

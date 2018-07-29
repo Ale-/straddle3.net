@@ -1,11 +1,10 @@
-# contrib
-from datetime import datetime
 # django
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.utils.text import slugify
+from django.utils.timezone import now
 from django.urls import reverse
 # contrib
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -398,7 +397,7 @@ class Post(models.Model):
     slug      = models.SlugField(editable=False)
     published = models.BooleanField(_('Publicado'), default=True, help_text=_("Indica si este contenido es visible públicamente"))
     summary   = models.TextField(_('Resumen'), blank=True, null=True)
-    date      = models.DateField(_('Fecha de publicación'), default=datetime.now(), blank=True)
+    date      = models.DateField(_('Fecha de publicación'), default=now, blank=True)
     body      = RichTextUploadingField(_('Cuerpo'), blank=True, null=True)
     tags      = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     images    = GenericRelation(Image)

@@ -39,39 +39,32 @@ class MapView(View):
 # Dataset fake API for testing D3 widgets
 def MapApi(request):
     markers = []
+    lang = request.LANGUAGE_CODE
     projects    = models.Project.objects.filter(geolocation__isnull=False)
     for project in projects:
-        img = project.images.first()
-        start_date = project.start_date
-        end_date   = project.end_date
-        category   = project.category
+        img      = project.featured_image
+        category = project.category
         markers.append({
-            'name'       : project.name,
+            'name'       : project.t('name', lang),
+            'subtitle'   : project.t('subtitle', lang),
             'url'        : project.get_absolute_url(),
             'pos'        : project.geolocation,
-            'cat'        : category.name if category else None,
+            'cat'        : category.t('name', lang) if category else None,
             'col'        : category.color if category else None,
             'img'        : img.image_file.url if img else None,
-            'txt'        : project.summary if project.summary else None,
-            'start_date' : start_date.strftime("%d %b %Y") if start_date else None,
-            'end_date'   : end_date.strftime("%d %b %Y") if end_date else None,
         })
     connections = models.Connection.objects.filter(geolocation__isnull=False)
     for connection in connections:
-        img = connection.images.first()
-        start_date = connection.start_date
-        end_date   = connection.end_date
-        category   = connection.category
+        img      = connection.featured_image
+        category = connection.category
         markers.append({
-            'name'       : connection.name,
+            'name'       : connection.t('name', lang),
+            'subtitle'   : connection.t('subtitle', lang),
             'url'        : connection.get_absolute_url(),
             'pos'        : connection.geolocation,
-            'cat'        : category.name if category else None,
+            'cat'        : category.t('name', lang) if category else None,
             'col'        : category.color if category else None,
             'img'        : img.image_file.url if img else None,
-            'txt'        : connection.description if connection.description else None,
-            'start_date' : start_date.strftime("%d %b %Y") if start_date else None,
-            'end_date'   : end_date.strftime("%d %b %Y") if end_date else None,
         })
 
     return HttpResponse(json.dumps(markers), content_type="application/json")

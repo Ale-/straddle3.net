@@ -9,10 +9,17 @@
   position: relative
 
 .front-navigation__image
-  filter: grayscale(100%)
+  text-align: center
+  img
   .mask
     position: absolute
     z-index: 10
+    max-width: 70%
+    margin-left: -2px
+    & + img
+      max-width: 65%
+      +transition(filter, .2s ease)
+      filter: grayscale(100%) brightness(50%)
     &:hover
       + img
         filter: none
@@ -33,14 +40,15 @@
   margin-top: $m*1.5
   text-align: center
 
-.front-navigation__text
+.front-navigation .text-block__content
   font-size: 1.25em
   margin-top: $m
   text-align: justify
 
 .front-navigation__list-title
   text-align: center
-  background-color: #f5f5f5
+  text-transform: uppercase
+  font-size: .9em
 .page--front .flex-control-nav
   display: none
 .page--front .flexslider

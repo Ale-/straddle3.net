@@ -17,7 +17,6 @@
         <div class="flexslider">
             <ul class="flexslider__items slides">
                 {% for image in frontpage.images.all %}
-                {{ image }}
                     <li class="flexslider__item slide">
                         <div class="flexslider__item-caption flex-caption">
                             <h5>{{ image.alt_text }}</h5>

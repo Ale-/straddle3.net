@@ -35,8 +35,18 @@
         {% endif %}
         {# dates #}
         <div class="left">
+            {# summary #}
+              {% field obj=object field_name='summary' lang=lang safe=True %}
+
+            {# see more #}
+            <button class="see-more">
+                ✚ {% trans 'Leer más' %}
+            </button>
+            <button class="see-less">
+                ✕
+            </button>
             {# body #}
-            {% field obj=object field_name='body' lang=lang %}
+            {% field obj=object field_name='body' lang=lang safe=True %}
         </div>
         <div class="right">
             {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}

@@ -403,6 +403,7 @@ class Resource(models.Model):
     promoter       = models.TextField(_('Promotor'), blank=True, null=True)
     gratitude_text = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
     license        = models.TextField(_('Licencia'), blank=True, null=True)
+    summary        = models.TextField(_('Resumen'), blank=True, null=True)
     body           = RichTextUploadingField(_('Descripción'), blank=True, null=True)
     tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
@@ -414,6 +415,7 @@ class Resource(models.Model):
     # en
     name_en           = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
     subtitle_en       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    summary_en        = models.TextField(_('Resumen'), blank=True, null=True)
     body_en           = RichTextUploadingField(_('Descripción'), blank=True, null=True)
     use_text_en       = models.TextField(_('Funciones básicas/posibles aplicaciones'), blank=True, null=True)
     author_text_en    = models.TextField(_('Autor'), blank=True, null=True)
@@ -425,6 +427,7 @@ class Resource(models.Model):
     name_ca           = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
     subtitle_ca       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
     body_ca           = RichTextUploadingField(_('Descripción'), blank=True, null=True)
+    summary_ca        = models.TextField(_('Resumen'), blank=True, null=True)
     use_text_ca       = models.TextField(_('Funciones básicas/posibles aplicaciones'), blank=True, null=True)
     author_text_ca    = models.TextField(_('Autor'), blank=True, null=True)
     promoter_ca       = models.TextField(_('Promotor'), blank=True, null=True)

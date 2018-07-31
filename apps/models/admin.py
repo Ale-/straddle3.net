@@ -212,7 +212,7 @@ class ResourceAdmin(NonSortableParentAdmin):
         ('es', {
             'fields': (
                 ('name', 'subtitle'),
-                'body',
+                'summary', 'body',
                 ('promoter', 'author_text', 'gratitude_text'),
                 'license',
             ),
@@ -221,7 +221,7 @@ class ResourceAdmin(NonSortableParentAdmin):
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_en', 'subtitle_en'),
-                'body_en',
+                'summary_en', 'body_en',
                 ('promoter_en', 'author_text_en', 'gratitude_text_en'),
                 'license_en',
             ),
@@ -230,7 +230,7 @@ class ResourceAdmin(NonSortableParentAdmin):
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_ca', 'subtitle_ca'),
-                'body_ca',
+                'summary_ca', 'body_ca',
                 ('promoter_ca', 'author_text_ca', 'gratitude_text_ca'),
                 'license_ca',
             ),

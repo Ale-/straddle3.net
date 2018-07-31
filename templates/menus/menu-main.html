@@ -19,7 +19,7 @@
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'proyectos' %}active{% endif %}">
             <p class="menu-main__item-text">
                 <a href="{% url 'projects' %}">
-                    {% trans 'Proyectos' %}
+                    {% trans 'Trabajos' %}
                 </a>
             </p>
             <ul class="menu-main__submenu collapsed">
@@ -35,7 +35,17 @@
                 </li>
                 <li class="menu-main__submenu-item">
                     <a href="{% url 'projects_cat' 'equipamientos' %}">
-                        {% trans 'Equipamientos' %}
+                        {% trans 'Urbanismo táctico' %}
+                    </a>
+                </li>
+                <li class="menu-main__submenu-item">
+                    <a href="{% url 'projects_cat' 'equipamientos' %}">
+                        {% trans 'Participación' %}
+                    </a>
+                </li>
+                <li class="menu-main__submenu-item">
+                    <a href="{% url 'resources' %}">
+                        {% trans 'Recursos' %}
                     </a>
                 </li>
                 <li class="menu-main__submenu-item">

@@ -15,10 +15,10 @@
 {% endif %}
 <div class="container-fixed">
     <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » {% if category %}<a href="{% url 'projects' %}">{% trans 'Proyectos' %}</a>{% else %}{% trans 'Proyectos' %}{% endif %}{% if category %}» {{ category }}{% endif %}
+        <a href="{% url 'front' %}">s3</a> » {% if category %}<a href="{% url 'projects' %}">{% trans 'Trabajos' %}</a>{% else %}{% trans 'Trabajos' %}{% endif %}{% if category %}» {{ category }}{% endif %}
     </nav>
     <h1 class="page__title--projects">
-        {% trans 'Proyectos' %}
+        {% trans 'Trabajos' %}
     </h1>
     {% text 'Proyectos' user.is_staff lang %}
     <div class="list--projects masonry">

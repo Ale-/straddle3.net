@@ -7,17 +7,6 @@
   +h(5)
   text-transform: uppercase
 
-[class*='__summary--'],
-.connection__description--,
-.resource__description--
-  padding: 0 $m
-  +breakpoint('sm')
-    padding: 0 $m*2
-  margin: $m 0
-  font-size: 1.25em
-  line-height: 1.5
-  border-left: 8px solid #333
-
 [class*='__body--']
   padding: 0 $m
   +breakpoint('sm')
@@ -27,6 +16,17 @@
 
 [class*='__body--']
   margin-bottom: $m*3
+
+[class*='__summary--'],
+.connection__body--,
+.resource__body--
+  padding: 0 $m
+  +breakpoint('sm')
+    padding: 0 $m*2
+  margin: $m 0
+  font-size: 1.25em
+  line-height: 1.5
+  border-left: 8px solid #333
 
 [class*='__date--']
   +date

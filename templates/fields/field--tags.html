@@ -1,5 +1,5 @@
 {# tags #}
-{% load i18n %}
+{% load i18n utils %}
 
 {% if tags|length > 0 %}
 <div class="field {{b}}__tags{% if m %}--{{m}}{% endif %}">
@@ -10,7 +10,7 @@
         {% for tag in object.tags.all %}
         <li class="field__value-item">
             <a href="{% url 'tag' tag.slug %}">
-                {{ tag.name }}
+                {% simple_field tag 'name' lang %}
             </a>
         </li>
         {% endfor %}

@@ -5,7 +5,7 @@ def site_info_processor(request):
     """Injects into global context information about the site"""
 
     html_document_title       = settings.DOCUMENT_TITLE
-
+    lang                      = request.LANGUAGE_CODE
     return locals()
 
 def debug_processor(request):

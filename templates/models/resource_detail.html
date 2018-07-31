@@ -21,22 +21,22 @@
 <div class="page__content--resource">
     <div class="container-fixed">
         <nav class="breadcrumb">
-            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'resources' %}">{% trans 'Recursos' %}</a> » {{ object.name }}
+            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'resources' %}">{% trans 'Recursos' %}</a> » {% simple_field object 'name' lang %}
         </nav>
         {# title #}
         <h1 class="page__title--resource">
-            {{ object.name }}
+            {% simple_field object 'name' lang %}
         </h1>
         {# subtitle #}
         {% if object.subtitle %}
         <h3 class="page__subtitle--resource">
-            {{ object.subtitle }}
+              {% simple_field object 'subtitle' lang %}
         </h3>
         {% endif %}
         {# dates #}
         <div class="left">
             {# body #}
-            {% field obj=object field_name='description' %}
+            {% field obj=object field_name='body' lang=lang %}
         </div>
         <div class="right">
             {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
@@ -47,7 +47,7 @@
         <div class="container-fixed">
             <div class="left">
                 {# promoter #}
-                {% field obj=object field_name='license' label=True icon='copyright'%}
+                {% field obj=object field_name='license' label=True icon='copyright' lang=lang %}
             </div>
             <div class="center-left">
                 {# category #}
@@ -61,11 +61,11 @@
             </div>
             <div class="right">
                 {# promoter #}
-                {% field obj=object field_name='promoter' label=True  icon='bullseye'%}
+                {% field obj=object lang=lang field_name='promoter' label=True  icon='bullseye'%}
                 {# author_text #}
-                {% field obj=object field_name='author_text' label=True icon='bolt' %}
+                {% field obj=object lang=lang field_name='author_text' label=True icon='bolt' %}
                 {# gratitude_text #}
-                {% field obj=object field_name='gratitude_text' label=True icon='heart' %}
+                {% field obj=object lang=lang field_name='gratitude_text' label=True icon='heart' %}
             </div>
         </div>
     </div>

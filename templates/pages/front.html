@@ -17,6 +17,7 @@
         <div class="flexslider">
             <ul class="flexslider__items slides">
                 {% for image in frontpage.images.all %}
+                {{ image }}
                     <li class="flexslider__item slide">
                         <div class="flexslider__item-caption flex-caption">
                             <h5>{{ image.alt_text }}</h5>
@@ -38,10 +39,7 @@
                     {% trans 'I+D=recursos' %}
                 </h2>
                 <p class="front-navigation__text">
-                    {% blocktrans %}
-                    Investigaciones, herramientas, guías y
-                    manuales que pueden resultar útiles
-                    {% endblocktrans %}
+                    {% text 'Recursos' user.is_staff lang %}
                 </p>
             </a>
             <div class="front-navigation__list">
@@ -65,10 +63,7 @@
                   {% trans 'complicidades' %}
                 </h2>
                 <p class="front-navigation__text">
-                    {% blocktrans %}
-                    Redes, colaboraciones, complicidades,
-                    montajes, eventos y más
-                    {% endblocktrans %}
+                    {% text 'Complicidades' user.is_staff lang %}
                 </p>
             </a>
             <div class="front-navigation__list">
@@ -92,10 +87,7 @@
                   {% trans 'proc-ectos' %}
                 </h2>
                 <p class="front-navigation__text">
-                    {% blocktrans %}
-                    Una selección de procesos,
-                    proyectos y obras realizadas
-                    {% endblocktrans %}
+                    {% text 'Proyectos' user.is_staff lang %}
                 </p>
             </a>
             <div class="front-navigation__list">

@@ -20,7 +20,7 @@
     <h1 class="page__title--connections">
         {% trans 'Complicidades' %}
     </h1>
-    {% text 'Complicidades' user.is_staff %}
+    {% text 'Complicidades' user.is_staff lang %}
     <div class="list--connections masonry">
         {% if object_list|length > 0 %}
             {% for connection in object_list %}

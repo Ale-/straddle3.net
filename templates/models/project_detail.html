@@ -23,15 +23,15 @@
 <div class="page__content--project">
     <div class="container-fixed">
         <nav class="breadcrumb">
-            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'projects' %}">{% trans 'Proyectos' %}</a> » {{ object.name }}
+            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'projects' %}">{% trans 'Proyectos' %}</a> » {% simple_field object 'name' lang %}
         </nav>
         {# title #}
         <h1 class="page__title--project">
-            {{ object.name }}
+            {% simple_field object 'name' lang %}
         </h1>
         {% if object.subtitle %}
         <h3 class="page__subtitle--project">
-            {{ object.subtitle }}
+            {% simple_field object 'subtitle' lang %}
         </h1>
         {% endif %}
         {# dates #}
@@ -40,7 +40,7 @@
             <div class="project-full">
                 {# summary #}
                 {% if not object.not_summary %}
-                    {% field obj=object field_name='summary' %}
+                    {% field obj=object field_name='summary' lang=lang safe=True %}
                 {% endif %}
                 {# see more #}
                 <button class="see-more">
@@ -50,7 +50,7 @@
                     ✕
                 </button>
                 {# body #}
-                {% field obj=object field_name='body' %}
+                {% field obj=object field_name='body' lang=lang safe=True %}
             </div>
         </div>
         <div class="right">
@@ -66,9 +66,9 @@
             </div>
             <div class="center-left">
                 {# promoter #}
-                {% field obj=object field_name='promoter' label=True icon='bullseye' %}
+                {% field obj=object lang=lang field_name='promoter' label=True icon='bullseye' %}
                 {# category #}
-                {% include 'fields/field--category.html' with b="project" m="full" category_base_url="projects_cat" category=object.category %}
+                {% include 'fields/field--category.html' with b="project" m="full" category_base_url="projects_cat" category=object.category translation=translation %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="project" m="full" tags=object.tags.all %}
             </div>
@@ -78,9 +78,9 @@
             </div>
             <div class="right">
                 {# author_text #}
-                {% field obj=object field_name='author_text' label=True icon="bolt" %}
+                {% field obj=object lang=lang field_name='author_text' label=True icon="bolt" %}
                 {# gratitude_text #}
-                {% field obj=object field_name='gratitude_text' label=True icon="heart" %}
+                {% field obj=object lang=lang field_name='gratitude_text' label=True icon="heart" %}
             </div>
         </div>
     </div>

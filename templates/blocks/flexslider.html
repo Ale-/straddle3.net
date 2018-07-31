@@ -6,6 +6,11 @@
         {% for video in videos %}
         <li class="flexslider__item slide">
             {% videoembed src=video.source_url w=480 h=360 %}
+            {% if not video.not_caption %}
+            <p class="flexslider__item-caption flex-caption">
+                {% simple_field video 'caption' lang %}
+            </p>
+            {% endif %}
         </li>
         {% endfor %}
         {% for image in images %}
@@ -14,9 +19,9 @@
                 <a href="{{ image.image_file.url }}" data-lightbox="project">
                     {% thumbnail 'x480' image.image_file %}
                 </a>
-                {% if not notcaption %}
+                {% if not image.not_caption %}
                 <p class="flexslider__item-caption flex-caption">
-                    {{ image.alt_text }}
+                    {% simple_field image 'caption' lang %}
                 </p>
                 {% endif %}
             </li>
@@ -25,9 +30,9 @@
     </ul>
     <p class="flexslider__caption">
         {% with img_n=images|length vid_n=videos|length %}
-            {% trans 'Mostrando' %} {% if vid_n %}{{ vid_n }} videos{% endif %}
+            {% trans 'Mostrando' %} {% if vid_n %}{{ vid_n }} {% trans 'video' %}{{ vid_n|pluralize}}{% endif %}
             {% if img_n and vid_n %} {% trans 'y' %} {% endif %}
-            {% if img_n %}{{ img_n }} {% trans 'fotos' %}{% endif %}
+            {% if img_n %}{{ img_n }} {% trans 'foto' %}{{ img_n|pluralize}}{% endif %}
         {% endwith %}
     </p>
 </div>

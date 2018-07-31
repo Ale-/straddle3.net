@@ -1,3 +1,5 @@
+{% load utils %}
+
 {% if field_value %}
 <div class="field {{ container_name }}__{{ field_name }}--{{ m }}">
     {% if label %}
@@ -8,8 +10,9 @@
         {{ field_label }}
     </{{ label_html_wrapper }}>
     {% endif %}
+    {{ object }}
     <{{ value_html_wrapper }} class="field__value">
-        {{ field_value | safe }}
+        {{ field_value }}
     </{{ value_html_wrapper }}>
 </div>
 {% endif %}

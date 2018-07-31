@@ -30,7 +30,7 @@ urlpatterns += i18n_patterns(
     # Project
     path('proyectos/<slug:slug>', views.ProjectView.as_view(), name="project"),
     # Projects
-    path('proyectos/cat/<slug:category_slug>', views.ProjectList.as_view(), name="projects_cat"),
+    path('proyectos/category/<slug:category_slug>', views.ProjectList.as_view(), name="projects_cat"),
     # Connections
     path('complicidades', views.ConnectionList.as_view(), name="connections"),
     # Projects

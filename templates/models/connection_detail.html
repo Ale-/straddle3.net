@@ -23,23 +23,23 @@
 <div class="page__content--project">
     <div class="container-fixed">
         <nav class="breadcrumb">
-            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'connections' %}">{% trans 'Conexiones' %}</a> » {{ object.name }}
+            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'connections' %}">{% trans 'Conexiones' %}</a> » {% simple_field object 'name' lang %}
         </nav>
         {# title #}
         <h1 class="page__title--project">
-            {{ object.name }}
+            {% simple_field object 'name' lang %}
         </h1>
         {# subtitle #}
         {% if object.subtitle %}
         <h3 class="page__subtitle--project">
-            {{ object.subtitle }}
+            {% simple_field object 'subtitle' lang %}
         </h3>
         {% endif %}
         {# dates #}
         {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='connection' m='full' %}
         <div class="left">
             {# body #}
-            {% field obj=object field_name='description' %}
+            {% field obj=object field_name='body' lang=lang safe=True %}
         </div>
         <div class="right">
             {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
@@ -64,7 +64,7 @@
             </div>
             <div class="right">
                 {# promoter #}
-                {% field obj=object field_name='agents' label=True %}
+                {% field obj=object field_name='agents' label=True lang=lang %}
             </div>
         </div>
     </div>

@@ -3,31 +3,31 @@
 <div class="text-block" id="text-{{ name|slugify }}">
     <h3 class="text-block__label">
         {% if text %}
-            {% if text.label %}{{ text.label }}{% endif %}
+            {% if text.name %}{% simple_field text 'name' lang %}{% endif %}
         {% else %}
             {{ name }}
         {% endif %}
     </h3>
     <div class="text-block__content">
     {% if text %}
-        {{ text.body | safe}}
+        {% simple_field text 'body' lang True %}
+        {% if staff and text %}
+        <span class="text-block__edit">
+            <a href="{% url 'admin:models_block_change' text.id %}">
+                <i class="fa fa-edit"></i>
+            </a>
+        </span>
+        {% endif %}
     {% else %}
         {% lorem %}
         {% if staff %}
         <h5>
             {% trans 'Este texto no ha sido creado todavía' %}.
-            <a href="{% url 'admin:models_block_add' %}?name={{ name }}">
+            <a href="{% url 'admin:models_block_add' %}?label={{ text.label }}">
                 <i class="fa fa-plus"></i> {% trans 'Añade este texto' %}
             </a>
         </h5>
         {% endif %}
     {% endif %}
     </div>
-    {% if staff and text %}
-    <div class="text-block__edit">
-        <a href="{% url 'admin:models_block_change' text.id %}">
-            <i class="fa fa-edit"></i> {% trans 'Editar' %}
-        </a>
-    </div>
-    {% endif %}
 </div>

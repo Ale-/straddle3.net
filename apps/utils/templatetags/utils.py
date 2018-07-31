@@ -26,17 +26,24 @@ def img(file):
 def field_verbose_name(obj, field_name):
     return obj._meta.get_field(field_name).verbose_name
 
+@register.simple_tag()
+def simple_field(obj, field_name, lang, safe=False):
+    field = getattr(obj, field_name)
+    if lang != settings.LANGUAGE_CODE:
+        translation = getattr(obj, "%s_%s"%(field_name, lang))
+        field = translation if translation else field
+    return mark_safe(field) if safe else field
+
 @register.inclusion_tag('field.html')
-def field(obj=None, field_name=None, value_html_wrapper='div', label=False, label_html_wrapper='label', field_label=None, container='full', icon=None):
-    try:
-        model_name = obj.__class__.__name__.lower()
-        field_value = getattr(obj, field_name)
-    except:
-        return Exception("You need to pass a valid object or field name to field_simple tag")
+def field(obj=None, lang=settings.LANGUAGE_CODE, safe=False, field_name=None, value_html_wrapper='div', label=False, label_html_wrapper='label', field_label=None, container='full', icon=None):
+    source = getattr(obj, field_name)
+    model_name = obj.__class__.__name__.lower()
+    field_value = simple_field(obj, field_name, lang, safe)
     if not field_label:
         field_label = obj._meta.get_field(field_name).verbose_name
     return {
         'model_name'         : model_name,
+        'obj'                : obj,
         'field_name'         : field_name,
         'label'              : label,
         'field_label'        : field_label,
@@ -103,18 +110,21 @@ def mediafile(path):
     return imagefile
 
 @register.inclusion_tag('text-block.html')
-def text(name, staff=False):
+def text(label, staff=False, lang=settings.LANGUAGE_CODE):
     try:
-        text = models.Block.objects.get(name=name)
+        text = models.Block.objects.get(label=label)
     except:
         text = None
-    print(staff)
     return {
-        'name'  : name,
         'text'  : text,
         'staff' : staff,
+        'lang'  : lang,
     }
 
 @register.filter
 def get_section(path):
     return path.split("/")[2]
+
+@register.simple_tag
+def t(obj, field, lang):
+    return obj.t(field, lang)

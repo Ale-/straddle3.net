@@ -1,5 +1,5 @@
 {# category #}
-{% load i18n %}
+{% load i18n utils %}
 
 {% if category %}
 <div class="field {{b}}__category{% if m %}--{{m}}{% endif %}">
@@ -9,7 +9,7 @@
     <div class="field__value">
         <a href="{% url category_base_url category.slug %}">
             <span class="bullet" style="color: {{ category.color }}">●</span>
-            {{ category.name }}
+            {% simple_field category 'name' lang %}
         </a>
     </div>
 </div>

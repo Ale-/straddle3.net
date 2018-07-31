@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView
 from django.http import Http404, HttpResponse
 # project
 from apps.models import models
-
+from django.conf import settings
 
 class FrontView(View):
     """ Frontpage """
@@ -17,17 +17,12 @@ class FrontView(View):
         """ Handle GET requests. """
 
         # featured elements
-        frontpage = models.Block.objects.filter(name="Inicio").first()
+        frontpage = models.Block.objects.filter(label="Inicio").first()
 
         # images for the front navigation block
         random_resource   = models.Resource.objects.filter(images__isnull=False).order_by('?').first()
         random_project    = models.Project.objects.filter(images__isnull=False).order_by('?').first()
         random_connection = models.Connection.objects.filter(images__isnull=False).order_by('?').first()
-
-        # featured content
-        featured_projects    = models.Project.objects.filter(featured=True, images__isnull=False).distinct()[:3]
-        featured_connections = models.Connection.objects.filter(featured=True, images__isnull=False).distinct()[:3]
-        featured_resources   = models.Resource.objects.filter(featured=True, images__isnull=False).distinct()[:3]
 
         return render(request, 'pages/front.html', locals())
 
@@ -92,6 +87,7 @@ class ProjectView(DetailView):
         name = context['object'].name
         context['previous_project'] = models.Project.objects.filter(name__lt=name).order_by('-name').first()
         context['next_project'] = models.Project.objects.filter(name__gt=name).order_by('name').first()
+
         return context
 
 class ProjectList(ListView):
@@ -114,11 +110,16 @@ class ProjectList(ListView):
     def get_context_data(self, **kwargs):
         """ Sets the context data of the view. """
         context = super(ProjectList, self).get_context_data(**kwargs)
-        if self.category == 'otros':
-            context['category'] = 'otros'
-        else:
-            category = models.ProjectCategory.objects.filter(slug=self.category).first()
-            context['category'] = category.name if category else None
+        if self.category:
+            if self.category == 'otros':
+                context['category'] = 'otros'
+            else:
+                category = models.ProjectCategory.objects.filter(slug=self.category).first()
+                if category:
+                    translated = False
+                    if self.request.LANGUAGE_CODE != settings.LANGUAGE_CODE:
+                        translated = getattr(category, 'name_%s' % self.request.LANGUAGE_CODE)
+                    context['category'] = translated if translated else getattr(category, 'name')
         return context
 
 class ConnectionView(DetailView):
@@ -128,9 +129,9 @@ class ConnectionView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ConnectionView, self).get_context_data(**kwargs)
-        name= context['object'].name
+        name    = context['object'].name
         context['previous_connection'] = models.Connection.objects.filter(name__lt=name).order_by('name').first()
-        context['next_connection'] = models.Connection.objects.filter(name__gt=name).order_by('name').first()
+        context['next_connection']     = models.Connection.objects.filter(name__gt=name).order_by('name').first()
         return context
 
 class ConnectionList(ListView):
@@ -150,7 +151,11 @@ class ConnectionList(ListView):
         """ Sets the context data of the view. """
         context = super(ConnectionList, self).get_context_data(**kwargs)
         category = models.ConnectionCategory.objects.filter(slug=self.category).first()
-        context['category'] = category.name if category else None
+        if category:
+            translated = False
+            if self.request.LANGUAGE_CODE != settings.LANGUAGE_CODE:
+                translated = getattr(category, 'name_%s' % self.request.LANGUAGE_CODE)
+            context['category'] = translated if translated else getattr(category, 'name')
         return context
 
 class TeamList(ListView):
@@ -176,7 +181,11 @@ class ResourceList(ListView):
         """ Sets the context data of the view. """
         context = super(ResourceList, self).get_context_data(**kwargs)
         category = models.ResourceCategory.objects.filter(slug=self.category).first()
-        context['category'] = category.name if category else None
+        if category:
+            translated = False
+            if self.request.LANGUAGE_CODE != settings.LANGUAGE_CODE:
+                translated = getattr(category, 'name_%s' % self.request.LANGUAGE_CODE)
+            context['category'] = translated if translated else getattr(category, 'name')
         return context
 
 class ResourceView(DetailView):

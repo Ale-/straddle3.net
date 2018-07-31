@@ -19,7 +19,7 @@
     <h1 class="page__title--resources">
         {% trans 'Recursos' %}
     </h1>
-    {% text 'Recursos' user.is_staff %}
+    {% text 'Recursos' user.is_staff lang %}
     <div class="list--resources masonry">
         {% if object_list|length > 0 %}
             {% for resource in object_list %}

@@ -18,13 +18,13 @@
         {% endif %}
         {% if show_cat and item.category %}
         <span class="item__category--grid">
-            {{ item.category }}
+            {% simple_field item.category 'name' lang %}
         </span>
         {% endif %}
     </p>
     {% endif %}
     <h5 class="item__name--grid">
-        {{ item.name }}
+        {% simple_field item 'name' lang %}
     </h5>
     {% if show_date and item.start_date or item.end_date %}
     <p class="item__date--grid">

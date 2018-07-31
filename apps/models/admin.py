@@ -64,12 +64,10 @@ def cached_admin_thumb(instance):
 
 admin.site.register(models.Image)
 
-class ImageInline(SortableGenericTabularInline):
+class ImageInline(SortableGenericStackedInline):
     model  = models.Image
     extra  = 0
-    fields = (
-        ( 'image_file', 'alt_text', 'not_caption', 'views_featured' ),
-    )
+    fields = ('image_file', 'caption', ('caption_en', 'caption_ca'), ('not_caption', 'views_featured'))
 
     formfield_overrides = {
         ImageField: {
@@ -77,26 +75,20 @@ class ImageInline(SortableGenericTabularInline):
         }
     }
 
-class VideoInline(SortableGenericTabularInline):
+class VideoInline(SortableGenericStackedInline):
     model  = models.Video
     extra  = 0
-    fields = (
-        ( 'source_url', 'caption' ),
-    )
+    fields = ( 'source_url', 'caption', ('caption_en', 'caption_ca'))
 
-class AttachmentInline(SortableGenericTabularInline):
+class AttachmentInline(SortableGenericStackedInline):
     model  = models.Attachment
     extra  = 0
-    fields = (
-        ( 'attachment_file', 'name', ),
-    )
+    fields = ('attachment_file', 'name', ('caption_en', 'caption_ca'))
 
-class LinkInline(SortableGenericTabularInline):
+class LinkInline(SortableGenericStackedInline):
     model = models.Link
-    fields = (
-        ( 'url', 'title' ),
-    )
     extra = 0
+    fields = ( ('url', 'caption'), ('caption_en', 'caption_ca'))
 
 class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     model             = models.Project
@@ -104,17 +96,37 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_filter       = ('published', 'featured')
     list_display      = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
-    inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
-    actions           = [publish, unpublish, unfeature, feature]
-    fields            = (
-        ('name', 'subtitle'),
-        ('published', 'featured'),
-        ('category', 'start_date', 'end_date'),
-        ('summary', 'not_summary', 'body'),
-        'geolocation',
-        ('promoter', 'author_text', 'gratitude_text'),
-        'tags'
+    actions           = [ publish, unpublish, unfeature, feature ]
+    fieldsets = (
+        ('es', {
+            'fields': (
+                ('name', 'subtitle'),
+                ('published', 'featured'),
+                ('category', 'start_date', 'end_date'),
+                ('summary', 'not_summary', 'body'),
+                'geolocation',
+                ('promoter', 'author_text', 'gratitude_text'),
+                'tags'
+            ),
+        }),
+        ('en', {
+            'classes' : ('collapse',),
+            'fields'  : (
+                ('name_en', 'subtitle_en'),
+                ('summary_en', 'body_en'),
+                ('promoter_en', 'author_text_en', 'gratitude_text_en'),
+            ),
+        }),
+        ('ca', {
+            'classes' : ('collapse',),
+            'fields'  : (
+                ('name_ca', 'subtitle_ca'),
+                ('summary_ca', 'body_ca'),
+                ('promoter_ca', 'author_text_ca', 'gratitude_text_ca'),
+            ),
+        })
     )
+    inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
     filter_horizontal = ('tags',)
 
     class Media:
@@ -155,13 +167,29 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     list_display      = ('thumb', 'linked_name', 'start_date', 'published', 'featured')
     list_filter       = ('published', 'featured')
     inlines           = [ ImageInline, LinkInline ]
-    actions           = [publish, unpublish, unfeature, feature]
-    fields            = (
-        ('name', 'subtitle'),
-        ('published', 'featured'),
-        'category',
-        ('start_date', 'end_date'),
-        'description', 'agents', 'geolocation', 'tags'
+    actions           = [ publish, unpublish, unfeature, feature ]
+
+    fieldsets = (
+        ('es', {
+            'fields': (
+                ('name', 'subtitle'),
+                'body', 'agents'
+            ),
+        }),
+        ('en', {
+            'classes' : ('collapse',),
+            'fields'  : (
+                ('name_en', 'subtitle_en'),
+                'body_en', 'agents_en'
+            ),
+        }),
+        ('ca', {
+            'classes' : ('collapse',),
+            'fields'  : (
+                ('name_ca', 'subtitle_ca'),
+                'body_ca', 'agents_ca'
+            ),
+        })
     )
     filter_horizontal = ('tags',)
 
@@ -174,23 +202,42 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
 
 admin.site.register(models.Connection, ConnectionAdmin)
 
-
 class ResourceAdmin(NonSortableParentAdmin):
     model             = models.Resource
     ordering          = ('name',)
     thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_display      = ('thumb', 'linked_name', 'published', 'featured')
     list_filter       = ('published', 'featured')
-    fields            = (
-        ('name', 'subtitle'),
-        'category',
-        ('published', 'featured'),
-        'description',
-        ('promoter', 'author_text', 'gratitude_text'),
-        'license', 'tags',
+    fieldsets = (
+        ('es', {
+            'fields': (
+                ('name', 'subtitle'),
+                'body',
+                ('promoter', 'author_text', 'gratitude_text'),
+                'license',
+            ),
+        }),
+        ('en', {
+            'classes' : ('collapse',),
+            'fields'  : (
+                ('name_en', 'subtitle_en'),
+                'body_en',
+                ('promoter_en', 'author_text_en', 'gratitude_text_en'),
+                'license_en',
+            ),
+        }),
+        ('ca', {
+            'classes' : ('collapse',),
+            'fields'  : (
+                ('name_ca', 'subtitle_ca'),
+                'body_ca',
+                ('promoter_ca', 'author_text_ca', 'gratitude_text_ca'),
+                'license_ca',
+            ),
+        })
     )
     actions           = [publish, unpublish, unfeature, feature]
-    inlines           = [ ImageInline, AttachmentInline, LinkInline, VideoInline ]
+    inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
     filter_horizontal = ('tags',)
 
     class Media:
@@ -204,7 +251,6 @@ class ResourceAdmin(NonSortableParentAdmin):
     thumb.short_description       = 'Imagen'
 
 admin.site.register(models.Resource, ResourceAdmin)
-
 
 admin.site.register(models.Tag)
 admin.site.register(models.ProjectCategory)
@@ -220,6 +266,19 @@ class BlockAdmin(NonSortableParentAdmin):
 
     form = BlockAdminForm
     inlines = [ ImageInline, AttachmentInline, VideoInline ]
+    fieldsets = (
+        ('es', {
+            'fields'  : ('label', 'name', 'body'),
+        }),
+        ('en', {
+            'classes' : ('collapse',),
+            'fields'  : ('name_en', 'body_en'),
+        }),
+        ('ca', {
+            'classes' : ('collapse',),
+            'fields'  : ('name_ca', 'body_ca'),
+        })
+    )
 
 admin.site.register(models.Block, BlockAdmin)
 
@@ -231,8 +290,21 @@ class PostAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     list_filter       = ('published',)
     inlines           = [ ImageInline, LinkInline ]
     actions           = [publish, unpublish, unfeature, feature]
-    fields            = (('name', 'published', 'date'), 'summary', 'body', 'tags')
     filter_horizontal = ('tags',)
+
+    fieldsets = (
+        ('es', {
+            'fields': (('name', 'published', 'date'), 'summary', 'body', 'tags'),
+        }),
+        ('en', {
+            'classes' : ('collapse',),
+            'fields'  : ('name_en', 'summary_en', 'body_en'),
+        }),
+        ('ca', {
+            'classes' : ('collapse',),
+            'fields'  : ('name_ca', 'summary_ca', 'body_ca'),
+        })
+    )
 
     class Media:
         js = ['/static/straddle3/js/featured-image.js',]

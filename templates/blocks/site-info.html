@@ -1,9 +1,5 @@
 {# brand block #}
 {% load utils i18n %}
 <div class="site-info">
-    {% blocktrans %}
-    Trabajamos el hábitat desde la base:
-    nos interesan la vivienda, el dominio público,
-    las prácticas colaborativas, las redes
-    {% endblocktrans %}
+    {% text 'Site info' user.is_staff lang %}
 </div>

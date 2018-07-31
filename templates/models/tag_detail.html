@@ -7,10 +7,10 @@
 {% block main %}
 <div class="container-fixed">
     <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » {% trans 'Contenido etiquetado con' %} #{{ object.name }} 
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Contenido etiquetado con' %} #{% simple_field object 'name' lang %}
     </nav>
     <h1 class="page__title--tag">
-        #{{ object.name }}
+        #{% simple_field object 'name' lang %}
     </h1>
     <div class="tagged-content masonry">
         {% if object_list|length > 0 %}

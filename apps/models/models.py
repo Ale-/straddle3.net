@@ -14,6 +14,7 @@ from colorfield.fields import ColorField
 # project
 from .categories import FORMATS
 from . import validators, utils
+from django.conf import settings
 
 validate_image_size = validators.ImageSizeValidator({ 'min_width' : 480, 'min_height' : 480, 'max_width' : 1920, 'max_height' : 1280 })
 validate_image_type = validators.ImageTypeValidator(["jpeg", "png"])
@@ -23,12 +24,16 @@ files_path          = utils.RenameFile("files/")
 
 """ Generic models """
 
+
 class Video(SortableMixin):
     """ Images """
 
     source_url     = models.CharField(_('Video'), max_length=200, blank=True, null=True,
                                        help_text=_('Inserta la url de un video de Youtube o Vimeo'))
-    caption        = models.TextField(_('Caption opcional'), max_length=200, blank=False)
+    caption        = models.CharField(_('Pie de video opcional'), max_length=200, blank=True, null=True)
+    caption_en     = models.CharField(_('Pie EN'), max_length=200, blank=True, null=True)
+    caption_ca     = models.CharField(_('Pie CA'), max_length=200, blank=True, null=True)
+    not_caption    = models.BooleanField(_('No mostrar pie de video'), default=True, help_text=_("No mostrar el pie de video en las galerías"))
     content_type   = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id      = models.PositiveIntegerField()
     source_content = GenericForeignKey('content_type', 'object_id')
@@ -48,12 +53,14 @@ class Image(SortableMixin):
     image_file     = models.ImageField(_('Archivo de imagen'), blank=False,
                                        validators=[validate_image_size, validate_image_type],
                                        upload_to=images_path)
-    alt_text       = models.CharField(_('Texto alternativo'), max_length=200, blank=False)
+    caption        = models.CharField(_('Texto alternativo/Pie de foto'), max_length=200, blank=False, null=True)
+    caption_en     = models.CharField(_('Texto/Pie EN'), max_length=200, blank=True, null=True)
+    caption_ca     = models.CharField(_('Texto/Pie CA'), max_length=200, blank=True, null=True)
     content_type   = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id      = models.PositiveIntegerField()
     source_content = GenericForeignKey('content_type', 'object_id')
     order          = models.PositiveIntegerField(default=0, editable=False, db_index=True)
-    not_caption    = models.BooleanField(_('No mostrar pie de foto'), default=False, help_text=_("Marca la casilla para no mostrar el pie de foto en las galerías"))
+    not_caption    = models.BooleanField(_('No mostrar pie de foto'), default=True, help_text=_("No mostrar el pie de foto en las galerías"))
     views_featured = models.BooleanField(_('Destacada'), default=False, help_text=_("La imagen destacada será la que se muestre en las vistas"))
 
     class Meta:
@@ -73,6 +80,9 @@ class Attachment(SortableMixin):
     attachment_file = models.FileField(_('Archivo adjunto'), blank=False,
                                         validators=[validate_file_type],
                                         upload_to=files_path)
+    caption         = models.CharField(_('Descripción opcional'), max_length=200, blank=True, null=True)
+    caption_en      = models.CharField(_('Descripción EN'), max_length=200, blank=True, null=True)
+    caption_ca      = models.CharField(_('Descripción CA'), max_length=200, blank=True, null=True)
     content_type    = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id       = models.PositiveIntegerField()
     source_content  = GenericForeignKey('content_type', 'object_id')
@@ -93,7 +103,9 @@ class Link(SortableMixin):
     """ Attachment """
 
     url            = models.URLField(_('URL del enlace'), blank=False)
-    title          = models.CharField(_('Título del enlace'), max_length=200, blank=True)
+    caption        = models.CharField(_('Texto del enlace'), max_length=200, blank=True)
+    caption_en     = models.CharField(_('Texto EN'), max_length=200, blank=True)
+    caption_ca     = models.CharField(_('Texto CA'), max_length=200, blank=True)
     content_type   = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id      = models.PositiveIntegerField()
     source_content = GenericForeignKey('content_type', 'object_id')
@@ -111,9 +123,13 @@ class Link(SortableMixin):
 
 class Tag(models.Model):
 
-    name        = models.CharField(_('Nombre de la etiqueta'), blank=False, max_length=128)
-    description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
-    slug        = models.SlugField(editable=False, blank=True)
+    name    = models.CharField(_('Tag'), blank=False, max_length=128)
+    name_en = models.CharField(_('Tag EN'), blank=True, max_length=128)
+    name_ca = models.CharField(_('Tag CA'), blank=True, max_length=128)
+    body    = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    body_en = models.TextField(_('Descripción EN'), max_length=200, blank=True)
+    body_ca = models.TextField(_('Descripción CA'), max_length=200, blank=True)
+    slug    = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tag')
@@ -133,10 +149,14 @@ class Tag(models.Model):
 
 class ProjectCategory(models.Model):
 
-    name        = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
-    color       = ColorField(_('Color de la categoría'), blank=True)
-    description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
-    slug        = models.SlugField(editable=False, blank=True)
+    name    = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
+    name_en = models.CharField(_('Nombre EN'), blank=True, max_length=128)
+    name_ca = models.CharField(_('Nombre CA'), blank=True, max_length=128)
+    color   = ColorField(_('Color de la categoría'), blank=True)
+    body    = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    body_en = models.TextField(_('Descripción EN'), max_length=200, blank=True)
+    body_ca = models.TextField(_('Descripción CA'), max_length=200, blank=True)
+    slug    = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tipo de proyecto')
@@ -175,6 +195,24 @@ class Project(models.Model):
     videos         = GenericRelation(Video)
     not_summary    = models.BooleanField(_('No mostrar resumen'), default=False, help_text=_("Marca para no mostrar el resumen en las vistas completas"))
 
+    # en
+    name_en           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=True, null=True)
+    subtitle_en       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    summary_en        = models.TextField(_('Resumen'), blank=True, null=True)
+    body_en           = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    promoter_en       = models.TextField(_('Promotor'), blank=True, null=True)
+    author_text_en    = models.TextField(_('Autor'), blank=True, null=True)
+    gratitude_text_en = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
+
+    # ca
+    name_ca           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=True, null=True)
+    subtitle_ca       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    summary_ca        = models.TextField(_('Resumen'), blank=True, null=True)
+    body_ca           = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    promoter_ca       = models.TextField(_('Promotor'), blank=True, null=True)
+    author_text_ca    = models.TextField(_('Autor'), blank=True, null=True)
+    gratitude_text_ca = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
+
     class Meta:
         verbose_name = _('Proyecto')
         verbose_name_plural = _('Proyectos / Trabajos')
@@ -203,13 +241,16 @@ class Project(models.Model):
 
         super(Project, self).save(*args, **kwargs)
 
-
 class ConnectionCategory(models.Model):
 
-    name        = models.CharField(_('Nombre de la categoría'),  max_length=128, blank=False)
-    description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
-    color       = ColorField(_('Color de la categoría'), blank=True)
-    slug        = models.SlugField(editable=False, blank=True)
+    name    = models.CharField(_('Nombre de la categoría'),  max_length=128, blank=False)
+    name_en = models.CharField(_('Nombre EN'),  max_length=128, blank=True)
+    name_ca = models.CharField(_('Nombre CA'),  max_length=128, blank=True)
+    body    = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    body_en = models.TextField(_('Descripción EN'), max_length=200, blank=True)
+    body_ca = models.TextField(_('Descripción CA'), max_length=200, blank=True)
+    color   = ColorField(_('Color de la categoría'), blank=True)
+    slug    = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tipo de conexión')
@@ -235,7 +276,7 @@ class Connection(models.Model):
     geolocation = PointField(_('Geolocalización'), blank=True)
     start_date  = models.DateField(_('Fecha de comienzo'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
     end_date    = models.DateField(_('Fecha de finalización'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
-    description = RichTextUploadingField(_('Descripción'), blank=True, null=True)
+    body        = RichTextUploadingField(_('Descripción'), blank=True, null=True)
     agents      = models.TextField(_('Agentes'), blank=True, null=True)
     tags        = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     images      = GenericRelation(Image)
@@ -244,6 +285,17 @@ class Connection(models.Model):
     featured    = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
     links       = GenericRelation(Link)
 
+    # en
+    name_en        = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
+    subtitle_en    = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    body_en        = RichTextUploadingField(_('Descripción'), blank=True, null=True)
+    agents_en     = models.TextField(_('Agentes'), blank=True, null=True)
+
+    # ca
+    name_ca        = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
+    subtitle_ca    = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    body_ca        = RichTextUploadingField(_('Descripción'), blank=True, null=True)
+    agents_ca     = models.TextField(_('Agentes'), blank=True, null=True)
 
     class Meta:
         verbose_name = _('conexión')
@@ -276,12 +328,14 @@ class Connection(models.Model):
 
 class TeamMember(models.Model):
 
-    name      = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
-    surname   = models.CharField(_('Apellidos'), max_length=200, blank=True, null=True)
-    summary   = models.TextField(_('Resumen'), blank=True, null=True)
-    image     = models.ImageField(_('Imagen principal'), blank=True)
-    published = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
-    featured  = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
+    name       = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
+    surname    = models.CharField(_('Apellidos'), max_length=200, blank=True, null=True)
+    summary    = models.TextField(_('Resumen'), blank=True, null=True)
+    summary_en = models.TextField(_('Resumen'), blank=True, null=True)
+    summary_ca = models.TextField(_('Resumen'), blank=True, null=True)
+    image      = models.ImageField(_('Imagen principal'), blank=True)
+    published  = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
+    featured   = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
 
     class Meta:
         verbose_name = _('persona en Straddle3')
@@ -301,10 +355,14 @@ class TeamMember(models.Model):
 
 class ResourceCategory(models.Model):
 
-    name        = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
-    description = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
-    color       = ColorField(_('Color de la categoría'), blank=True)
-    slug        = models.SlugField(editable=False, blank=True)
+    name    = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
+    name_en = models.CharField(_('Nombre EN'), max_length=128, blank=True)
+    name_ca = models.CharField(_('Nombre CA'), max_length=128, blank=True)
+    body    = models.TextField(_('Descripción opcional'), max_length=200, blank=True)
+    body_en = models.TextField(_('Descripción EN'), max_length=200, blank=True)
+    body_ca = models.TextField(_('Descripción CA'), max_length=200, blank=True)
+    color   = ColorField(_('Color de la categoría'), blank=True)
+    slug    = models.SlugField(editable=False, blank=True)
 
     class Meta:
         verbose_name = _('tipo de recurso')
@@ -332,13 +390,34 @@ class Resource(models.Model):
     promoter       = models.TextField(_('Promotor'), blank=True, null=True)
     gratitude_text = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
     license        = models.TextField(_('Licencia'), blank=True, null=True)
-    description    = RichTextUploadingField(_('Descripción'), blank=True, null=True)
+    body           = RichTextUploadingField(_('Descripción'), blank=True, null=True)
     tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured       = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
     images         = GenericRelation(Image)
     links          = GenericRelation(Link)
     videos         = GenericRelation(Video)
+
+    # en
+    name_en           = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
+    subtitle_en       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    body_en           = RichTextUploadingField(_('Descripción'), blank=True, null=True)
+    use_text_en       = models.TextField(_('Funciones básicas/posibles aplicaciones'), blank=True, null=True)
+    author_text_en    = models.TextField(_('Autor'), blank=True, null=True)
+    promoter_en       = models.TextField(_('Promotor'), blank=True, null=True)
+    gratitude_text_en = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
+    license_en        = models.TextField(_('Licencia'), blank=True, null=True)
+
+    # ca
+    name_ca           = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
+    subtitle_ca       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    body_ca           = RichTextUploadingField(_('Descripción'), blank=True, null=True)
+    use_text_ca       = models.TextField(_('Funciones básicas/posibles aplicaciones'), blank=True, null=True)
+    author_text_ca    = models.TextField(_('Autor'), blank=True, null=True)
+    promoter_ca       = models.TextField(_('Promotor'), blank=True, null=True)
+    gratitude_text_ca = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
+    license_ca        = models.TextField(_('Licencia'), blank=True, null=True)
+
 
     class Meta:
         verbose_name = _('recurso')
@@ -371,12 +450,20 @@ class Resource(models.Model):
 
 class Block(models.Model):
 
-    name        = models.CharField(_('Nombre'), max_length=200,
-                                   blank=False, null=True)
     label       = models.CharField(_('Etiqueta'), max_length=200,
+                                   blank=True, null=True,)
+    name        = models.CharField(_('Nombre'), max_length=200,
+                                   blank=True, null=True,
+                                   help_text=_('Introduce el título del bloque, si no quieres que el bloque tenga título deja este campo en blanco'))
+    name_en     = models.CharField(_('Nombre'), max_length=200,
+                                   blank=True, null=True,
+                                   help_text=_('Introduce el título del bloque, si no quieres que el bloque tenga título deja este campo en blanco'))
+    name_ca     = models.CharField(_('Nombre'), max_length=200,
                                    blank=True, null=True,
                                    help_text=_('Introduce el título del bloque, si no quieres que el bloque tenga título deja este campo en blanco'))
     body        = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    body_en     = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    body_ca     = RichTextUploadingField(_('Texto'), blank=True, null=True)
     images      = GenericRelation(Image)
     videos      = GenericRelation(Video)
     attachments = GenericRelation(Attachment)
@@ -388,12 +475,12 @@ class Block(models.Model):
     def __str__(self):
         """String representation of this model objects."""
 
-        return self.name
+        return self.label
 
 
 class Post(models.Model):
 
-    name      = models.CharField(_('Titulo'), max_length=200, blank=False, null=True)
+    name      = models.CharField(_('Nombre/título'), max_length=200, blank=False, null=True)
     slug      = models.SlugField(editable=False)
     published = models.BooleanField(_('Publicado'), default=True, help_text=_("Indica si este contenido es visible públicamente"))
     summary   = models.TextField(_('Resumen'), blank=True, null=True)
@@ -403,6 +490,16 @@ class Post(models.Model):
     images    = GenericRelation(Image)
     links     = GenericRelation(Link)
     videos    = GenericRelation(Video)
+
+    # en
+    name_en    = models.CharField(_('Nombre/título'), max_length=200, blank=True, null=True)
+    summary_en = models.TextField(_('Resumen'), blank=True, null=True)
+    body_en    = RichTextUploadingField(_('Cuerpo'), blank=True, null=True)
+
+    # ca
+    name_ca    = models.CharField(_('Nombre/título'), max_length=200, blank=True, null=True)
+    summary_ca = models.TextField(_('Resumen'), blank=True, null=True)
+    body_ca    = RichTextUploadingField(_('Cuerpo'), blank=True, null=True)
 
     def __str__(self):
         """String representation of this model objects."""

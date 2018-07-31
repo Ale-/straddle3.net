@@ -1,0 +1,29 @@
+{# field attachments #}
+{% load i18n utils %}
+
+{% if files|length > 0 %}
+<div class="field {{b}}__files{% if m %}--{{m}}{% endif %}">
+    <label class="field__label">
+        <i class="fa fa-download"></i> {% trans 'Descargas' %}
+    </label>
+    <ul class="field__value">
+        {% for file in files %}
+        <li class="field__value-item">
+            {% if file.name %}
+            <p>
+                <a href="{{ file.attachment_file.url }}" target="_blank">
+                    {% simple_field file 'name' lang %}
+                </a>
+                <span class="filesize">[{{ file.attachment_file.url|filesize|filesizeformat }}]</span>
+            </p>
+            {% endif %}
+            {% if file.caption %}
+            <p>
+                {% simple_field file 'caption' lang %}
+            </p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

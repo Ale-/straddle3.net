@@ -89,7 +89,9 @@ class Image(SortableMixin):
 class Attachment(SortableMixin):
     """ Attachments """
 
-    name            = models.CharField(_('Nombre descriptivo del archivo'), max_length=200, blank=False, null=True)
+    name            = models.CharField(_('Nombre del archivo'), max_length=200, blank=False, null=True)
+    name_en         = models.CharField(_('Nombre EN'), max_length=200, blank=False, null=True)
+    name_ca         = models.CharField(_('Nombre CA'), max_length=200, blank=False, null=True)
     attachment_file = models.FileField(_('Archivo adjunto'), blank=False,
                                         validators=[validate_file_type],
                                         upload_to=files_path)
@@ -206,6 +208,7 @@ class Project(Translatable):
     featured       = models.BooleanField(_('Destacado'), default=False, help_text=_("Indica si este contenido es destacado y ha de tener mayor visibilidad"))
     links          = GenericRelation(Link)
     videos         = GenericRelation(Video)
+    attachments    = GenericRelation(Attachment)
     not_summary    = models.BooleanField(_('No mostrar resumen'), default=False, help_text=_("Marca para no mostrar el resumen en las vistas completas"))
 
     # en
@@ -297,6 +300,7 @@ class Connection(Translatable):
     published   = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
     featured    = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
     links       = GenericRelation(Link)
+    attachments = GenericRelation(Attachment)
 
     # en
     name_en        = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
@@ -411,6 +415,7 @@ class Resource(models.Model):
     images         = GenericRelation(Image)
     links          = GenericRelation(Link)
     videos         = GenericRelation(Video)
+    attachments    = GenericRelation(Attachment)
 
     # en
     name_en           = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)

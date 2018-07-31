@@ -56,18 +56,18 @@
     <div class="page__content-bottom--resource">
         <div class="container-fixed">
             <div class="left">
-                {# promoter #}
-                {% field obj=object field_name='license' label=True icon='copyright' lang=lang %}
-            </div>
-            <div class="center-left">
                 {# category #}
                 {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources_cat" category=object.category %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="resource" m="full" tags=object.tags.all %}
             </div>
-            <div class="center-right">
+            <div class="center-left">
                 {# links #}
                 {% include 'fields/field--links.html' with b="resource" m="full" links=object.links.all %}
+            </div>
+            <div class="center-right">
+                {# attachments #}
+                {% include 'fields/field--attachments.html' with b="resource" m="full" files=object.attachments.all %}
             </div>
             <div class="right">
                 {# promoter #}

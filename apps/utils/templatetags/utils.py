@@ -97,6 +97,10 @@ def videoembed(src, w, h):
     return ''
 
 @register.filter
+def filesize(url):
+    return os.path.getsize(settings.BASE_DIR + url)
+
+@register.filter
 def file_exists(path):
     return os.path.isfile("%s/%s" % ( settings.BASE_DIR, path))
 

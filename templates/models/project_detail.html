@@ -60,7 +60,7 @@
     </div>
     <div class="page__content-bottom--project">
         <div class="container-fixed">
-            <div class="left">
+            <div class="left centered">
                 {# geolocation #}
                 {% include 'fields/field--geolocation.html' with b="project" m="full" %}
             </div>
@@ -75,6 +75,8 @@
             <div class="center-right">
                 {# links #}
                 {% include 'fields/field--links.html' with b="project" m="full" links=object.links.all %}
+                {# attachments #}
+                {% include 'fields/field--attachments.html' with b="resource" m="full" files=object.attachments.all %}
             </div>
             <div class="right">
                 {# author_text #}

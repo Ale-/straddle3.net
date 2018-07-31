@@ -83,7 +83,7 @@ class VideoInline(SortableGenericStackedInline):
 class AttachmentInline(SortableGenericStackedInline):
     model  = models.Attachment
     extra  = 0
-    fields = ('attachment_file', 'name', ('caption_en', 'caption_ca'))
+    fields = ('attachment_file', ('name', 'name_en', 'name_ca'), ('caption', 'caption_en', 'caption_ca'))
 
 class LinkInline(SortableGenericStackedInline):
     model = models.Link

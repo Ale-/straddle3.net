@@ -47,7 +47,12 @@
 .leaflet-popup-content
   width: 480px
   max-width: 100%
+  margin: $m/2
   +links_none
+
+.leaflet-container a.leaflet-popup-close-button
+  right: 3px
+  top: 3px
 
 .marker-cat
   margin-bottom: 0
@@ -67,21 +72,16 @@
   line-height: 1.1
   text-transform: uppercase
   font-size: 2.25em
-  &::after
+
+.marker-subtitle
+  margin-top: 0
+  &::before
     display: block
     content: " "
     border-top: 4px solid #222
     width: $m*2.5
-    margin-top: $m/2
-
-.marker-date
-  font-size: .9em
-  text-transform: uppercase
-  margin-top: 0
-
-.marker-summary
-  font-family: $font_text
-  font-size: 1.2em
+    margin-top: $m/3
+    padding-top: $m/3
 
 .page--map .leaflet-top
   top: $m*2

@@ -25,6 +25,19 @@ files_path          = utils.RenameFile("files/")
 """ Generic models """
 
 
+class Translatable(models.Model):
+
+    def t(self, field_name, lang):
+        """ Returns the translated value of the given field, with a fallback to default language. """
+        translated = False
+        source     = getattr(self, field_name)
+        if lang != settings.LANGUAGE_CODE:
+            translated = getattr(self, '%s_%s' % ( field_name, lang))
+        return translated if translated else source if source else None
+
+    class Meta:
+        abstract = True
+
 class Video(SortableMixin):
     """ Images """
 
@@ -147,7 +160,7 @@ class Tag(models.Model):
 
         super(Tag, self).save(*args, **kwargs)
 
-class ProjectCategory(models.Model):
+class ProjectCategory(Translatable):
 
     name    = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
     name_en = models.CharField(_('Nombre EN'), blank=True, max_length=128)
@@ -172,7 +185,7 @@ class ProjectCategory(models.Model):
             self.slug = slugify(self.name)
         super(ProjectCategory, self).save(*args, **kwargs)
 
-class Project(models.Model):
+class Project(Translatable):
     """ Projects """
 
     name           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=False, null=True)
@@ -241,7 +254,7 @@ class Project(models.Model):
 
         super(Project, self).save(*args, **kwargs)
 
-class ConnectionCategory(models.Model):
+class ConnectionCategory(Translatable):
 
     name    = models.CharField(_('Nombre de la categoría'),  max_length=128, blank=False)
     name_en = models.CharField(_('Nombre EN'),  max_length=128, blank=True)
@@ -267,7 +280,7 @@ class ConnectionCategory(models.Model):
         super(ConnectionCategory, self).save(*args, **kwargs)
 
 
-class Connection(models.Model):
+class Connection(Translatable):
 
     name        = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
     subtitle    = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)

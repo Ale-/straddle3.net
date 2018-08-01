@@ -1,3 +1,14 @@
+// https://gist.github.com/mathewbyrne/1280286
+function slugify(text)
+{
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+}
+
 !(function($){
   $(document).ready( function(){
     $.ajax({
@@ -14,15 +25,15 @@
         }).addTo(map);
 
         // Marker icon
-        var icon = L.icon({
-            iconUrl      : '/static/straddle3/img/s3-marker.svg',
-            iconSize     : [30, 45],
-            iconAnchor   : [15, 45],
-            popupAnchor  : [0, -30],
-            shadowUrl    : '/static/straddle3/img/s3-marker--shadow.svg',
-            shadowSize   : [20, 25],
-            shadowAnchor : [0, 25]
-        });
+        var icon = function(col) {
+            var color = col ? col : '#ffdb00';
+            return L.divIcon({
+                iconSize     : [30, 45],
+                iconAnchor   : [15, 45],
+                popupAnchor  : [0, -30],
+                html         : "<span class='fa fa-map-marker' style='color:" + color + "'></span>"
+            });
+        }
         var markers = [];
         // Populate map
         for(var i in response){
@@ -43,7 +54,10 @@
                 var popup = document.createElement('div');
                 popup.innerHTML = popup_content;
 
-                markers.push(L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09], { icon : icon }).bindPopup(popup));
+                var ic = icon(m.col);
+                markers.push(L.marker([m.pos.coordinates[1], m.pos.coordinates[0], -0.09], {
+                    icon : ic,
+                }).bindPopup(popup));
             }
         }
         var group = new L.featureGroup(markers).addTo(map);

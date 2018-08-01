@@ -14,13 +14,22 @@
 </div>
 {% endif %}
 <div class="container-fixed">
-    <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » {% if category %}<a href="{% url 'connections' %}">{% trans 'Complicidades' %}</a>{% else %}{% trans 'Complicidades' %}{% endif %} {% if category %}» {{ category }}{% endif %}
-    </nav>
-    <h1 class="page__title--connections">
-        {% trans 'Complicidades' %}
-    </h1>
-    {% text 'Complicidades' user.is_staff lang %}
+    <div class="view-header">
+        <div class="left">
+            <nav class="breadcrumb">
+                <a href="{% url 'front' %}">s3</a> » {% if category %}<a href="{% url 'connections' %}">{% trans 'Complicidades' %}</a>{% else %}{% trans 'Complicidades' %}{% endif %} {% if category %}» {{ category }}{% endif %}
+            </nav>
+            <h1 class="page__title--connections">
+                {% trans 'Complicidades' %}
+            </h1>
+        </div>
+        <div class="center">
+            {% text 'Complicidades-vista' user.is_staff lang %}
+        </div>
+        <div class="right">
+            {% include 'blocks/categories-filters.html' with items=categories %}
+        </div>
+    </div>
     <div class="list--connections masonry">
         {% if object_list|length > 0 %}
             {% for connection in object_list %}
@@ -32,5 +41,5 @@
 {% endblock %}
 
 {% block page_scripts %}
-    {% masonry %}
+    {% include 'scripts/masonry.html' %}
 {% endblock %}

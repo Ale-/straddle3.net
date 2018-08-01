@@ -1,0 +1,27 @@
+{% load static %}
+
+{# jquery #}
+<script type="text/javascript" src='{% static 'admin/js/vendor/jquery/jquery.min.js' %}'></script>
+
+<script type="text/javascript">
+!(function($){
+    $(document).ready( function(){
+        // var $grid = $('.masonry').masonry({
+        //      percentPosition: true,
+        //      itemSelector   : '.masonry__item',
+        //      columnWidth    : '.masonry__item',
+        //  });
+        // $grid.imagesLoaded().progress( function() {
+        //     $grid.masonry('layout');
+        // });
+
+        $('.category-filters__item').click( function(e){
+            var target = '.' + e.target.dataset.filter;
+            $('.item--grid').hide('slow');
+            $(target).show('slow');
+            // $grid.masonry();
+        });
+
+    });
+})(jQuery);
+</script>

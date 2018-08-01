@@ -23,7 +23,7 @@
         {% if staff %}
         <h5>
             {% trans 'Este texto no ha sido creado todavía' %}.
-            <a href="{% url 'admin:models_block_add' %}?label={{ text.label }}">
+            <a href="{% url 'admin:models_block_add' %}?label={{ label }}">
                 <i class="fa fa-plus"></i> {% trans 'Añade este texto' %}
             </a>
         </h5>

@@ -108,17 +108,20 @@ class ProjectList(ListView):
 
     def get_context_data(self, **kwargs):
         """ Sets the context data of the view. """
-        context = super(ProjectList, self).get_context_data(**kwargs)
+        context    = super(ProjectList, self).get_context_data(**kwargs)
+        lang       = self.request.LANGUAGE_CODE
+        categories = models.ProjectCategory.objects.filter(project__isnull=False, project__published=True)
+        context['categories'] = list(set([ cat.t('name', lang) for cat in categories ]))
+        context['categories'].sort()
         if self.category:
             if self.category == 'otros':
                 context['category'] = 'otros'
             else:
-                category = models.ProjectCategory.objects.filter(slug=self.category).first()
-                if category:
-                    translated = False
-                    if self.request.LANGUAGE_CODE != settings.LANGUAGE_CODE:
-                        translated = getattr(category, 'name_%s' % self.request.LANGUAGE_CODE)
-                    context['category'] = translated if translated else getattr(category, 'name')
+                try:
+                    category = categories.get(slug=self.category)
+                    context['category'] = category.t('name', lang)
+                except Exception as e:
+                    pass
         return context
 
 class ConnectionView(DetailView):
@@ -149,12 +152,16 @@ class ConnectionList(ListView):
     def get_context_data(self, **kwargs):
         """ Sets the context data of the view. """
         context = super(ConnectionList, self).get_context_data(**kwargs)
-        category = models.ConnectionCategory.objects.filter(slug=self.category).first()
-        if category:
-            translated = False
-            if self.request.LANGUAGE_CODE != settings.LANGUAGE_CODE:
-                translated = getattr(category, 'name_%s' % self.request.LANGUAGE_CODE)
-            context['category'] = translated if translated else getattr(category, 'name')
+        lang       = self.request.LANGUAGE_CODE
+        categories = models.ConnectionCategory.objects.filter(connection__isnull=False, connection__published=True)
+        context['categories'] = list(set([ cat.t('name', lang) for cat in categories ]))
+        context['categories'].sort()
+        if self.category:
+            try:
+                category = categories.get(slug=self.category)
+                context['category'] = category.t('name', lang)
+            except Exception as e:
+                pass
         return context
 
 class TeamList(ListView):
@@ -179,12 +186,17 @@ class ResourceList(ListView):
     def get_context_data(self, **kwargs):
         """ Sets the context data of the view. """
         context = super(ResourceList, self).get_context_data(**kwargs)
-        category = models.ResourceCategory.objects.filter(slug=self.category).first()
-        if category:
-            translated = False
-            if self.request.LANGUAGE_CODE != settings.LANGUAGE_CODE:
-                translated = getattr(category, 'name_%s' % self.request.LANGUAGE_CODE)
-            context['category'] = translated if translated else getattr(category, 'name')
+        lang       = self.request.LANGUAGE_CODE
+        categories = models.ResourceCategory.objects.filter(resource__isnull=False, resource__published=True)
+        context['categories'] = list(set([ cat.t('name', lang) for cat in categories ]))
+        context['categories'].sort()
+        if self.category:
+            try:
+                category = categories.filter(slug=self.category).first()
+                context['category'] = category.t('name', lang)
+            except Exception as e:
+                pass
+
         return context
 
 class ResourceView(DetailView):

@@ -1,0 +1,15 @@
+{# category filters menu for views #}
+{% load i18n %}
+
+<div class="category-filters">
+    <h5 class="category-filters__name">
+      {% trans 'Categorías' %}
+    </h5>
+    <ul class="category-filters__items">
+        {% for item in items %}
+        <li class="category-filters__item" data-filter="{{ item|slugify }}">
+            {{ item }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>

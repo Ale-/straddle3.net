@@ -1,10 +1,43 @@
 // Items in grid view
 
+.view-header
+  +clearfix
+
+.view-header > div
+  +breakpoint('sm')
+    display: inline-block
+    width: 33%
+    float: left
+.view-header
+  .left
+    h1
+      padding-bottom: $m
+      +breakpoint('sm')
+        border-bottom: 2px solid $color_text
+  .center
+    padding-top: $m/2
+    font-size: 1.2em
+    +breakpoint('sm')
+      border-left: 2px solid $color_text
+      border-right: 2px solid $color_text
+      .text-block__content
+        padding: 0 $m
+  .right
+    .category-filters__name
+      +breakpoint('sm')
+        margin-top: $m
+        text-align: right
+        border-bottom: 2px solid $color_text
+    .category-filters__items
+      +breakpoint('sm')
+        float: right
+
 .masonry
   margin-top: $m
 
 .item--grid
   +links(#222, $color_text, .2s ease)
+  min-height: 400px
   &:hover
     .item__image--grid img
       +transform( scale(1.1) )
@@ -14,6 +47,8 @@
     margin-bottom: 0
   a
     display: block
+  &.collapsed
+    display: none
 
 .item__image--grid
   position: relative

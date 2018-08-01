@@ -58,10 +58,6 @@ def field(obj=None, lang=settings.LANGUAGE_CODE, safe=False, field_name=None, va
 def fake_breadcrumb(text=_("Volver a la página anterior")):
     return { 'text' : text }
 
-@register.inclusion_tag('masonry.html')
-def masonry():
-    return { }
-
 @register.filter
 def verbose_name(obj):
     return obj._meta.verbose_name
@@ -123,6 +119,7 @@ def text(label, staff=False, lang=settings.LANGUAGE_CODE):
         'text'  : text,
         'staff' : staff,
         'lang'  : lang,
+        'label' : label,
     }
 
 @register.filter

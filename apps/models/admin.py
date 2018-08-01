@@ -107,7 +107,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
                 ('name', 'subtitle'),
                 ('category', 'published', 'featured'),
                 ('start_date', 'end_date'),
-                ('summary', 'not_summary', 'body'),
+                ('summary', 'body'),
                 'geolocation',
                 ('promoter', 'author_text', 'gratitude_text'),
                 'tags', 'related_projects'
@@ -264,7 +264,7 @@ admin.site.register(models.ResourceCategory)
 class BlockAdminForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(BlockAdminForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs = { 'readonly' : True, 'classes' : 'disabled' }
+        self.fields['label'].widget.attrs = { 'readonly' : True, 'classes' : 'disabled' }
 
 class BlockAdmin(NonSortableParentAdmin):
 

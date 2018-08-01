@@ -14,13 +14,22 @@
 </div>
 {% endif %}
 <div class="container-fixed">
-    <nav class="breadcrumb">
-        <a href="{% url 'front' %}">s3</a> » {% if category %}<a href="{% url 'projects' %}">{% trans 'Trabajos' %}</a>{% else %}{% trans 'Trabajos' %}{% endif %}{% if category %}» {{ category }}{% endif %}
-    </nav>
-    <h1 class="page__title--projects">
-        {% trans 'Trabajos' %}
-    </h1>
-    {% text 'Proyectos' user.is_staff lang %}
+    <div class="view-header">
+        <div class="left">
+            <nav class="breadcrumb">
+                <a href="{% url 'front' %}">s3</a> » {% if category %}<a href="{% url 'projects' %}">{% trans 'Trabajos' %}</a>{% else %}{% trans 'Trabajos' %}{% endif %}{% if category %}» {{ category }}{% endif %}
+            </nav>
+            <h1 class="page__title--projects">
+              {% trans 'Trabajos' %}
+            </h1>
+        </div>
+        <div class="center">
+            {% text 'Proyectos-vista' user.is_staff lang %}
+        </div>
+        <div class="right">
+            {% include 'blocks/categories-filters.html' with items=categories %}
+        </div>
+    </div>
     <div class="list--projects masonry">
         {% if object_list|length > 0 %}
             {% for project in object_list %}
@@ -32,5 +41,5 @@
 {% endblock %}
 
 {% block page_scripts %}
-    {% masonry %}
+    {% include 'scripts/masonry.html' %}
 {% endblock %}

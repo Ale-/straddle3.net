@@ -58,5 +58,4 @@ document.addEventListener("DOMContentLoaded", function()
             document.querySelector('.search-widget').classList.toggle('collapsed');
         }
     });
-
 });

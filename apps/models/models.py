@@ -198,7 +198,7 @@ class Project(Translatable):
     start_date       = models.DateField(_('Fecha de comienzo'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
     end_date         = models.DateField(_('Fecha de finalización'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
     geolocation      = PointField(_('Geolocalización'), blank=True)
-    category         = models.ForeignKey(ProjectCategory, verbose_name=_('Formato'), blank=True, null=True, on_delete=models.SET_NULL)
+    category         = models.ForeignKey(ProjectCategory, verbose_name=_('Formato'), related_name='project', blank=True, null=True, on_delete=models.SET_NULL)
     promoter         = models.TextField(_('Promotor'), blank=True, null=True)
     author_text      = models.TextField(_('Autor'), blank=True, null=True)
     gratitude_text   = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
@@ -210,7 +210,6 @@ class Project(Translatable):
     videos           = GenericRelation(Video)
     attachments      = GenericRelation(Attachment)
     related_projects = models.ManyToManyField('self', verbose_name=_('Proyectos relaciondos'), help_text=_("Selecciona los proyectos relacionados"))
-
 
     # en
     name_en           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=True, null=True)
@@ -295,7 +294,7 @@ class Connection(Translatable):
     name        = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
     subtitle    = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
     slug        = models.SlugField(editable=False)
-    category    = models.ForeignKey(ConnectionCategory, verbose_name=_('Tipo'), blank=True, null=True, on_delete=models.SET_NULL)
+    category    = models.ForeignKey(ConnectionCategory, verbose_name=_('Tipo'), related_name='connection', blank=True, null=True, on_delete=models.SET_NULL)
     geolocation = PointField(_('Geolocalización'), blank=True)
     start_date  = models.DateField(_('Fecha de comienzo'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
     end_date    = models.DateField(_('Fecha de finalización'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
@@ -377,7 +376,7 @@ class TeamMember(models.Model):
         return self.fullname
 
 
-class ResourceCategory(models.Model):
+class ResourceCategory(Translatable):
 
     name    = models.CharField(_('Nombre de la categoría'), max_length=128, blank=False)
     name_en = models.CharField(_('Nombre EN'), max_length=128, blank=True)
@@ -408,7 +407,7 @@ class Resource(models.Model):
     name           = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
     subtitle       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
     slug           = models.SlugField(editable=False)
-    category       = models.ForeignKey(ResourceCategory, verbose_name=_('Formato'), blank=True, null=True, on_delete=models.SET_NULL)
+    category       = models.ForeignKey(ResourceCategory, verbose_name=_('Formato'), related_name='resource', blank=True, null=True, on_delete=models.SET_NULL)
     use_text       = models.TextField(_('Funciones básicas/posibles aplicaciones'), blank=True, null=True)
     author_text    = models.TextField(_('Autor'), blank=True, null=True)
     promoter       = models.TextField(_('Promotor'), blank=True, null=True)

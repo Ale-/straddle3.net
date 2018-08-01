@@ -36,6 +36,10 @@
         {% endif %}
         {# dates #}
         {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='project' m='full' %}
+        <div class="right">
+            {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
+            {% include 'blocks/share.html' with title=object.name url=request.build_absolute_uri %}
+        </div>
         <div class="left">
             <div class="project-full">
                 {# summary #}
@@ -52,10 +56,6 @@
                 {# body #}
                 {% field obj=object field_name='body' lang=lang safe=True %}
             </div>
-        </div>
-        <div class="right">
-            {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
-            {% include 'blocks/share.html' with title=object.name url=request.build_absolute_uri %}
         </div>
     </div>
     <div class="page__content-bottom--project">
@@ -86,7 +86,13 @@
             </div>
         </div>
     </div>
-    {% include 'blocks/next-navigation.html' with prev=previous_project next=next_project all_url='projects' see_all='Ver todos los proyectos' %}
+    {% with object.get_public_related as related %}
+    {% if related|length > 0 %}
+        <div class="container-fixed">
+            {% include 'blocks/related.html' with related=related %}
+        </div>
+        {% endif %}
+    {% endwith %}
 </div>
 {% endblock %}
 

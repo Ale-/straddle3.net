@@ -1,6 +1,6 @@
 // Block with links to next and previous content item
 
-.related-content
+.navigation
   background-color: white
   color: #222
   +links_none
@@ -10,7 +10,7 @@
   +breakpoint('sm')
     height: 120px
 
-.related-content__item
+.navigation__item
   padding: $m/2
   text-align: center
   +breakpoint('sm')
@@ -20,16 +20,16 @@
   &:hover
     background-color: $palette_yellow
 
-.related-content__item-text
+.navigation__item-text
   font-size: .75em
   margin-bottom: $m/6
   text-transform: uppercase
 
-.related-content__item.all
+.navigation__item.all
   padding: 0
   a
     line-height: 120px
-  .related-content__item-text
+  .navigation__item-text
     margin-bottom: 0
 
 .item__image--short

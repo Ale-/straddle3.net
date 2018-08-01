@@ -1,0 +1,29 @@
+// Related projects
+
+.related-content
+  padding: $m $m*2
+  +clearfix
+  +links_none
+
+.related-content__item
+  +breakpoint('sm')
+    display: inline-block
+    width: 24%
+
+.related-content__title
+  text-transform: uppercase
+  font-size: .9em
+  color: #999
+  +breakpoint('sm')
+    +transform(rotate(-90deg))
+    +transform-origin(0)
+    position: absolute
+    bottom: $m/3
+    left: 0
+
+.related-content img
+  +transition(transform .5s ease)
+
+.related-content__item:hover
+  img
+    +transform( scale(1.1) )

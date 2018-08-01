@@ -1,0 +1,11 @@
+{# block of navigation links at the bottom of the items #}
+{% load static i18n %}
+
+<ul class="related-content">
+    <h5 class="related-content__title">{% trans 'Proyectos relacionados' %}</h5>
+    {% for item in related %}
+        <li class="related-content__item">
+            {% include 'views/item--related.html' with item=item %}
+        </li>
+    {% endfor %}
+</ul>

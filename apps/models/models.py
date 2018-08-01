@@ -190,26 +190,28 @@ class ProjectCategory(Translatable):
 class Project(Translatable):
     """ Projects """
 
-    name           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=False, null=True)
-    subtitle       = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
-    summary        = models.TextField(_('Resumen'), blank=True, null=True)
-    body           = RichTextUploadingField(_('Texto'), blank=True, null=True)
-    slug           = models.SlugField(editable=False, blank=True)
-    start_date     = models.DateField(_('Fecha de comienzo'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
-    end_date       = models.DateField(_('Fecha de finalización'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
-    geolocation    = PointField(_('Geolocalización'), blank=True)
-    category       = models.ForeignKey(ProjectCategory, verbose_name=_('Formato'), blank=True, null=True, on_delete=models.SET_NULL)
-    promoter       = models.TextField(_('Promotor'), blank=True, null=True)
-    author_text    = models.TextField(_('Autor'), blank=True, null=True)
-    gratitude_text = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
-    images         = GenericRelation(Image)
-    tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
-    published      = models.BooleanField(_('Publicado'), default=False, help_text=_("Indica si este contenido es visible públicamente"))
-    featured       = models.BooleanField(_('Destacado'), default=False, help_text=_("Indica si este contenido es destacado y ha de tener mayor visibilidad"))
-    links          = GenericRelation(Link)
-    videos         = GenericRelation(Video)
-    attachments    = GenericRelation(Attachment)
-    not_summary    = models.BooleanField(_('No mostrar resumen'), default=False, help_text=_("Marca para no mostrar el resumen en las vistas completas"))
+    name             = models.CharField(_('Nombre del proyecto'), max_length=200, blank=False, null=True)
+    subtitle         = models.CharField(_('Subtítulo'), max_length=200, blank=True, null=True)
+    summary          = models.TextField(_('Resumen'), blank=True, null=True)
+    body             = RichTextUploadingField(_('Texto'), blank=True, null=True)
+    slug             = models.SlugField(editable=False, blank=True)
+    start_date       = models.DateField(_('Fecha de comienzo'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
+    end_date         = models.DateField(_('Fecha de finalización'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
+    geolocation      = PointField(_('Geolocalización'), blank=True)
+    category         = models.ForeignKey(ProjectCategory, verbose_name=_('Formato'), blank=True, null=True, on_delete=models.SET_NULL)
+    promoter         = models.TextField(_('Promotor'), blank=True, null=True)
+    author_text      = models.TextField(_('Autor'), blank=True, null=True)
+    gratitude_text   = models.TextField(_('Texto de agradecimientos'), blank=True, null=True)
+    images           = GenericRelation(Image)
+    tags             = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
+    published        = models.BooleanField(_('Publicado'), default=False, help_text=_("Indica si este contenido es visible públicamente"))
+    featured         = models.BooleanField(_('Destacado'), default=False, help_text=_("Indica si este contenido es destacado y ha de tener mayor visibilidad"))
+    links            = GenericRelation(Link)
+    videos           = GenericRelation(Video)
+    attachments      = GenericRelation(Attachment)
+    not_summary      = models.BooleanField(_('No mostrar resumen'), default=False, help_text=_("Marca para no mostrar el resumen en las vistas completas"))
+    related_projects = models.ManyToManyField('self', verbose_name=_('Proyectos relaciondos'), help_text=_("Selecciona los proyectos relacionados"))
+
 
     # en
     name_en           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=True, null=True)
@@ -237,6 +239,12 @@ class Project(Translatable):
         """String representation of this model objects."""
 
         return self.name
+
+    @property
+    def get_public_related(self):
+        """ Get related public projects. """
+
+        return self.related_projects.filter(published=True)
 
     def get_absolute_url(self):
         return reverse('project', args=[self.slug])

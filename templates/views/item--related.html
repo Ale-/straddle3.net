@@ -1,0 +1,15 @@
+{# Generic item in views, as in tagged content #}
+{% load imagekit utils %}
+
+<div class="item--related">
+    <a href="{{ item.get_absolute_url }}">
+        {% if item.images.all|length > 0 %}
+        <figure class="item__image--grid">
+            {% thumbnail '240x170' item.featured_image.image_file %}
+        </figure>
+        {% endif %}
+        <h5 class="item__name--grid">
+            {% simple_field item 'name' lang %}
+        </h5>
+    </a>
+</div>

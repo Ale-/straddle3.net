@@ -1,11 +1,11 @@
 {% load static i18n utils %}
 
-<div class="text-block" id="text-{{ name|slugify }}">
+<div class="text-block" id="text-{{ label|slugify }}">
     <h3 class="text-block__label">
         {% if text %}
             {% if text.name %}{% simple_field text 'name' lang %}{% endif %}
         {% else %}
-            {{ name }}
+            {{ label }}
         {% endif %}
     </h3>
     <div class="text-block__content">

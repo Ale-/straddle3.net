@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "flexslider": "^2.7.1",
-    "lightbox2": "lightbox#^2.10.0"
+    "lightbox2": "lightbox#^2.10.0",
+    "masonry-layout": "masonry#^4.2.2",
+    "imagesloaded": "^4.1.4"
   }
 }

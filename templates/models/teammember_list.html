@@ -14,15 +14,23 @@
     </h1>
     <div class="page__content--who">
         {% text 'Definición' user.is_staff lang %}
-        <div class="list--team masonry">
-            <h3>{% trans 'El equipo' %}</h3>
-            {% if object_list|length > 0 %}
-            {% for person in object_list %}
-                {% include 'views/team--grid.html' with person=person %}
-            {% endfor %}
-            {% endif %}
+        <div class="list--team">
+            <h3 class="list--team__title">
+                {% trans 'El equipo' %}
+            </h3>
+            <div class="list--team__items masonry">
+                {% if object_list|length > 0 %}
+                {% for person in object_list %}
+                    {% include 'views/team--grid.html' with person=person %}
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
         {% text 'Nuestra relación con AACC' user.is_staff lang %}
     </div>
 </div>
+{% endblock %}
+
+{% block page_scripts %}
+    {% include 'scripts/masonry.html' %}
 {% endblock %}

@@ -32,8 +32,8 @@
       +breakpoint('sm')
         float: right
 
-.masonry
-  margin-top: $m
+.list--team > h3
+  margin-bottom: $m
 
 .item--grid
   +links(#222, $color_text, .2s ease)
@@ -69,16 +69,25 @@
   font-size: .8em
 
 .team-grid
-  padding: $m $m 0
+  padding: 0 $m 0
   margin-top: $m
 
 .team-grid__image
   padding: 0 $m
   +breakpoint('sm')
-    padding: 0 $m*3
+    padding: 0 $m*4
 
 .team-grid__name
   margin-bottom: $m/2
 
+.list--team
+  margin-bottom: $m*2
+
 .list--team h3
   text-transform: uppercase
+
+.list--projects .item--grid,
+.list--resources .item--grid,
+.list--connections .item--grid,
+  display: inline-block
+  float: left

@@ -358,7 +358,7 @@ class TeamMember(models.Model):
     summary_ca = models.TextField(_('Resumen'), blank=True, null=True)
     image      = models.ImageField(_('Imagen principal'), blank=True)
     published  = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")
-    featured   = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
+    inactive   = models.BooleanField(_('Inactivo'), default=False, help_text="Indica si esta persona ya no participa actualmente en S3")
 
     class Meta:
         verbose_name = _('persona en Straddle3')
@@ -368,7 +368,7 @@ class TeamMember(models.Model):
     def fullname(self):
         """Returns fullname of the person"""
 
-        return "%s %s" % (self.name, self.surname)
+        return "%s %s" % (self.name, self.surname if self.surname else '')
 
     def __str__(self):
         """String representation of this model objects."""

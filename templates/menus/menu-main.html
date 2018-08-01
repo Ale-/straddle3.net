@@ -7,9 +7,18 @@
     </div>
     <ul>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'quienes-somos' %}active{% endif %}">
-            <a href="{% url 'who' %}">
-                {% trans 'Quiénes somos' %}
-            </a>
+            <p class="menu-main__item-text">
+                <a href="{% url 'who' %}">
+                    {% trans 'Quiénes somos' %}
+                </a>
+            </p>
+            <ul class="menu-main__submenu collapsed">
+                <li class="menu-main__submenu-item">
+                    <a href="{% url 'team' %}">
+                        {% trans 'Equipo' %}
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'que-hacemos' %}active{% endif %}">
             <a href="{% url 'what' %}">

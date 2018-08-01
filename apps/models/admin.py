@@ -149,10 +149,10 @@ class TeamMemberAdmin(admin.ModelAdmin):
     model        = models.TeamMember
     ordering     = ('name',)
     thumb        = AdminThumbnail(image_field=cached_admin_thumb)
-    list_filter  = ('published', 'featured')
-    list_display = ('thumb', 'linked_name', 'surname', 'published', 'featured')
+    list_filter  = ('published', 'inactive')
+    list_display = ('thumb', 'linked_name', 'surname', 'published', 'inactive')
     actions      = [publish, unpublish, unfeature, feature]
-    fields       = (('name', 'surname'), 'summary', 'image', ('published', 'featured'))
+    fields       = (('name', 'surname'), 'summary', 'image', ('published', 'inactive'))
 
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))

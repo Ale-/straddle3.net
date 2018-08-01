@@ -46,7 +46,9 @@ urlpatterns += i18n_patterns(
     # Tag
     path('tag/<slug:slug>', views.TagView.as_view(), name="tag"),
     # Who
-    path('quienes-somos', views.TeamList.as_view(), name="who"),
+    path('quienes-somos', TemplateView.as_view(template_name="pages/who.html"), name="who"),
+    # Who
+    path('quienes-somos/equipo', views.TeamList.as_view(), name="team"),
     # What
     path('que-hacemos', TemplateView.as_view(template_name="pages/what.html"), name="what"),
     # Open Fridays

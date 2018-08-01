@@ -168,7 +168,7 @@ class TeamList(ListView):
     """ View to display a list of team members """
 
     model = models.TeamMember
-    ordering = ['surname']
+    ordering = ['inactive', '?']
 
 class ResourceList(ListView):
     """ View to display a list of resources """

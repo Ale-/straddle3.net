@@ -62,9 +62,10 @@
     padding: 0 $m/2
 
 .menu-main__item.active
-  color: $palette_yellow
-  >p > a
-    &:active, &:link, > &:visited
+  > a, > p > a
+    &:link, &:visited, &:active
+      color: $palette_yellow
+  > p
     color: $palette_yellow
 
 .menu-main__submenu

@@ -16,7 +16,7 @@ class Command(BaseCommand):
     Imports JournalIssue objects from a given CSV file
     """
     def handle(self, *args, **options):
-        with open('../fixtures/s3__29-jul-2018.json', encoding='utf-8') as fixture:
+        with open('../fixtures/s3__1-ago-2018.json', encoding='utf-8') as fixture:
             data = json.loads(fixture.read())
             for obj in data:
                 if obj['model'] == 'models.image':

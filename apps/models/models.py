@@ -90,8 +90,8 @@ class Attachment(SortableMixin):
     """ Attachments """
 
     name            = models.CharField(_('Nombre del archivo'), max_length=200, blank=False, null=True)
-    name_en         = models.CharField(_('Nombre EN'), max_length=200, blank=False, null=True)
-    name_ca         = models.CharField(_('Nombre CA'), max_length=200, blank=False, null=True)
+    name_en         = models.CharField(_('Nombre EN'), max_length=200, blank=True, null=True)
+    name_ca         = models.CharField(_('Nombre CA'), max_length=200, blank=True, null=True)
     attachment_file = models.FileField(_('Archivo adjunto'), blank=False,
                                         validators=[validate_file_type],
                                         upload_to=files_path)
@@ -209,7 +209,7 @@ class Project(Translatable):
     links            = GenericRelation(Link)
     videos           = GenericRelation(Video)
     attachments      = GenericRelation(Attachment)
-    related_projects = models.ManyToManyField('self', verbose_name=_('Proyectos relaciondos'), help_text=_("Selecciona los proyectos relacionados"))
+    related_projects = models.ManyToManyField('self', blank=True, verbose_name=_('Proyectos relacionados'), help_text=_("Selecciona los proyectos relacionados"))
 
     # en
     name_en           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=True, null=True)
@@ -502,7 +502,7 @@ class Block(models.Model):
     def __str__(self):
         """String representation of this model objects."""
 
-        return self.label
+        return self.label if self.label else self.name if self.name else self.pk
 
 
 class Post(models.Model):

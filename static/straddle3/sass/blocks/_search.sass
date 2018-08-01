@@ -1,0 +1,38 @@
+/*
+  Search widget
+  /templates/blocks/widget-search.html
+
+.search-widget
+  +breakpoint('xs')
+    display: none
+  position: fixed
+  right: $m*4
+  top: 10px
+  font-size: .75em
+  z-index: 200
+  line-height: $m
+
+.search-widget__query
+  background: transparent
+  color: white
+  border: 1px dashed white
+  border-width: 0 0 1px 0
+  width: $m*6
+  opacity: 1
+  height: 22px
+  padding: 0 $m/2
+  +transition(width .2s ease, opacity .2s ease)
+
+.collapsed .search-widget__query
+  width: 0
+  opacity: 0
+
+.search-widget__submit
+  background: url('../img/search.svg') no-repeat center center
+  background-size: 16px 16px
+  border: 0
+  color: white
+  text-transform: uppercase !important
+  padding: $m/4 $m/2
+  height: $m
+  float: right

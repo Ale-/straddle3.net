@@ -1,0 +1,6 @@
+{# Search block #} {% load static %}
+
+<form class="search-widget collapsed" action="{% url 'search' %}">
+    <input class="search-widget__query" type="text" placeholder="Search..." name="q" value="" />
+    <input class="search-widget__submit" type="submit" value="" />
+</form>

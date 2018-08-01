@@ -63,6 +63,8 @@ urlpatterns += i18n_patterns(
     path('blog', views.Blog.as_view(), name="blog"),
     # Blog post
     path('blog/<slug:slug>', views.PostView.as_view(), name="post"),
+    # Search
+    path('buscador', views.SearchView.as_view(), name="search"),
 
 )
 

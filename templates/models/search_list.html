@@ -1,0 +1,31 @@
+{# Frontpage #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load static utils i18n l10n imagekit %}
+{% block body_classes %}page--search{% endblock %}
+{% block page_html_title %}{% trans 'Busca' %}{% endblock %}
+
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » <span onclick="history.go(-1)">{% trans 'Vuelve a la página anterior' %}</span>
+    </nav>
+    <h1 class="page__title--search">
+        {% trans 'Encuentra' %}
+    </h1>
+    <h3 class="page__subtitle--search">
+        {% trans 'contenido relacionado con ' %} «{{ text }}»
+    </h3>
+    <div class="list--search masonry">
+        {% if object_list|length > 0 %}
+            {% for item in object_list %}
+                {% include 'views/item--grid.html' with item=item show_cat=True show_date=True %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+    {% masonry %}
+{% endblock %}

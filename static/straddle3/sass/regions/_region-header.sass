@@ -17,7 +17,7 @@
 .region-header__right
   padding: 0 $m
   +breakpoint('sm')
-    float: right
+    float: left
   color: white
   +links(white, $palette_yellow, .2s ease)
   +clearfix
@@ -38,6 +38,7 @@
 .region-header.hidden .brand,
 .region-header.hidden .hamburguer,
 .region-header.hidden .lang-switcher,
+.region-header.hidden .search-widget,
   +animation(hideup 1s ease)
   animation-fill-mode: forwards
 
@@ -45,5 +46,6 @@
 .region-header.visible .brand,
 .region-header.visible .hamburguer,
 .region-header.visible .lang-switcher,
+.region-header.hidden .search-widget
   +animation(showdown 1s ease)
   animation-fill-mode: forwards

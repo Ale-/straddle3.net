@@ -49,4 +49,14 @@ document.addEventListener("DOMContentLoaded", function()
       window.scrollTo(0, 0);
         document.body.classList.toggle('navigation-open');
     });
+
+    var search_query   = document.querySelector('.search-widget__query');
+    search_query.value = '';
+    document.querySelector('.collapsed .search-widget__submit').addEventListener('click', function(e){
+        if( !search_query.value ){
+            e.preventDefault();
+            document.querySelector('.search-widget').classList.toggle('collapsed');
+        }
+    });
+
 });

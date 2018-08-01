@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView
 from django.http import Http404, HttpResponse
+from django.db.models import Q
 # project
 from apps.models import models
 from django.conf import settings
@@ -228,3 +229,42 @@ class PostView(DetailView):
         context['previous_post'] = models.Post.objects.filter(date__lt=date).order_by('date').first()
         context['next_post'] = models.Post.objects.filter(date__gt=date).order_by('date').first()
         return context
+
+class SearchView(View):
+    """ Search page """
+
+    def get(self, request, *args, **kwargs):
+        # Arguments and results of the query
+        text        = request.GET.get('q', '')
+        object_list = []
+        lang        = request.LANGUAGE_CODE
+        # Create the queryset
+        if text:
+            query     = Q()
+            query_blo = Q()
+            query_con = Q()
+            query_def = Q()
+            if lang == 'es':
+                query_blo = query|Q(name__icontains=text)|Q(body__icontains=text)
+                query_con = query_blo|Q(subtitle__icontains=text)
+                query_def = query_con|Q(summary__icontains=text)
+            elif lang == 'en':
+                query_blo = query|Q(name_en__icontains=text)|Q(body_en__icontains=text)
+                query_con = query_blo|Q(subtitle_en__icontains=text)
+                query_def = query_con|Q(summary_en__icontains=text)
+            else:
+                query_blo = query|Q(name_ca__icontains=text)|Q(body_ca__icontains=text)
+                query_con = query_blo|Q(subtitle_ca__icontains=text)
+                query_def = query_con|Q(summary_ca__icontains=text)
+
+            posts       = models.Post.objects.filter(query_blo)
+            connections = models.Connection.objects.filter(query_con)
+            projects    = models.Project.objects.filter(query_def)
+            resources   = models.Resource.objects.filter(query_def)
+            content     = chain(projects, connections, resources, posts)
+            object_list = sorted(content, key = lambda i: getattr(i, 'name'))
+
+        return render(request, 'models/search_list.html', {
+            'object_list' : object_list,
+            'text'        : text,
+        })

@@ -3,12 +3,13 @@
 {% load utils %}
 
 {% block region_content %}
-<div class="container-fixed">
+<div class="container-fluid">
     <div class="region-header__left">
         {% include 'blocks/brand.html' %}
     </div>
     <div class="region-header__right">
         {% include 'menus/menu-main.html' %}
+        {% include 'blocks/widget-search.html' %}
         {% include 'blocks/language-switcher.html' %}
     </div>
 </div>

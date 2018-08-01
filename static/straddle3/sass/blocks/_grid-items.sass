@@ -2,6 +2,7 @@
 
 .view-header
   +clearfix
+  margin-bottom: $m
 
 .view-header > div
   +breakpoint('sm')
@@ -31,6 +32,8 @@
     .category-filters__items
       +breakpoint('sm')
         float: right
+    .active
+      font-weight: bold
 
 .list--team > h3
   margin-bottom: $m

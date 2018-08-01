@@ -4,6 +4,7 @@ import os
 from django import template
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
+from django.utils.text import slugify
 # project
 from django.conf import settings
 from apps.models import models
@@ -33,6 +34,11 @@ def simple_field(obj, field_name, lang, safe=False):
         translation = getattr(obj, "%s_%s"%(field_name, lang))
         field = translation if translation else field
     return mark_safe(field) if safe else field
+
+@register.simple_tag()
+def trans_cat_slug(cat, lang):
+    name = cat.t('name', lang)
+    return slugify(name)
 
 @register.inclusion_tag('field.html')
 def field(obj=None, lang=settings.LANGUAGE_CODE, safe=False, field_name=None, value_html_wrapper='div', label=False, label_html_wrapper='label', field_label=None, container='full', icon=None):

@@ -11,7 +11,7 @@ from imagekit import ImageSpec
 from imagekit.admin import AdminThumbnail
 from imagekit.processors import ResizeToFill
 from imagekit.cachefiles import ImageCacheFile
-from adminsortable.admin import NonSortableParentAdmin, SortableGenericStackedInline, SortableGenericTabularInline, SortableAdmin
+from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline, SortableGenericStackedInline, SortableGenericTabularInline, SortableAdmin
 # app
 from . import models
 from apps.utils import widgets
@@ -105,12 +105,17 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         (None, {
             'fields': (
                 ('name', 'subtitle'),
-                ('category', 'published', 'featured'),
+                ('published', 'featured'),
                 ('start_date', 'end_date'),
                 ('summary', 'body'),
                 'geolocation',
                 ('promoter', 'author_text', 'gratitude_text'),
-                'tags', 'related_projects'
+            ),
+        }),
+        ('Relaciones', {
+            'classes' : ('collapse',),
+            'fields': (
+                'category', 'tags', 'related_projects',
             ),
         }),
         ('Traducción al inglés', {
@@ -131,7 +136,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         })
     )
     inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
-    filter_horizontal = ('tags','related_projects')
+    filter_horizontal = ('category', 'tags','related_projects')
 
     class Media:
         js = ['/static/straddle3/js/featured-image.js',]

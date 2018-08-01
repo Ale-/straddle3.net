@@ -1,0 +1,22 @@
+{# category #}
+{% load i18n utils %}
+
+<div class="field {{b}}__category{% if m %}--{{m}}{% endif %}">
+    <label class="field__label">
+        <i class="fa fa-tag"></i> {% trans 'Categoría' %}
+    </label>
+    <div class="field__value">
+        {% with category.all as categories %}
+            {% if categories|length > 0 %}
+                {% for category in categories %}
+                <a href="{% url category_base_url category.slug %}">
+                    <span class="bullet" style="color: {{ category.color }}">●</span>
+                    {% simple_field category 'name' lang %}
+                </a>
+                {% endfor %}
+            {% else %}
+                {% trans 'Este contenido no ha sido categorizado todavía' %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</div>

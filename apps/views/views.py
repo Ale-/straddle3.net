@@ -48,8 +48,8 @@ def MapApi(request):
     lang = request.LANGUAGE_CODE
     projects    = models.Project.objects.filter(geolocation__isnull=False)
     for project in projects:
-        img      = project.featured_image
-        category = project.category
+        img        = project.featured_image
+        category = project.category.first()
         markers.append({
             'name'       : project.t('name', lang),
             'subtitle'   : project.t('subtitle', lang),

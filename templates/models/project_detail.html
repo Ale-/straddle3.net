@@ -65,24 +65,24 @@
                 {% include 'fields/field--geolocation.html' with b="project" m="full" %}
             </div>
             <div class="center-left">
-                {# promoter #}
-                {% field obj=object lang=lang field_name='promoter' label=True icon='bullseye' %}
-                {# category #}
-                {% include 'fields/field--category.html' with b="project" m="full" category_base_url="projects_cat" category=object.category translation=translation %}
-                {# tags #}
-                {% include 'fields/field--tags.html' with b="project" m="full" tags=object.tags.all %}
-            </div>
-            <div class="center-right">
-                {# links #}
-                {% include 'fields/field--links.html' with b="project" m="full" links=object.links.all %}
-                {# attachments #}
-                {% include 'fields/field--attachments.html' with b="resource" m="full" files=object.attachments.all %}
-            </div>
-            <div class="right">
                 {# author_text #}
                 {% field obj=object lang=lang field_name='author_text' label=True icon="bolt" %}
                 {# gratitude_text #}
                 {% field obj=object lang=lang field_name='gratitude_text' label=True icon="heart" %}
+            </div>
+            <div class="center-right">
+              {# promoter #}
+              {% field obj=object lang=lang field_name='promoter' label=True icon='bullseye' %}
+              {# category #}
+              {% include 'fields/field--category.html' with b="project" m="full" category_base_url="projects_cat" category=object.category translation=translation %}
+              {# tags #}
+              {% include 'fields/field--tags.html' with b="project" m="full" tags=object.tags.all %}
+            </div>
+            <div class="right">
+              {# links #}
+              {% include 'fields/field--links.html' with b="project" m="full" links=object.links.all %}
+              {# attachments #}
+              {% include 'fields/field--attachments.html' with b="resource" m="full" files=object.attachments.all %}
             </div>
         </div>
     </div>

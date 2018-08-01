@@ -1,7 +1,6 @@
 {# tags #}
 {% load i18n utils %}
 
-{% if tags|length > 0 %}
 <div class="field {{b}}__tags{% if m %}--{{m}}{% endif %}">
     <label class="field__label">
         <i class="fa fa-tags"></i> {% trans 'Tags' %}
@@ -13,7 +12,8 @@
                 {% simple_field tag 'name' lang %}
             </a>
         </li>
+        {% empty %}
+        {% trans 'Este contenido no tiene tags asociadas' %}
         {% endfor %}
     </ul>
 </div>
-{% endif %}

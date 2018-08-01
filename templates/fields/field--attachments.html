@@ -1,7 +1,6 @@
 {# field attachments #}
 {% load i18n utils %}
 
-{% if files|length > 0 %}
 <div class="field {{b}}__files{% if m %}--{{m}}{% endif %}">
     <label class="field__label">
         <i class="fa fa-download"></i> {% trans 'Descargas' %}
@@ -23,7 +22,8 @@
             </p>
             {% endif %}
         </li>
+        {% empty %}
+        {% trans 'Este contenido no tiene descargas asociadas' %}
         {% endfor %}
     </ul>
 </div>
-{% endif %}

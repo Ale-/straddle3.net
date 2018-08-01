@@ -17,6 +17,13 @@
 [class*='__body--']
   margin-bottom: $m*3
 
+[class*='__body--'],
+[class*='__summary--']
+  +links_none
+  a
+    text-decoration: underline !important
+    text-decoration-style: dotted !important
+
 [class*='__summary--'],
 .connection__body--,
   padding: 0 $m
@@ -105,12 +112,11 @@
   text-overflow: ellipsis
   white-space: nowrap
 
-[class*='__tags--']
-  text-transform: uppercase
 [class*='__tags--'] .field__value
   +links_none
-  color: $color_text
 [class*='__tags--'] .field__value-item
+  color: $color_text
+  text-transform: uppercase
   display: inline-block
   padding: $m/4 $m/2
   margin-bottom: $m/4
@@ -166,3 +172,20 @@
 
 .fa-copyright
   +transform(scale(-1,1))
+
+// [class*='__author_text--'],
+  .field__value
+    max-height: $m*3
+    overflow: hidden
+    text-overflow: ellipsis
+  &:after
+    content: "Ver más"
+    display: block
+    margin-top: 4px
+    font-size: .75em
+    text-transform: uppercase
+    color: $palette_yellow
+  &:hover .field__value
+    max-height: inherit
+  &:hover:after
+    display: none

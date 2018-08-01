@@ -1,7 +1,6 @@
 {# field links #}
 {% load i18n %}
 
-{% if links|length > 0 %}
 <div class="field {{b}}__links{% if m %}--{{m}}{% endif %}">
     <label class="field__label">
         <i class="fa fa-link"></i> {% trans 'Enlaces relacionados' %}
@@ -16,7 +15,8 @@
                 {{ link.url }}
             </a>
         </li>
+        {% empty %}
+        {% trans 'Este contenido no tiene enlaces asociados' %}
         {% endfor %}
     </ul>
 </div>
-{% endif %}

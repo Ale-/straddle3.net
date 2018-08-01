@@ -36,7 +36,7 @@
         {# dates #}
         <div class="left">
             {# summary #}
-              {% field obj=object field_name='summary' lang=lang safe=True %}
+            {% field obj=object field_name='summary' lang=lang safe=True %}
 
             {# see more #}
             <button class="see-more">
@@ -56,26 +56,26 @@
     <div class="page__content-bottom--resource">
         <div class="container-fixed">
             <div class="left">
-                {# category #}
-                {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources_cat" category=object.category %}
-                {# tags #}
-                {% include 'fields/field--tags.html' with b="resource" m="full" tags=object.tags.all %}
-            </div>
-            <div class="center-left">
-                {# links #}
-                {% include 'fields/field--links.html' with b="resource" m="full" links=object.links.all %}
-            </div>
-            <div class="center-right">
-                {# attachments #}
-                {% include 'fields/field--attachments.html' with b="resource" m="full" files=object.attachments.all %}
-            </div>
-            <div class="right">
-                {# promoter #}
-                {% field obj=object lang=lang field_name='promoter' label=True  icon='bullseye'%}
                 {# author_text #}
                 {% field obj=object lang=lang field_name='author_text' label=True icon='bolt' %}
                 {# gratitude_text #}
                 {% field obj=object lang=lang field_name='gratitude_text' label=True icon='heart' %}
+            </div>
+            <div class="center-left">
+                {# category #}
+                {% include 'fields/field--category.html' with b="resource" m="full" category_base_url="resources_cat" category=object.category %}
+                {# promoter #}
+                {% field obj=object lang=lang field_name='promoter' label=True  icon='bullseye'%}
+            </div>
+            <div class="center-right">
+                {# tags #}
+                {% include 'fields/field--tags.html' with b="resource" m="full" tags=object.tags.all %}
+            </div>
+            <div class="right">
+              {# links #}
+              {% include 'fields/field--links.html' with b="resource" m="full" links=object.links.all %}
+              {# attachments #}
+              {% include 'fields/field--attachments.html' with b="resource" m="full" files=object.attachments.all %}
             </div>
         </div>
     </div>

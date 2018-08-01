@@ -4,11 +4,11 @@
   #{$content}
     @if $header
       @if $footer
-        min-height: calc(100vh - #{$footer_height + $header_height})
+        min-height: calc(100vh - #{$footer_height + $header_height } - 1px)
       @else
-        min-height: calc(100vh - #{$header_height})
+        min-height: calc(100vh - #{$header_height })
     @else if $footer
-      min-height: calc(100vh - #{$footer_height})
+      min-height: calc(100vh - #{$footer_height })
   .toolbar #{$content}
     @if $header
       @if $footer

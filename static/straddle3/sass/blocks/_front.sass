@@ -37,7 +37,7 @@
 
 .front-navigation__title
   text-transform: uppercase
-  margin-top: $m*1.5
+  margin-top: 0
   text-align: center
 
 .front-navigation .text-block__content
@@ -64,7 +64,6 @@
   vertical-align: middle
   font-size: .9em
   padding: 4px $m/2
-  +transition(background-color .2s ease)
   clear: both
   +clearfix
   p
@@ -74,11 +73,14 @@
     white-space: nowrap
     text-overflow: ellipsis
   img
+    +transition(filter .2s ease)
+    filter: grayscale(100%) brightness(50%)
     +border-radius(50%)
     float: left
     margin-right: $m
   &:hover
-    background-color: $palette_yellow
+    img
+      filter: none
 .item-list-reduced__category--front
   font-size: .7em
   opacity: .8
@@ -104,6 +106,11 @@
   +breakpoint('sm')
     padding: 0
     position: absolute
+    p
+      margin-left: $m*6.5
   width: 100%
   z-index: 10000
   opacity: .75
+  font-family: $font_text
+  font-size: .9em
+  line-height: $m

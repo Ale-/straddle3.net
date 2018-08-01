@@ -24,6 +24,8 @@
 
         {# Styles #}
         <link href="{% css 'style.css' %}" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     </head>
 
     <body class="{% if user.is_authenticated %}logged-in{% endif %} {% if user.is_staff %}staff-user{% endif %} {% block body_classes %}{% endblock %} {% block layout_classes %}{% endblock %}">

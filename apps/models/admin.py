@@ -105,8 +105,8 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         (None, {
             'fields': (
                 ('name', 'subtitle'),
-                ('published', 'featured'),
-                ('category', 'start_date', 'end_date'),
+                ('category', 'published', 'featured'),
+                ('start_date', 'end_date'),
                 ('summary', 'not_summary', 'body'),
                 'geolocation',
                 ('promoter', 'author_text', 'gratitude_text'),
@@ -174,20 +174,20 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     actions           = [ publish, unpublish, unfeature, feature ]
 
     fieldsets = (
-        ('es', {
+        (None, {
             'fields': (
                 ('name', 'subtitle'),
                 'body', 'agents'
             ),
         }),
-        ('en', {
+        ('Traducción al inglés', {
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_en', 'subtitle_en'),
                 'body_en', 'agents_en'
             ),
         }),
-        ('ca', {
+        ('Traducción al catalán', {
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_ca', 'subtitle_ca'),
@@ -213,7 +213,7 @@ class ResourceAdmin(NonSortableParentAdmin):
     list_display      = ('thumb', 'linked_name', 'published', 'featured')
     list_filter       = ('published', 'featured')
     fieldsets = (
-        ('es', {
+        (None, {
             'fields': (
                 ('name', 'subtitle'),
                 'summary', 'body',
@@ -221,7 +221,7 @@ class ResourceAdmin(NonSortableParentAdmin):
                 'license',
             ),
         }),
-        ('en', {
+        ('Traducción al inglés', {
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_en', 'subtitle_en'),
@@ -230,7 +230,7 @@ class ResourceAdmin(NonSortableParentAdmin):
                 'license_en',
             ),
         }),
-        ('ca', {
+        ('Traducción al catalán', {
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_ca', 'subtitle_ca'),
@@ -271,14 +271,14 @@ class BlockAdmin(NonSortableParentAdmin):
     form = BlockAdminForm
     inlines = [ ImageInline, AttachmentInline, VideoInline ]
     fieldsets = (
-        ('es', {
+        (None, {
             'fields'  : ('label', 'name', 'body'),
         }),
-        ('en', {
+        ('Traducción al inglés', {
             'classes' : ('collapse',),
             'fields'  : ('name_en', 'body_en'),
         }),
-        ('ca', {
+        ('Traducción al catalán', {
             'classes' : ('collapse',),
             'fields'  : ('name_ca', 'body_ca'),
         })
@@ -297,14 +297,14 @@ class PostAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     filter_horizontal = ('tags',)
 
     fieldsets = (
-        ('es', {
+        (None, {
             'fields': (('name', 'published', 'date'), 'summary', 'body', 'tags'),
         }),
-        ('en', {
+        ('Traducción al inglés', {
             'classes' : ('collapse',),
             'fields'  : ('name_en', 'summary_en', 'body_en'),
         }),
-        ('ca', {
+        ('Traducción al catalán', {
             'classes' : ('collapse',),
             'fields'  : ('name_ca', 'summary_ca', 'body_ca'),
         })

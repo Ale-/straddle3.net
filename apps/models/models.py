@@ -209,7 +209,6 @@ class Project(Translatable):
     links            = GenericRelation(Link)
     videos           = GenericRelation(Video)
     attachments      = GenericRelation(Attachment)
-    not_summary      = models.BooleanField(_('No mostrar resumen'), default=False, help_text=_("Marca para no mostrar el resumen en las vistas completas"))
     related_projects = models.ManyToManyField('self', verbose_name=_('Proyectos relaciondos'), help_text=_("Selecciona los proyectos relacionados"))
 
 

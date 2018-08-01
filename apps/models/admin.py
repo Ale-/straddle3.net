@@ -67,28 +67,32 @@ admin.site.register(models.Image)
 class ImageInline(SortableGenericStackedInline):
     model  = models.Image
     extra  = 0
-    fields = ('image_file', 'caption', ('caption_en', 'caption_ca'), ('not_caption', 'views_featured'))
+    fields = ('image_file', ('caption', 'not_caption', 'views_featured'), ('caption_en', 'caption_ca'))
 
     formfield_overrides = {
         ImageField: {
             'widget': widgets.AdminImageWidget
         }
     }
+    classes = ['collapse']
 
 class VideoInline(SortableGenericStackedInline):
     model  = models.Video
     extra  = 0
     fields = ( 'source_url', 'caption', ('caption_en', 'caption_ca'))
+    classes = ['collapse']
 
 class AttachmentInline(SortableGenericStackedInline):
     model  = models.Attachment
     extra  = 0
     fields = ('attachment_file', ('name', 'name_en', 'name_ca'), ('caption', 'caption_en', 'caption_ca'))
+    classes = ['collapse']
 
 class LinkInline(SortableGenericStackedInline):
     model = models.Link
     extra = 0
     fields = ( ('url', 'caption'), ('caption_en', 'caption_ca'))
+    classes = ['collapse']
 
 class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     model             = models.Project
@@ -98,7 +102,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     list_display      = ('thumb', 'linked_name', 'summary', 'start_date', 'published', 'featured')
     actions           = [ publish, unpublish, unfeature, feature ]
     fieldsets = (
-        ('es', {
+        (None, {
             'fields': (
                 ('name', 'subtitle'),
                 ('published', 'featured'),
@@ -106,10 +110,10 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
                 ('summary', 'not_summary', 'body'),
                 'geolocation',
                 ('promoter', 'author_text', 'gratitude_text'),
-                'tags'
+                'tags', 'related_projects'
             ),
         }),
-        ('en', {
+        ('Traducción al inglés', {
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_en', 'subtitle_en'),
@@ -117,7 +121,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
                 ('promoter_en', 'author_text_en', 'gratitude_text_en'),
             ),
         }),
-        ('ca', {
+        ('Traducción al catalán', {
             'classes' : ('collapse',),
             'fields'  : (
                 ('name_ca', 'subtitle_ca'),
@@ -127,7 +131,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         })
     )
     inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
-    filter_horizontal = ('tags',)
+    filter_horizontal = ('tags','related_projects')
 
     class Media:
         js = ['/static/straddle3/js/featured-image.js',]

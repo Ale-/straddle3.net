@@ -9,7 +9,7 @@
  */
 document.addEventListener("DOMContentLoaded", function()
 {
-    var featured_checkboxes = document.querySelectorAll('.field-views_featured input[type=checkbox]');
+    var featured_checkboxes = document.querySelectorAll('.field-views_featured > input[type=checkbox]');
     featured_checkboxes.forEach( function(c){
         c.addEventListener('click', function(){
             featured_checkboxes.forEach( function(c){ c.checked = false; });

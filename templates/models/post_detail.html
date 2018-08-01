@@ -22,11 +22,11 @@
 <div class="page__content--post">
     <div class="container-fixed">
         <nav class="breadcrumb">
-            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'blog' %}">Blog</a> » {{ object.name }}
+            <a href="{% url 'front' %}">s3</a> » <a href="{% url 'blog' %}">Blog</a> »   {% simple_field object 'name' lang %}
         </nav>
         {# title #}
         <h1 class="page__title--post">
-            {{ object.name }}
+            {% simple_field object 'name' lang %}
         </h1>
         {# dates #}
         {% include 'fields/field-date.html' with start=object.date  b='post' m='full' %}
@@ -34,7 +34,7 @@
             <div class="project-full">
                 {# summary #}
                 {% if not object.not_summary %}
-                    {% field obj=object field_name='summary' %}
+                    {% field obj=object field_name='summary' lang=lang %}
                 {% endif %}
                 {# see more #}
                 <button class="see-more">
@@ -44,7 +44,7 @@
                     ✕
                 </button>
                 {# body #}
-                {% field obj=object field_name='body' %}
+                {% field obj=object field_name='body' lang=lang safe=True %}
                 {# tags #}
                 {% include 'fields/field--tags.html' with b="post" m="full" tags=object.tags.all %}
                 {# links #}

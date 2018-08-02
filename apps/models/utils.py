@@ -23,7 +23,7 @@ class RenameImage(object):
         type_path    = slugify(instance.content_type.name)
         slug         = getattr(instance.source_content, 'slug', None)
         content_path = slug if slug else slugify(instance.source_content.name)
-        filename = slugify(instance.alt_text) + "." + filename.split('.')[1]
+        filename = slugify(instance.caption) + "." + filename.split('.')[1]
 
         # return the whole path to the file
         return os.path.join(self.path, type_path, content_path, filename)

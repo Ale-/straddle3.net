@@ -20,7 +20,7 @@
         {% if show_cat and categories|length > 0 %}
             {% for category in categories %}
             <span class="item__category--grid">
-                {% simple_field category 'name' lang %}
+                <small>#</small>{% simple_field category 'name' lang %}
             </span>
             {% endfor %}
         {% endif %}

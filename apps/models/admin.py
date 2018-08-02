@@ -182,6 +182,7 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         (None, {
             'fields': (
                 ('name', 'subtitle'),
+                'category',
                 'body', 'agents'
             ),
         }),
@@ -221,6 +222,7 @@ class ResourceAdmin(NonSortableParentAdmin):
         (None, {
             'fields': (
                 ('name', 'subtitle'),
+                'category',
                 'summary', 'body',
                 ('promoter', 'author_text', 'gratitude_text'),
                 'license',

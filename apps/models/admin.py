@@ -183,7 +183,7 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
             'fields': (
                 ('name', 'subtitle'),
                 ('category', 'published', 'featured'),
-                'body', 'agents'
+                'body', 'agents',
                 'geolocation',
             ),
         }),

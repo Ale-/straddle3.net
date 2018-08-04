@@ -1,0 +1,38 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--videos{% endblock %}
+{% block page_html_title %}{% trans 'Videos' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Archivo' %} » {% trans 'Videos' %}
+    </nav>
+    <h1 class="page__title--videos">
+        {% trans 'Videos' %}
+    </h1>
+    <div class="page__content--videos">
+        {% text 'Videos' user.is_staff lang %}
+        <ul class="video-list">
+        {% for video in videos %}
+            {% if video %}
+            <li class="video-list__item">
+            {% videoembed video.source_url 480 240 %}
+            <p class="video-list__item-source">
+              src: <a href="{{ video.source_content.get_absolute_url }}">
+                  {{ video.source_content.name }}
+              </a>
+            </p>
+            {% if not video.not_caption %}
+                <h5 class="video-list__item-caption">
+                    {% simple_field video 'caption' lang %}
+                </h5>
+            {% endif %}
+            </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

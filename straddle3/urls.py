@@ -61,6 +61,8 @@ urlpatterns += i18n_patterns(
     path('archivo/bibliografía', TemplateView.as_view(template_name="pages/bibliography.html"), name="bibliography"),
     # Bibliografía
     path('archivo/hemeroteca', TemplateView.as_view(template_name="pages/press.html"), name="press"),
+    # Videos
+    path('archivo/videos', views.Videos.as_view(), name="videos"),
     # Blog
     path('blog', views.Blog.as_view(), name="blog"),
     # Blog post

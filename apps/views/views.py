@@ -7,6 +7,7 @@ from django.views import View
 from django.views.generic import ListView, DetailView
 from django.http import Http404, HttpResponse
 from django.db.models import Q
+from django.contrib.contenttypes.models import ContentType
 # project
 from apps.models import models
 from django.conf import settings
@@ -279,4 +280,18 @@ class SearchView(View):
         return render(request, 'models/search_list.html', {
             'object_list' : object_list,
             'text'        : text,
+        })
+
+class Videos(View):
+
+    def get(self, request, *args, **kwargs):
+        # videos connected to the block
+        # videos attached to other objects
+        models_with_video = ['Proyecto', 'conexión', 'recurso']
+        types = ContentType.objects.all() #filter(name__in=models_with_video)
+        for t in types:
+            print(t.app_label)
+        videos = models.Video.objects.filter(content_type__in=types)
+        return render(request, 'pages/videos.html', {
+            'videos' : videos,
         })

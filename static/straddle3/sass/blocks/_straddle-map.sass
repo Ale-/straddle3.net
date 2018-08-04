@@ -40,6 +40,8 @@
     +border-radius(0)
     background-color: #222
     +box-shadow(none)
+    &:hover
+      background-color: #222
 
 .leaflet-control-attribution
   background-color: #222 !important
@@ -90,8 +92,10 @@
     padding-top: $m/3
 
 .page--map .leaflet-top
-  top: $m*2
+  top: $m
   right: $m
+  .leaflet-bar
+    border: 0
 
 .leaflet-marker-icon
   font-size: 45px
@@ -99,3 +103,28 @@
   background: transparent
   border: 0
   +text-shadow(0 0 5px rgba(black, .25))
+
+.categories--map
+  position: fixed
+  top: $m*3.5
+  left: $m
+  z-index: 11000
+
+[class*='-categories--map']
+  background: #222
+  color: white
+  padding: 18px
+  margin-bottom: $m
+
+[class*='-categories__label--map']
+  margin: 0 0 $m/3
+  text-transform: uppercase
+  font-size: .8em
+
+[class*='-categories__item--map']
+  text-transform: capitalize
+  span
+    margin-right: $m/4
+    font-size: .7em
+    top: -2px
+    position: relative

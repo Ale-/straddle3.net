@@ -1,5 +1,5 @@
 {# Frontpage #} {% extends 'layouts/single-fluid-column--without-footer.html' %}
-{% load utils leaflet_tags static %}
+{% load utils leaflet_tags static i18n %}
 {% block body_classes %}page--map{% endblock %}
 {% block page_html_title %}Map of Straddle3{% endblock %}
 
@@ -9,6 +9,34 @@
 
 {% block main %}
     <div id="straddle-map"></div>
+    <div class="categories--map">
+        <div class="project-categories--map">
+            <h5 class="project-categories__label--map">
+                {% trans 'Proyectos' %}
+            </h5>
+            <ul class="project-categories__items--map">
+                {% for cat in project_categories %}
+                    <li class="project-categories__item--map">
+                        <span style="color: {{ cat.color }}">■</span>
+                        {{ cat }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="connection-categories--map">
+            <h5 class="project-categories__label--map">
+                {% trans 'Complicidades' %}
+            </h5>
+            <ul class="project-categories__items--map">
+                {% for cat in connection_categories %}
+                    <li class="project-categories__item--map">
+                        <span style="color: {{ cat.color }}">■</span>
+                        {{ cat }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}
 
 {% block page_scripts %}

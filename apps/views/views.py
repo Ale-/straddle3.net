@@ -38,10 +38,17 @@ class MapView(View):
 
     def get(self, request, *args, **kwargs):
         projects    = models.Project.objects.all()
+        project_categories = models.ProjectCategory.objects.filter(project__isnull=False, project__published=True)
+        project_categories = sorted(project_categories, key = lambda i: getattr(i, 'name'))
         connections = models.Connection.objects.all()
+        connection_categories = models.ConnectionCategory.objects.filter(connection__isnull=False, connection__published=True)
+        connection_categories = sorted(connection_categories, key = lambda i: getattr(i, 'name'))
         markers     = list(projects) + list(connections)
-
-        return render(request, 'pages/map.html', { 'markers' : markers })
+        return render(request, 'pages/map.html', {
+            'markers'               : markers,
+            'connection_categories' : connection_categories,
+            'project_categories'    : project_categories,
+        })
 
 # Dataset fake API for testing D3 widgets
 def MapApi(request):

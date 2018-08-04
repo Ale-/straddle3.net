@@ -18,7 +18,7 @@
                 {% for cat in project_categories %}
                     <li class="project-categories__item--map">
                         <span style="color: {{ cat.color }}">■</span>
-                        {{ cat }}
+                        {% simple_field cat 'name' lang %}
                     </li>
                 {% endfor %}
             </ul>
@@ -31,7 +31,7 @@
                 {% for cat in connection_categories %}
                     <li class="project-categories__item--map">
                         <span style="color: {{ cat.color }}">■</span>
-                        {{ cat }}
+                        {% simple_field cat 'name' lang %}
                     </li>
                 {% endfor %}
             </ul>

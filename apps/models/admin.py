@@ -326,4 +326,8 @@ class PostAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         return format_html("<a href='" + url + "'>" + obj.name + "</a>")
 
 admin.site.register(models.Post, PostAdmin)
-admin.site.register(models.Video)
+
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'source_url', )
+
+admin.site.register(models.Video, VideoAdmin)

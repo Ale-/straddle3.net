@@ -58,7 +58,7 @@ class Video(SortableMixin):
     def __str__(self):
         """String representation of this model objects."""
 
-        return self.caption[:100] + "..."
+        return self.source_content.name if self.source_content else "Video %s" % self.id
 
 class Image(SortableMixin):
     """ Images """

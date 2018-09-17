@@ -41,16 +41,6 @@
                     {% text 'Recursos' user.is_staff lang %}
                 </p>
             </a>
-            <div class="front-navigation__list">
-                <h5 class="front-navigation__list-title">
-                    <i class="fa fa-star"></i> {% trans 'Recursos destacados' %}
-                </h5>
-                <ul class="front-navigation__list-items">
-                {% for resource in featured_resources %}
-                    {% include 'views/item--list-reduced.html' with object=resource m='front' %}
-                {% endfor %}
-                </ul>
-            </div>
         </div>
         <div class="front-navigation__center"  href="{% url 'connections' %}">
             <a href="{% url 'connections' %}">
@@ -65,16 +55,6 @@
                     {% text 'Complicidades' user.is_staff lang %}
                 </p>
             </a>
-            <div class="front-navigation__list">
-                <h5 class="front-navigation__list-title">
-                    <i class="fa fa-star"></i> {% trans 'Complicidades destacadas' %}
-                </h5>
-                <ul class="front-navigation__list-items">
-                    {% for connection in featured_connections %}
-                        {% include 'views/item--list-reduced.html' with object=connection m='front' %}
-                    {% endfor %}
-                </ul>
-            </div>
         </div>
         <div class="front-navigation__right"  href="{% url 'projects' %}">
             <a href="{% url 'projects' %}">
@@ -89,16 +69,6 @@
                     {% text 'Proyectos' user.is_staff lang %}
                 </p>
             </a>
-            <div class="front-navigation__list">
-                <h5 class="front-navigation__list-title">
-                    <i class="fa fa-star"></i> {% trans 'Proyectos destacados' %}
-                </h5>
-                <ul class="front-navigation__list-items">
-                    {% for project in featured_projects %}
-                        {% include 'views/item--list-reduced.html' with object=project m='front' %}
-                    {% endfor %}
-                </ul>
-            </div>
         </div>
     </div>
     <div class="contact-row">

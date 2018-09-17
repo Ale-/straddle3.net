@@ -198,7 +198,7 @@ class Project(Translatable):
     start_date       = models.DateField(_('Fecha de comienzo'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
     end_date         = models.DateField(_('Fecha de finalización'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
     geolocation      = PointField(_('Geolocalización'), blank=True)
-    category         = models.ManyToManyField(ProjectCategory, verbose_name=_('Formato'), related_name='project', blank=True, null=True)
+    category         = models.ManyToManyField(ProjectCategory, verbose_name=_('Formato'), related_name='project', blank=True)
     promoter         = models.TextField(_('Promotor'), blank=True, null=True)
     author_text      = models.TextField(_('Créditos'), blank=True, null=True)
     gratitude_text   = models.TextField(_('Agradecimientos'), blank=True, null=True)

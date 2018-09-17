@@ -26,6 +26,11 @@
     <h5 class="item__name--grid">
         {% simple_field item 'name' lang %}
     </h5>
+    {% if item.subtitle %}
+    <h6 class="item__subtitle--grid">
+        {% simple_field item 'subtitle' lang %}
+    </h6>
+    {% endif %}
     {% if show_date and item.start_date or item.end_date %}
     <p class="item__date--grid">
         {% if item.start_date %}

@@ -1,0 +1,1964 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-18 12:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/models/models.py:44
+msgid "Video"
+msgstr ""
+
+#: apps/models/models.py:45
+msgid "Inserta la url de un video de Youtube o Vimeo"
+msgstr ""
+
+#: apps/models/models.py:46
+msgid "Pie de video opcional"
+msgstr ""
+
+#: apps/models/models.py:47
+msgid "Pie EN"
+msgstr ""
+
+#: apps/models/models.py:48
+msgid "Pie CA"
+msgstr ""
+
+#: apps/models/models.py:49
+msgid "No mostrar pie de video"
+msgstr ""
+
+#: apps/models/models.py:49
+msgid "No mostrar el pie de video en las galerías"
+msgstr ""
+
+#: apps/models/models.py:66
+msgid "Archivo de imagen"
+msgstr ""
+
+#: apps/models/models.py:69
+msgid "Texto alternativo/Pie de foto"
+msgstr ""
+
+#: apps/models/models.py:70
+msgid "Texto/Pie EN"
+msgstr ""
+
+#: apps/models/models.py:71
+msgid "Texto/Pie CA"
+msgstr ""
+
+#: apps/models/models.py:76
+msgid "No mostrar pie de foto"
+msgstr ""
+
+#: apps/models/models.py:76
+msgid "No mostrar el pie de foto en las galerías"
+msgstr ""
+
+#: apps/models/models.py:77
+msgid "Destacada"
+msgstr ""
+
+#: apps/models/models.py:77
+msgid "La imagen destacada será la que se muestre en las vistas"
+msgstr ""
+
+#: apps/models/models.py:80
+msgid "imagen"
+msgstr ""
+
+#: apps/models/models.py:81
+msgid "imágenes"
+msgstr ""
+
+#: apps/models/models.py:92
+msgid "Nombre del archivo"
+msgstr ""
+
+#: apps/models/models.py:93 apps/models/models.py:168 apps/models/models.py:269
+#: apps/models/models.py:389
+msgid "Nombre EN"
+msgstr ""
+
+#: apps/models/models.py:94 apps/models/models.py:169 apps/models/models.py:270
+#: apps/models/models.py:390
+msgid "Nombre CA"
+msgstr ""
+
+#: apps/models/models.py:95
+msgid "Archivo adjunto"
+msgstr ""
+
+#: apps/models/models.py:98 apps/models/models.py:144 apps/models/models.py:171
+#: apps/models/models.py:271 apps/models/models.py:391
+msgid "Descripción opcional"
+msgstr ""
+
+#: apps/models/models.py:99 apps/models/models.py:145 apps/models/models.py:172
+#: apps/models/models.py:272 apps/models/models.py:392
+msgid "Descripción EN"
+msgstr ""
+
+#: apps/models/models.py:100 apps/models/models.py:146
+#: apps/models/models.py:173 apps/models/models.py:273
+#: apps/models/models.py:393
+msgid "Descripción CA"
+msgstr ""
+
+#: apps/models/models.py:107
+msgid "adjunto"
+msgstr ""
+
+#: apps/models/models.py:108
+msgid "adjuntos"
+msgstr ""
+
+#: apps/models/models.py:120
+msgid "URL del enlace"
+msgstr ""
+
+#: apps/models/models.py:121
+msgid "Texto del enlace"
+msgstr ""
+
+#: apps/models/models.py:122
+msgid "Texto EN"
+msgstr ""
+
+#: apps/models/models.py:123
+msgid "Texto CA"
+msgstr ""
+
+#: apps/models/models.py:130
+msgid "enlace"
+msgstr ""
+
+#: apps/models/models.py:131
+msgid "enlaces"
+msgstr ""
+
+#: apps/models/models.py:141
+msgid "Tag"
+msgstr ""
+
+#: apps/models/models.py:142
+msgid "Tag EN"
+msgstr ""
+
+#: apps/models/models.py:143
+msgid "Tag CA"
+msgstr ""
+
+#: apps/models/models.py:150
+msgid "tag"
+msgstr ""
+
+#: apps/models/models.py:151
+msgid "tags"
+msgstr ""
+
+#: apps/models/models.py:167 apps/models/models.py:268
+#: apps/models/models.py:388
+msgid "Nombre de la categoría"
+msgstr ""
+
+#: apps/models/models.py:170 apps/models/models.py:274
+#: apps/models/models.py:394
+msgid "Color de la categoría"
+msgstr ""
+
+#: apps/models/models.py:177
+msgid "tipo de proyecto"
+msgstr ""
+
+#: apps/models/models.py:178
+msgid "tipos de proyecto"
+msgstr ""
+
+#: apps/models/models.py:193 apps/models/models.py:217
+#: apps/models/models.py:226
+msgid "Nombre del proyecto"
+msgstr ""
+
+#: apps/models/models.py:194 apps/models/models.py:218
+#: apps/models/models.py:227 apps/models/models.py:295
+#: apps/models/models.py:316 apps/models/models.py:322
+#: apps/models/models.py:416 apps/models/models.py:439
+#: apps/models/models.py:450
+msgid "Subtítulo"
+msgstr ""
+
+#: apps/models/models.py:195 apps/models/models.py:219
+#: apps/models/models.py:228 apps/models/models.py:363
+#: apps/models/models.py:364 apps/models/models.py:365
+#: apps/models/models.py:424 apps/models/models.py:440
+#: apps/models/models.py:452 apps/models/models.py:528
+#: apps/models/models.py:538 apps/models/models.py:543
+msgid "Resumen"
+msgstr ""
+
+#: apps/models/models.py:196 apps/models/models.py:220
+#: apps/models/models.py:229 apps/models/models.py:506
+#: apps/models/models.py:507 apps/models/models.py:508
+msgid "Texto"
+msgstr ""
+
+#: apps/models/models.py:198 apps/models/models.py:299
+msgid "Fecha de comienzo"
+msgstr ""
+
+#: apps/models/models.py:198 apps/models/models.py:199
+#: apps/models/models.py:299 apps/models/models.py:300
+msgid "Puedes usar el formato dd/mm/yyyy"
+msgstr ""
+
+#: apps/models/models.py:199 apps/models/models.py:300
+msgid "Fecha de finalización"
+msgstr ""
+
+#: apps/models/models.py:200 apps/models/models.py:298
+msgid "Geolocalización"
+msgstr ""
+
+#: apps/models/models.py:201 apps/models/models.py:418
+msgid "Formato"
+msgstr ""
+
+#: apps/models/models.py:202 apps/models/models.py:221
+#: apps/models/models.py:230 apps/models/models.py:421
+#: apps/models/models.py:444 apps/models/models.py:455
+msgid "Promotor"
+msgstr ""
+
+#: apps/models/models.py:203 apps/models/models.py:420
+msgid "Créditos"
+msgstr ""
+
+#: apps/models/models.py:204 apps/models/models.py:422
+msgid "Agradecimientos"
+msgstr ""
+
+#: apps/models/models.py:206 apps/models/models.py:303
+#: apps/models/models.py:426 apps/models/models.py:531
+#: templates/fields/field--tags.html:6
+msgid "Tags"
+msgstr ""
+
+#: apps/models/models.py:207 apps/models/models.py:306
+#: apps/models/models.py:367 apps/models/models.py:427
+#: apps/models/models.py:527
+msgid "Publicado"
+msgstr ""
+
+#: apps/models/models.py:207 apps/models/models.py:527
+msgid "Indica si este contenido es visible públicamente"
+msgstr ""
+
+#: apps/models/models.py:208 apps/models/models.py:307
+#: apps/models/models.py:428
+msgid "Destacado"
+msgstr ""
+
+#: apps/models/models.py:208
+msgid "Indica si este contenido es destacado y ha de tener mayor visibilidad"
+msgstr ""
+
+#: apps/models/models.py:212 apps/models/models.py:310
+#: apps/models/models.py:433
+msgid "Proyectos relacionados"
+msgstr ""
+
+#: apps/models/models.py:212 apps/models/models.py:310
+#: apps/models/models.py:433
+msgid "Selecciona los proyectos relacionados"
+msgstr ""
+
+#: apps/models/models.py:213 apps/models/models.py:311
+#: apps/models/models.py:434
+msgid "Conexiones relacionadas"
+msgstr ""
+
+#: apps/models/models.py:213 apps/models/models.py:311
+#: apps/models/models.py:434
+msgid "Selecciona los conexiones relacionados"
+msgstr ""
+
+#: apps/models/models.py:214 apps/models/models.py:312
+#: apps/models/models.py:435
+msgid "Recursos relacionados"
+msgstr ""
+
+#: apps/models/models.py:214 apps/models/models.py:312
+#: apps/models/models.py:435
+msgid "Selecciona los recursos relacionados"
+msgstr ""
+
+#: apps/models/models.py:222 apps/models/models.py:231
+#: apps/models/models.py:443 apps/models/models.py:454
+msgid "Autor"
+msgstr ""
+
+#: apps/models/models.py:223 apps/models/models.py:232
+#: apps/models/models.py:445 apps/models/models.py:456
+msgid "Texto de agradecimientos"
+msgstr ""
+
+#: apps/models/models.py:235
+msgid "Proyecto"
+msgstr ""
+
+#: apps/models/models.py:236
+msgid "Proyectos / Trabajos"
+msgstr ""
+
+#: apps/models/models.py:278
+msgid "tipo de conexión"
+msgstr ""
+
+#: apps/models/models.py:279
+msgid "tipos de conexión"
+msgstr ""
+
+#: apps/models/models.py:294 apps/models/models.py:315
+#: apps/models/models.py:321 apps/models/models.py:361
+#: apps/models/models.py:415 apps/models/models.py:438
+#: apps/models/models.py:449 apps/models/models.py:497
+#: apps/models/models.py:500 apps/models/models.py:503
+msgid "Nombre"
+msgstr ""
+
+#: apps/models/models.py:297
+msgid "Tipo"
+msgstr ""
+
+#: apps/models/models.py:301 apps/models/models.py:317
+#: apps/models/models.py:323 apps/models/models.py:425
+#: apps/models/models.py:441 apps/models/models.py:451
+msgid "Descripción"
+msgstr ""
+
+#: apps/models/models.py:302 apps/models/models.py:318
+#: apps/models/models.py:324
+msgid "Agentes"
+msgstr ""
+
+#: apps/models/models.py:327
+msgid "conexión"
+msgstr ""
+
+#: apps/models/models.py:328
+msgid "conexiones"
+msgstr ""
+
+#: apps/models/models.py:362
+msgid "Apellidos"
+msgstr ""
+
+#: apps/models/models.py:366
+msgid "Imagen principal"
+msgstr ""
+
+#: apps/models/models.py:368
+msgid "Inactivo"
+msgstr ""
+
+#: apps/models/models.py:371
+msgid "persona en Straddle3"
+msgstr ""
+
+#: apps/models/models.py:372
+msgid "equipo Straddle3"
+msgstr ""
+
+#: apps/models/models.py:398
+msgid "tipo de recurso"
+msgstr ""
+
+#: apps/models/models.py:399
+msgid "tipos de recurso"
+msgstr ""
+
+#: apps/models/models.py:419 apps/models/models.py:442
+#: apps/models/models.py:453
+msgid "Funciones básicas/posibles aplicaciones"
+msgstr ""
+
+#: apps/models/models.py:423 apps/models/models.py:446
+#: apps/models/models.py:457
+msgid "Licencia"
+msgstr ""
+
+#: apps/models/models.py:461
+msgid "recurso"
+msgstr ""
+
+#: apps/models/models.py:462
+msgid "recursos"
+msgstr ""
+
+#: apps/models/models.py:495
+msgid "Etiqueta"
+msgstr ""
+
+#: apps/models/models.py:499 apps/models/models.py:502
+#: apps/models/models.py:505
+msgid ""
+"Introduce el título del bloque, si no quieres que el bloque tenga título "
+"deja este campo en blanco"
+msgstr ""
+
+#: apps/models/models.py:514
+msgid "bloque de texto"
+msgstr ""
+
+#: apps/models/models.py:515
+msgid "bloques de texto"
+msgstr ""
+
+#: apps/models/models.py:525 apps/models/models.py:537
+#: apps/models/models.py:542
+msgid "Nombre/título"
+msgstr ""
+
+#: apps/models/models.py:529
+msgid "Fecha de publicación"
+msgstr ""
+
+#: apps/models/models.py:530 apps/models/models.py:539
+#: apps/models/models.py:544
+msgid "Cuerpo"
+msgstr ""
+
+#: apps/models/validators.py:15
+#, python-format
+msgid "El ancho de la imagen debería ser mayor a %(min_width)s píxeles"
+msgstr ""
+
+#: apps/models/validators.py:16
+#, python-format
+msgid "El ancho de la imagen debería ser menor a %(max_width)s píxeles"
+msgstr ""
+
+#: apps/models/validators.py:17
+#, python-format
+msgid "El alto de la imagen debería ser mayor a %(min_height)s píxeles"
+msgstr ""
+
+#: apps/models/validators.py:18
+#, python-format
+msgid "El alto de la imagen debería ser menor a %(max_height)s píxeles"
+msgstr ""
+
+#: apps/utils/templates/field.html:17
+msgid "Este contenido tiene este campo vacío todavía"
+msgstr ""
+
+#: apps/utils/templates/text-block.html:25
+msgid "Este texto no ha sido creado todavía"
+msgstr ""
+
+#: apps/utils/templates/text-block.html:27
+msgid "Añade este texto"
+msgstr ""
+
+#: apps/utils/templatetags/utils.py:64
+msgid "Volver a la página anterior"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/colorfield/fields.py:13
+msgid "Enter a valid color."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/contrib/messages/apps.py:7
+msgid "Messages"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/contrib/sitemaps/apps.py:7
+msgid "Site Maps"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/paginator.py:40
+msgid "That page number is not an integer"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/paginator.py:42
+msgid "That page number is less than 1"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/paginator.py:47
+msgid "That page contains no results"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:31
+msgid "Enter a valid value."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:102
+#: env/lib/python3.5/site-packages/django/forms/fields.py:649
+msgid "Enter a valid URL."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:154
+msgid "Enter a valid integer."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:165
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: env/lib/python3.5/site-packages/django/core/validators.py:239
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:246
+msgid ""
+"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:255
+#: env/lib/python3.5/site-packages/django/core/validators.py:275
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:260
+#: env/lib/python3.5/site-packages/django/core/validators.py:276
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:270
+#: env/lib/python3.5/site-packages/django/core/validators.py:274
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:304
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:310
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:341
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:350
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:360
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:375
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:395
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:400
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:405
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:465
+#, python-format
+msgid ""
+"File extension '%(extension)s' is not allowed. Allowed extensions are: "
+"'%(allowed_extensions)s'."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/core/validators.py:518
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/base.py:1125
+#: env/lib/python3.5/site-packages/django/forms/models.py:753
+msgid "and"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/base.py:1127
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:105
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:106
+msgid "This field cannot be null."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:107
+msgid "This field cannot be blank."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:108
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:112
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:129
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:882
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1782
+msgid "Integer"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:886
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1780
+#, python-format
+msgid "'%(value)s' value must be an integer."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:959
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1851
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:971
+#, python-format
+msgid "'%(value)s' value must be either True or False."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:973
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1039
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1102
+msgid "Comma-separated integers"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1150
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1152
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1294
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1155
+msgid "Date (without time)"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1292
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1296
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1300
+msgid "Date (with time)"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1447
+#, python-format
+msgid "'%(value)s' value must be a decimal number."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1449
+msgid "Decimal number"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1601
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1604
+msgid "Duration"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1656
+msgid "Email address"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1680
+msgid "File path"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1746
+#, python-format
+msgid "'%(value)s' value must be a float."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1748
+msgid "Floating point number"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1866
+msgid "IPv4 address"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1897
+msgid "IP address"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1978
+#, python-format
+msgid "'%(value)s' value must be either None, True or False."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:1980
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2043
+msgid "Positive integer"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2055
+msgid "Positive small integer"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2068
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2098
+msgid "Small integer"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2105
+msgid "Text"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2133
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2135
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2138
+msgid "Time"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2263
+msgid "URL"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2286
+msgid "Raw binary data"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/__init__.py:2333
+#, python-format
+msgid "'%(value)s' is not a valid UUID."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/files.py:221
+msgid "File"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/files.py:359
+msgid "Image"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/related.py:780
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/related.py:782
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/related.py:1001
+msgid "One-to-one relationship"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/related.py:1051
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/related.py:1052
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/db/models/fields/related.py:1094
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: env/lib/python3.5/site-packages/django/forms/boundfield.py:171
+msgid ":?.!"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:53
+msgid "This field is required."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:245
+msgid "Enter a whole number."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:290
+#: env/lib/python3.5/site-packages/django/forms/fields.py:325
+msgid "Enter a number."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:396
+#: env/lib/python3.5/site-packages/django/forms/fields.py:1114
+msgid "Enter a valid date."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:420
+#: env/lib/python3.5/site-packages/django/forms/fields.py:1115
+msgid "Enter a valid time."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:442
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:471
+msgid "Enter a valid duration."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:525
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:526
+msgid "No file was submitted."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:527
+msgid "The submitted file is empty."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:529
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:532
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:597
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:753
+#: env/lib/python3.5/site-packages/django/forms/fields.py:843
+#: env/lib/python3.5/site-packages/django/forms/models.py:1267
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:844
+#: env/lib/python3.5/site-packages/django/forms/fields.py:959
+#: env/lib/python3.5/site-packages/django/forms/models.py:1266
+msgid "Enter a list of values."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:960
+msgid "Enter a complete value."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/fields.py:1173
+msgid "Enter a valid UUID."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: env/lib/python3.5/site-packages/django/forms/forms.py:86
+msgid ":"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/forms.py:207
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/formsets.py:91
+msgid "ManagementForm data is missing or has been tampered with"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/formsets.py:338
+#, python-format
+msgid "Please submit %d or fewer forms."
+msgid_plural "Please submit %d or fewer forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/forms/formsets.py:345
+#, python-format
+msgid "Please submit %d or more forms."
+msgid_plural "Please submit %d or more forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/forms/formsets.py:371
+#: env/lib/python3.5/site-packages/django/forms/formsets.py:373
+msgid "Order"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/formsets.py:375
+msgid "Delete"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/models.py:748
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/models.py:752
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/models.py:758
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/models.py:767
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/models.py:1094
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/models.py:1155
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/models.py:1269
+#, python-format
+msgid "\"%(pk)s\" is not a valid value."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/utils.py:162
+#, python-format
+msgid ""
+"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/widgets.py:391
+msgid "Clear"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/widgets.py:392
+msgid "Currently"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/widgets.py:393
+msgid "Change"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/widgets.py:706
+msgid "Unknown"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/widgets.py:707
+msgid "Yes"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/forms/widgets.py:708
+msgid "No"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:783
+msgid "yes,no,maybe"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:812
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:829
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:831
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:833
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:835
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:837
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/template/defaultfilters.py:839
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dateformat.py:62
+msgid "p.m."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dateformat.py:63
+msgid "a.m."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dateformat.py:68
+msgid "PM"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dateformat.py:69
+msgid "AM"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dateformat.py:150
+msgid "midnight"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dateformat.py:152
+msgid "noon"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:10
+msgid "Mon"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:10
+msgid "Tue"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:11
+msgid "Sat"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:11
+msgid "Sun"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:18
+msgid "January"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:18
+msgid "February"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:18
+msgid "March"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:18
+msgid "April"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:18
+msgid "May"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:18
+msgid "June"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:19
+msgid "July"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:19
+msgid "August"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:19
+msgid "September"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:19
+msgid "October"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:19
+msgid "November"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:20
+msgid "December"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:23
+msgid "jan"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:23
+msgid "feb"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:23
+msgid "mar"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:23
+msgid "apr"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:23
+msgid "may"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:23
+msgid "jun"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:24
+msgid "jul"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:24
+msgid "aug"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:24
+msgid "sep"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:24
+msgid "oct"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:24
+msgid "nov"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:24
+msgid "dec"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:33
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:35
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:36
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:37
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:38
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:39
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:40
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:41
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:42
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:45
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:47
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:48
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:49
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:50
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:51
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:52
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:53
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:54
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:55
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/dates.py:56
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/text.py:70
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s..."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/text.py:237
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: env/lib/python3.5/site-packages/django/utils/text.py:256
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:69
+msgid ", "
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: env/lib/python3.5/site-packages/django/utils/timesince.py:58
+msgid "0 minutes"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:110
+msgid "Forbidden"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:111
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:115
+msgid ""
+"You are seeing this message because this HTTPS site requires a 'Referer "
+"header' to be sent by your Web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:120
+msgid ""
+"If you have configured your browser to disable 'Referer' headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for 'same-"
+"origin' requests."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:124
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
+"CSRF protection requires the 'Referer' header to do strict referer checking. "
+"If you're concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" ...> for links to third-party sites."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:132
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:137
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for 'same-origin' requests."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/csrf.py:142
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:41
+msgid "No year specified"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:61
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:111
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:208
+msgid "Date out of range"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:90
+msgid "No month specified"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:142
+msgid "No day specified"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:188
+msgid "No week specified"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:338
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:367
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:585
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/dates.py:619
+#, python-format
+msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/detail.py:53
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/list.py:67
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/list.py:72
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/generic/list.py:154
+#, python-format
+msgid "Empty list and '%(class_name)s.allow_empty' is False."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/static.py:41
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/static.py:43
+#, python-format
+msgid "\"%(path)s\" does not exist"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/static.py:83
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:6
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:345
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:367
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:368
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:383
+msgid "Django Documentation"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:384
+msgid "Topics, references, &amp; how-to's"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:395
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:396
+msgid "Get started with Django"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:407
+msgid "Django Community"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/django/views/templates/default_urlconf.html:408
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/djgeojson/fields.py:58
+msgid "Geometry as GeoJSON"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/imagekit/admin.py:10
+msgid "Thumbnail"
+msgstr ""
+
+#: env/lib/python3.5/site-packages/jsonfield/fields.py:34
+#: env/lib/python3.5/site-packages/jsonfield/fields.py:46
+#: env/lib/python3.5/site-packages/jsonfield/fields.py:85
+msgid "Enter valid JSON"
+msgstr ""
+
+#: straddle3/settings.py:123
+msgid "Español"
+msgstr ""
+
+#: straddle3/settings.py:124
+msgid "Catalán"
+msgstr ""
+
+#: straddle3/settings.py:125
+msgid "English"
+msgstr ""
+
+#: templates/blocks/brand.html:4
+msgid "Ir a la página de inicio"
+msgstr ""
+
+#: templates/blocks/categories-filters.html:6
+msgid "Categorías"
+msgstr ""
+
+#: templates/blocks/categories-filters.html:15
+msgid "TODAS"
+msgstr ""
+
+#: templates/blocks/flexslider.html:33
+msgid "Mostrando"
+msgstr ""
+
+#: templates/blocks/flexslider.html:33
+msgid "video"
+msgstr ""
+
+#: templates/blocks/flexslider.html:34
+msgid "y"
+msgstr ""
+
+#: templates/blocks/flexslider.html:35
+msgid "foto"
+msgstr ""
+
+#: templates/blocks/next-navigation.html:9
+msgid "Ver contenido anterior"
+msgstr ""
+
+#: templates/blocks/next-navigation.html:26
+msgid "Ver contenido siguiente"
+msgstr ""
+
+#: templates/blocks/related.html:5
+msgid "Contenido relacionado"
+msgstr ""
+
+#: templates/blocks/share.html:6
+msgid "Comparte"
+msgstr ""
+
+#: templates/fields/field--attachments.html:6
+msgid "Descargas"
+msgstr ""
+
+#: templates/fields/field--attachments.html:26
+msgid "Este contenido no tiene descargas asociadas"
+msgstr ""
+
+#: templates/fields/field--category.html:6
+#: templates/fields/field--project-category.html:6
+msgid "Categoría"
+msgstr ""
+
+#: templates/fields/field--category.html:15
+#: templates/fields/field--project-category.html:18
+msgid "Este contenido no ha sido categorizado todavía"
+msgstr ""
+
+#: templates/fields/field--links.html:6
+msgid "Enlaces relacionados"
+msgstr ""
+
+#: templates/fields/field--links.html:17
+msgid "Este contenido no tiene enlaces asociados"
+msgstr ""
+
+#: templates/fields/field--tags.html:16
+msgid "Este contenido no tiene tags asociadas"
+msgstr ""
+
+#: templates/fields/field-date.html:8
+msgid "Cuándo"
+msgstr ""
+
+#: templates/menus/menu-main.html:12 templates/pages/who.html:14
+#: templates/pages/who.html:17
+msgid "Quiénes somos"
+msgstr ""
+
+#: templates/menus/menu-main.html:18 templates/models/teammember_list.html:5
+#: templates/models/teammember_list.html:10
+#: templates/models/teammember_list.html:13
+msgid "Equipo"
+msgstr ""
+
+#: templates/menus/menu-main.html:25 templates/pages/what.html:5
+#: templates/pages/what.html:10 templates/pages/what.html:13
+#: templates/pages/who.html:5
+msgid "Qué hacemos"
+msgstr ""
+
+#: templates/menus/menu-main.html:31 templates/models/project_list.html:20
+#: templates/models/project_list.html:23
+msgid "Trabajos"
+msgstr ""
+
+#: templates/menus/menu-main.html:37
+msgid "Espacio público"
+msgstr ""
+
+#: templates/menus/menu-main.html:42
+msgid "Vivienda"
+msgstr ""
+
+#: templates/menus/menu-main.html:47
+msgid "Urbanismo táctico"
+msgstr ""
+
+#: templates/menus/menu-main.html:52
+msgid "Participación"
+msgstr ""
+
+#: templates/menus/menu-main.html:57 templates/models/resource_detail.html:24
+#: templates/models/resource_list.html:5 templates/models/resource_list.html:19
+#: templates/models/resource_list.html:22
+msgid "Recursos"
+msgstr ""
+
+#: templates/menus/menu-main.html:62
+msgid "Otros"
+msgstr ""
+
+#: templates/menus/menu-main.html:70 templates/pages/archive.html:10
+#: templates/pages/archive.html:13 templates/pages/bibliography.html:10
+#: templates/pages/curriculum.html:10 templates/pages/open-fridays.html:10
+#: templates/pages/press.html:10 templates/pages/repositorio-webs.html:10
+#: templates/pages/videos.html:10
+msgid "Archivo"
+msgstr ""
+
+#: templates/menus/menu-main.html:76 templates/pages/repositorio-webs.html:5
+#: templates/pages/repositorio-webs.html:10
+#: templates/pages/repositorio-webs.html:13
+msgid "Repositorio webs"
+msgstr ""
+
+#: templates/menus/menu-main.html:81 templates/pages/videos.html:5
+#: templates/pages/videos.html:10 templates/pages/videos.html:13
+msgid "Videos"
+msgstr ""
+
+#: templates/menus/menu-main.html:86 templates/pages/archive.html:5
+#: templates/pages/bibliography.html:5 templates/pages/bibliography.html:10
+#: templates/pages/bibliography.html:13
+msgid "Bibliografía"
+msgstr ""
+
+#: templates/menus/menu-main.html:91 templates/pages/press.html:5
+#: templates/pages/press.html:10 templates/pages/press.html:13
+msgid "Hemeroteca"
+msgstr ""
+
+#: templates/menus/menu-main.html:98
+msgid "Mapa"
+msgstr ""
+
+#: templates/menus/menu-main.html:104 templates/pages/whatsup.html:5
+#: templates/pages/whatsup.html:10 templates/pages/whatsup.html:13
+msgid "Actualidad"
+msgstr ""
+
+#: templates/menus/menu-main.html:110 templates/models/post_list.html:17
+#: templates/models/post_list.html:20
+msgid "Blog"
+msgstr ""
+
+#: templates/menus/menu-main.html:115
+msgid "Twitter"
+msgstr ""
+
+#: templates/menus/menu-main.html:120
+msgid "Instagram"
+msgstr ""
+
+#: templates/menus/menu-user.html:8
+msgid "login"
+msgstr ""
+
+#: templates/menus/menu-user.html:15
+msgid "admin"
+msgstr ""
+
+#: templates/menus/menu-user.html:22
+msgid "logout"
+msgstr ""
+
+#: templates/models/connection_detail.html:18
+#: templates/models/post_detail.html:17 templates/models/project_detail.html:18
+#: templates/models/resource_detail.html:16
+msgid "Edita este contenido"
+msgstr ""
+
+#: templates/models/connection_detail.html:26
+msgid "Conexiones"
+msgstr ""
+
+#: templates/models/connection_list.html:5
+#: templates/models/connection_list.html:20
+#: templates/models/connection_list.html:23 templates/pages/map.html:28
+msgid "Complicidades"
+msgstr ""
+
+#: templates/models/connection_list.html:12
+msgid "Publica una complicidad nueva"
+msgstr ""
+
+#: templates/models/post_detail.html:41 templates/models/project_detail.html:49
+#: templates/models/resource_detail.html:43
+msgid "Leer más"
+msgstr ""
+
+#: templates/models/post_list.html:11
+msgid "Publica un post nuevo"
+msgstr ""
+
+#: templates/models/project_detail.html:26 templates/models/project_list.html:5
+#: templates/pages/map.html:15
+msgid "Proyectos"
+msgstr ""
+
+#: templates/models/project_list.html:12
+msgid "Publica un proyecto nuevo"
+msgstr ""
+
+#: templates/models/resource_list.html:11
+msgid "Publica un recurso nuevo"
+msgstr ""
+
+#: templates/models/search_list.html:5
+msgid "Busca"
+msgstr ""
+
+#: templates/models/search_list.html:11
+msgid "Vuelve a la página anterior"
+msgstr ""
+
+#: templates/models/search_list.html:14
+msgid "Encuentra"
+msgstr ""
+
+#: templates/models/search_list.html:17
+msgid "contenido relacionado con "
+msgstr ""
+
+#: templates/models/tag_detail.html:10
+msgid "Contenido etiquetado con"
+msgstr ""
+
+#: templates/models/teammember_list.html:24
+msgid "Personas que han pasado por Straddle3"
+msgstr ""
+
+#: templates/models/teammember_list.html:26
+msgid "Equipo actual de Straddle3"
+msgstr ""
+
+#: templates/pages/curriculum.html:5 templates/pages/curriculum.html:10
+#: templates/pages/curriculum.html:13
+msgid "Currículum"
+msgstr ""
+
+#: templates/pages/front.html:38
+msgid "recursos I+D"
+msgstr ""
+
+#: templates/pages/front.html:52
+msgid "complicidades"
+msgstr ""
+
+#: templates/pages/front.html:66
+msgid "proc-ectos"
+msgstr ""
+
+#: templates/pages/open-fridays.html:5
+msgid "Open Fridays"
+msgstr ""
+
+#: templates/pages/who.html:51
+msgid "Straddle3. Carrer Riereta, 32. 1o 3a 08001 Barcelona"
+msgstr ""
+
+#: templates/regions/footer.html:13
+msgid ""
+"Sitio web desarrollado por <a href=\"https://wwb.cc\"><small>WWB</small></a>"
+msgstr ""
+
+#: templates/views/item--list-reduced.html:13
+msgid "No categorizado"
+msgstr ""

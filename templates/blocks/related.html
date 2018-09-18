@@ -2,7 +2,7 @@
 {% load static i18n %}
 
 <ul class="related-content">
-    <h5 class="related-content__title">{% trans 'Proyectos relacionados' %}</h5>
+    <h5 class="related-content__title">{% trans 'Contenido relacionado' %}</h5>
     {% for item in related %}
         <li class="related-content__item">
             {% include 'views/item--related.html' with item=item %}

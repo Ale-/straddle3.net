@@ -1,0 +1,19 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--archive{% endblock %}
+{% block page_html_title %}{% trans 'Bibliografía' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Archivo' %}
+    </nav>
+    <h1 class="page__title--archive">
+        {% trans 'Archivo' %}
+    </h1>
+    <div class="page__content--archive">
+        {% text 'Archivo' user.is_staff lang %}
+    </div>
+</div>
+{% endblock %}

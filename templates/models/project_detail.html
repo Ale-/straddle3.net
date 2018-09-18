@@ -34,8 +34,6 @@
             {% simple_field object 'subtitle' lang %}
         </h1>
         {% endif %}
-        {# dates #}
-        {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='project' m='full' %}
         <div class="right">
             {% include 'blocks/flexslider.html' with images=object.images.all videos=object.videos.all notcaption=image.notcaption %}
             {% include 'blocks/share.html' with title=object.name url=request.build_absolute_uri %}
@@ -65,6 +63,8 @@
                 {% include 'fields/field--geolocation.html' with b="project" m="full" %}
             </div>
             <div class="center-left">
+                {# dates #}
+                {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='project' m='full' %}
                 {# author_text #}
                 {% field obj=object lang=lang field_name='author_text' label=True icon="bolt" %}
                 {# gratitude_text #}
@@ -86,12 +86,12 @@
             </div>
         </div>
     </div>
-    {% with object.get_public_related as related %}
+    {% with object.related as related %}
     {% if related|length > 0 %}
         <div class="container-fixed">
             {% include 'blocks/related.html' with related=related %}
         </div>
-        {% endif %}
+    {% endif %}
     {% endwith %}
 </div>
 {% endblock %}

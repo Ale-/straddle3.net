@@ -51,6 +51,8 @@ urlpatterns += i18n_patterns(
     path('quienes-somos/equipo', views.TeamList.as_view(), name="team"),
     # What
     path('que-hacemos', TemplateView.as_view(template_name="pages/what.html"), name="what"),
+    # Archivo
+    path('archivo/', TemplateView.as_view(template_name="pages/archive.html"), name="archive"),
     # Open Fridays
     path('archivo/open-fridays', TemplateView.as_view(template_name="pages/open-fridays.html"), name="open_fridays"),
     # Repositorio webs
@@ -59,14 +61,16 @@ urlpatterns += i18n_patterns(
     path('archivo/curriculum', TemplateView.as_view(template_name="pages/curriculum.html"), name="cv"),
     # Bibliografía
     path('archivo/bibliografía', TemplateView.as_view(template_name="pages/bibliography.html"), name="bibliography"),
-    # Bibliografía
+    # Hemeroteca
     path('archivo/hemeroteca', TemplateView.as_view(template_name="pages/press.html"), name="press"),
     # Videos
     path('archivo/videos', views.Videos.as_view(), name="videos"),
     # Blog
-    path('blog', views.Blog.as_view(), name="blog"),
+    path('actualidad', TemplateView.as_view(template_name="pages/whatsup.html"), name="whatsup"),
+    # Blog
+    path('actualidad/blog', views.Blog.as_view(), name="blog"),
     # Blog post
-    path('blog/<slug:slug>', views.PostView.as_view(), name="post"),
+    path('actualidad/blog/<slug:slug>', views.PostView.as_view(), name="post"),
     # Search
     path('buscador', views.SearchView.as_view(), name="search"),
 

@@ -79,7 +79,13 @@
             </div>
         </div>
     </div>
-    {% include 'blocks/next-navigation.html' with prev=previous_resource next=next_resource all_url='connections' see_all='Ver todas las conexiones' %}
+    {% with object.related as related %}
+    {% if related|length > 0 %}
+        <div class="container-fixed">
+            {% include 'blocks/related.html' with related=related %}
+        </div>
+    {% endif %}
+    {% endwith %}
 </div>
 {% endblock %}
 

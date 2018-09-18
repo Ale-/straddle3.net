@@ -1,8 +1,20 @@
 # python
 import os
+from itertools import chain
 # django
 from django.utils.deconstruct import deconstructible
 from django.utils.text import slugify
+
+
+def get_related(obj):
+    """ Gets related objects from a given object. """
+
+    projects    = obj.related_projects.filter(published=True)
+    resources   = obj.related_resources.filter(published=True)
+    connections = obj.related_connections.filter(published=True)
+    related     = list(chain(projects, resources, connections))
+
+    return related
 
 @deconstructible
 class RenameImage(object):

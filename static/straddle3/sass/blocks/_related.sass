@@ -1,14 +1,11 @@
 // Related projects
 
 .related-content
-  padding: $m $m*2
+  +breakpoint('sm')
+    padding: $m $m*2
   +clearfix
   +links_none
-
-.related-content__item
-  +breakpoint('sm')
-    display: inline-block
-    width: 24%
+  +columns_masonry(2, 2, 3, 4, 'related-content__item', 'few', $m/2)
 
 .related-content__title
   text-transform: uppercase
@@ -27,3 +24,6 @@
 .related-content__item:hover
   img
     +transform( scale(1.1) )
+
+.related-content__item .item__model--grid
+  font-size: .66em

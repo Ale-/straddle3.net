@@ -209,7 +209,9 @@ class Project(Translatable):
     links            = GenericRelation(Link)
     videos           = GenericRelation(Video)
     attachments      = GenericRelation(Attachment)
-    related_projects = models.ManyToManyField('self', blank=True, verbose_name=_('Proyectos relacionados'), help_text=_("Selecciona los proyectos relacionados"))
+    related_projects    = models.ManyToManyField('self', blank=True, verbose_name=_('Proyectos relacionados'), help_text=_("Selecciona los proyectos relacionados"))
+    related_connections = models.ManyToManyField('models.Connection', blank=True, verbose_name=_('Conexiones relacionadas'), help_text=_("Selecciona los conexiones relacionados"))
+    related_resources   = models.ManyToManyField('models.Resource', blank=True, verbose_name=_('Recursos relacionados'), help_text=_("Selecciona los recursos relacionados"))
 
     # en
     name_en           = models.CharField(_('Nombre del proyecto'), max_length=200, blank=True, null=True)
@@ -238,12 +240,6 @@ class Project(Translatable):
 
         return self.name
 
-    @property
-    def get_public_related(self):
-        """ Get related public projects. """
-
-        return self.related_projects.filter(published=True)
-
     def get_absolute_url(self):
         return reverse('project', args=[self.slug])
 
@@ -255,6 +251,10 @@ class Project(Translatable):
         if not featured:
             return self.images.first()
         return featured.first()
+
+    @property
+    def related(self):
+        return utils.get_related(self)
 
     def save(self, *args, **kwargs):
         """Populate automatically 'slug' field"""
@@ -307,6 +307,9 @@ class Connection(Translatable):
     featured    = models.BooleanField(_('Destacado'), default=False, help_text="Indica si este contenido es destacado y ha de tener mayor visibilidad")
     links       = GenericRelation(Link)
     attachments = GenericRelation(Attachment)
+    related_projects    = models.ManyToManyField('models.Project', blank=True, verbose_name=_('Proyectos relacionados'), help_text=_("Selecciona los proyectos relacionados"))
+    related_connections = models.ManyToManyField('self', blank=True, verbose_name=_('Conexiones relacionadas'), help_text=_("Selecciona los conexiones relacionados"))
+    related_resources   = models.ManyToManyField('models.Resource', blank=True, verbose_name=_('Recursos relacionados'), help_text=_("Selecciona los recursos relacionados"))
 
     # en
     name_en        = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
@@ -331,6 +334,10 @@ class Connection(Translatable):
         """String representation of this model objects."""
 
         return self.name
+
+    @property
+    def related(self):
+        return utils.get_related(self)
 
     @property
     def featured_image(self):
@@ -402,6 +409,7 @@ class ResourceCategory(Translatable):
             self.slug = slugify(self.name)
         super(ResourceCategory, self).save(*args, **kwargs)
 
+
 class Resource(models.Model):
 
     name           = models.CharField(_('Nombre'), max_length=200, blank=False, null=True)
@@ -422,6 +430,9 @@ class Resource(models.Model):
     links          = GenericRelation(Link)
     videos         = GenericRelation(Video)
     attachments    = GenericRelation(Attachment)
+    related_projects    = models.ManyToManyField('models.Project', blank=True, verbose_name=_('Proyectos relacionados'), help_text=_("Selecciona los proyectos relacionados"))
+    related_connections = models.ManyToManyField('models.Connection', blank=True, verbose_name=_('Conexiones relacionadas'), help_text=_("Selecciona los conexiones relacionados"))
+    related_resources   = models.ManyToManyField('self', blank=True, verbose_name=_('Recursos relacionados'), help_text=_("Selecciona los recursos relacionados"))
 
     # en
     name_en           = models.CharField(_('Nombre'), max_length=200, blank=True, null=True)
@@ -457,6 +468,10 @@ class Resource(models.Model):
 
     def get_absolute_url(self):
         return reverse('resource', args=[self.slug])
+
+    @property
+    def related(self):
+        return utils.get_related(self)
 
     @property
     def featured_image(self):

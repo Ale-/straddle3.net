@@ -87,8 +87,6 @@ class ProjectView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
         name = context['object'].name
-        context['previous_project'] = models.Project.objects.filter(name__lt=name).order_by('-name').first()
-        context['next_project'] = models.Project.objects.filter(name__gt=name).order_by('name').first()
 
         return context
 
@@ -135,8 +133,6 @@ class ConnectionView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ConnectionView, self).get_context_data(**kwargs)
         name    = context['object'].name
-        context['previous_connection'] = models.Connection.objects.filter(name__lt=name).order_by('name').first()
-        context['next_connection']     = models.Connection.objects.filter(name__gt=name).order_by('name').first()
         return context
 
 class ConnectionList(ListView):
@@ -210,8 +206,6 @@ class ResourceView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ResourceView, self).get_context_data(**kwargs)
         name = context['object'].name
-        context['previous_resource'] = models.Resource.objects.filter(name__lt=name).order_by('name').first()
-        context['next_resource'] = models.Resource.objects.filter(name__gt=name).order_by('name').first()
         return context
 
 class TagView(DetailView):

@@ -35,8 +35,6 @@
             {% simple_field object 'subtitle' lang %}
         </h3>
         {% endif %}
-        {# dates #}
-        {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='connection' m='full' %}
         <div class="left">
             {# body #}
             {% field obj=object field_name='body' lang=lang safe=True %}
@@ -53,6 +51,8 @@
                 {% include 'fields/field--geolocation.html' with b="connection" m="full" %}
             </div>
             <div class="center-left">
+                {# dates #}
+                {% include 'fields/field-date.html' with start=object.start_date end=object.end_date b='connection' m='full' %}
                 {# category #}
                 {% include 'fields/field--category.html' with b="connection" m="full" category_base_url="connections_cat" category=object.category %}
                 {# tags #}
@@ -70,7 +70,13 @@
             </div>
         </div>
     </div>
-    {% include 'blocks/next-navigation.html' with prev=previous_connection next=next_connection all_url='connections' see_all='Ver todas las conexiones' %}
+    {% with object.related as related %}
+    {% if related|length > 0 %}
+        <div class="container-fixed">
+            {% include 'blocks/related.html' with related=related %}
+        </div>
+    {% endif %}
+    {% endwith %}
 </div>
 
 {% endblock %}

@@ -66,7 +66,9 @@
         </li>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'archivo' %}active{% endif %}">
             <p class="menu-main__item-text">
-                {% trans 'Archivo' %}
+                <a href="{% url 'archive' %}">
+                    {% trans 'Archivo' %}
+                </a>
             </p>
             <ul class="menu-main__submenu collapsed">
                 <li class="menu-main__submenu-item">
@@ -98,7 +100,9 @@
         </li>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'blog' %}active{% endif %}" >
             <p class="menu-main__item-text">
-                {% trans 'Actualidad' %}
+                <a href="{% url 'whatsup' %}">
+                    {% trans 'Actualidad' %}
+                </a>
             </p>
             <ul class="menu-main__submenu collapsed">
                 <li class="menu-main__submenu-item">

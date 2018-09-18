@@ -5,11 +5,14 @@
     <a href="{{ item.get_absolute_url }}">
         {% if item.images.all|length > 0 %}
         <figure class="item__image--grid">
-            {% thumbnail '240x170' item.featured_image.image_file %}
+            {% thumbnail '360x180' item.featured_image.image_file %}
         </figure>
         {% endif %}
         <h5 class="item__name--grid">
             {% simple_field item 'name' lang %}
         </h5>
+        <p class="item__model--grid">
+            {{ item|verbose_name }}
+        </p>
     </a>
 </div>

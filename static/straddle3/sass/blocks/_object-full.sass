@@ -9,6 +9,7 @@
 
 [class*='__body--']
   padding: 0 $m
+  font-size: .95em
   +breakpoint('sm')
     padding: 0 $m*2 0 0
   p
@@ -30,21 +31,9 @@
   +breakpoint('sm')
     padding: 0 $m*2
   margin: $m 0
-  font-size: 1.25em
+  font-size: 1.15em
   line-height: 1.5
   border-left: 8px solid #333
-
-[class*='__date--']
-  +date
-  margin: 0
-  .hyphen
-    margin: 0 $m/4
-  &:before
-    content: " "
-    display: block
-    width: $m*2
-    border-top: 8px solid #333
-    margin: $m/2 0
 
 [class*='__category--']
   +links(white, $palette_yellow, .2s ease)
@@ -177,20 +166,3 @@
 
 .fa-copyright
   +transform(scale(-1,1))
-
-// [class*='__author_text--'],
-  .field__value
-    max-height: $m*3
-    overflow: hidden
-    text-overflow: ellipsis
-  &:after
-    content: "Ver más"
-    display: block
-    margin-top: 4px
-    font-size: .75em
-    text-transform: uppercase
-    color: $palette_yellow
-  &:hover .field__value
-    max-height: inherit
-  &:hover:after
-    display: none

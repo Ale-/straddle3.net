@@ -1,5 +1,5 @@
 {# field links #}
-{% load i18n %}
+{% load i18n utils %}
 
 <div class="field {{b}}__links{% if m %}--{{m}}{% endif %}">
     <label class="field__label">
@@ -8,9 +8,7 @@
     <ul class="field__value">
         {% for link in links %}
         <li class="field__value-item">
-            {% if link.title %}
-            <p>» {{ link.title }}:</p>
-            {% endif %}
+            <p>{% simple_field link 'caption' lang %}</p>
             <a href="{{ link.url }}" target="_blank">
                 {{ link.url }}
             </a>

@@ -115,7 +115,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         ('Relaciones', {
             'classes' : ('collapse',),
             'fields': (
-                'category', 'tags', 'related_projects',
+                'category', 'tags', 'related_projects', 'related_resources', 'related_connections'
             ),
         }),
         ('Traducción al inglés', {
@@ -136,7 +136,7 @@ class ProjectAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         })
     )
     inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
-    filter_horizontal = ('category', 'tags','related_projects')
+    filter_horizontal = ('category', 'tags', 'related_projects', 'related_resources', 'related_connections')
 
     class Media:
         js = ['/static/straddle3/js/featured-image.js',]
@@ -182,9 +182,15 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
         (None, {
             'fields': (
                 ('name', 'subtitle'),
-                ('category', 'published', 'featured'),
+                ('published', 'featured'),
                 'body', 'agents',
                 'geolocation',
+            ),
+        }),
+        ('Relaciones', {
+            'classes' : ('collapse',),
+            'fields': (
+                'category', 'related_projects', 'related_resources', 'related_connections'
             ),
         }),
         ('Traducción al inglés', {
@@ -202,7 +208,7 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
             ),
         })
     )
-    filter_horizontal = ('tags',)
+    filter_horizontal = ('tags', 'related_projects', 'related_resources', 'related_connections')
 
     class Media:
         js = ['/static/straddle3/js/featured-image.js',]
@@ -223,10 +229,15 @@ class ResourceAdmin(NonSortableParentAdmin):
         (None, {
             'fields': (
                 ('name', 'subtitle'),
-                'category',
                 'summary', 'body',
                 ('promoter', 'author_text', 'gratitude_text'),
                 'license',
+            ),
+        }),
+        ('Relaciones', {
+            'classes' : ('collapse',),
+            'fields': (
+                'category', 'tags', 'related_projects', 'related_resources', 'related_connections'
             ),
         }),
         ('Traducción al inglés', {
@@ -248,9 +259,9 @@ class ResourceAdmin(NonSortableParentAdmin):
             ),
         })
     )
+    filter_horizontal = ('tags', 'related_projects', 'related_resources', 'related_connections')
     actions           = [publish, unpublish, unfeature, feature]
     inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
-    filter_horizontal = ('tags',)
 
     class Media:
         js = ['/static/straddle3/js/featured-image.js',]

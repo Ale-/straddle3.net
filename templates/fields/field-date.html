@@ -1,14 +1,19 @@
 {# dates #}
+{% load i18n %}
 
 {% if start or end %}
 <div class="field {{b}}__date{% if m %}--{{m}}{% endif %}">
-    <p class="field-value">
+    <div class="field__label">
+        <i class="fa fa-calendar"></i>
+        {% trans 'Cuándo' %}
+    </div>
+    <div class="field__value">
         {% if start %}
-            <span class="start">{{ start|date:"M Y" }}</span>
+            <span class="start">{{ start|date:"F Y" }}</span>
         {% endif %}
         {% if end %}
-            <span class="hyphen">–</span><span class="end">{{ end|date:"M Y" }}</span>
+            <span class="hyphen">–</span><span class="end"> {{ end|date:"F Y" }}</span>
         {% endif %}
-    </p>
+    </div>
 </div>
 {% endif %}

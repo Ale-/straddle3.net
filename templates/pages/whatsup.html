@@ -1,0 +1,19 @@
+{# About #}
+{% extends 'layouts/single-fluid-column.html' %}
+{% load utils i18n %}
+{% block body_classes %}page--whatsup{% endblock %}
+{% block page_html_title %}{% trans 'Actualidad' %}{% endblock %}
+
+{% block main %}
+<div class="container-fixed">
+    <nav class="breadcrumb">
+        <a href="{% url 'front' %}">s3</a> » {% trans 'Actualidad' %}
+    </nav>
+    <h1 class="page__title--whatsup">
+        {% trans 'Actualidad' %}
+    </h1>
+    <div class="page__content--whatsup">
+        {% text 'Actualidad' user.is_staff lang %}
+    </div>
+</div>
+{% endblock %}

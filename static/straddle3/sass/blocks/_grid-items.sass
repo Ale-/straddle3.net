@@ -40,7 +40,9 @@
 
 .item--grid
   +links(#222, $color_text, .2s ease)
-  min-height: 420px
+  min-height: 360px
+  +breakpoint('md')
+    min-height: 420px
   img
     +transition(filter, .2s ease)
     filter: grayscale(100%) brightness(75%)
@@ -50,7 +52,7 @@
       filter: none
   margin-bottom: $m
   +breakpoint('sm')
-    padding: $m
+    padding: $m/2
     margin-bottom: 0
   a
     display: block
@@ -60,20 +62,20 @@
 .item__image--grid
   position: relative
   overflow: hidden
-  margin-bottom: $m/2
+  margin-bottom: 0 !important
   img
     +transition(transform .5s ease)
 
 .item__name--grid
   text-transform: uppercase
   line-height: 1
-  margin: $m/4 0
+  margin: $m/4 0 0
 
 .item__date--grid
   font-size: .8em
 
 .item__subtitle--grid
-  margin: 0 0 $m/2
+  margin: 0 0 4px
 
 .item__category--grid,
 .item__model--grid,

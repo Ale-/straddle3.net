@@ -243,15 +243,15 @@ msgstr ""
 #: apps/models/models.py:230 apps/models/models.py:421
 #: apps/models/models.py:444 apps/models/models.py:455
 msgid "Promotor"
-msgstr ""
+msgstr "Promoter"
 
 #: apps/models/models.py:203 apps/models/models.py:420
 msgid "Créditos"
-msgstr ""
+msgstr "Credits"
 
 #: apps/models/models.py:204 apps/models/models.py:422
 msgid "Agradecimientos"
-msgstr ""
+msgstr "Thanks"
 
 #: apps/models/models.py:206 apps/models/models.py:303
 #: apps/models/models.py:426 apps/models/models.py:531
@@ -281,7 +281,7 @@ msgstr ""
 #: apps/models/models.py:212 apps/models/models.py:310
 #: apps/models/models.py:433
 msgid "Proyectos relacionados"
-msgstr ""
+msgstr "Related projects"
 
 #: apps/models/models.py:212 apps/models/models.py:310
 #: apps/models/models.py:433
@@ -301,7 +301,7 @@ msgstr ""
 #: apps/models/models.py:214 apps/models/models.py:312
 #: apps/models/models.py:435
 msgid "Recursos relacionados"
-msgstr ""
+msgstr "Related resources"
 
 #: apps/models/models.py:214 apps/models/models.py:312
 #: apps/models/models.py:435
@@ -311,7 +311,7 @@ msgstr ""
 #: apps/models/models.py:222 apps/models/models.py:231
 #: apps/models/models.py:443 apps/models/models.py:454
 msgid "Autor"
-msgstr ""
+msgstr "Author"
 
 #: apps/models/models.py:223 apps/models/models.py:232
 #: apps/models/models.py:445 apps/models/models.py:456
@@ -320,7 +320,7 @@ msgstr ""
 
 #: apps/models/models.py:235
 msgid "Proyecto"
-msgstr ""
+msgstr "Project"
 
 #: apps/models/models.py:236
 msgid "Proyectos / Trabajos"
@@ -1659,11 +1659,11 @@ msgstr ""
 
 #: straddle3/settings.py:123
 msgid "Español"
-msgstr ""
+msgstr "Spanish"
 
 #: straddle3/settings.py:124
 msgid "Catalán"
-msgstr ""
+msgstr "Catalan"
 
 #: straddle3/settings.py:125
 msgid "English"
@@ -1671,129 +1671,129 @@ msgstr ""
 
 #: templates/blocks/brand.html:4
 msgid "Ir a la página de inicio"
-msgstr ""
+msgstr "Go to the home page"
 
 #: templates/blocks/categories-filters.html:6
 msgid "Categorías"
-msgstr ""
+msgstr "Categories "
 
 #: templates/blocks/categories-filters.html:15
 msgid "TODAS"
-msgstr ""
+msgstr "ALL"
 
 #: templates/blocks/flexslider.html:33
 msgid "Mostrando"
-msgstr ""
+msgstr "Show"
 
 #: templates/blocks/flexslider.html:33
 msgid "video"
-msgstr ""
+msgstr "video"
 
 #: templates/blocks/flexslider.html:34
 msgid "y"
-msgstr ""
+msgstr "and"
 
 #: templates/blocks/flexslider.html:35
 msgid "foto"
-msgstr ""
+msgstr "Photo"
 
 #: templates/blocks/next-navigation.html:9
 msgid "Ver contenido anterior"
-msgstr ""
+msgstr "See previous content"
 
 #: templates/blocks/next-navigation.html:26
 msgid "Ver contenido siguiente"
-msgstr ""
+msgstr "See following content"
 
 #: templates/blocks/related.html:5
 msgid "Contenido relacionado"
-msgstr ""
+msgstr "Related content"
 
 #: templates/blocks/share.html:6
 msgid "Comparte"
-msgstr ""
+msgstr "Share"
 
 #: templates/fields/field--attachments.html:6
 msgid "Descargas"
-msgstr ""
+msgstr "Downloads"
 
 #: templates/fields/field--attachments.html:26
 msgid "Este contenido no tiene descargas asociadas"
-msgstr ""
+msgstr "This content has no related downloads"
 
 #: templates/fields/field--category.html:6
 #: templates/fields/field--project-category.html:6
 msgid "Categoría"
-msgstr ""
+msgstr "Category"
 
 #: templates/fields/field--category.html:15
 #: templates/fields/field--project-category.html:18
 msgid "Este contenido no ha sido categorizado todavía"
-msgstr ""
+msgstr "This content has not been categorized yet"
 
 #: templates/fields/field--links.html:6
 msgid "Enlaces relacionados"
-msgstr ""
+msgstr "Related links"
 
 #: templates/fields/field--links.html:17
 msgid "Este contenido no tiene enlaces asociados"
-msgstr ""
+msgstr "This content has no related links"
 
 #: templates/fields/field--tags.html:16
 msgid "Este contenido no tiene tags asociadas"
-msgstr ""
+msgstr "This content has no related tags"
 
 #: templates/fields/field-date.html:8
 msgid "Cuándo"
-msgstr ""
+msgstr "When"
 
 #: templates/menus/menu-main.html:12 templates/pages/who.html:14
 #: templates/pages/who.html:17
 msgid "Quiénes somos"
-msgstr ""
+msgstr "Who we are"
 
 #: templates/menus/menu-main.html:18 templates/models/teammember_list.html:5
 #: templates/models/teammember_list.html:10
 #: templates/models/teammember_list.html:13
 msgid "Equipo"
-msgstr ""
+msgstr "Team"
 
 #: templates/menus/menu-main.html:25 templates/pages/what.html:5
 #: templates/pages/what.html:10 templates/pages/what.html:13
 #: templates/pages/who.html:5
 msgid "Qué hacemos"
-msgstr ""
+msgstr "What we do"
 
 #: templates/menus/menu-main.html:31 templates/models/project_list.html:20
 #: templates/models/project_list.html:23
 msgid "Trabajos"
-msgstr ""
+msgstr "Works"
 
 #: templates/menus/menu-main.html:37
 msgid "Espacio público"
-msgstr ""
+msgstr "Public space"
 
 #: templates/menus/menu-main.html:42
 msgid "Vivienda"
-msgstr ""
+msgstr "Housing"
 
 #: templates/menus/menu-main.html:47
 msgid "Urbanismo táctico"
-msgstr ""
+msgstr "Tactical Urbanism"
 
 #: templates/menus/menu-main.html:52
 msgid "Participación"
-msgstr ""
+msgstr "Participation"
 
 #: templates/menus/menu-main.html:57 templates/models/resource_detail.html:24
 #: templates/models/resource_list.html:5 templates/models/resource_list.html:19
 #: templates/models/resource_list.html:22
 msgid "Recursos"
-msgstr ""
+msgstr "Resources"
 
 #: templates/menus/menu-main.html:62
 msgid "Otros"
-msgstr ""
+msgstr "Other"
 
 #: templates/menus/menu-main.html:70 templates/pages/archive.html:10
 #: templates/pages/archive.html:13 templates/pages/bibliography.html:10
@@ -1801,38 +1801,38 @@ msgstr ""
 #: templates/pages/press.html:10 templates/pages/repositorio-webs.html:10
 #: templates/pages/videos.html:10
 msgid "Archivo"
-msgstr ""
+msgstr "File"
 
 #: templates/menus/menu-main.html:76 templates/pages/repositorio-webs.html:5
 #: templates/pages/repositorio-webs.html:10
 #: templates/pages/repositorio-webs.html:13
 msgid "Repositorio webs"
-msgstr ""
+msgstr "Repository websites "
 
 #: templates/menus/menu-main.html:81 templates/pages/videos.html:5
 #: templates/pages/videos.html:10 templates/pages/videos.html:13
 msgid "Videos"
-msgstr ""
+msgstr "Videos"
 
 #: templates/menus/menu-main.html:86 templates/pages/archive.html:5
 #: templates/pages/bibliography.html:5 templates/pages/bibliography.html:10
 #: templates/pages/bibliography.html:13
 msgid "Bibliografía"
-msgstr ""
+msgstr "Bibliography"
 
 #: templates/menus/menu-main.html:91 templates/pages/press.html:5
 #: templates/pages/press.html:10 templates/pages/press.html:13
 msgid "Hemeroteca"
-msgstr ""
+msgstr "News archive"
 
 #: templates/menus/menu-main.html:98
 msgid "Mapa"
-msgstr ""
+msgstr "Map"
 
 #: templates/menus/menu-main.html:104 templates/pages/whatsup.html:5
 #: templates/pages/whatsup.html:10 templates/pages/whatsup.html:13
 msgid "Actualidad"
-msgstr ""
+msgstr "Latest news"
 
 #: templates/menus/menu-main.html:110 templates/models/post_list.html:17
 #: templates/models/post_list.html:20
@@ -1863,17 +1863,17 @@ msgstr ""
 #: templates/models/post_detail.html:17 templates/models/project_detail.html:18
 #: templates/models/resource_detail.html:16
 msgid "Edita este contenido"
-msgstr ""
+msgstr "Edit content"
 
 #: templates/models/connection_detail.html:26
 msgid "Conexiones"
-msgstr ""
+msgstr "Connections"
 
 #: templates/models/connection_list.html:5
 #: templates/models/connection_list.html:20
 #: templates/models/connection_list.html:23 templates/pages/map.html:28
 msgid "Complicidades"
-msgstr ""
+msgstr "Complicities"
 
 #: templates/models/connection_list.html:12
 msgid "Publica una complicidad nueva"
@@ -1882,7 +1882,7 @@ msgstr ""
 #: templates/models/post_detail.html:41 templates/models/project_detail.html:49
 #: templates/models/resource_detail.html:43
 msgid "Leer más"
-msgstr ""
+msgstr "Read more"
 
 #: templates/models/post_list.html:11
 msgid "Publica un post nuevo"
@@ -1891,7 +1891,7 @@ msgstr ""
 #: templates/models/project_detail.html:26 templates/models/project_list.html:5
 #: templates/pages/map.html:15
 msgid "Proyectos"
-msgstr ""
+msgstr "Projects"
 
 #: templates/models/project_list.html:12
 msgid "Publica un proyecto nuevo"
@@ -1903,62 +1903,63 @@ msgstr ""
 
 #: templates/models/search_list.html:5
 msgid "Busca"
-msgstr ""
+msgstr "Search"
 
 #: templates/models/search_list.html:11
 msgid "Vuelve a la página anterior"
-msgstr ""
+msgstr "Return to the previous page"
 
 #: templates/models/search_list.html:14
 msgid "Encuentra"
-msgstr ""
+msgstr "Find"
 
 #: templates/models/search_list.html:17
 msgid "contenido relacionado con "
-msgstr ""
+msgstr "content related with"
 
 #: templates/models/tag_detail.html:10
 msgid "Contenido etiquetado con"
-msgstr ""
+msgstr "Tags"
 
 #: templates/models/teammember_list.html:24
 msgid "Personas que han pasado por Straddle3"
-msgstr ""
+msgstr "People who have passed for Straddle3"
 
 #: templates/models/teammember_list.html:26
 msgid "Equipo actual de Straddle3"
-msgstr ""
+msgstr "Current team of Straddle3"
 
 #: templates/pages/curriculum.html:5 templates/pages/curriculum.html:10
 #: templates/pages/curriculum.html:13
 msgid "Currículum"
-msgstr ""
+msgstr "Curriculum"
 
 #: templates/pages/front.html:38
 msgid "recursos I+D"
-msgstr ""
+msgstr "r+d resources"
 
 #: templates/pages/front.html:52
 msgid "complicidades"
-msgstr ""
+msgstr "complicities"
 
 #: templates/pages/front.html:66
 msgid "proc-ectos"
-msgstr ""
+msgstr "proc/jects"
 
 #: templates/pages/open-fridays.html:5
 msgid "Open Fridays"
 msgstr ""
 
 #: templates/pages/who.html:51
-msgid "Straddle3. Carrer Riereta, 32. 1o 3a 08001 Barcelona"
+msgid "Straddle3. Carrer Riereta, 32. 1r 3a 08001 Barcelona"
 msgstr ""
 
 #: templates/regions/footer.html:13
 msgid ""
 "Sitio web desarrollado por <a href=\"https://wwb.cc\"><small>WWB</small></a>"
 msgstr ""
+"website developed by <a href=\"https://wwb.cc\"><small>WWB</small></a>"
 
 #: templates/views/item--list-reduced.html:13
 msgid "No categorizado"
-msgstr ""
+msgstr "Uncategorized"

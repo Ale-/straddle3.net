@@ -1957,7 +1957,7 @@ msgstr "Straddle3. Carrer Riereta, 32. 1er 3a 08001 Barcelona"
 #: templates/regions/footer.html:13
 msgid ""
 "Sitio web desarrollado por <a href=\"https://wwb.cc\"><small>WWB</small></a>"
-msgstr "Lloc web desenvolupat per"
+msgstr "Lloc web desenvolupat per <a href=\"https://wwb.cc\"><small>WWB</small></a>"
 
 #: templates/views/item--list-reduced.html:13
 msgid "No categorizado"

@@ -103,9 +103,9 @@ class ProjectList(ListView):
             if self.category == 'otros':
                 return self.model.objects.exclude(
                     category__slug__in=['espacio-publico','equipamientos','vivienda']
-                )
-            return self.model.objects.filter(category__slug=self.category)
-        return self.model.objects.all()
+                ).order_by('-start_date')
+            return self.model.objects.filter(category__slug=self.category).order_by('-start_date')
+        return self.model.objects.all().order_by('-start_date')
 
     def get_context_data(self, **kwargs):
         """ Sets the context data of the view. """
@@ -119,7 +119,7 @@ class ProjectList(ListView):
                 context['category'] = 'otros'
             else:
                 try:
-                    category = categories.get(slug=self.category)
+                    category = models.ProjectCategory.objects.get(slug=self.category)
                     context['category'] = category.t('name', lang)
                 except Exception as e:
                     pass

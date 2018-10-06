@@ -157,7 +157,26 @@ class TeamMemberAdmin(admin.ModelAdmin):
     list_filter  = ('published', 'inactive')
     list_display = ('thumb', 'linked_name', 'surname', 'published', 'inactive')
     actions      = [publish, unpublish, unfeature, feature]
-    fields       = (('name', 'surname'), 'summary', 'image', ('published', 'inactive'))
+
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('name', 'surname'),
+                ('summary',),
+                ('image'),
+                ('published', 'inactive'),
+            ),
+        }),
+        ('Traducción al inglés', {
+            'classes' : ('collapse',),
+            'fields'  : (('summary_en',)),
+        }),
+        ('Traducción al catalán', {
+            'classes' : ('collapse',),
+            'fields'  : (('summary_ca',)),
+        })
+    )
+
 
     def linked_name(self, obj):
         url = reverse("admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name), args=(obj.id,))

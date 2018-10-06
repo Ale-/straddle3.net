@@ -363,7 +363,7 @@ msgstr ""
 
 #: apps/models/models.py:328
 msgid "conexiones"
-msgstr ""
+msgstr "connections"
 
 #: apps/models/models.py:362
 msgid "Apellidos"

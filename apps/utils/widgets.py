@@ -7,7 +7,6 @@ from django.template.loader import render_to_string
 class AdminImageWidget(AdminFileWidget):
     def render(self, name, value, attrs=None):
         parent_widget = super(AdminImageWidget, self).render(name, value, attrs)
-        print(value)
         c = {
             'parent_widget': parent_widget,
             'url'          : value,

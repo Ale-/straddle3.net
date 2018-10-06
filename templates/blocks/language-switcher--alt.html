@@ -1,0 +1,13 @@
+{# Lang switcher #} {% load i18n utils %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+<div class="lang-switcher">
+{% for language in languages %}
+    <a class="{% if lang == language.code %}active{% endif %}" href="/{{ language.code }}">
+        {{ language.code }}
+    </a>
+{% endfor %}
+</div>

@@ -122,7 +122,7 @@ LANGUAGE_CODE = 'es'
 LANGUAGES = (
     ('es', _('Español')),
     ('ca', _('Catalán')),
-    ('en', _('English')),
+    # ('en', _('English')),
 )
 
 TIME_ZONE = 'UTC'

@@ -135,3 +135,8 @@ def get_section(path):
 @register.simple_tag
 def t(obj, field, lang):
     return obj.t(field, lang)
+
+@register.filter
+def ends(text, suffix):
+    print(text, suffix, text.endswith(suffix))
+    return text.endswith(suffix)

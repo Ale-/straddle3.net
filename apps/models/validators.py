@@ -62,7 +62,6 @@ class FileTypeValidator(object):
     def __call__(self, value):
         try:
             mime = magic.from_buffer(value.read(), mime=True)
-            print(mime)
             if mime not in self.mime_types:
                 raise ValidationError(_(self.type_error) % { 'name' : value.name, 'format' : mime.split('/')[1] })
         except ValueError:

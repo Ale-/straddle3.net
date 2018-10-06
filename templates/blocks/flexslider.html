@@ -17,7 +17,11 @@
             {% if image.image_file.url|file_exists %}
             <li class="flexslider__item slide">
                 <a href="{{ image.image_file.url }}" data-lightbox="project">
-                    {% thumbnail 'x480' image.image_file %}
+                    {% if not image.image_file.url|ends:"gif" %}
+                        {% thumbnail 'x480' image.image_file %}
+                    {% else %}
+                        <img src="{{ image.image_file.url }}" />
+                    {% endif %}
                 </a>
                 {% if not image.not_caption %}
                 <p class="flexslider__item-caption flex-caption">

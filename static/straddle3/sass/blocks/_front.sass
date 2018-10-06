@@ -43,7 +43,7 @@
 .front-navigation .text-block__content
   font-size: 1.25em
   margin-top: $m
-  text-align: justify
+  text-align: center
 
 .front-navigation__list-title
   text-align: center
@@ -102,10 +102,12 @@
 
 .site-info
   background: $palette_yellow
-  padding: $m/2 0
+  padding: $m/2
+  height: $m*3.5
   +breakpoint('sm')
-    padding: 0
+    padding: 2px 0 0 0
     position: absolute
+    height: 24px
     p
       margin-left: $m*6.5
   width: 100%
@@ -113,4 +115,5 @@
   opacity: .75
   font-family: $font_text
   font-size: .9em
-  line-height: $m
+  .text-block__label
+    display: none

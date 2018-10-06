@@ -10,7 +10,7 @@
 
 {% block main %}
 <div class="site-info">
-    {{ frontpage.body|safe }}
+    {% text frontpage user.is_staff lang %}
 </div>
 <div class="page__content--front">
     <div class="featured-slideshow">
@@ -49,7 +49,7 @@
                     {% thumbnail '480x240' random_connection.featured_image.image_file %}
                 </figure>
                 <h2 class="front-navigation__title">
-                  {% trans 'complicidades' %}
+                  {% trans 'conexiones' %}
                 </h2>
                 <p class="front-navigation__text">
                     {% text 'Complicidades' user.is_staff lang %}

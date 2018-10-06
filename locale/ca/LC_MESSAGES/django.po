@@ -363,7 +363,7 @@ msgstr ""
 
 #: apps/models/models.py:328
 msgid "conexiones"
-msgstr ""
+msgstr "connexions"
 
 #: apps/models/models.py:362
 msgid "Apellidos"
@@ -1944,7 +1944,7 @@ msgstr "complicitats"
 
 #: templates/pages/front.html:66
 msgid "proc-ectos"
-msgstr "projectes"
+msgstr "proc-jectes"
 
 #: templates/pages/open-fridays.html:5
 msgid "Open Fridays"

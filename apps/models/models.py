@@ -17,7 +17,7 @@ from . import validators, utils
 from django.conf import settings
 
 validate_image_size = validators.ImageSizeValidator({ 'min_width' : 480, 'min_height' : 480, 'max_width' : 1920, 'max_height' : 1280 })
-validate_image_type = validators.ImageTypeValidator(["jpeg", "png"])
+validate_image_type = validators.ImageTypeValidator(["jpeg", "png", "gif"])
 validate_file_type  = validators.FileTypeValidator()
 images_path         = utils.RenameImage("images/")
 files_path          = utils.RenameFile("files/")

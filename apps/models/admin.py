@@ -202,6 +202,7 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
             'fields': (
                 ('name', 'subtitle'),
                 ('published', 'featured'),
+                ('start_date', 'end_date'),
                 'body', 'agents',
                 'geolocation',
             ),
@@ -248,6 +249,7 @@ class ResourceAdmin(NonSortableParentAdmin):
         (None, {
             'fields': (
                 ('name', 'subtitle'),
+                ('published', 'featured'),
                 'summary', 'body',
                 ('promoter', 'author_text', 'gratitude_text'),
                 'license',

@@ -4,7 +4,6 @@
 
 
 @import text_to_header
-@import sticky_footer
 
 *
   box-sizing: border-box
@@ -79,8 +78,3 @@ select
 ::selection
   background: $color_selection_background
   color: $color_selection_text
-
-// Sticky footer
-@if $apply_sticky_footer
-  html
-    +sticky_footer

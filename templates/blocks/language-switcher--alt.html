@@ -6,7 +6,8 @@
 
 <div class="lang-switcher">
 {% for language in languages %}
-    <a class="{% if lang == language.code %}active{% endif %}" href="/{{ language.code }}">
+    <a class="{% if lang == language.code %}active{% endif %}"
+       href="{% localized_path request.path lang language.code %}">
         {{ language.code }}
     </a>
 {% endfor %}

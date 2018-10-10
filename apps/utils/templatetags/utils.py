@@ -140,3 +140,7 @@ def t(obj, field, lang):
 def ends(text, suffix):
     print(text, suffix, text.endswith(suffix))
     return text.endswith(suffix)
+
+@register.simple_tag
+def localized_path(path, current_lang, desired_lang):
+    return path.replace('/%s/' % current_lang, '/%s/' % desired_lang)

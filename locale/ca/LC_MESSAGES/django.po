@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 11:29+0000\n"
+"POT-Creation-Date: 2018-10-10 19:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1957,8 +1957,8 @@ msgid "recursos I+D"
 msgstr "recursos R+D"
 
 #: templates/pages/front.html:66
-msgid "proc-yectos"
-msgstr "proc-jectes"
+msgid "proc/yectos"
+msgstr "proc/jectes"
 
 #: templates/pages/open-fridays.html:5
 msgid "Open Fridays"

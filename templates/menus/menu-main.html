@@ -100,16 +100,11 @@
         </li>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'blog' %}active{% endif %}" >
             <p class="menu-main__item-text">
-                <a href="{% url 'whatsup' %}">
+                <a href="{% url 'blog' %}">
                     {% trans 'Actualidad' %}
                 </a>
             </p>
             <ul class="menu-main__submenu collapsed">
-                <li class="menu-main__submenu-item">
-                    <a href="{% url 'blog' %}">
-                        {% trans 'Blog' %}
-                    </a>
-                </li>
                 <li class="menu-main__submenu-item">
                     <a href="https://twitter.com/straddle3" target="_blank">
                         {% trans 'Twitter' %}

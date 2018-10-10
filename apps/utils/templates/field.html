@@ -12,7 +12,7 @@
     {{ object }}
     <{{ value_html_wrapper }} class="field__value">
     {% if field_value %}
-        {{ field_value }}
+        {{ field_value | safe }}
     {% else %}
         {% trans 'Este contenido tiene este campo vacío todavía' %}
     {% endif %}

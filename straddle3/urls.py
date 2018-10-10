@@ -6,6 +6,8 @@ from django.urls import path
 from django.conf.urls.i18n import i18n_patterns
 from django.views.generic.base import TemplateView
 from django.conf import settings
+from django.contrib.sitemaps.views import sitemap
+from apps.views import sitemaps
 # apps
 from apps.views import views
 
@@ -19,6 +21,13 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
+    # Sitemaps
+    path('sitemap.xml', sitemap, { 'sitemaps': {
+        'static'      : sitemaps.StaticSitemap,
+        'projects'    : sitemaps.ProjectSitemap,
+        'connections' : sitemaps.ConnectionSitemap,
+        'resources'   : sitemaps.ResourceSitemap,
+    }}, name='django.contrib.sitemaps.views.sitemap'),
     # Frontpage
     url(r'^$',  views.FrontView.as_view(), name="front"),
     # CKEditor

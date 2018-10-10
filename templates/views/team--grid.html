@@ -1,5 +1,5 @@
 {# team members #}
-{% load imagekit %}
+{% load imagekit utils %}
 
 {% if person.published %}
 <div class="team-grid masonry__item three-col">
@@ -12,7 +12,7 @@
         {{ person.fullname }}
     </h5>
     <p class="team-grid__text">
-        {{ person.summary }}
+        {% simple_field person 'summary' lang %}
     </p>
 </div>
 {% endif %}

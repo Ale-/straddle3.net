@@ -1,0 +1,10 @@
+{# error 403 template #}
+{% extends 'pages/exception.html' %}
+{% load i18n %}
+
+{% block error %}403{% endblock %}
+{% block text %}
+    {% blocktrans trimmed %}
+    No tienes permisos para ver esta página.
+    {% endblock %}
+{% endblock %}

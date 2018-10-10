@@ -1,0 +1,11 @@
+{# error 500 template #}
+{% extends 'pages/exception.html' %}
+{% load i18n %}
+
+{% block error %}500{% endblock %}
+{% block text %}
+    {% blocktrans trimmed %}
+    Ha habido un problema en el servidor. Prueba nuevamente en unos minutos 
+    y si el problema persiste contacta con el administrador.
+    {% endblocktrans %}
+{% endblock %}

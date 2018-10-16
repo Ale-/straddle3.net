@@ -194,7 +194,7 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
     thumb             = AdminThumbnail(image_field=generic_cached_admin_thumb)
     list_display      = ('thumb', 'linked_name', 'start_date', 'published', 'featured')
     list_filter       = ('published', 'featured')
-    inlines           = [ ImageInline, LinkInline, VideoInline ]
+    inlines           = [ ImageInline, LinkInline, VideoInline, AttachmentInline ]
     actions           = [ publish, unpublish, unfeature, feature ]
 
     fieldsets = (

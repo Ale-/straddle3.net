@@ -2,7 +2,7 @@
 {% load imagekit utils %}
 
 {% if item.published %}
-<div class="item--grid masonry__item three-col {% trans_cat_slug item.category lang %}">
+<div class="item--grid masonry__item three-col {% if item.category %}{% trans_cat_slug item.category lang %}{% endif %}">
 <a href="{{ item.get_absolute_url }}">
     {% if item.images.all|length > 0 %}
     <figure class="item__image--grid">

@@ -19,7 +19,7 @@
     <div class="list--search masonry">
         {% if object_list|length > 0 %}
             {% for item in object_list %}
-                {% include 'views/item--grid.html' with item=item show_cat=True show_date=True %}
+                {% include 'views/item--grid.html' with item=item %}
             {% endfor %}
         {% endif %}
     </div>

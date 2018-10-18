@@ -422,6 +422,8 @@ class Resource(models.Model):
     gratitude_text = models.TextField(_('Agradecimientos'), blank=True, null=True)
     license        = models.TextField(_('Licencia'), blank=True, null=True)
     summary        = models.TextField(_('Resumen'), blank=True, null=True)
+    start_date     = models.DateField(_('Fecha de comienzo'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
+    end_date       = models.DateField(_('Fecha de finalización'), blank=True, null=True, help_text=_("Puedes usar el formato dd/mm/yyyy"))
     body           = RichTextUploadingField(_('Descripción'), blank=True, null=True)
     tags           = models.ManyToManyField(Tag, verbose_name=_('Tags'), blank=True)
     published      = models.BooleanField(_('Publicado'), default=False, help_text="Indica si este contenido es visible públicamente")

@@ -250,6 +250,7 @@ class ResourceAdmin(NonSortableParentAdmin):
             'fields': (
                 ('name', 'subtitle'),
                 ('published', 'featured'),
+                ('start_date', 'end_date'),
                 'summary', 'body',
                 ('promoter', 'author_text', 'gratitude_text'),
                 'license',

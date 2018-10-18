@@ -17,7 +17,7 @@
             {{ item|verbose_name }}
         </span>
         {% endif %}
-        {% if show_cat and categories|length > 0 %}
+        {% if categories|length > 0 %}
             {% for category in categories %}
             <span class="item__category--grid">
                 <small>#</small>{% simple_field category 'name' lang %}
@@ -34,7 +34,7 @@
         {% simple_field item 'subtitle' lang %}
     </h6>
     {% endif %}
-    {% if show_date and item.start_date or item.end_date %}
+    {% if item.start_date or item.end_date %}
     <p class="item__date--grid">
         {% if item.start_date %}
             {{ item.start_date|date:"M Y" }}

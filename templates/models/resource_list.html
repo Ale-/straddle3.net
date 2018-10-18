@@ -32,7 +32,7 @@
     <div class="list--resources masonry">
         {% if object_list|length > 0 %}
             {% for resource in object_list %}
-                {% include 'views/item--grid.html' with item=resource show_cat=True %}
+                {% include 'views/item--grid.html' with item=resource %}
             {% endfor %}
         {% endif %}
     </div>

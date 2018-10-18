@@ -10,7 +10,6 @@
         {% thumbnail '480x340' item.featured_image.image_file %}
     </figure>
     {% endif %}
-    {% if show_model or show_cat %}
     <p class="item__categories--grid">
         {% if show_model %}
         <span class="item__model--grid">
@@ -25,7 +24,6 @@
             {% endfor %}
         {% endif %}
     </p>
-    {% endif %}
     <h5 class="item__name--grid">
         {% simple_field item 'name' lang %}
     </h5>

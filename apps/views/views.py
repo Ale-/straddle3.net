@@ -65,7 +65,7 @@ def MapApi(request):
     connections = models.Connection.objects.filter(geolocation__isnull=False)
     for connection in connections:
         img      = connection.featured_image
-        category = connection.category
+        category = connection.category.first()
         markers.append({
             'name'       : connection.t('name', lang),
             'subtitle'   : connection.t('subtitle', lang),

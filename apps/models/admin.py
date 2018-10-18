@@ -228,7 +228,7 @@ class ConnectionAdmin(NonSortableParentAdmin, LeafletGeoAdmin):
             ),
         })
     )
-    filter_horizontal = ('tags', 'related_projects', 'related_resources', 'related_connections')
+    filter_horizontal = ('category', 'tags', 'related_projects', 'related_resources', 'related_connections')
 
     class Media:
         js = ['/static/straddle3/js/featured-image.js',]
@@ -280,7 +280,7 @@ class ResourceAdmin(NonSortableParentAdmin):
             ),
         })
     )
-    filter_horizontal = ('tags', 'related_projects', 'related_resources', 'related_connections')
+    filter_horizontal = ('category', 'tags', 'related_projects', 'related_resources', 'related_connections')
     actions           = [publish, unpublish, unfeature, feature]
     inlines           = [ ImageInline, LinkInline, AttachmentInline, VideoInline ]
 

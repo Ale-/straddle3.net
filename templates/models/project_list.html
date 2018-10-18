@@ -33,7 +33,7 @@
     <div class="list--projects masonry">
         {% if object_list|length > 0 %}
             {% for project in object_list %}
-                {% include 'views/project--grid.html' with item=project show_cat=True show_date=True %}
+                {% include 'views/item--grid.html' with item=project show_cat=True show_date=True %}
             {% endfor %}
         {% endif %}
     </div>

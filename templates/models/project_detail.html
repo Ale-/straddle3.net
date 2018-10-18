@@ -74,7 +74,7 @@
               {# promoter #}
               {% field obj=object lang=lang field_name='promoter' label=True icon='bullseye' %}
               {# category #}
-              {% include 'fields/field--project-category.html' with b="project" m="full" category_base_url="projects_cat" category=object.category translation=translation %}
+              {% include 'fields/field--category.html' with b="project" m="full" category_base_url="projects_cat" category=object.category translation=translation %}
               {# tags #}
               {% include 'fields/field--tags.html' with b="project" m="full" tags=object.tags.all %}
             </div>

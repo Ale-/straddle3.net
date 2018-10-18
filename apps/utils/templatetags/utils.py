@@ -5,6 +5,7 @@ from django import template
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
+from django.db.models.query import QuerySet
 # project
 from django.conf import settings
 from apps.models import models
@@ -144,3 +145,11 @@ def ends(text, suffix):
 @register.simple_tag
 def localized_path(path, current_lang, desired_lang):
     return path.replace('/%s/' % current_lang, '/%s/' % desired_lang)
+
+@register.filter
+def is_categorized(obj):
+    print(obj.category, obj.category != None)
+    if isinstance(obj.category, QuerySet):
+        return obj.category.count() > 0
+    else:
+        return obj.category != None

@@ -2,7 +2,8 @@
 {% load imagekit utils %}
 
 {% if item.published %}
-<div class="item--grid masonry__item three-col {% if item.category %}{% trans_cat_slug item.category lang %}{% endif %}">
+{% with item.category.all as categories %}
+<div class="item--grid masonry__item three-col {% for cat in categories %}{% trans_cat_slug cat lang %} {% endfor %}">
 <a href="{{ item.get_absolute_url }}">
     {% if item.images.all|length > 0 %}
     <figure class="item__image--grid">
@@ -16,10 +17,12 @@
             {{ item|verbose_name }}
         </span>
         {% endif %}
-        {% if show_cat and item.category %}
-        <span class="item__category--grid">
-            {% simple_field item.category 'name' lang %}
-        </span>
+        {% if show_cat and categories|length > 0 %}
+            {% for category in categories %}
+            <span class="item__category--grid">
+                <small>#</small>{% simple_field category 'name' lang %}
+            </span>
+            {% endfor %}
         {% endif %}
     </p>
     {% endif %}
@@ -43,4 +46,5 @@
     {% endif %}
 </a>
 </div>
+{% endwith %}
 {% endif %}

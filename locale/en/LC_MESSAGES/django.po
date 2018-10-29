@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 19:14+0000\n"
+"POT-Creation-Date: 2018-10-29 17:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,36 +198,39 @@ msgstr ""
 #: apps/models/models.py:194 apps/models/models.py:218
 #: apps/models/models.py:227 apps/models/models.py:295
 #: apps/models/models.py:316 apps/models/models.py:322
-#: apps/models/models.py:416 apps/models/models.py:439
-#: apps/models/models.py:450
+#: apps/models/models.py:416 apps/models/models.py:441
+#: apps/models/models.py:452
 msgid "Subtítulo"
 msgstr ""
 
 #: apps/models/models.py:195 apps/models/models.py:219
 #: apps/models/models.py:228 apps/models/models.py:363
 #: apps/models/models.py:364 apps/models/models.py:365
-#: apps/models/models.py:424 apps/models/models.py:440
-#: apps/models/models.py:452 apps/models/models.py:528
-#: apps/models/models.py:538 apps/models/models.py:543
+#: apps/models/models.py:424 apps/models/models.py:442
+#: apps/models/models.py:454 apps/models/models.py:530
+#: apps/models/models.py:540 apps/models/models.py:545
 msgid "Resumen"
 msgstr ""
 
 #: apps/models/models.py:196 apps/models/models.py:220
-#: apps/models/models.py:229 apps/models/models.py:506
-#: apps/models/models.py:507 apps/models/models.py:508
+#: apps/models/models.py:229 apps/models/models.py:508
+#: apps/models/models.py:509 apps/models/models.py:510
 msgid "Texto"
 msgstr ""
 
 #: apps/models/models.py:198 apps/models/models.py:299
+#: apps/models/models.py:425
 msgid "Fecha de comienzo"
 msgstr ""
 
 #: apps/models/models.py:198 apps/models/models.py:199
 #: apps/models/models.py:299 apps/models/models.py:300
+#: apps/models/models.py:425 apps/models/models.py:426
 msgid "Puedes usar el formato dd/mm/yyyy"
 msgstr ""
 
 #: apps/models/models.py:199 apps/models/models.py:300
+#: apps/models/models.py:426
 msgid "Fecha de finalización"
 msgstr ""
 
@@ -241,7 +244,7 @@ msgstr ""
 
 #: apps/models/models.py:202 apps/models/models.py:221
 #: apps/models/models.py:230 apps/models/models.py:421
-#: apps/models/models.py:444 apps/models/models.py:455
+#: apps/models/models.py:446 apps/models/models.py:457
 msgid "Promotor"
 msgstr "Promoter"
 
@@ -254,23 +257,23 @@ msgid "Agradecimientos"
 msgstr "Thanks"
 
 #: apps/models/models.py:206 apps/models/models.py:303
-#: apps/models/models.py:426 apps/models/models.py:531
+#: apps/models/models.py:428 apps/models/models.py:533
 #: templates/fields/field--tags.html:6
 msgid "Tags"
 msgstr ""
 
 #: apps/models/models.py:207 apps/models/models.py:306
-#: apps/models/models.py:367 apps/models/models.py:427
-#: apps/models/models.py:527
+#: apps/models/models.py:367 apps/models/models.py:429
+#: apps/models/models.py:529
 msgid "Publicado"
 msgstr ""
 
-#: apps/models/models.py:207 apps/models/models.py:527
+#: apps/models/models.py:207 apps/models/models.py:529
 msgid "Indica si este contenido es visible públicamente"
 msgstr ""
 
 #: apps/models/models.py:208 apps/models/models.py:307
-#: apps/models/models.py:428
+#: apps/models/models.py:430
 msgid "Destacado"
 msgstr ""
 
@@ -279,42 +282,42 @@ msgid "Indica si este contenido es destacado y ha de tener mayor visibilidad"
 msgstr ""
 
 #: apps/models/models.py:212 apps/models/models.py:310
-#: apps/models/models.py:433
+#: apps/models/models.py:435
 msgid "Proyectos relacionados"
 msgstr "Related projects"
 
 #: apps/models/models.py:212 apps/models/models.py:310
-#: apps/models/models.py:433
+#: apps/models/models.py:435
 msgid "Selecciona los proyectos relacionados"
 msgstr ""
 
 #: apps/models/models.py:213 apps/models/models.py:311
-#: apps/models/models.py:434
+#: apps/models/models.py:436
 msgid "Conexiones relacionadas"
 msgstr ""
 
 #: apps/models/models.py:213 apps/models/models.py:311
-#: apps/models/models.py:434
+#: apps/models/models.py:436
 msgid "Selecciona los conexiones relacionados"
 msgstr ""
 
 #: apps/models/models.py:214 apps/models/models.py:312
-#: apps/models/models.py:435
+#: apps/models/models.py:437
 msgid "Recursos relacionados"
 msgstr "Related resources"
 
 #: apps/models/models.py:214 apps/models/models.py:312
-#: apps/models/models.py:435
+#: apps/models/models.py:437
 msgid "Selecciona los recursos relacionados"
 msgstr ""
 
 #: apps/models/models.py:222 apps/models/models.py:231
-#: apps/models/models.py:443 apps/models/models.py:454
+#: apps/models/models.py:445 apps/models/models.py:456
 msgid "Autor"
 msgstr "Author"
 
 #: apps/models/models.py:223 apps/models/models.py:232
-#: apps/models/models.py:445 apps/models/models.py:456
+#: apps/models/models.py:447 apps/models/models.py:458
 msgid "Texto de agradecimientos"
 msgstr ""
 
@@ -336,9 +339,9 @@ msgstr ""
 
 #: apps/models/models.py:294 apps/models/models.py:315
 #: apps/models/models.py:321 apps/models/models.py:361
-#: apps/models/models.py:415 apps/models/models.py:438
-#: apps/models/models.py:449 apps/models/models.py:497
-#: apps/models/models.py:500 apps/models/models.py:503
+#: apps/models/models.py:415 apps/models/models.py:440
+#: apps/models/models.py:451 apps/models/models.py:499
+#: apps/models/models.py:502 apps/models/models.py:505
 msgid "Nombre"
 msgstr ""
 
@@ -347,8 +350,8 @@ msgid "Tipo"
 msgstr ""
 
 #: apps/models/models.py:301 apps/models/models.py:317
-#: apps/models/models.py:323 apps/models/models.py:425
-#: apps/models/models.py:441 apps/models/models.py:451
+#: apps/models/models.py:323 apps/models/models.py:427
+#: apps/models/models.py:443 apps/models/models.py:453
 msgid "Descripción"
 msgstr ""
 
@@ -393,54 +396,54 @@ msgstr ""
 msgid "tipos de recurso"
 msgstr ""
 
-#: apps/models/models.py:419 apps/models/models.py:442
-#: apps/models/models.py:453
+#: apps/models/models.py:419 apps/models/models.py:444
+#: apps/models/models.py:455
 msgid "Funciones básicas/posibles aplicaciones"
 msgstr ""
 
-#: apps/models/models.py:423 apps/models/models.py:446
-#: apps/models/models.py:457
+#: apps/models/models.py:423 apps/models/models.py:448
+#: apps/models/models.py:459
 msgid "Licencia"
 msgstr ""
 
-#: apps/models/models.py:461
+#: apps/models/models.py:463
 msgid "recurso"
 msgstr ""
 
-#: apps/models/models.py:462
+#: apps/models/models.py:464
 msgid "recursos"
 msgstr ""
 
-#: apps/models/models.py:495
+#: apps/models/models.py:497
 msgid "Etiqueta"
 msgstr ""
 
-#: apps/models/models.py:499 apps/models/models.py:502
-#: apps/models/models.py:505
+#: apps/models/models.py:501 apps/models/models.py:504
+#: apps/models/models.py:507
 msgid ""
 "Introduce el título del bloque, si no quieres que el bloque tenga título "
 "deja este campo en blanco"
 msgstr ""
 
-#: apps/models/models.py:514
+#: apps/models/models.py:516
 msgid "bloque de texto"
 msgstr ""
 
-#: apps/models/models.py:515
+#: apps/models/models.py:517
 msgid "bloques de texto"
 msgstr ""
 
-#: apps/models/models.py:525 apps/models/models.py:537
-#: apps/models/models.py:542
+#: apps/models/models.py:527 apps/models/models.py:539
+#: apps/models/models.py:544
 msgid "Nombre/título"
 msgstr ""
 
-#: apps/models/models.py:529
+#: apps/models/models.py:531
 msgid "Fecha de publicación"
 msgstr ""
 
-#: apps/models/models.py:530 apps/models/models.py:539
-#: apps/models/models.py:544
+#: apps/models/models.py:532 apps/models/models.py:541
+#: apps/models/models.py:546
 msgid "Cuerpo"
 msgstr ""
 
@@ -476,7 +479,7 @@ msgstr ""
 msgid "Añade este texto"
 msgstr ""
 
-#: apps/utils/templatetags/utils.py:64
+#: apps/utils/templatetags/utils.py:65
 msgid "Volver a la página anterior"
 msgstr ""
 
@@ -1734,12 +1737,10 @@ msgid "Este contenido no tiene descargas asociadas"
 msgstr "This content has no related downloads"
 
 #: templates/fields/field--category.html:6
-#: templates/fields/field--project-category.html:6
 msgid "Categoría"
 msgstr "Category"
 
-#: templates/fields/field--category.html:15
-#: templates/fields/field--project-category.html:18
+#: templates/fields/field--category.html:18
 msgid "Este contenido no ha sido categorizado todavía"
 msgstr "This content has not been categorized yet"
 
@@ -1759,55 +1760,33 @@ msgstr "This content has no related tags"
 msgid "Cuándo"
 msgstr "When"
 
-#: templates/menus/menu-main.html:12 templates/pages/who.html:14
+#: templates/menus/menu-main.html:11 templates/pages/who.html:14
 #: templates/pages/who.html:17
 msgid "Quiénes somos"
 msgstr "Who we are"
 
-#: templates/menus/menu-main.html:18 templates/models/teammember_list.html:5
+#: templates/menus/menu-main.html:16
+msgid "Acerca"
+msgstr ""
+
+#: templates/menus/menu-main.html:21 templates/models/teammember_list.html:5
 #: templates/models/teammember_list.html:10
 #: templates/models/teammember_list.html:13
 msgid "Equipo"
 msgstr "Team"
 
-#: templates/menus/menu-main.html:25 templates/pages/what.html:5
-#: templates/pages/what.html:10 templates/pages/what.html:13
-#: templates/pages/who.html:5
-msgid "Qué hacemos"
-msgstr "What we do"
-
-#: templates/menus/menu-main.html:31 templates/models/project_list.html:20
-#: templates/models/project_list.html:23
+#: templates/menus/menu-main.html:28 templates/menus/menu-main.html:33
+#: templates/models/project_list.html:20 templates/models/project_list.html:23
 msgid "Trabajos"
 msgstr "Works"
 
-#: templates/menus/menu-main.html:37
-msgid "Espacio público"
-msgstr "Public space"
-
-#: templates/menus/menu-main.html:42
-msgid "Vivienda"
-msgstr "Housing"
-
-#: templates/menus/menu-main.html:47
-msgid "Urbanismo táctico"
-msgstr "Tactical Urbanism"
-
-#: templates/menus/menu-main.html:52
-msgid "Participación"
-msgstr "Participation"
-
-#: templates/menus/menu-main.html:57 templates/models/resource_detail.html:24
+#: templates/menus/menu-main.html:38 templates/models/resource_detail.html:24
 #: templates/models/resource_list.html:5 templates/models/resource_list.html:19
 #: templates/models/resource_list.html:22
 msgid "Recursos"
 msgstr "Resources"
 
-#: templates/menus/menu-main.html:62
-msgid "Otros"
-msgstr "Other"
-
-#: templates/menus/menu-main.html:70 templates/pages/archive.html:10
+#: templates/menus/menu-main.html:46 templates/pages/archive.html:10
 #: templates/pages/archive.html:13 templates/pages/bibliography.html:10
 #: templates/pages/curriculum.html:10 templates/pages/open-fridays.html:10
 #: templates/pages/press.html:10 templates/pages/repositorio-webs.html:10
@@ -1815,47 +1794,33 @@ msgstr "Other"
 msgid "Archivo"
 msgstr "File"
 
-#: templates/menus/menu-main.html:76 templates/pages/repositorio-webs.html:5
-#: templates/pages/repositorio-webs.html:10
-#: templates/pages/repositorio-webs.html:13
-msgid "Repositorio webs"
-msgstr "Repository websites "
+#: templates/menus/menu-main.html:52
+msgid "Sitios web"
+msgstr "Websites"
 
-#: templates/menus/menu-main.html:81 templates/pages/videos.html:5
-#: templates/pages/videos.html:10 templates/pages/videos.html:13
-msgid "Videos"
-msgstr "Videos"
-
-#: templates/menus/menu-main.html:86 templates/pages/archive.html:5
-#: templates/pages/bibliography.html:5 templates/pages/bibliography.html:10
-#: templates/pages/bibliography.html:13
-msgid "Bibliografía"
-msgstr "Bibliography"
-
-#: templates/menus/menu-main.html:91 templates/pages/press.html:5
+#: templates/menus/menu-main.html:57 templates/pages/press.html:5
 #: templates/pages/press.html:10 templates/pages/press.html:13
 msgid "Hemeroteca"
 msgstr "News archive"
 
-#: templates/menus/menu-main.html:98
+#: templates/menus/menu-main.html:62
+msgid "Videoteca"
+msgstr "Videos"
+
+#: templates/menus/menu-main.html:69
 msgid "Mapa"
 msgstr "Map"
 
-#: templates/menus/menu-main.html:104 templates/pages/whatsup.html:5
+#: templates/menus/menu-main.html:75 templates/pages/whatsup.html:5
 #: templates/pages/whatsup.html:10 templates/pages/whatsup.html:13
 msgid "Actualidad"
 msgstr "Latest news"
 
-#: templates/menus/menu-main.html:110 templates/models/post_list.html:17
-#: templates/models/post_list.html:20
-msgid "Blog"
-msgstr ""
-
-#: templates/menus/menu-main.html:115
+#: templates/menus/menu-main.html:81
 msgid "Twitter"
 msgstr ""
 
-#: templates/menus/menu-main.html:120
+#: templates/menus/menu-main.html:86
 msgid "Instagram"
 msgstr ""
 
@@ -1878,12 +1843,12 @@ msgid "Edita este contenido"
 msgstr "Edit content"
 
 #: templates/models/connection_detail.html:26
+#: templates/models/connection_list.html:23 templates/pages/map.html:28
 msgid "Conexiones"
 msgstr "Connections"
 
 #: templates/models/connection_list.html:5
 #: templates/models/connection_list.html:20
-#: templates/models/connection_list.html:23 templates/pages/map.html:28
 msgid "Complicidades"
 msgstr "Complicities"
 
@@ -1898,6 +1863,10 @@ msgstr "Read more"
 
 #: templates/models/post_list.html:11
 msgid "Publica un post nuevo"
+msgstr ""
+
+#: templates/models/post_list.html:17 templates/models/post_list.html:20
+msgid "Blog"
 msgstr ""
 
 #: templates/models/project_detail.html:26 templates/models/project_list.html:5
@@ -1941,6 +1910,11 @@ msgstr "People who have passed for Straddle3"
 msgid "Equipo actual de Straddle3"
 msgstr "Current team of Straddle3"
 
+#: templates/pages/archive.html:5 templates/pages/bibliography.html:5
+#: templates/pages/bibliography.html:10 templates/pages/bibliography.html:13
+msgid "Bibliografía"
+msgstr "Bibliography"
+
 #: templates/pages/curriculum.html:5 templates/pages/curriculum.html:10
 #: templates/pages/curriculum.html:13
 msgid "Currículum"
@@ -1964,6 +1938,22 @@ msgstr "proc/jects"
 msgid "Open Fridays"
 msgstr ""
 
+#: templates/pages/repositorio-webs.html:5
+#: templates/pages/repositorio-webs.html:10
+#: templates/pages/repositorio-webs.html:13
+msgid "Repositorio webs"
+msgstr "Repository websites "
+
+#: templates/pages/videos.html:5 templates/pages/videos.html:10
+#: templates/pages/videos.html:13
+msgid "Videos"
+msgstr "Videos"
+
+#: templates/pages/what.html:5 templates/pages/what.html:10
+#: templates/pages/what.html:13 templates/pages/who.html:5
+msgid "Qué hacemos"
+msgstr "What we do"
+
 #: templates/pages/who.html:51
 msgid "Straddle3. Carrer Riereta, 32. 1o 3a 08001 Barcelona"
 msgstr ""
@@ -1976,6 +1966,21 @@ msgstr "website developed by <a href=\"https://wwb.cc\"><small>WWB</small></a>"
 #: templates/views/item--list-reduced.html:13
 msgid "No categorizado"
 msgstr "Uncategorized"
+
+#~ msgid "Espacio público"
+#~ msgstr "Public space"
+
+#~ msgid "Vivienda"
+#~ msgstr "Housing"
+
+#~ msgid "Urbanismo táctico"
+#~ msgstr "Tactical Urbanism"
+
+#~ msgid "Participación"
+#~ msgstr "Participation"
+
+#~ msgid "Otros"
+#~ msgstr "Other"
 
 #~ msgid "complicidades"
 #~ msgstr "complicities"

@@ -17,19 +17,19 @@
         <ul class="video-list">
         {% for video in videos %}
             {% if video %}
-            <li class="video-list__item">
-            {% videoembed video.source_url 480 240 %}
-            <p class="video-list__item-source">
-              src: <a href="{{ video.source_content.get_absolute_url }}">
-                  {{ video.source_content.name }}
-              </a>
-            </p>
-            {% if not video.not_caption %}
-                <h5 class="video-list__item-caption">
-                    {% simple_field video 'caption' lang %}
-                </h5>
-            {% endif %}
-            </li>
+                <li class="video-list__item">
+                {% videoembed video.source_url 480 240 %}
+                <p class="video-list__item-source">
+                  src: <a href="{{ video.source_content.get_absolute_url }}">
+                      {{ video.source_content.name }}
+                  </a>
+                </p>
+                {% if not video.not_caption %}
+                <p class="video-list__item-source">
+                  src: {% simple_field video 'caption' lang %}
+                </p>
+                {% endif %}
+                </li>
             {% endif %}
         {% endfor %}
         </ul>

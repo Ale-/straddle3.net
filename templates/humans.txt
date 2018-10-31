@@ -1,0 +1,14 @@
+/* SITE */
+
+Site name: straddle3
+Site URL: https://straddle3.net
+
+/* TEAM */
+
+Management and content: straddle3
+Management and content team site: http://straddle3.net
+Contact: s3@straddle3.net
+
+Site development: wwb
+Development team website: https://wwb.cc
+Contact: info@wwb.cc

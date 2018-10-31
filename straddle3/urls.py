@@ -18,6 +18,10 @@ urlpatterns = [
     url(r'^i18n/',  include('django.conf.urls.i18n')),
     # API
     url(r'^api/map$', views.MapApi, name="map"),
+
+    # ROBOTS & HUMANS
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    path('humans.txt', TemplateView.as_view(template_name='humans.txt', content_type='text/plain')),
 ]
 
 urlpatterns += i18n_patterns(

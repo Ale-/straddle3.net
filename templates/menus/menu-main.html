@@ -23,6 +23,11 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'que-hacemos' %}active{% endif %}">
+            <a class="menu-main__item-text" href="{% url 'what' %}">
+                {% trans 'Qué hacemos' %}
+            </a>
+        </li>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'proyectos' %}active{% endif %}">
             <p class="menu-main__item-text">
                 {% trans 'Trabajos' %}
@@ -30,7 +35,7 @@
             <ul class="menu-main__submenu collapsed">
                 <li class="menu-main__submenu-item">
                     <a href="{% url 'projects' %}">
-                        {% trans 'Trabajos' %}
+                        {% trans 'Proyectos' %}
                     </a>
                 </li>
                 <li class="menu-main__submenu-item">
@@ -42,9 +47,7 @@
         </li>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'archivo' %}active{% endif %}">
             <p class="menu-main__item-text">
-                <a href="{% url 'archive' %}">
-                    {% trans 'Archivo' %}
-                </a>
+                {% trans 'Archivo' %}
             </p>
             <ul class="menu-main__submenu collapsed">
                 <li class="menu-main__submenu-item">
@@ -71,11 +74,14 @@
         </li>
         <li class="menu-main__item{% if modifier %}--{{ modifier }}{% endif %} {% if section == 'blog' %}active{% endif %}" >
             <p class="menu-main__item-text">
-                <a href="{% url 'blog' %}">
-                    {% trans 'Actualidad' %}
-                </a>
+                {% trans 'Actualidad' %}
             </p>
             <ul class="menu-main__submenu collapsed">
+                <li class="menu-main__submenu-item">
+                    <a href="{% url 'blog' %}">
+                        {% trans 'Blog' %}
+                    </a>
+                </li>
                 <li class="menu-main__submenu-item">
                     <a href="https://twitter.com/straddle3" target="_blank">
                         {% trans 'Twitter' %}

@@ -5,10 +5,19 @@
 {% get_language_info_list for LANGUAGES as languages %}
 
 <div class="lang-switcher">
-{% for language in languages %}
-    <a class="{% if lang == language.code %}active{% endif %}"
-       href="{% localized_path request.path lang language.code %}">
-        {{ language.code }}
-    </a>
-{% endfor %}
+{% if not request.user.is_staff %}
+    {% for language in anonymous_languages %}
+        <a class="{% if lang == language %}active{% endif %}"
+           href="{% localized_path request.path lang language %}">
+            {{ language }}
+        </a>
+    {% endfor %}
+{% else %}
+    {% for language in languages %}
+        <a class="{% if lang == language.code %}active{% endif %}"
+           href="{% localized_path request.path lang language.code %}">
+            {{ language.code }}
+        </a>
+    {% endfor %}
+{% endif %}
 </div>

@@ -358,7 +358,7 @@ msgstr ""
 #: apps/models/models.py:302 apps/models/models.py:318
 #: apps/models/models.py:324
 msgid "Agentes"
-msgstr ""
+msgstr "Agents"
 
 #: apps/models/models.py:327
 msgid "conexión"
@@ -1792,7 +1792,7 @@ msgstr "Resources"
 #: templates/pages/press.html:10 templates/pages/repositorio-webs.html:10
 #: templates/pages/videos.html:10
 msgid "Archivo"
-msgstr "File"
+msgstr "Archive"
 
 #: templates/menus/menu-main.html:52
 msgid "Sitios web"
@@ -1814,7 +1814,7 @@ msgstr "Map"
 #: templates/menus/menu-main.html:75 templates/pages/whatsup.html:5
 #: templates/pages/whatsup.html:10 templates/pages/whatsup.html:13
 msgid "Actualidad"
-msgstr "Latest news"
+msgstr "News"
 
 #: templates/menus/menu-main.html:81
 msgid "Twitter"
@@ -1929,8 +1929,6 @@ msgid "recursos I+D"
 msgstr "r+d resources"
 
 #: templates/pages/front.html:66
-#, fuzzy
-#| msgid "proc-ectos"
 msgid "proc/yectos"
 msgstr "proc/jects"
 

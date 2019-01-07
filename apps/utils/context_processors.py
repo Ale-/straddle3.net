@@ -6,7 +6,7 @@ def site_info_processor(request):
 
     html_document_title       = settings.DOCUMENT_TITLE
     lang                      = request.LANGUAGE_CODE
-    anonymous_languages       = ['es', 'ca']
+    anonymous_languages       = ['en', 'es', 'ca']
     return locals()
 
 def debug_processor(request):

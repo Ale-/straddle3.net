@@ -21,7 +21,11 @@
   right: 0
 
 #text-definicion,
-#text-nuestra-relacion-con-aacc
+#text-nuestra-relacion-con-aacc,
+#text-lineas-de-trabajo,
+#text-aprendemos,
+#text-eventos-y-redes,
+#text-mas
   .text-block__content
     margin-top: $m
     text-align: justify
@@ -29,3 +33,15 @@
       font-size: 1.25em
       +column-count(2)
       padding: 0 $m
+
+#text-espiritu-y-metodo
+  p
+    margin-bottom: $m/2
+  .text-block__content
+    margin-top: $m
+    text-align: justify
+    +breakpoint('sm')
+      font-size: 1.25em
+      width: 50%
+      padding: 0 $m
+      border-left: 8px solid #333

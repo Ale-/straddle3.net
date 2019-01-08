@@ -36,6 +36,8 @@
                 {% if not object.not_summary %}
                     {% field obj=object field_name='summary' lang=lang %}
                 {% endif %}
+                {# tags #}
+                {% include 'fields/field--tags.html' with b="post" m="full" tags=object.tags.all %}
                 {# see more #}
                 <button class="see-more">
                     ✚ {% trans 'Leer más' %}
@@ -45,8 +47,6 @@
                 </button>
                 {# body #}
                 {% field obj=object field_name='body' lang=lang safe=True %}
-                {# tags #}
-                {% include 'fields/field--tags.html' with b="post" m="full" tags=object.tags.all %}
                 {# links #}
                 {% include 'fields/field--links.html' with b="post" m="full" links=object.links.all %}
             </div>

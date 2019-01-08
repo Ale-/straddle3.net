@@ -12,29 +12,11 @@
             {% endif %}
         </div>
         <div class="blog__right--list">
-            {% if show_model or show_cat %}
-            <p class="blog__categories--list">
-                {% if show_model %}
-                <span class="blog__model--list">
-                    {{ item|verbose_name }}
-                </span>
-                {% endif %}
-                {% if show_cat and item.category %}
-                <span class="blog__category--list">
-                    {{ item.category }}
-                </span>
-                {% endif %}
-            </p>
-            {% endif %}
+            {% include 'fields/field-date.html' with start=item.date  b='post' m='full' %}
             <h4 class="blog__name--list">
-                {{ item.name }}
+                  {% simple_field item 'name' lang %}
             </h4>
-            <p class="blog__summary--list">
-                {{ item.summary }}
-            </p>
-            <p class="blog__date--list">
-                {{ item.date|date:"d M Y" }}
-            </p>
+            {% field obj=item field_name='summary' lang=lang m='short' %}
         </div>
     </a>
 </div>

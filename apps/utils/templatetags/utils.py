@@ -42,7 +42,7 @@ def trans_cat_slug(cat, lang):
     return slugify(name)
 
 @register.inclusion_tag('field.html')
-def field(obj=None, lang=settings.LANGUAGE_CODE, safe=False, field_name=None, value_html_wrapper='div', label=False, label_html_wrapper='label', field_label=None, container='full', icon=None):
+def field(obj=None, lang=settings.LANGUAGE_CODE, safe=False, field_name=None, value_html_wrapper='div', label=False, label_html_wrapper='label', field_label=None, container='full', icon=None, m='full'):
     source = getattr(obj, field_name)
     model_name = obj.__class__.__name__.lower()
     field_value = simple_field(obj, field_name, lang, safe)
@@ -59,6 +59,7 @@ def field(obj=None, lang=settings.LANGUAGE_CODE, safe=False, field_name=None, va
         'label_html_wrapper' : label_html_wrapper,
         'container_name'     : model_name,
         'icon'               : icon,
+        'm'                  : m
     }
 
 @register.inclusion_tag('fake-breadcrumb.html')

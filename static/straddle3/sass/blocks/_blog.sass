@@ -1,32 +1,23 @@
 .page__content-left--blog
   display: inline-block
-  width: calc(100% - 360px)
+  +breakpoint('sm')
+    width: calc(100% - 360px)
 .page__content-right--blog
   display: inline-block
   float: right
   width: 360px
-
-.twitter
-  .fa-twitter
-    color: #999
-
-.twitter__title
-  margin-top: 0
-  +links_none
-  &:after
-    content: " "
-    width: $m
-    display: block
-    border-bottom: 4px solid #222
-    margin-top: $m/2
-
-.blog__left--list
-  width: 33%
-  display: inline-block
-  float: left
-.blog__right--list
-  width: 66%
-  display: inline-block
+  position: -webkit-sticky
+  position: sticky
+  top: $m*3
++breakpoint('md')
+  .blog__left--list
+    width: 33%
+    display: inline-block
+    float: left
+    padding-right: $m
+  .blog__right--list
+    width: 66%
+    display: inline-block
 .blog__name--list
   margin-top: 0
   text-transform: uppercase
@@ -34,6 +25,8 @@
   +links_none
   padding: $m $m/2
   margin: $m
+  clear: both
+  +clearfix
 .blog__summary--list
   border: 0 !important
   padding-left: 0 !important

@@ -12,7 +12,8 @@ def site_info_processor(request):
 def debug_processor(request):
     """Injects debug flag into context"""
 
-    debug    = settings.DEBUG
-    debug_js = settings.DEBUG_JS
+    debug     = settings.DEBUG
+    debug_js  = settings.DEBUG_JS
+    analytics = settings.USE_ANALYTICS
 
     return locals()

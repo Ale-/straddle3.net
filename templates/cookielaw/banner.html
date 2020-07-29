@@ -1,0 +1,22 @@
+{% load i18n %}
+<div id="CookielawBanner">
+    <div class="container">
+        <h6>{% trans "COOKIE_INFO_HEADER" %}</h6>
+        <p>
+            {% blocktrans trimmed %}
+            Este sitio guarda información (cookies) en tu dispositivo para confeccionar
+            estadísticas de visitas al mismo. Esta infomación no se comparte con ninguna
+            empresa de terceros y nunca se usará con fines comerciales ni publicitarios de
+            ningún tipo.
+            Puedes desactivar el uso de estas cookies en los ajustes de tu navegador.
+            Al navegar por nuestra web sin desactivar dichas cookies nos das permiso para
+            guardar dicha información en tu dispositivo.
+            {% endblocktrans %}
+        </p>
+        <p class="agree-button">
+            <a class="btn btn-primary pull-right" href="javascript:Cookielaw.createCookielawCookie();">
+                {% trans "COOKIE_INFO_OK" %}
+            </a>
+        </p>
+    </div>
+</div>

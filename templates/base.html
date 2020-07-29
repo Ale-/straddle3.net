@@ -1,4 +1,4 @@
-{# Base template for the site #} {% load static utils %}
+{# Base template for the site #} {% load static utils cookielaw_tags %}
 
 <!DOCTYPE html>
 <html>
@@ -35,6 +35,17 @@
 
         {# navigation #}
         {% include 'regions/navigation.html' with region_name='navigation' html_container='aside' layout='fluid' %}
+
+        {# analytics #}
+        {% if analytics %}
+            {# Cookie law #}
+            {% cookielaw_banner %}
+            <script
+                type="text/javascript"
+                src="{% static 'cookielaw/js/cookielaw.js' %}"
+            ></script>
+            {% include 'blocks/analytics.html' %}
+        {% endif %}
 
         {# Page scripts #}
         <script type="text/javascript" src="{% js 'common.js' %}"></script>

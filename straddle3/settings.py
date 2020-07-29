@@ -42,6 +42,7 @@ CONTRIB_APPS = [
     'imagekit',
     'adminsortable',
     'colorfield',
+    'cookielaw'
 ]
 
 PROJECT_APPS = [

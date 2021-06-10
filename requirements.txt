@@ -1,4 +1,4 @@
-Django==2.0.3
+Django==2.2.24
 django-admin-sortable==2.1.4
 django-appconf==1.0.2
 django-ckeditor==5.4.0
